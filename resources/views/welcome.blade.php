@@ -13,6 +13,7 @@
     <h1 class="text-3xl font-bold underline">
         Hello world!
     </h1>
+    {{-- <img src="{{ asset('img/icon.png') }}" alt=""> --}}
 </body>
 
 </html>

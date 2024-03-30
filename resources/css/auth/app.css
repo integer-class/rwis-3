@@ -1,0 +1,12 @@
+.login-container {
+    width: 908px;
+    height: 749px;
+}
+
+.login-btn {
+    background-color: #4338ca;
+}
+
+.form {
+    padding-inline: 25px;
+}
