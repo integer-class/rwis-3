@@ -12,6 +12,9 @@ class AuthController extends Controller
      * Display a listing of the resource.
      */
     public function index() {
+        if (Auth::check()) {
+            return redirect('data-digitalization/resident');
+        }
         return view('auth.login');
     }
 
