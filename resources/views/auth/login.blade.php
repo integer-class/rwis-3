@@ -27,6 +27,15 @@
                 </div>
                 <form action="{{ url('/auth') }}" method="POST" class="flex flex-col space-y-4 w-full form mr-3">
                     @csrf
+                    @if ($errors->any())
+                        <div class="bg-red-100 text-red-500 p-2 rounded-lg">
+                            <ul class="list-disc list-inside">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="flex flex-col space-y-1">
                         <label for="username">Username</label>
                         <input type="text" name="name" id="username"

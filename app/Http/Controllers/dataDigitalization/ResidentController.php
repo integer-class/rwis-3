@@ -16,7 +16,7 @@ class ResidentController extends Controller
         if (!Auth::check()) {
             return redirect('/login');
         } else {
-            return view('data-digitalization.resident');
+            return view('data-digitalization.resident.index');
         }
     }
 

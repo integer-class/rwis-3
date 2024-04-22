@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const { addDynamicIconSelectors } = require('@iconify/tailwind');
 export default {
   content: [
     "./resources/**/*.blade.php",
@@ -39,6 +40,6 @@ export default {
     "nord",
     "sunset",
   ],
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), addDynamicIconSelectors()],
 }
 

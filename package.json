@@ -6,6 +6,9 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@iconify-json/ic": "^1.1.17",
+        "@iconify-json/material-symbols": "^1.1.78",
+        "@iconify/tailwind": "^0.1.4",
         "autoprefixer": "^10.4.19",
         "axios": "^1.6.4",
         "daisyui": "^4.9.0",

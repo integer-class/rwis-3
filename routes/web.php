@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::group([], function () {
     Route::get('/login', [AuthController::class, 'index']);
     Route::post('/auth', [AuthController::class, 'authenticate']);
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
 
 // data digitalization resident route
