@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\dataDigitalization;
 
-use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\auth\CheckController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,9 +14,10 @@ class ResidentController extends Controller
      */
     public function index() {
         if (!Auth::check()) {
-            return redirect('auth/login');
+            return redirect('/login');
+        } else {
+            return view('data-digitalization.resident');
         }
-        return view('data-digitalization.resident');
     }
 
     /**

@@ -13,9 +13,10 @@ class AuthController extends Controller
      */
     public function index() {
         if (Auth::check()) {
-            return redirect('data-digitalization/resident');
+            return redirect('/resident');
+        } else {
+            return view('auth.login');
         }
-        return view('auth.login');
     }
 
     /**
@@ -28,7 +29,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('data-digitalization/resident');
+            return redirect()->intended('resident');
         }
 
         return back()->withErrors([

@@ -13,7 +13,7 @@
     <h1 class="text-3xl font-bold underline">
         Hello world!
     </h1>
-    <a href="{{ url('auth/login') }}">login</a>
+    <a href="{{ url('/login') }}">login</a>
 </body>
 
 </html>

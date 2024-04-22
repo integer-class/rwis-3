@@ -25,7 +25,7 @@
                     <img src="{{ asset('img/icon.png') }}" width="94" alt="">
                     <h1 class="text-2xl font-bold">RW 11<br>Information<br>System</h1>
                 </div>
-                <form action="{{ url('auth') }}" method="POST" class="flex flex-col space-y-4 w-full form mr-3">
+                <form action="{{ url('/auth') }}" method="POST" class="flex flex-col space-y-4 w-full form mr-3">
                     @csrf
                     <div class="flex flex-col space-y-1">
                         <label for="username">Username</label>
