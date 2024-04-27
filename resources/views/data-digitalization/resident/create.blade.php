@@ -98,9 +98,11 @@
                         placeholder="Enter your Whatsapp number">
                 </div>
                 <input type="text" value="{{ $isArchived }}" name="is_archived" hidden>
-                <button type="submit" class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5">Add</button>
+                <div class="flex">
+                    <button type="submit" class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6">Add</button>
+                    <a class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6 mx-3 text-center" href="{{ url('/resident') }}">Back</a>
+                </div>
             </form>
-            <a class="add-btn btn-lg px-4 py-1.5 text-white rounded-md mt-5" href="{{ url('/resident') }}">Back</a>
         </div>
     </div>
 @endsection
