@@ -3,7 +3,7 @@
     <div class="drawer-side">
         <div class="flex gap-2 justify-center items-center mt-7">
             <img src="{{ asset('img/icon.png') }}" alt="icon" width="70">
-            <h3 class="font-bold">RW 11<br>Information<br>System</h3>
+            <h6 class="font-bold">RW 11<br>Information<br>System</h6>
         </div>
         <ul class="menu p-4 w-50 min-h-full text-base-content">
             {{-- Information Centre --}}
@@ -11,7 +11,7 @@
                 <input type="checkbox" />
                 <div class="collapse-title flex">
                     <span class="icon-[ic--outline-info] text-xl mt-0.5"></span>
-                    <h3 class="mx-2 mt-1">Information Centre</h3>
+                    <h6 class="mx-2 mt-1">Information Centre</h6>
                 </div>
                 <div class="collapse-content">
                     <li><a><span class="icon-[ic--round-location-city] text-xl mb-2"></span>Facility</a></li>
@@ -23,7 +23,7 @@
                 <input type="checkbox" />
                 <div class="collapse-title flex">
                     <span class="icon-[ic--baseline-public] text-xl mt-0.5"></span>
-                    <h3 class="mx-2 mt-1">Data Digitalization</h3>
+                    <h6 class="mx-2 mt-1">Data Digitalization</h6>
                 </div>
                 <div class="collapse-content">
                     <li><a><span class="icon-[ic--baseline-person-outline] text-xl mb-2"></span>Resident</a></li>
@@ -37,7 +37,7 @@
                 <input type="checkbox" />
                 <div class="collapse-title flex">
                     <span class="icon-[ic--round-track-changes] text-xl mt-0.5"></span>
-                    <h3 class="mx-2 mt-1">Issue Tracker</h3>
+                    <h6 class="mx-2 mt-1">Issue Tracker</h6>
                 </div>
                 <div class="collapse-content">
                     <li><a><span class="icon-[material-symbols--notifications-unread-outline-rounded] text-xl mb-2"></span>Pending</a></li>
@@ -49,7 +49,7 @@
                 <input type="checkbox" />
                 <div class="collapse-title flex">
                     <span class="icon-[ic--round-podcasts] text-xl mt-0.5"></span>
-                    <h3 class="mx-2 mt-1">Broadcast</h3>
+                    <h6 class="mx-2 mt-1">Broadcast</h6>
                 </div>
                 <div class="collapse-content">
                     <li><a><span class="icon-[material-symbols--chat-outline-rounded] text-xl mb-2"></span>Template</a></li>
@@ -61,7 +61,7 @@
                 <input type="checkbox" />
                 <div class="collapse-title flex">
                     <span class="icon-[ic--round-qr-code] text-xl mt-0.5"></span>
-                    <h3 class="mx-2 mt-1">Signature</h3>
+                    <h6 class="mx-2 mt-1">Signature</h6>
                 </div>
                 <div class="collapse-content">
                     <li><a><span class="icon-[material-symbols--edit-document-outline-rounded] text-xl mb-2"></span>Format</a></li>

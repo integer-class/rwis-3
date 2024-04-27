@@ -39,7 +39,7 @@
                     <div class="flex flex-col space-y-1">
                         <label for="username">Username</label>
                         <input type="text" name="name" id="username"
-                            class="rounded-lg border border-gray-300 p-2" placeholder="Username">
+                            class="rounded-lg border border-gray-300 p-2" placeholder="Username" autofocus>
                     </div>
                     <div class="flex flex-col space-y-1">
                         <label for="password">Password</label>

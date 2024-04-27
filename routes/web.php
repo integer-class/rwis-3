@@ -18,9 +18,11 @@ Route::group([], function () {
 // data digitalization resident route
 Route::group(['prefix' => 'resident'], function () {
     Route::get('/', [ResidentController::class, 'index']);
+    Route::post('/list', [ResidentController::class, 'list']);
     Route::get('/create', [ResidentController::class, 'create']);
     Route::post('/store', [ResidentController::class, 'store']);
     Route::get('/edit/{id}', [ResidentController::class, 'edit']);
     Route::post('/update/{id}', [ResidentController::class, 'update']);
     Route::get('/delete/{id}', [ResidentController::class, 'delete']);
 });
+
