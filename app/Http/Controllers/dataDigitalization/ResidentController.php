@@ -22,23 +22,6 @@ class ResidentController extends Controller
         }
     }
 
-    // public function list(Request $request) {
-    //     $resident = ResidentModel::select('resident_id', 'nik', 'full_name', 'place_of_birth', 'date_of_birth', 'gender', 'blood_type', 'religion', 'marriage_status', 'nationality', 'income', 'whatsapp_number', 'is_archived');
-
-    //     return DataTables::of($resident)
-    //         ->addIndexColumn()
-    //         ->addColumn('action', function ($resident) {
-    //             $btn = '<a href="'.url('/resident/' . $resident->resident_id).'" class="btn btn-info btn-sm">Detail</a> ';
-    //             $btn .= '<a href="'.url('/resident/' . $resident->resident_id . '/edit').'" class="btn btn-warning btn-sm">Edit</a> ';
-    //             $btn .= '<form class="d-inline-block" method="POST" action="'.url('/resident/'.$resident->resident_id).'">'
-    //                 . csrf_field() . method_field('DELETE') .
-    //                 '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Are you sure to delete this data?\');">Delete</button></form>';
-    //             return $btn;
-    //         })
-    //         ->rawColumns(['action'])
-    //         ->make(true);
-    // }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -60,7 +43,9 @@ class ResidentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $resident = ResidentModel::find($id);
+
+        return view('data-digitalization.resident.show', ['resident' => $resident]);
     }
 
     /**

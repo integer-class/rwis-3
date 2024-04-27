@@ -35,11 +35,22 @@ class ResidentTable extends DataTableComponent
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {
-                        $delete = '<button class="bg-blue-500 hover:bg-blue-700 font-bold p-2 rounded m-1" wire:click="delete(' . $row->id . ')">Archive</button>';
-                        $edit = '<button class="bg-blue-500 hover:bg-blue-700 font-bold p-2 rounded m-1" wire:click="edit(' . $row->id . ')">Edit</button>';
-                        return $edit . $delete;
+                        $show = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="show(' . $row->resident_id . ')">Show</button>';
+                        $edit = '<button class="edit-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="edit(' . $row->resident_id . ')">Edit</button>';
+                        $delete = '<button class="archive-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="delete(' . $row->id . ')">Archive</button>';
+                        return $show . $edit . $delete;
                     }
                 )->html(),
         ];
+    }
+
+    public function show($residentId)
+    {
+        return redirect()->route('resident.show', $residentId);
+    }
+
+    public function edit($residentId)
+    {
+        return redirect()->route('resident.edit', $residentId);
     }
 }
