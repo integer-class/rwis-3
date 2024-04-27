@@ -93,7 +93,15 @@ class ResidentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $gender = array_map(fn($case) => $case->value, GenderResident::cases());
+        $religion = array_map(fn($case) => $case->value, ReligionResident::cases());
+        $marriageStatus = array_map(fn($case) => $case->value, MarriageStatusResident::cases());
+        $nationality = array_map(fn($case) => $case->value, NationalityResident::cases());
+        $isArchived = IsArchived::False;
+
+        $resident = ResidentModel::find($id);
+
+        return view('data-digitalization.resident.edit', ['resident' => $resident, 'gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'isArchived' => $isArchived]);
     }
 
     /**
@@ -101,7 +109,37 @@ class ResidentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nik' => 'required|numeric|digits:16',
+            'full_name' => 'required',
+            'place_of_birth' => 'required',
+            'date_of_birth' => 'required',
+            'gender' => 'required',
+            'blood_type' => 'required',
+            'religion' => 'required',
+            'marriage_status' => 'required',
+            'nationality' => 'required',
+            'income' => 'required',
+            'whatsapp_number' => 'required',
+            'is_archived' => 'required',
+        ]);
+
+        ResidentModel::find($id)->update([
+            'nik' => $request->nik,
+            'full_name' => $request->full_name,
+            'place_of_birth' => $request->place_of_birth,
+            'date_of_birth' => $request->date_of_birth,
+            'gender' => $request->gender,
+            'blood_type' => $request->blood_type,
+            'religion' => $request->religion,
+            'marriage_status' => $request->marriage_status,
+            'nationality' => $request->nationality,
+            'income' => $request->income,
+            'whatsapp_number' => $request->whatsapp_number,
+            'is_archived' => $request->is_archived
+        ]);
+
+        return redirect('/resident')->with('success', 'Resident has been updated');
     }
 
     /**

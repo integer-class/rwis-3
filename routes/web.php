@@ -23,7 +23,7 @@ Route::group(['prefix' => 'resident'], function () {
     Route::post('/', [ResidentController::class, 'store']);
     Route::get('/show/{id}', [ResidentController::class, 'show'])->name('resident.show');
     Route::get('/edit/{id}', [ResidentController::class, 'edit'])->name('resident.edit');
-    Route::post('/update/{id}', [ResidentController::class, 'update']);
+    Route::put('/{id}', [ResidentController::class, 'update']);
     Route::get('/delete/{id}', [ResidentController::class, 'delete']);
 });
 
