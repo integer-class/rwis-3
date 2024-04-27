@@ -26,7 +26,8 @@
                     <h6 class="mx-2 mt-1">Data Digitalization</h6>
                 </div>
                 <div class="collapse-content">
-                    <li><a href="{{ url('/resident') }}"><span class="icon-[ic--baseline-person-outline] text-xl mb-2"></span>Resident</a></li>
+                    <li><a href="{{ url('/resident') }}"><span
+                                class="icon-[ic--baseline-person-outline] text-xl mb-2"></span>Resident</a></li>
                     <li><a><span class="icon-[ic--outline-other-houses] text-xl mb-2"></span>Household</a></li>
                     <li><a><span class="icon-[ic--baseline-attach-money] text-xl mb-2"></span>Assets</a></li>
                     <li><a><span class="icon-[ic--outline-bookmark-added] text-xl mb-2"></span>Book Keeping</a></li>
@@ -40,8 +41,11 @@
                     <h6 class="mx-2 mt-1">Issue Tracker</h6>
                 </div>
                 <div class="collapse-content">
-                    <li><a><span class="icon-[material-symbols--notifications-unread-outline-rounded] text-xl mb-2"></span>Pending</a></li>
-                    <li><a><span class="icon-[material-symbols--report-outline-rounded] text-xl mb-2"></span>Issue Reports</a></li>
+                    <li><a><span
+                                class="icon-[material-symbols--notifications-unread-outline-rounded] text-xl mb-2"></span>Pending</a>
+                    </li>
+                    <li><a><span class="icon-[material-symbols--report-outline-rounded] text-xl mb-2"></span>Issue
+                            Reports</a></li>
                 </div>
             </div>
             {{-- Broadcast --}}
@@ -52,8 +56,11 @@
                     <h6 class="mx-2 mt-1">Broadcast</h6>
                 </div>
                 <div class="collapse-content">
-                    <li><a><span class="icon-[material-symbols--chat-outline-rounded] text-xl mb-2"></span>Template</a></li>
-                    <li><a><span class="icon-[material-symbols--nest-clock-farsight-analog-outline-rounded] text-xl mb-2"></span>Scheduled</a></li>
+                    <li><a><span class="icon-[material-symbols--chat-outline-rounded] text-xl mb-2"></span>Template</a>
+                    </li>
+                    <li><a><span
+                                class="icon-[material-symbols--nest-clock-farsight-analog-outline-rounded] text-xl mb-2"></span>Scheduled</a>
+                    </li>
                 </div>
             </div>
             {{-- Signature --}}
@@ -64,17 +71,17 @@
                     <h6 class="mx-2 mt-1">Signature</h6>
                 </div>
                 <div class="collapse-content">
-                    <li><a><span class="icon-[material-symbols--edit-document-outline-rounded] text-xl mb-2"></span>Format</a></li>
+                    <li><a><span
+                                class="icon-[material-symbols--edit-document-outline-rounded] text-xl mb-2"></span>Format</a>
+                    </li>
                     <li><a><span class="icon-[ic--round-history] text-xl mb-2"></span>Log</a></li>
                 </div>
             </div>
-            <div tabindex="0" class="collapse">
-                <div class="collapse-title text-center">
-                    <form action="{{ url('/logout') }}" method="POST">
-                        @csrf
-                        <button type="submit">Logout</button>
-                    </form>
-                </div>
+            <div tabindex="0" class="mt-5 text-center">
+                <form action="{{ url('/logout') }}" method="POST">
+                    @csrf
+                    <button class="add-btn btn-sm w-5/6 text-white rounded-md" type="submit">Logout</button>
+                </form>
             </div>
         </ul>
 

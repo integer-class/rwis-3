@@ -39,12 +39,12 @@
                     <div class="flex flex-col space-y-1">
                         <label for="username">Username</label>
                         <input type="text" name="name" id="username"
-                            class="rounded-lg border border-gray-300 p-2" placeholder="Username" autofocus>
+                            class="rounded-md border border-gray-300 p-2" placeholder="Username" autofocus>
                     </div>
                     <div class="flex flex-col space-y-1">
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password"
-                            class="rounded-lg border border-gray-300 p-2" placeholder="Password">
+                            class="rounded-md border border-gray-300 p-2" placeholder="Password">
                     </div>
                     <button type="submit" class="login-btn text-white rounded-lg p-2">Login</button>
                 </form>
