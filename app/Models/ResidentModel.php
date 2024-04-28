@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\enum\GenderResident;
+use App\enum\IsArchived;
 use App\enum\MarriageStatusResident;
 use App\enum\NationalityResident;
 use App\enum\ReligionResident;
@@ -28,6 +29,7 @@ class ResidentModel extends Model
         'nationality',
         'income',
         'whatsapp_number',
+        'is_archived',
     ];
 
     protected function casts(): array {

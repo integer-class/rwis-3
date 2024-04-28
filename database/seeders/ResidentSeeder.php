@@ -31,7 +31,7 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNI,
                 'income' => 5_000_000,
                 'whatsapp_number' => '+6281234567890',
-                'is_archived' => IsArchived::False,
+                'is_archived' => 'False',
             ],
             [
                 'nik' => '1234567890123457',
@@ -45,7 +45,7 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNI,
                 'income' => 5_000_000,
                 'whatsapp_number' => '+6281234567891',
-                'is_archived' => IsArchived::False,
+                'is_archived' => 'False',
             ],
             [
                 'nik' => '1234567890123458',
@@ -59,7 +59,7 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNI,
                 'income' => 5_000_000,
                 'whatsapp_number' => '+6281234567892',
-                'is_archived' => IsArchived::False,
+                'is_archived' => 'False',
             ],
             [
                 'nik' => '1234567890123459',
@@ -73,7 +73,7 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNI,
                 'income' => 5_000_000,
                 'whatsapp_number' => '+6281234567893',
-                'is_archived' => IsArchived::False,
+                'is_archived' => 'False',
             ],
             [
                 'nik' => '1234567890123460',
@@ -87,7 +87,7 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNI,
                 'income' => 5_000_000,
                 'whatsapp_number' => '+6281234567894',
-                'is_archived' => IsArchived::False,
+                'is_archived' => 'False',
             ],
             [
                 'nik' => '1234567890123461',
@@ -101,7 +101,7 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNA,
                 'income' => 10_000_000,
                 'whatsapp_number' => '+12345678901',
-                'is_archived' => IsArchived::False,
+                'is_archived' => 'False',
             ],
             [
                 'nik' => '1234567890123462',
@@ -115,7 +115,7 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNA,
                 'income' => 8_000_000,
                 'whatsapp_number' => '+12345678902',
-                'is_archived' => IsArchived::False,
+                'is_archived' => 'False',
             ],
             [
                 'nik' => '1234567890123463',
@@ -129,7 +129,7 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNA,
                 'income' => 7_500_000,
                 'whatsapp_number' => '+12345678903',
-                'is_archived' => IsArchived::False,
+                'is_archived' => 'False',
             ],
             [
                 'nik' => '1234567890123464',
@@ -143,7 +143,7 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNA,
                 'income' => 6_000_000,
                 'whatsapp_number' => '+12345678904',
-                'is_archived' => IsArchived::False,
+                'is_archived' => 'False',
             ],
             [
                 'nik' => '1234567890123465',
@@ -157,7 +157,7 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNA,
                 'income' => 9_000_000,
                 'whatsapp_number' => '+12345678905',
-                'is_archived' => IsArchived::False,
+                'is_archived' => 'False',
             ],
             [
                 'nik' => '1234567890123466',
@@ -171,7 +171,21 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNA,
                 'income' => 7_200_000,
                 'whatsapp_number' => '+12345678906',
-                'is_archived' => IsArchived::False,
+                'is_archived' => 'False',
+            ],
+            [
+                'nik' => '1234567890123490',
+                'full_name' => 'Sarah Johnson archive',
+                'place_of_birth' => 'Miami',
+                'date_of_birth' => '1990-07-18',
+                'gender' => GenderResident::Perempuan,
+                'blood_type' => 'A',
+                'religion' => ReligionResident::Kristen,
+                'marriage_status' => MarriageStatusResident::BelumKawin,
+                'nationality' => NationalityResident::WNA,
+                'income' => 7_200_000,
+                'whatsapp_number' => '+12345678906',
+                'is_archived' => 'True',
             ],
         ];
 

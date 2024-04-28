@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('nationality', 5)->default('WNI');
             $table->integer('income');
             $table->string('whatsapp_number', 20);
-            $table->string('is_archived', 5)->default('false');
+            $table->string('is_archived', 5)->default('False');
             $table->timestamps();
         });
     }
