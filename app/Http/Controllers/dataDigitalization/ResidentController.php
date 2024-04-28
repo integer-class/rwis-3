@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\dataDigitalization;
 
 use App\enum\GenderResident;
-use App\enum\IsArchived;
 use App\enum\MarriageStatusResident;
 use App\enum\NationalityResident;
 use App\enum\ReligionResident;
-use App\Http\Controllers\auth\CheckController;
 use App\Http\Controllers\Controller;
 use App\Models\ResidentModel;
 use Illuminate\Http\Request;
@@ -22,8 +20,15 @@ class ResidentController extends Controller
         if (!Auth::check()) {
             return redirect('/login');
         } else {
-            $resident = ResidentModel::all();
-            return view('data-digitalization.resident.index', ['resident' => $resident]);
+            return view('data-digitalization.resident.index');
+        }
+    }
+
+    public function archived() {
+        if (!Auth::check()) {
+            return redirect('/login');
+        } else {
+            return view('data-digitalization.resident.archived');
         }
     }
 
