@@ -4,26 +4,26 @@ namespace App\Livewire;
 
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\ResidentModel;
+use App\Models\HouseholdModel;
 use Illuminate\Database\Eloquent\Builder;
 
-class ResidentArchivedTable extends DataTableComponent
+class HouseholdArchivedTable extends DataTableComponent
 {
-    protected $model = ResidentModel::class;
+    protected $model = HouseholdModel::class;
 
     public function builder(): Builder
 
     {
 
-        return ResidentModel::query()
+        return HouseholdModel::query()
 
-            ->where('resident.is_archived', true);
+            ->where('household.is_archived', true);
     }
 
     public function configure(): void
     {
         $this->setPrimaryKey('id');
-        $this->setDefaultSort('resident_id', 'asc');
+        $this->setDefaultSort('household_id', 'asc');
         $this->setSearchFieldAttributes([
 
             'class' => 'rounded-lg border border-gray-300 p-2',
@@ -34,35 +34,31 @@ class ResidentArchivedTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Resident id", "resident_id")
-                ->searchable()
+            Column::make("Household id", "household_id")
                 ->sortable(),
-            Column::make("Full name", "full_name")
-                ->searchable()
-                ->sortable(),
-            Column::make("Nik", "nik")
-                ->searchable()
-                ->sortable(),
-            Column::make("Full Address", "household.full_address")
-                ->searchable()
-                ->sortable(),
+            Column::make("Number kk", "number_kk")
+                ->sortable()
+                ->searchable(),
+            Column::make("Full address", "full_address")
+                ->sortable()
+                ->searchable(),
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {
-                        $archive = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->resident_id . '\').showModal()">Unarchive</button>
-                        <dialog id="my_modal_' . $row->resident_id . '" class="modal">
+                        $unarchive = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->household_id . '\').showModal()">Unarchive</button>
+                        <dialog id="my_modal_' . $row->household_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
                             <p class="py-4 mt-2 ml-2">Are you sure to unarchive this data?</p>
                             <div class="modal-action">
                               <form method="dialog">
-                                <button class="show-btn text-white font-bold p-2 m-1 rounded" wire:click="unarchive(' . $row->resident_id . ')">Unarchive</button>
+                                <button class="show-btn text-white font-bold p-2 m-1 rounded" wire:click="unarchive(' . $row->household_id . ')">Unarchive</button>
                                 <button class="add-btn text-white font-bold p-2 mx-2 mb-2 m-1 rounded">Close</button>
                               </form>
                             </div>
                           </div>
                         </dialog>';
-                        return $archive;
+                        return $unarchive;
                     }
                 )->html(),
         ];
@@ -70,7 +66,7 @@ class ResidentArchivedTable extends DataTableComponent
 
     public function unarchive($id)
     {
-        $resident = ResidentModel::find($id);
+        $resident = HouseholdModel::find($id);
         $resident->is_archived = false;
         $resident->save();
     }

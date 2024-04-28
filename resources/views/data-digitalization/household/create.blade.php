@@ -1,7 +1,7 @@
 @extends('admin-layout.base')
 
 @section('content')
-@vite('resources/css/resident/app.css')
+    @vite('resources/css/resident/app.css')
     <div class="py-12 bg-white shadow-xl rounded-t-lg mt-5 mx-5">
         <div class="max-w-7-xl mx-auto sm:px-6 lg:px-8">
             <h3 class="mb-3 text-3xl">Household Data</h3>
@@ -33,17 +33,18 @@
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="full_address">Full Address</label>
-                    <input type="text" name="full_address" id="full_address" class="rounded-md border border-gray-300 p-2"
-                        placeholder="Enter your full_address">
+                    <input type="text" name="full_address" id="full_address"
+                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your full_address">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="area">House Area</label>
-                    <input type="number" name="area" id="area"
-                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your Household Area">
+                    <input type="number" name="area" id="area" class="rounded-md border border-gray-300 p-2"
+                        placeholder="Enter your Household Area">
                 </div>
                 <div class="flex">
                     <button type="submit" class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6">Add</button>
-                    <a class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6 mx-3 text-center" href="{{ url('/resident') }}">Back</a>
+                    <a class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6 mx-3 text-center"
+                        href="{{ url('/household') }}">Back</a>
                 </div>
             </form>
         </div>
