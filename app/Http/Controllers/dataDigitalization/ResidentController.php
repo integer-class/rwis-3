@@ -44,7 +44,7 @@ class ResidentController extends Controller
             $religion = array_map(fn($case) => $case->value, ReligionResident::cases());
             $marriageStatus = array_map(fn($case) => $case->value, MarriageStatusResident::cases());
             $nationality = array_map(fn($case) => $case->value, NationalityResident::cases());
-            $isArchived = 'False';
+            $isArchived = false;
             return view('data-digitalization.resident.create', ['gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'isArchived' => $isArchived]);
         }
     }
@@ -114,7 +114,7 @@ class ResidentController extends Controller
             $religion = array_map(fn($case) => $case->value, ReligionResident::cases());
             $marriageStatus = array_map(fn($case) => $case->value, MarriageStatusResident::cases());
             $nationality = array_map(fn($case) => $case->value, NationalityResident::cases());
-            $isArchived = 'False';
+            $isArchived = false;
     
             $resident = ResidentModel::find($id);
     

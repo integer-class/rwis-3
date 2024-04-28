@@ -17,7 +17,7 @@ class ResidentArchivedTable extends DataTableComponent
 
         return ResidentModel::query()
 
-            ->where('is_archived', 'True');
+            ->where('resident.is_archived', true);
     }
 
     public function configure(): void
@@ -41,6 +41,9 @@ class ResidentArchivedTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Nik", "nik")
+                ->searchable()
+                ->sortable(),
+            Column::make("Full Address", "household.full_address")
                 ->searchable()
                 ->sortable(),
             Column::make('Actions')
@@ -69,7 +72,7 @@ class ResidentArchivedTable extends DataTableComponent
     public function unarchive($id)
     {
         $resident = ResidentModel::find($id);
-        $resident->is_archived = 'False';
+        $resident->is_archived = false;
         $resident->save();
     }
 }

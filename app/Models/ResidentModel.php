@@ -18,6 +18,7 @@ class ResidentModel extends Model
     protected $primaryKey = 'resident_id';
 
     protected $fillable = [
+        'household_id',
         'nik',
         'full_name',
         'place_of_birth',
@@ -40,5 +41,9 @@ class ResidentModel extends Model
             'marriage_status' => MarriageStatusResident::class,
             'nationality' => NationalityResident::class,
         ];
+    }
+
+    public function household() {
+        return $this->belongsTo(HouseholdModel::class, 'household_id', 'household_id');
     }
 }

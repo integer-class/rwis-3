@@ -20,6 +20,7 @@ class ResidentSeeder extends Seeder
     {
         $data = [
             [
+                'household_id' => 1,
                 'nik' => '1234567890123456',
                 'full_name' => 'Azhar Testing',
                 'place_of_birth' => 'Jakarta',
@@ -32,9 +33,10 @@ class ResidentSeeder extends Seeder
                 'income' => 5_000_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+6281234567890',
-                'is_archived' => 'False',
+                'is_archived' => false,
             ],
             [
+                'household_id' => 2,
                 'nik' => '1234567890123457',
                 'full_name' => 'Azhar Testing 2',
                 'place_of_birth' => 'Jakarta',
@@ -47,9 +49,10 @@ class ResidentSeeder extends Seeder
                 'income' => 5_000_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+6281234567891',
-                'is_archived' => 'False',
+                'is_archived' => false,
             ],
             [
+                'household_id' => 3,
                 'nik' => '1234567890123458',
                 'full_name' => 'Azhar Testing 3',
                 'place_of_birth' => 'Jakarta',
@@ -62,9 +65,10 @@ class ResidentSeeder extends Seeder
                 'income' => 5_000_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+6281234567892',
-                'is_archived' => 'False',
+                'is_archived' => false,
             ],
             [
+                'household_id' => 1,
                 'nik' => '1234567890123459',
                 'full_name' => 'Azhar Testing 4',
                 'place_of_birth' => 'Jakarta',
@@ -77,9 +81,10 @@ class ResidentSeeder extends Seeder
                 'income' => 5_000_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+6281234567893',
-                'is_archived' => 'False',
+                'is_archived' => false,
             ],
             [
+                'household_id' => 2,
                 'nik' => '1234567890123460',
                 'full_name' => 'Azhar Testing 5',
                 'place_of_birth' => 'Jakarta',
@@ -92,9 +97,10 @@ class ResidentSeeder extends Seeder
                 'income' => 5_000_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+6281234567894',
-                'is_archived' => 'False',
+                'is_archived' => false,
             ],
             [
+                'household_id' => 3,
                 'nik' => '1234567890123461',
                 'full_name' => 'John Doe',
                 'place_of_birth' => 'New York',
@@ -107,9 +113,10 @@ class ResidentSeeder extends Seeder
                 'income' => 10_000_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678901',
-                'is_archived' => 'False',
+                'is_archived' => false,
             ],
             [
+                'household_id' => 1,
                 'nik' => '1234567890123462',
                 'full_name' => 'Jane Smith',
                 'place_of_birth' => 'Los Angeles',
@@ -122,9 +129,10 @@ class ResidentSeeder extends Seeder
                 'income' => 8_000_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678902',
-                'is_archived' => 'False',
+                'is_archived' => false,
             ],
             [
+                'household_id' => 2,
                 'nik' => '1234567890123463',
                 'full_name' => 'Michael Johnson',
                 'place_of_birth' => 'Chicago',
@@ -137,9 +145,10 @@ class ResidentSeeder extends Seeder
                 'income' => 7_500_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678903',
-                'is_archived' => 'False',
+                'is_archived' => false,
             ],
             [
+                'household_id' => 3,
                 'nik' => '1234567890123464',
                 'full_name' => 'Emily Brown',
                 'place_of_birth' => 'Houston',
@@ -152,9 +161,10 @@ class ResidentSeeder extends Seeder
                 'income' => 6_000_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678904',
-                'is_archived' => 'False',
+                'is_archived' => false,
             ],
             [
+                'household_id' => 1,
                 'nik' => '1234567890123465',
                 'full_name' => 'David Wilson',
                 'place_of_birth' => 'Seattle',
@@ -167,9 +177,10 @@ class ResidentSeeder extends Seeder
                 'income' => 9_000_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678905',
-                'is_archived' => 'False',
+                'is_archived' => false,
             ],
             [
+                'household_id' => 2,
                 'nik' => '1234567890123466',
                 'full_name' => 'Sarah Johnson',
                 'place_of_birth' => 'Miami',
@@ -182,9 +193,10 @@ class ResidentSeeder extends Seeder
                 'income' => 7_200_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678906',
-                'is_archived' => 'False',
+                'is_archived' => false,
             ],
             [
+                'household_id' => 3,
                 'nik' => '1234567890123490',
                 'full_name' => 'Sarah Johnson archive',
                 'place_of_birth' => 'Miami',
@@ -197,7 +209,7 @@ class ResidentSeeder extends Seeder
                 'income' => 7_200_000,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678906',
-                'is_archived' => 'True',
+                'is_archived' => true,
             ],
         ];
 

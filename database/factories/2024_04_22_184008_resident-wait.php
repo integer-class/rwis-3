@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('resident', function (Blueprint $table) {
             $table->id('resident_id');
+            $table->unsignedBigInteger('household_id')->index();
             $table->string('nik', 16)->unique();
             $table->string('full_name', 100);
             $table->string('place_of_birth', 50);
@@ -25,8 +26,11 @@ return new class extends Migration
             $table->integer('income');
             $table->string('job', 50);
             $table->string('whatsapp_number', 20);
-            $table->string('is_archived', 5)->default('False');
+            $table->boolean('is_archived', 5)->default(false);
             $table->timestamps();
+
+            $table->foreign('household_id')->references('household_id')->on('household');
+
         });
     }
 
