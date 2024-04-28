@@ -36,7 +36,11 @@ class HouseholdController extends Controller
      */
     public function create()
     {
-        //
+        if (!Auth::check()) {
+            return redirect('/login');
+        } else {
+            return view('data-digitalization.household.create');
+        }
     }
 
     /**
@@ -44,7 +48,19 @@ class HouseholdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'number_kk' => 'required|numeric|digits:16',
+            'full_address' => 'required',
+            'area' => 'required',
+        ]);
+
+        HouseholdModel::create([
+            'number_kk' => $request->number_kk,
+            'full_address' => $request->full_address,
+            'area' => $request->area,
+            'is_archived' => false,
+        ]);
+        return redirect('/household')->with('success', 'Household has been added');
     }
 
     /**
