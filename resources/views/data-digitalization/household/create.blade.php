@@ -46,5 +46,6 @@
                     <a class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6 mx-3 text-center" href="{{ url('/resident') }}">Back</a>
                 </div>
             </form>
+        </div>
     </div>
 @endsection
