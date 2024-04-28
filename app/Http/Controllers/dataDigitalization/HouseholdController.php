@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\dataDigitalization;
 
 use App\Http\Controllers\Controller;
+use App\Models\HouseholdModel;
+use App\Models\ResidentModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,7 +52,17 @@ class HouseholdController extends Controller
      */
     public function show(string $id)
     {
-        //
+        if (!Auth::check()) {
+            return redirect('/login');
+        } else {
+            $household = HouseholdModel::find($id);
+            $resident = ResidentModel::with('household')
+            ->where('household_id', $id)
+            ->where('is_archived', false)
+            ->get();
+
+            return view('data-digitalization.household.show', ['household' => $household, 'resident' => $resident]);
+        }
     }
 
     /**
