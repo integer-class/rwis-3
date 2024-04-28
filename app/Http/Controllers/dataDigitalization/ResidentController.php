@@ -7,6 +7,7 @@ use App\enum\MarriageStatusResident;
 use App\enum\NationalityResident;
 use App\enum\ReligionResident;
 use App\Http\Controllers\Controller;
+use App\Models\HouseholdModel;
 use App\Models\ResidentModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,8 +45,8 @@ class ResidentController extends Controller
             $religion = array_map(fn($case) => $case->value, ReligionResident::cases());
             $marriageStatus = array_map(fn($case) => $case->value, MarriageStatusResident::cases());
             $nationality = array_map(fn($case) => $case->value, NationalityResident::cases());
-            $isArchived = false;
-            return view('data-digitalization.resident.create', ['gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'isArchived' => $isArchived]);
+            $household = HouseholdModel::all();
+            return view('data-digitalization.resident.create', ['gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household]);
         }
     }
 
@@ -55,6 +56,7 @@ class ResidentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'household_id' => 'required',
             'nik' => 'required|numeric|digits:16',
             'full_name' => 'required',
             'place_of_birth' => 'required',
@@ -67,10 +69,10 @@ class ResidentController extends Controller
             'income' => 'required',
             'job' => 'required',
             'whatsapp_number' => 'required',
-            'is_archived' => 'required',
         ]);
 
         ResidentModel::create([
+            'household_id' => $request->household_id,
             'nik' => $request->nik,
             'full_name' => $request->full_name,
             'place_of_birth' => $request->place_of_birth,
@@ -83,7 +85,7 @@ class ResidentController extends Controller
             'income' => $request->income,
             'job' => $request->job,
             'whatsapp_number' => $request->whatsapp_number,
-            'is_archived' => $request->is_archived
+            'is_archived' => false
         ]);
 
         return redirect('/resident')->with('success', 'Resident has been added');
@@ -97,7 +99,7 @@ class ResidentController extends Controller
         if (!Auth::check()) {
             return redirect('/login');
         } else {
-            $resident = ResidentModel::find($id);
+            $resident = ResidentModel::with('household')->find($id);
             return view('data-digitalization.resident.show', ['resident' => $resident]);
         }
     }
@@ -114,11 +116,10 @@ class ResidentController extends Controller
             $religion = array_map(fn($case) => $case->value, ReligionResident::cases());
             $marriageStatus = array_map(fn($case) => $case->value, MarriageStatusResident::cases());
             $nationality = array_map(fn($case) => $case->value, NationalityResident::cases());
-            $isArchived = false;
-    
+            $household = HouseholdModel::all();
             $resident = ResidentModel::find($id);
     
-            return view('data-digitalization.resident.edit', ['resident' => $resident, 'gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'isArchived' => $isArchived]);
+            return view('data-digitalization.resident.edit', ['resident' => $resident, 'gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household]);
         }
     }
 
@@ -128,6 +129,7 @@ class ResidentController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
+            'household_id' => 'required',
             'nik' => 'required|numeric|digits:16',
             'full_name' => 'required',
             'place_of_birth' => 'required',
@@ -140,10 +142,10 @@ class ResidentController extends Controller
             'income' => 'required',
             'job' => 'required',
             'whatsapp_number' => 'required',
-            'is_archived' => 'required',
         ]);
 
         ResidentModel::find($id)->update([
+            'household_id' => $request->household_id,
             'nik' => $request->nik,
             'full_name' => $request->full_name,
             'place_of_birth' => $request->place_of_birth,
@@ -156,7 +158,7 @@ class ResidentController extends Controller
             'income' => $request->income,
             'job' => $request->job,
             'whatsapp_number' => $request->whatsapp_number,
-            'is_archived' => $request->is_archived
+            'is_archived' => false
         ]);
 
         return redirect('/resident')->with('success', 'Resident has been updated');

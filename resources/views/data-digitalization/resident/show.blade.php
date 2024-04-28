@@ -26,42 +26,46 @@
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->nik }}</dd>
                     </div>
                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Full Address</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->household->full_address }}</dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Place of Birth</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->place_of_birth }}</dd>
                     </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Date of Birth</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->date_of_birth }}</dd>
                     </div>
-                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Gender</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->gender }}</dd>
                     </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Blood Type</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->blood_type }}</dd>
                     </div>
-                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Religion</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->religion }}</dd>
                     </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Marriage Status</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->marriage_status }}</dd>
                     </div>
-                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Nationality</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->nationality }}</dd>
                     </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Income</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">Rp{{ number_format($resident->income, 2, ',', '.') }}/month</dd>
                     </div>
-                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 mb-5">
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 mb-5">
                         <dt class="text-sm font-medium text-gray-500">Job</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->job }}</dd>
                     </div>
-                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 mb-5">
                         <dt class="text-sm font-medium text-gray-500">Whatsapp Number</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->whatsapp_number }}</dd>
                     </div>

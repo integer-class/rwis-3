@@ -28,9 +28,18 @@
                     </div>
                 @endif
                 <div class="flex flex-col space-y-1">
+                    <label for="household_id">Full Address</label>
+                    <select name="household_id" id="household_id" class="rounded-md border border-gray-300 p-2">
+                        <option disabled selected value="">- Choose Address -</option>
+                            @foreach ($household as $item)
+                            <option value="{{ $item->household_id }}">{{ $item->number_kk }} - {{ $item->full_address }}</option>
+                            @endforeach
+                    </select>
+                </div>
+                <div class="flex flex-col space-y-1">
                     <label for="full_name">Full Name</label>
                     <input type="text" name="full_name" id="full_name" class="rounded-md border border-gray-300 p-2"
-                        placeholder="Enter your full name" autofocus value="{{ old('full_name', $resident->full_name) }}">
+                        placeholder="Enter your full name" value="{{ old('full_name', $resident->full_name) }}">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="nik">NIK</label>
@@ -110,7 +119,6 @@
                         class="rounded-md border border-gray-300 p-2" placeholder="Enter your Whatsapp number"
                         value="{{ old('whatsapp_number', $resident->whatsapp_number) }}">
                 </div>
-                <input type="text" value="{{ $isArchived }}" name="is_archived" hidden>
                 <div class="flex">
                     <button type="submit"
                         class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6">Edit</button>
