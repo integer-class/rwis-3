@@ -58,6 +58,10 @@
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">Rp{{ number_format($resident->income, 2, ',', '.') }}/month</dd>
                     </div>
                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 mb-5">
+                        <dt class="text-sm font-medium text-gray-500">Job</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->job }}</dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Whatsapp Number</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $resident->whatsapp_number }}</dd>
                     </div>

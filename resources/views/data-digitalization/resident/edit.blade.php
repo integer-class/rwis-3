@@ -100,6 +100,11 @@
                         placeholder="Enter your income" value="{{ old('income', $resident->income) }}">
                 </div>
                 <div class="flex flex-col space-y-1">
+                    <label for="job">job</label>
+                    <input type="text" name="job" id="job" class="rounded-md border border-gray-300 p-2"
+                        placeholder="Enter your job" value="{{ old('job', $resident->job) }}">
+                </div>
+                <div class="flex flex-col space-y-1">
                     <label for="whatsapp_number">Whatsapp Number</label>
                     <input type="text" name="whatsapp_number" id="whatsapp_number"
                         class="rounded-md border border-gray-300 p-2" placeholder="Enter your Whatsapp number"

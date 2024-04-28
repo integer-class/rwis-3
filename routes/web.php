@@ -19,12 +19,10 @@ Route::group([], function () {
 Route::group(['prefix' => 'resident'], function () {
     Route::get('/', [ResidentController::class, 'index']);
     Route::get('/archived', [ResidentController::class, 'archived']);
-    Route::post('/list', [ResidentController::class, 'list']);
     Route::get('/create', [ResidentController::class, 'create']);
     Route::post('/', [ResidentController::class, 'store']);
     Route::get('/show/{id}', [ResidentController::class, 'show'])->name('resident.show');
     Route::get('/edit/{id}', [ResidentController::class, 'edit'])->name('resident.edit');
     Route::put('/{id}', [ResidentController::class, 'update']);
-    Route::get('/delete/{id}', [ResidentController::class, 'delete']);
 });
 

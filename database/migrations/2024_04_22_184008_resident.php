@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('marriage_status', 20)->default('Belum Menikah');
             $table->string('nationality', 5)->default('WNI');
             $table->integer('income');
+            $table->string('job', 50);
             $table->string('whatsapp_number', 20);
             $table->string('is_archived', 5)->default('False');
             $table->timestamps();
