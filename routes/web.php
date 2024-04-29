@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\dataDigitalization\AssetController;
 use App\Http\Controllers\dataDigitalization\HouseholdController;
 use App\Http\Controllers\dataDigitalization\ResidentController;
 use Illuminate\Support\Facades\Route;
@@ -36,4 +37,15 @@ Route::group(['prefix' => 'household'], function () {
     Route::get('/show/{id}', [HouseholdController::class, 'show'])->name('household.show');
     Route::get('/edit/{id}', [HouseholdController::class, 'edit'])->name('household.edit');
     Route::put('/{id}', [HouseholdController::class, 'update']);
+});
+
+// data digitalization asset route
+Route::group(['prefix' => 'asset'], function () {
+    Route::get('/', [AssetController::class, 'index']);
+    Route::get('/archived', [AssetController::class, 'archived']);
+    Route::get('/create', [AssetController::class, 'create']);
+    Route::post('/', [AssetController::class, 'store']);
+    Route::get('/show/{id}', [AssetController::class, 'show'])->name('asset.show');
+    Route::get('/edit/{id}', [AssetController::class, 'edit'])->name('asset.edit');
+    Route::put('/{id}', [AssetController::class, 'update']);
 });

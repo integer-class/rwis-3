@@ -30,8 +30,8 @@
                                 class="icon-[ic--baseline-person-outline] text-xl mb-2"></span>Resident</a></li>
                     <li><a href="{{ url('/household') }}"><span
                                 class="icon-[ic--outline-other-houses] text-xl mb-2"></span>Household</a></li>
-                    <li><a><span class="icon-[ic--baseline-attach-money] text-xl mb-2"></span>Assets</a></li>
-                    <li><a><span class="icon-[ic--outline-bookmark-added] text-xl mb-2"></span>Book Keeping</a></li>
+                    <li><a href="{{ url('/asset') }}"><span class="icon-[ic--baseline-attach-money] text-xl mb-2"></span>Assets</a></li>
+                    <li><a href="{{ url('/bookkeeping') }}"><span class="icon-[ic--outline-bookmark-added] text-xl mb-2"></span>Book Keeping</a></li>
                 </div>
             </div>
             {{-- Issue Tracker --}}
