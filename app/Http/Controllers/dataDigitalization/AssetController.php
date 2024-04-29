@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dataDigitalization;
 
 use App\Http\Controllers\Controller;
 use App\Models\AssetModel;
+use App\Models\HouseholdModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,7 +28,8 @@ class AssetController extends Controller
      */
     public function create()
     {
-        return Auth::check() ? view('data-digitalization.asset.create') : redirect('/login');
+        $household = HouseholdModel::all();
+        return Auth::check() ? view('data-digitalization.asset.create', ['household' => $household]) : redirect('/login');
     }
 
     /**
@@ -35,7 +37,18 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'household_id' => 'required',
+            'name' => 'required',
+        ]);
+
+        AssetModel::create([
+            'household_id' => $request->household_id,
+            'name' => $request->name,
+            'is_archived' => false
+        ]);
+
+        return redirect('/asset')->with('success', 'Asset has been added');
     }
 
     /**
