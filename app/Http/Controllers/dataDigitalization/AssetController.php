@@ -65,7 +65,9 @@ class AssetController extends Controller
      */
     public function edit(string $id)
     {
-        return Auth::check() ? view('data-digitalization.asset.edit') : redirect('/login');
+        $household = HouseholdModel::all();
+        $asset = AssetModel::find($id);
+        return Auth::check() ? view('data-digitalization.asset.edit', ['household' => $household, 'asset' => $asset]) : redirect('/login');
     }
 
     /**
@@ -73,7 +75,18 @@ class AssetController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'household_id' => 'required',
+            'name' => 'required',
+        ]);
+
+        AssetModel::find($id)->update([
+            'household_id' => $request->household_id,
+            'name' => $request->name,
+            'is_archived' => false
+        ]);
+
+        return redirect('/asset')->with('success', 'Asset has been updated');
     }
 
     /**

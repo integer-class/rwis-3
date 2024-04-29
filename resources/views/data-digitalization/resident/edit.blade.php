@@ -30,7 +30,7 @@
                 <div class="flex flex-col space-y-1">
                     <label for="household_id">Full Address</label>
                     <select name="household_id" id="household_id" class="rounded-md border border-gray-300 p-2">
-                        <option disabled selected value="">- Choose Address -</option>
+                        <option disabled selected value="{{ old('household_id', $resident->household_id) }}">- Choose household_id -</option>
                             @foreach ($household as $item)
                             <option value="{{ $item->household_id }}">{{ $item->number_kk }} - {{ $item->full_address }}</option>
                             @endforeach
