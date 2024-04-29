@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dataDigitalization;
 
 use App\Http\Controllers\Controller;
+use App\Models\AssetModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,20 +14,12 @@ class AssetController extends Controller
      */
     public function index()
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            return view('data-digitalization.asset.index');
-        }
+        return Auth::check() ? view('data-digitalization.asset.index') : redirect('/login');
     }
 
     public function archived()
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            return view('data-digitalization.asset.archived');
-        }
+        return Auth::check() ? view('data-digitalization.asset.archived') : redirect('/login');
     }
 
     /**
@@ -34,7 +27,7 @@ class AssetController extends Controller
      */
     public function create()
     {
-        //
+        return Auth::check() ? view('data-digitalization.asset.create') : redirect('/login');
     }
 
     /**
@@ -50,7 +43,8 @@ class AssetController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $asset = AssetModel::with('household')->find($id);
+        return Auth::check() ? view('data-digitalization.asset.show', ['asset' => $asset]) : redirect('/login');
     }
 
     /**
@@ -58,7 +52,7 @@ class AssetController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return Auth::check() ? view('data-digitalization.asset.edit') : redirect('/login');
     }
 
     /**
