@@ -78,7 +78,7 @@ class ResidentController extends Controller
             'is_archived' => false
         ]);
 
-        return redirect('/resident')->with('success', 'Resident has been added');
+        return redirect('data/resident')->with('success', 'Resident has been added');
     }
 
     /**
@@ -142,6 +142,6 @@ class ResidentController extends Controller
             'is_archived' => false
         ]);
 
-        return redirect('/resident')->with('success', 'Resident has been updated');
+        return redirect('data/resident')->with('success', 'Resident has been updated');
     }
 }

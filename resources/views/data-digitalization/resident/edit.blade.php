@@ -9,13 +9,13 @@
                 <div class=" breadcrumbs mb-3">
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="{{ url('/resident') }}">Resident Data</a></li>
+                        <li><a href="{{ url('data/resident') }}">Resident Data</a></li>
                         <li>Edit Resident</li>
                     </ul>
                 </div>
             </div>
             {{-- content --}}
-            <form action="{{ url('/resident/' . $resident->resident_id) }}" method="POST" class="flex flex-col space-y-4 w-full form mr-3">
+            <form action="{{ url('data/resident/' . $resident->resident_id) }}" method="POST" class="flex flex-col space-y-4 w-full form mr-3">
                 @csrf
                 {!! method_field('PUT') !!}
                 @if ($errors->any())
@@ -123,7 +123,7 @@
                     <button type="submit"
                         class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6">Edit</button>
                     <a class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6 mx-3 text-center"
-                        href="{{ url('/resident') }}">Back</a>
+                        href="{{ url('data/resident') }}">Back</a>
                 </div>
             </form>
         </div>

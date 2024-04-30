@@ -26,12 +26,14 @@
                     <h6 class="mx-2 mt-1">Data Digitalization</h6>
                 </div>
                 <div class="collapse-content">
-                    <li><a href="{{ url('/resident') }}"><span
+                    <li><a href="{{ url('data/resident') }}"><span
                                 class="icon-[ic--baseline-person-outline] text-xl mb-2"></span>Resident</a></li>
-                    <li><a href="{{ url('/household') }}"><span
+                    <li><a href="{{ url('data/household') }}"><span
                                 class="icon-[ic--outline-other-houses] text-xl mb-2"></span>Household</a></li>
-                    <li><a href="{{ url('/asset') }}"><span class="icon-[ic--baseline-attach-money] text-xl mb-2"></span>Assets</a></li>
-                    <li><a href="{{ url('/bookkeeping') }}"><span class="icon-[ic--outline-bookmark-added] text-xl mb-2"></span>Book Keeping</a></li>
+                    <li><a href="{{ url('data/asset') }}"><span
+                                class="icon-[ic--baseline-attach-money] text-xl mb-2"></span>Assets</a></li>
+                    <li><a href="{{ url('/bookkeeping') }}"><span
+                                class="icon-[ic--outline-bookmark-added] text-xl mb-2"></span>Book Keeping</a></li>
                 </div>
             </div>
             {{-- Issue Tracker --}}

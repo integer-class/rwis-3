@@ -9,7 +9,7 @@
                 <div class=" breadcrumbs mb-3">
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="{{ url('/resident') }}">Resident Data</a></li>
+                        <li><a href="{{ url('data/resident') }}">Resident Data</a></li>
                         <li>Show Details</li>
                     </ul>
                 </div>
@@ -71,7 +71,7 @@
                     </div>
                 </dl>
             </div>
-            <a class="add-btn btn-lg px-4 py-1.5 text-white rounded-md mt-5" href="{{ url('/resident') }}">Back</a>
+            <a class="add-btn btn-lg px-4 py-1.5 text-white rounded-md mt-5" href="{{ url('data/resident') }}">Back</a>
         </div>
     </div>
 @endsection

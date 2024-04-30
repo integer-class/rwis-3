@@ -9,13 +9,13 @@
                 <div class=" breadcrumbs mb-3">
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="{{ url('/resident') }}">Resident Data</a></li>
+                        <li><a href="{{ url('data/resident') }}">Resident Data</a></li>
                     </ul>
                 </div>
                 <div class="flex justify-end">
-                    <a href="{{ url('resident/create') }}" class="add-btn btn-sm mx-2 px-4 py-1.5 bg-blue-500 text-white rounded-md">Add
+                    <a href="{{ url('data/resident/create') }}" class="add-btn btn-sm mx-2 px-4 py-1.5 bg-blue-500 text-white rounded-md">Add
                         Resident</a>
-                    <a href="{{ url('resident/archived') }}" class="archived-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md">Archived</a>
+                    <a href="{{ url('data/resident/archived') }}" class="archived-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md">Archived</a>
                 </div>
             </div>
             {{-- content --}}

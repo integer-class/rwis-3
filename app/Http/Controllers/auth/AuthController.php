@@ -13,7 +13,7 @@ class AuthController extends Controller
      */
     public function index()
     {
-        return Auth::check() ? redirect('/resident') : view('auth.login');
+        return Auth::check() ? redirect('data/resident') : view('auth.login');
     }
 
     /**
@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('resident');
+            return redirect()->intended('data/resident');
         }
 
         return back()->withErrors([
