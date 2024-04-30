@@ -17,20 +17,14 @@ class ResidentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            return view('data-digitalization.resident.index');
-        }
+    public function index()
+    {
+        return Auth::check() ? view('data-digitalization.resident.index') : redirect('/login');
     }
 
-    public function archived() {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            return view('data-digitalization.resident.archived');
-        }
+    public function archived()
+    {
+        return Auth::check() ? view('data-digitalization.resident.archived') : redirect('/login');
     }
 
     /**
@@ -38,16 +32,12 @@ class ResidentController extends Controller
      */
     public function create()
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            $gender = array_map(fn($case) => $case->value, GenderResident::cases());
-            $religion = array_map(fn($case) => $case->value, ReligionResident::cases());
-            $marriageStatus = array_map(fn($case) => $case->value, MarriageStatusResident::cases());
-            $nationality = array_map(fn($case) => $case->value, NationalityResident::cases());
-            $household = HouseholdModel::all();
-            return view('data-digitalization.resident.create', ['gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household]);
-        }
+        $gender = array_map(fn ($case) => $case->value, GenderResident::cases());
+        $religion = array_map(fn ($case) => $case->value, ReligionResident::cases());
+        $marriageStatus = array_map(fn ($case) => $case->value, MarriageStatusResident::cases());
+        $nationality = array_map(fn ($case) => $case->value, NationalityResident::cases());
+        $household = HouseholdModel::all();
+        return Auth::check() ? view('data-digitalization.resident.create', ['gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household]) : redirect('/login');
     }
 
     /**
@@ -96,12 +86,8 @@ class ResidentController extends Controller
      */
     public function show(string $id)
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            $resident = ResidentModel::with('household')->find($id);
-            return view('data-digitalization.resident.show', ['resident' => $resident]);
-        }
+        $resident = ResidentModel::with('household')->find($id);
+        return Auth::check() ? view('data-digitalization.resident.show', ['resident' => $resident]) : redirect('/login');
     }
 
     /**
@@ -109,18 +95,13 @@ class ResidentController extends Controller
      */
     public function edit(string $id)
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            $gender = array_map(fn($case) => $case->value, GenderResident::cases());
-            $religion = array_map(fn($case) => $case->value, ReligionResident::cases());
-            $marriageStatus = array_map(fn($case) => $case->value, MarriageStatusResident::cases());
-            $nationality = array_map(fn($case) => $case->value, NationalityResident::cases());
-            $household = HouseholdModel::all();
-            $resident = ResidentModel::find($id);
-    
-            return view('data-digitalization.resident.edit', ['resident' => $resident, 'gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household]);
-        }
+        $gender = array_map(fn ($case) => $case->value, GenderResident::cases());
+        $religion = array_map(fn ($case) => $case->value, ReligionResident::cases());
+        $marriageStatus = array_map(fn ($case) => $case->value, MarriageStatusResident::cases());
+        $nationality = array_map(fn ($case) => $case->value, NationalityResident::cases());
+        $household = HouseholdModel::all();
+        $resident = ResidentModel::find($id);
+        return Auth::check() ? view('data-digitalization.resident.edit', ['resident' => $resident, 'gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household]) : redirect('/login');
     }
 
     /**

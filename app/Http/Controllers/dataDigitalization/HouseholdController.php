@@ -15,20 +15,12 @@ class HouseholdController extends Controller
      */
     public function index()
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            return view('data-digitalization.household.index');
-        }
+        return Auth::check() ? view('data-digitalization.household.index') : redirect('/login');
     }
 
     public function archived()
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            return view('data-digitalization.household.archived');
-        }
+        return Auth::check() ? view('data-digitalization.household.archived') : redirect('/login');
     }
 
     /**
@@ -36,11 +28,7 @@ class HouseholdController extends Controller
      */
     public function create()
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            return view('data-digitalization.household.create');
-        }
+        return Auth::check() ? view('data-digitalization.household.create') : redirect('/login');
     }
 
     /**
@@ -68,17 +56,12 @@ class HouseholdController extends Controller
      */
     public function show(string $id)
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            $household = HouseholdModel::find($id);
-            $resident = ResidentModel::with('household')
-            ->where('household_id', $id)
-            ->where('is_archived', false)
-            ->get();
-
-            return view('data-digitalization.household.show', ['household' => $household, 'resident' => $resident]);
-        }
+        $household = HouseholdModel::find($id);
+        $resident = ResidentModel::with('household')
+        ->where('household_id', $id)
+        ->where('is_archived', false)
+        ->get();
+        return Auth::check() ? view('data-digitalization.household.show', ['household' => $household, 'resident' => $resident]) : redirect('/login');
     }
 
     /**
@@ -86,12 +69,8 @@ class HouseholdController extends Controller
      */
     public function edit(string $id)
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        } else {
-            $household = HouseholdModel::find($id);
-            return view('data-digitalization.household.edit', ['household' => $household]);
-        }
+        $household = HouseholdModel::find($id);
+        return Auth::check() ? view('data-digitalization.household.edit', ['household' => $household]) : redirect('/login');
     }
 
     /**
@@ -113,13 +92,5 @@ class HouseholdController extends Controller
         ]);
 
         return redirect('/household')->with('success', 'Household has been updated');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
