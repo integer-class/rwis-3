@@ -8,7 +8,7 @@
             <div class="flex w-full justify-between">
                 <div class=" breadcrumbs mb-3">
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{{ url('data') }}">Home</a></li>
                         <li><a href="{{ url('data/asset') }}">Asset Data</a></li>
                         <li>Archived Asset Data</a></li>
                     </ul>
