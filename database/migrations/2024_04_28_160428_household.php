@@ -14,7 +14,14 @@ return new class extends Migration
         Schema::create('household', function (Blueprint $table) {
             $table->id('household_id');
             $table->string('number_kk', 16)->unique();
-            $table->string('full_address', 100);
+            $table->string('address', 100);
+            $table->string('rt', 5);
+            $table->string('rw', 5);
+            $table->string('sub_district', 50);
+            $table->string('district', 50);
+            $table->string('city', 50);
+            $table->string('province', 50);
+            $table->string('postal_code', 10);
             $table->integer('area');
             $table->boolean('is_archived')->default(false);
             $table->timestamps();

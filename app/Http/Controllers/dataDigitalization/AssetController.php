@@ -48,7 +48,7 @@ class AssetController extends Controller
             'is_archived' => false
         ]);
 
-        return redirect('/asset')->with('success', 'Asset has been added');
+        return redirect('data/asset')->with('success', 'Asset has been added');
     }
 
     /**
@@ -86,14 +86,6 @@ class AssetController extends Controller
             'is_archived' => false
         ]);
 
-        return redirect('/asset')->with('success', 'Asset has been updated');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect('data/asset')->with('success', 'Asset has been updated');
     }
 }

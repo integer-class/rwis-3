@@ -39,7 +39,7 @@ class HouseholdTable extends DataTableComponent
             Column::make("Number kk", "number_kk")
                 ->sortable()
                 ->searchable(),
-            Column::make("Full address", "full_address")
+            Column::make("Address", "address")
                 ->sortable()
                 ->searchable(),
             Column::make('Actions')

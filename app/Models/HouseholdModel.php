@@ -14,12 +14,25 @@ class HouseholdModel extends Model
 
     protected $fillable = [
         'number_kk',
-        'full_address',
+        'address',
+        'rt',
+        'rw',
+        'sub_district',
+        'district',
+        'city',
+        'province',
+        'postal_code',
         'area',
         'is_archived',
     ];
 
     public function resident() {
         return $this->hasMany(ResidentModel::class);
+    }
+
+
+    public function getFullAddressAttribute()
+    {
+        return $this->address . ', RT ' . $this->rt . ', RW ' . $this->rw . ', Kelurahan ' . $this->sub_district . ', Kecamatan ' . $this->district . ', Kota ' . $this->city . ', Provinsi ' . $this->province . ', Kode Pos ' . $this->postal_code;
     }
 }

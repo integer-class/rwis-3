@@ -32,9 +32,44 @@
                         placeholder="Enter your Number KK" maxlength="16" min="0">
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <label for="full_address">Full Address</label>
-                    <input type="text" name="full_address" id="full_address"
-                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your full_address">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address"
+                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your address">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="rt">RT</label>
+                    <input type="text" name="rt" id="rt"
+                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your rt">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="rw">RW</label>
+                    <input type="text" name="rw" id="rw"
+                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your rw">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="sub_district">Kelurahan</label>
+                    <input type="text" name="sub_district" id="sub_district"
+                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your kelurahan">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="district">Kecamatan</label>
+                    <input type="text" name="district" id="district"
+                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your kecamatan">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="city">Kota</label>
+                    <input type="text" name="city" id="city"
+                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your kota">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="province">Provinsi</label>
+                    <input type="text" name="province" id="province"
+                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your provinsi">
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="postal_code">Kode Pos</label>
+                    <input type="text" name="postal_code" id="postal_code"
+                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your kode pos">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="area">House Area</label>

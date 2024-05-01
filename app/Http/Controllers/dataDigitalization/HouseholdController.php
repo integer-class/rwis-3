@@ -38,17 +38,31 @@ class HouseholdController extends Controller
     {
         $request->validate([
             'number_kk' => 'required|numeric|digits:16',
-            'full_address' => 'required',
+            'address' => 'required',
+            'rt' => 'required',
+            'rw' => 'required',
+            'sub_district' => 'required',
+            'district' => 'required',
+            'city' => 'required',
+            'province' => 'required',
+            'postal_code' => 'required|numeric',
             'area' => 'required',
         ]);
 
         HouseholdModel::create([
             'number_kk' => $request->number_kk,
-            'full_address' => $request->full_address,
+            'address' => $request->address,
+            'rt' => $request->rt,
+            'rw' => $request->rw,
+            'sub_district' => $request->sub_district,
+            'district' => $request->district,
+            'city' => $request->city,
+            'province' => $request->province,
+            'postal_code' => $request->postal_code,
             'area' => $request->area,
             'is_archived' => false,
         ]);
-        return redirect('/household')->with('success', 'Household has been added');
+        return redirect('data/household')->with('success', 'Household has been added');
     }
 
     /**
@@ -80,17 +94,31 @@ class HouseholdController extends Controller
     {
         $request->validate([
             'number_kk' => 'required|numeric|digits:16',
-            'full_address' => 'required',
+            'address' => 'required',
+            'rt' => 'required',
+            'rw' => 'required',
+            'sub_district' => 'required',
+            'district' => 'required',
+            'city' => 'required',
+            'province' => 'required',
+            'postal_code' => 'required|numeric',
             'area' => 'required',
         ]);
 
         HouseholdModel::find($id)->update([
             'number_kk' => $request->number_kk,
-            'full_address' => $request->full_address,
+            'address' => $request->address,
+            'rt' => $request->rt,
+            'rw' => $request->rw,
+            'sub_district' => $request->sub_district,
+            'district' => $request->district,
+            'city' => $request->city,
+            'province' => $request->province,
+            'postal_code' => $request->postal_code,
             'area' => $request->area,
             'is_archived' => false,
         ]);
 
-        return redirect('/household')->with('success', 'Household has been updated');
+        return redirect('data/household')->with('success', 'Household has been updated');
     }
 }

@@ -43,7 +43,7 @@ class ResidentTable extends DataTableComponent
             Column::make("Nik", "nik")
                 ->searchable()
                 ->sortable(),
-            Column::make("Full Address", "household.full_address")
+            Column::make("Address", "household.address")
                 ->searchable()
                 ->sortable(),
             Column::make('Actions')
