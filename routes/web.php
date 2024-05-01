@@ -18,6 +18,11 @@ Route::group([], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
+// dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
 // data digitalization route
 Route::group(['prefix' => 'data'], function () {
     // home

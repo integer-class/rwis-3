@@ -5,3 +5,8 @@
 .bg-base {
     background-color: #f6f7fb;
 }
+
+.dashboard {
+    margin-bottom: -5px;
+    margin-top: 10px;
+}
