@@ -62,3 +62,11 @@ Route::group(['prefix' => 'data'], function () {
         Route::put('/{id}', [AssetController::class, 'update']);
     });
 });
+
+// information centre route
+Route::group(['prefix' => 'information'], function () {
+    // home
+    Route::get('/', function () {
+        return view('information-centre.index');
+    });
+});
