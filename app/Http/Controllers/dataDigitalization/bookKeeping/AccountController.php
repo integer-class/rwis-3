@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dataDigitalization\bookKeeping;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccountModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,7 +42,8 @@ class AccountController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $account = AccountModel::find($id);
+        return Auth::check() ? view('data-digitalization.book-keeping.account.show', ['account' => $account]) : redirect('/login');
     }
 
     /**
