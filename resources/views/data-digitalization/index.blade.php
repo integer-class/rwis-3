@@ -13,55 +13,53 @@
                 </div>
             </div>
             {{-- content --}}
-            <div class="card card-side bg-base-100 shadow-xl mb-5">
-                <div class="card-body">
-                    <h2 class=" text-3xl">Resident</h2>
-                    {{-- create <p> description for resident  --}}
-                    <p>Click the button to see resident data.</p>
-                    <div class="card-actions justify-start">
-                        <a href="{{ url('data/resident') }}"
-                        class="add-btn text-white rounded-md btn hover:bg-primary w-1/6">Go</a>
+            <a href="{{ url('data/resident') }}">
+                <div
+                    class="card card-side bg-base-100 shadow-xl mb-5 hover:text-white hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 duration-300">
+                    <div class="card-body flex justify-center">
+                        <h2 class=" text-3xl font-bold">Resident</h2>
+                        <div class="card-actions justify-start">
+                        </div>
                     </div>
+                    <figure><img src="{{ asset('img/resident.png') }}" alt="Movie" />
+                    </figure>
                 </div>
-                <figure><img src="{{ asset('img/resident.png') }}" alt="Movie" />
-                </figure>
-            </div>
-            <div class="card card-side bg-base-100 shadow-xl mb-5">
-                <div class="card-body">
-                    <h2 class=" text-3xl">Household</h2>
-                    <p>Click the button to see household data.</p>
-                    <div class="card-actions justify-start">
-                        <a href="{{ url('data/household') }}"
-                        class="add-btn text-white rounded-md btn hover:bg-primary w-1/6">Go</a>
+            </a>
+            <a href="{{ url('data/household') }}">
+                <div
+                    class="card card-side bg-base-100 shadow-xl mb-5 hover:text-white hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 duration-300">
+                    <div class="card-body flex justify-center">
+                        <h2 class=" text-3xl font-bold">Household</h2>
+                        <div class="card-actions justify-start">
+                        </div>
                     </div>
+                    <figure><img src="{{ asset('img/household.png') }}" alt="Movie" />
+                    </figure>
                 </div>
-                <figure><img src="{{ asset('img/household.png') }}" alt="Movie" />
-                </figure>
-            </div>
-            <div class="card card-side bg-base-100 shadow-xl mb-5">
-                <div class="card-body">
-                    <h2 class=" text-3xl">Asset</h2>
-                    <p>Click the button to see asset data.</p>
-                    <div class="card-actions justify-start">
-                        <a href="{{ url('data/asset') }}"
-                        class="add-btn text-white rounded-md btn hover:bg-primary w-1/6">Go</a>
+            </a>
+            <a href="{{ url('data/asset') }}">
+                <div
+                    class="card card-side bg-base-100 shadow-xl mb-5 hover:text-white hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 duration-300">
+                    <div class="card-body flex justify-center">
+                        <h2 class=" text-3xl font-bold">Asset</h2>
+                        <div class="card-actions justify-start">
+                        </div>
                     </div>
+                    <figure><img src="{{ asset('img/asset.png') }}" alt="Movie" />
+                    </figure>
                 </div>
-                <figure><img src="{{ asset('img/asset.png') }}" alt="Movie" />
-                </figure>
-            </div>
-            <div class="card card-side bg-base-100 shadow-xl">
-                <div class="card-body">
-                    <h2 class=" text-3xl">Book Keeping</h2>
-                    <p>Click the button to see book keeping data.</p>
-                    <div class="card-actions justify-start">
-                        <a href="{{ url('data/bookkeeping') }}"
-                        class="add-btn text-white rounded-md btn hover:bg-primary w-1/6">Go</a>
+            </a>
+            <a href="{{ url('data/bookkeeping') }}">
+                <div class="card card-side bg-base-100 shadow-xl mb-5 hover:text-white hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 duration-300">
+                    <div class="card-body flex justify-center">
+                        <h2 class=" text-3xl font-bold">Book Keeping</h2>
+                        <div class="card-actions justify-start">
+                        </div>
                     </div>
+                    <figure><img src="{{ asset('img/bookkeeping.png') }}" alt="Movie" />
+                    </figure>
                 </div>
-                <figure><img src="{{ asset('img/bookkeeping.png') }}" alt="Movie" />
-                </figure>
-            </div>
+            </a>
         </div>
     </div>
 @endsection

@@ -13,30 +13,28 @@
                 </div>
             </div>
             {{-- content --}}
-            <div class="card card-side bg-base-100 shadow-xl mb-5">
-                <div class="card-body">
-                    <h2 class=" text-3xl">Facility Information</h2>
-                    <p>Click the button to see facility information data.</p>
-                    <div class="card-actions justify-start">
-                        <a href="{{ url('information/facility') }}"
-                        class="add-btn text-white rounded-md btn hover:bg-primary w-1/6">Go</a>
+            <a href="{{ url('information/facility') }}">
+                <div class="card card-side bg-base-100 shadow-xl mb-5 hover:text-white hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 duration-300">
+                    <div class="card-body flex justify-center">
+                        <h2 class=" text-3xl font-bold">Facility Information</h2>
+                        <div class="card-actions justify-start">
+                        </div>
                     </div>
+                    <figure><img src="{{ asset('img/facility.png') }}" alt="Movie" />
+                    </figure>
                 </div>
-                <figure><img src="{{ asset('img/household.png') }}" alt="Movie" />
-                </figure>
-            </div>
-            <div class="card card-side bg-base-100 shadow-xl mb-5">
-                <div class="card-body">
-                    <h2 class=" text-3xl">UMKM Information</h2>
-                    <p>Click the button to see umkm data.</p>
-                    <div class="card-actions justify-start">
-                        <a href="{{ url('information/umkm') }}"
-                        class="add-btn text-white rounded-md btn hover:bg-primary w-1/6">Go</a>
+            </a>
+            <a href="{{ url('information/umkm') }}">
+                <div class="card card-side bg-base-100 shadow-xl mb-5 hover:text-white hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 duration-300">
+                    <div class="card-body flex justify-center">
+                        <h2 class=" text-3xl font-bold">UMKM Information</h2>
+                        <div class="card-actions justify-start">
+                        </div>
                     </div>
+                    <figure><img src="{{ asset('img/umkm.png') }}" alt="Movie" />
+                    </figure>
                 </div>
-                <figure><img src="{{ asset('img/resident.png') }}" alt="Movie" />
-                </figure>
-            </div>
+            </a>
         </div>
     </div>
 @endsection
