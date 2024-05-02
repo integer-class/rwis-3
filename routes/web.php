@@ -61,6 +61,13 @@ Route::group(['prefix' => 'data'], function () {
         Route::get('/edit/{id}', [AssetController::class, 'edit'])->name('asset.edit');
         Route::put('/{id}', [AssetController::class, 'update']);
     });
+
+    // book keeping route
+    Route::group(['prefix' => 'bookkeeping'], function () {
+        Route::get('/', function () {
+            return view('data-digitalization.book-keeping.index');
+        });
+    });
 });
 
 // information centre route
