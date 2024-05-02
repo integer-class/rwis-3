@@ -80,6 +80,10 @@ Route::group(['prefix' => 'data'], function () {
         });
         Route::group(['prefix' => 'cash'], function () {
             Route::get('/', [CashMutationController::class, 'index']);
+            Route::get('/archived', [CashMutationController::class, 'archived']);
+            Route::get('/create', [CashMutationController::class, 'create']);
+            Route::post('/', [CashMutationController::class, 'store']);
+            Route::get('/show/{id}', [CashMutationController::class, 'show'])->name('bookkeeping.cashmutation.show');
         });
     });
 });

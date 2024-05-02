@@ -16,6 +16,11 @@ class CashMutationController extends Controller
         return Auth::check() ? view('data-digitalization.book-keeping.cash-mutation.index') : redirect('/login');
     }
 
+    public function archived()
+    {
+        return Auth::check() ? view('data-digitalization.book-keeping.cash-mutation.archived') : redirect('/login');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

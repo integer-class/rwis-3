@@ -14,8 +14,8 @@
                 </div>
                 <div class="flex justify-end">
                     <a href="{{ url('data/bookkeeping/cash/create') }}" class="add-btn btn-sm mx-2 px-4 py-1.5 bg-blue-500 text-white rounded-md">Add
-                        Mutation</a>
-                    <a href="{{ url('data/bookkeeping/cash/archived') }}" class="archived-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md">Archived</a>
+                        Account</a>
+                    <a href="{{ url('data/bookkeeping/cash') }}" class="archived-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md">Unarchived</a>
                 </div>
             </div>
             {{-- content --}}
@@ -31,7 +31,7 @@
                 <span>{{ session('error') }}</span>
               </div>
             @endif
-            <livewire:cash-mutation-table />
+            <livewire:cash-mutation-archived-table />
         </div>
     </div>
 @endsection

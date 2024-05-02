@@ -7,7 +7,7 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\CashMutationModel;
 use Illuminate\Database\Eloquent\Builder;
 
-class CashMutationTable extends DataTableComponent
+class CashMutationArchivedTable extends DataTableComponent
 {
     protected $model = CashMutationModel::class;
 
@@ -17,7 +17,7 @@ class CashMutationTable extends DataTableComponent
 
         return CashMutationModel::query()
 
-            ->where('cash_mutation.is_archived', false);
+            ->where('cash_mutation.is_archived', true);
     }
 
     public function configure(): void
@@ -35,6 +35,9 @@ class CashMutationTable extends DataTableComponent
     {
         return [
             Column::make("Cash Mutation ID", "cash_mutation_id")
+            ->searchable()
+            ->sortable(),
+            Column::make("Cash Mutation Code", "cash_mutation_code")
                 ->searchable()
                 ->sortable(),
             Column::make("Account Credit", "accountCredit.name_account")
@@ -58,36 +61,30 @@ class CashMutationTable extends DataTableComponent
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {
-                        $show = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="show(' . $row->cash_mutation_id . ')">Show</button>';
-                        $archive = '<button class="archive-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->cash_mutation_id . '\').showModal()">Archive</button>
+                        $unarchive = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->cash_mutation_id . '\').showModal()">Unarchive</button>
                         <dialog id="my_modal_' . $row->cash_mutation_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
-                            <p class="py-4 mt-2 ml-2">Are you sure to archive this data?</p>
+                            <p class="py-4 mt-2 ml-2">Are you sure to unarchive this data?</p>
                             <div class="modal-action">
                               <form method="dialog">
                                 <!-- if there is a button in form, it will close the modal -->
-                                <button class="archive-btn text-white font-bold p-2 m-1 rounded" wire:click="archive(' . $row->cash_mutation_id . ')">Archive</button>
+                                <button class="show-btn text-white font-bold p-2 m-1 rounded" wire:click="unarchive(' . $row->cash_mutation_id . ')">Archive</button>
                                 <button class="add-btn text-white font-bold p-2 mx-2 mb-2 m-1 rounded">Close</button>
                               </form>
                             </div>
                           </div>
                         </dialog>';
-                        return $show . $archive;
+                        return $unarchive;
                     }
                 )->html(),
         ];
     }
 
-    public function show($assetId)
-    {
-        return redirect()->route('bookkeeping.cashmutation.show', $assetId);
-    }
-
-    public function archive($id)
+    public function unarchive($id)
     {
         $asset = CashMutationModel::find($id);
-        $asset->is_archived = true;
+        $asset->is_archived = false;
         $asset->save();
     }
 }
