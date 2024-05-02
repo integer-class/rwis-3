@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dataDigitalization\bookKeeping;
 
 use App\Http\Controllers\Controller;
+use App\Models\CashMutationModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,7 +43,8 @@ class CashMutationController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $cashMutation = CashMutationModel::find($id);
+        return Auth::check() ? view('data-digitalization.book-keeping.cash-mutation.show', compact('cashMutation')) : redirect('/login');
     }
 
     /**
