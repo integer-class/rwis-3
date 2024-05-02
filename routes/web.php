@@ -3,6 +3,7 @@
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\dataDigitalization\AssetController;
 use App\Http\Controllers\dataDigitalization\bookKeeping\AccountController;
+use App\Http\Controllers\dataDigitalization\bookKeeping\CashMutationController;
 use App\Http\Controllers\dataDigitalization\HouseholdController;
 use App\Http\Controllers\dataDigitalization\IndexController;
 use App\Http\Controllers\dataDigitalization\ResidentController;
@@ -76,6 +77,9 @@ Route::group(['prefix' => 'data'], function () {
             Route::get('/show/{id}', [AccountController::class, 'show'])->name('bookkeeping.account.show');
             Route::get('/edit/{id}', [AccountController::class, 'edit'])->name('bookkeeping.account.edit');
             Route::put('/{id}', [AccountController::class, 'update']);
+        });
+        Route::group(['prefix' => 'cash'], function () {
+            Route::get('/', [CashMutationController::class, 'index']);
         });
     });
 });
