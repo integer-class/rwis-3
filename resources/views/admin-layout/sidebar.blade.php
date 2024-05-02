@@ -43,7 +43,7 @@
                         <li id="household"><a href="{{ url('data/household') }}"><span
                                     class="icon-[ic--outline-other-houses] text-xl mb-2"></span>Household</a></li>
                         <li id="asset"><a href="{{ url('data/asset') }}"><span
-                                    class="icon-[ic--baseline-attach-money] text-xl mb-2"></span>Assets</a></li>
+                                    class="icon-[ic--baseline-attach-money] text-xl mb-2"></span>Asset</a></li>
                         {{-- Book Keeping --}}
                         <li>
                             <details id="bookkeeping">
@@ -56,7 +56,7 @@
                                                 class="icon-[ic--round-account-balance] text-xl mb-2"></span>Master
                                             Account</a></li>
                                     <li id="cash"><a href="{{ url('data/household') }}"><span
-                                                class="icon-[ic--round-attach-money] text-xl mb-2"></span>Cash</a>
+                                                class="icon-[ic--round-attach-money] text-xl mb-2"></span>Cash Mutation</a>
                                     </li>
                                 </ul>
                             </details>

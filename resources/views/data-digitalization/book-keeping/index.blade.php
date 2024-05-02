@@ -29,7 +29,7 @@
                 <div
                     class="card card-side bg-base-100 shadow-xl mb-5 hover:text-white hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 duration-300">
                     <div class="card-body flex justify-center">
-                        <h2 class=" text-3xl font-bold">Cash</h2>
+                        <h2 class=" text-3xl font-bold">Cash Mutation</h2>
                         <div class="card-actions justify-start">
                         </div>
                     </div>
