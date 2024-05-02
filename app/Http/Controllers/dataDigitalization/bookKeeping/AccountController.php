@@ -68,7 +68,9 @@ class AccountController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $account = AccountModel::find($id);
+        $household = HouseholdModel::all();
+        return Auth::check() ? view('data-digitalization.book-keeping.account.edit', ['account' => $account, 'household' => $household]) : redirect('/login');
     }
 
     /**
@@ -76,14 +78,20 @@ class AccountController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        $request->validate([
+            'household_id' => 'required',
+            'name_account' => 'required',
+            'number_account' => 'required|numeric',
+            'balance' => 'required',
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        AccountModel::find($id)->update([
+            'household_id' => $request->household_id,
+            'name_account' => $request->name_account,
+            'number_account' => $request->number_account,
+            'balance' => $request->balance,
+            'is_archived' => 'false'
+        ]);
+        return redirect('/data/bookkeeping/account')->with('success', 'Account has been updated');
     }
 }

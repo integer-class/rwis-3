@@ -42,7 +42,7 @@
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="number_account">Number Account</label>
-                    <input type="text" name="number_account" id="number_account" class="rounded-md border border-gray-300 p-2"
+                    <input type="number" name="number_account" id="number_account" class="rounded-md border border-gray-300 p-2"
                         placeholder="Enter your number account" maxlength="16" min="0">
                 </div>
                 <div class="flex flex-col space-y-1">
