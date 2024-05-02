@@ -70,6 +70,12 @@ Route::group(['prefix' => 'data'], function () {
         });
         Route::group(['prefix' => 'account'], function () {
             Route::get('/', [AccountController::class, 'index']);
+            Route::get('/archived', [AccountController::class, 'archived']);
+            Route::get('/create', [AccountController::class, 'create']);
+            Route::post('/', [AccountController::class, 'store']);
+            Route::get('/show/{id}', [AccountController::class, 'show'])->name('bookkeeping.account.show');
+            Route::get('/edit/{id}', [AccountController::class, 'edit'])->name('bookkeeping.account.edit');
+            Route::put('/{id}', [AccountController::class, 'update']);
         });
     });
 });

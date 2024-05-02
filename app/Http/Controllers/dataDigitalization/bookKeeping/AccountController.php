@@ -16,6 +16,10 @@ class AccountController extends Controller
         return Auth::check() ? view('data-digitalization.book-keeping.account.index') : redirect('/login');
     }
 
+    public function archived() {
+        return Auth::check() ? view('data-digitalization.book-keeping.account.archived') : redirect('/login');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
