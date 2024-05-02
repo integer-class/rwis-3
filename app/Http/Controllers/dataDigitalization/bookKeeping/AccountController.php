@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dataDigitalization\bookKeeping;
 
 use App\Http\Controllers\Controller;
 use App\Models\AccountModel;
+use App\Models\HouseholdModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,8 @@ class AccountController extends Controller
         return Auth::check() ? view('data-digitalization.book-keeping.account.index') : redirect('/login');
     }
 
-    public function archived() {
+    public function archived()
+    {
         return Auth::check() ? view('data-digitalization.book-keeping.account.archived') : redirect('/login');
     }
 
@@ -26,7 +28,8 @@ class AccountController extends Controller
      */
     public function create()
     {
-        //
+        $household = HouseholdModel::all();
+        return Auth::check() ? view('data-digitalization.book-keeping.account.create', ['household' => $household]) : redirect('/login');
     }
 
     /**
@@ -34,7 +37,21 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'household_id' => 'required',
+            'name_account' => 'required',
+            'number_account' => 'required|numeric',
+            'balance' => 'required',
+        ]);
+
+        AccountModel::create([
+            'household_id' => $request->household_id,
+            'name_account' => $request->name_account,
+            'number_account' => $request->number_account,
+            'balance' => $request->balance,
+            'is_archived' => false,
+        ]);
+        return redirect('/data/bookkeeping/account')->with('success', 'Account has been added');
     }
 
     /**
