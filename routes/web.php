@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\dataDigitalization\AssetController;
+use App\Http\Controllers\dataDigitalization\bookKeeping\AccountController;
 use App\Http\Controllers\dataDigitalization\HouseholdController;
 use App\Http\Controllers\dataDigitalization\IndexController;
 use App\Http\Controllers\dataDigitalization\ResidentController;
@@ -66,6 +67,9 @@ Route::group(['prefix' => 'data'], function () {
     Route::group(['prefix' => 'bookkeeping'], function () {
         Route::get('/', function () {
             return view('data-digitalization.book-keeping.index');
+        });
+        Route::group(['prefix' => 'account'], function () {
+            Route::get('/', [AccountController::class, 'index']);
         });
     });
 });

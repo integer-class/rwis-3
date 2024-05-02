@@ -52,10 +52,10 @@
                                     <h6 class="mx-2 mt-1">Book Keeping</h6>
                                 </summary>
                                 <ul>
-                                    <li id="account"><a href="{{ url('data/resident') }}"><span
+                                    <li id="account"><a href="{{ url('data/bookkeeping/account') }}"><span
                                                 class="icon-[ic--round-account-balance] text-xl mb-2"></span>Master
                                             Account</a></li>
-                                    <li id="cash"><a href="{{ url('data/household') }}"><span
+                                    <li id="cash"><a href="{{ url('data/bookkeeping/cash') }}"><span
                                                 class="icon-[ic--round-attach-money] text-xl mb-2"></span>Cash Mutation</a>
                                     </li>
                                 </ul>
@@ -178,7 +178,18 @@
                 var subMenu = document.getElementById('bookkeeping');
                 if (subMenu) {
                     subMenu.setAttribute('open', 'true');
-
+                    if (currentUrl.includes('/data/bookkeeping/account')) {
+                        var subSubMenu = document.getElementById('account');
+                        if (subSubMenu) {
+                            subSubMenu.setAttribute('class', 'add-btn text-white rounded-md');
+                        }
+                    }
+                    if (currentUrl.includes('/data/bookkeeping/cash')) {
+                        var subSubMenu = document.getElementById('cash');
+                        if (subSubMenu) {
+                            subSubMenu.setAttribute('class', 'add-btn text-white rounded-md');
+                        }
+                    }
                 }
             }
         }
