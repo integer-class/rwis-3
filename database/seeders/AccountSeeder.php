@@ -33,13 +33,13 @@ class AccountSeeder extends Seeder
                 'balance' => 3_000_000,
             ],
             [
-                'household_id' => 7,
+                'household_id' => 3,
                 'name_account' => 'Kas Sampah',
                 'number_account' => '1234567890123459',
                 'balance' => 4_000_000,
             ],
             [
-                'household_id' => 7,
+                'household_id' => 3,
                 'name_account' => 'Kas Kematian',
                 'number_account' => '1234567890123460',
                 'balance' => 4_000_000,
