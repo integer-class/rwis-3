@@ -95,3 +95,27 @@ Route::group(['prefix' => 'information'], function () {
         return view('information-centre.index');
     });
 });
+
+// issue route
+Route::group(['prefix' => 'issue'], function () {
+    // home
+    Route::get('/', function () {
+        return view('issue.index');
+    });
+});
+
+// broadcast route
+Route::group(['prefix' => 'broadcast'], function () {
+    // home
+    Route::get('/', function () {
+        return view('broadcast.index');
+    });
+});
+
+// signature route
+Route::group(['prefix' => 'signature'], function () {
+    // home
+    Route::get('/', function () {
+        return view('signature.index');
+    });
+});
