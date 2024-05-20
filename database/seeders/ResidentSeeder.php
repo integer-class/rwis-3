@@ -3,10 +3,9 @@
 namespace Database\Seeders;
 
 use App\enum\GenderResident;
-use App\enum\IsArchived;
 use App\enum\MarriageStatusResident;
 use App\enum\NationalityResident;
-use App\enum\RangeIncome;
+use App\enum\RangeIncomeResident;
 use App\enum\ReligionResident;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -31,7 +30,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Islam,
                 'marriage_status' => MarriageStatusResident::BelumKawin,
                 'nationality' => NationalityResident::WNI,
-                'range_income' => RangeIncome::Group6,
+                'range_income' => RangeIncomeResident::Group6,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+6281234567890',
                 'is_archived' => false,
@@ -47,7 +46,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Islam,
                 'marriage_status' => MarriageStatusResident::BelumKawin,
                 'nationality' => NationalityResident::WNI,
-                'range_income' => RangeIncome::Group2,
+                'range_income' => RangeIncomeResident::Group2,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+6281234567891',
                 'is_archived' => false,
@@ -63,7 +62,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Islam,
                 'marriage_status' => MarriageStatusResident::BelumKawin,
                 'nationality' => NationalityResident::WNI,
-                'range_income' => RangeIncome::Group3,
+                'range_income' => RangeIncomeResident::Group3,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+6281234567892',
                 'is_archived' => false,
@@ -79,7 +78,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Islam,
                 'marriage_status' => MarriageStatusResident::BelumKawin,
                 'nationality' => NationalityResident::WNI,
-                'range_income' => RangeIncome::Group4,
+                'range_income' => RangeIncomeResident::Group4,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+6281234567893',
                 'is_archived' => false,
@@ -95,7 +94,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Islam,
                 'marriage_status' => MarriageStatusResident::BelumKawin,
                 'nationality' => NationalityResident::WNI,
-                'range_income' => RangeIncome::Group5,
+                'range_income' => RangeIncomeResident::Group5,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+6281234567894',
                 'is_archived' => false,
@@ -111,7 +110,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Kristen,
                 'marriage_status' => MarriageStatusResident::Kawin,
                 'nationality' => NationalityResident::WNA,
-                'range_income' => RangeIncome::Group6,
+                'range_income' => RangeIncomeResident::Group6,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678901',
                 'is_archived' => false,
@@ -127,7 +126,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Kristen,
                 'marriage_status' => MarriageStatusResident::Kawin,
                 'nationality' => NationalityResident::WNA,
-                'range_income' => RangeIncome::Group1,
+                'range_income' => RangeIncomeResident::Group1,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678902',
                 'is_archived' => false,
@@ -143,7 +142,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Kristen,
                 'marriage_status' => MarriageStatusResident::Kawin,
                 'nationality' => NationalityResident::WNA,
-                'range_income' => RangeIncome::Group2,
+                'range_income' => RangeIncomeResident::Group2,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678903',
                 'is_archived' => false,
@@ -159,7 +158,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Kristen,
                 'marriage_status' => MarriageStatusResident::BelumKawin,
                 'nationality' => NationalityResident::WNA,
-                'range_income' => RangeIncome::Group3,
+                'range_income' => RangeIncomeResident::Group3,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678904',
                 'is_archived' => false,
@@ -175,7 +174,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Kristen,
                 'marriage_status' => MarriageStatusResident::Kawin,
                 'nationality' => NationalityResident::WNA,
-                'range_income' => RangeIncome::Group4,
+                'range_income' => RangeIncomeResident::Group4,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678905',
                 'is_archived' => false,
@@ -191,7 +190,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Kristen,
                 'marriage_status' => MarriageStatusResident::BelumKawin,
                 'nationality' => NationalityResident::WNA,
-                'range_income' => RangeIncome::Group5,
+                'range_income' => RangeIncomeResident::Group5,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678906',
                 'is_archived' => false,
@@ -207,7 +206,7 @@ class ResidentSeeder extends Seeder
                 'religion' => ReligionResident::Kristen,
                 'marriage_status' => MarriageStatusResident::BelumKawin,
                 'nationality' => NationalityResident::WNA,
-                'range_income' => RangeIncome::Group6,
+                'range_income' => RangeIncomeResident::Group6,
                 'job' => 'Software Engineer',
                 'whatsapp_number' => '+12345678906',
                 'is_archived' => true,

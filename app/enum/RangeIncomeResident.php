@@ -2,7 +2,7 @@
 
 namespace App\enum;
 
-enum RangeIncome: string
+enum RangeIncomeResident: string
 {
     case Group1 = 'Rp0';
     case Group2 = 'Rp1 - Rp1.000.000';
