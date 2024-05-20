@@ -40,27 +40,25 @@ class CashMutationController extends Controller
     {
         $request->validate([
             'cash_mutation_code' => 'required',
-            'account_debit_id' => 'required',
-            'debit' => 'required',
-            'account_credit_id' => 'required',
-            'credit' => 'required',
+            'account_sender_id' => 'required',
+            'amount' => 'required',
+            'account_receiver_id' => 'required',
             'description' => 'required',
         ]);
 
-        AccountModel::find($request->account_debit_id)->update([
-            'balance' => AccountModel::find($request->account_debit_id)->balance + $request->debit
+        AccountModel::find($request->account_sender_id)->update([
+            'balance' => AccountModel::find($request->account_sender_id)->balance - $request->amount
         ]);
 
-        AccountModel::find($request->account_credit_id)->update([
-            'balance' => AccountModel::find($request->account_credit_id)->balance - $request->credit
+        AccountModel::find($request->account_receiver_id)->update([
+            'balance' => AccountModel::find($request->account_receiver_id)->balance + $request->amount
         ]);
 
         CashMutationModel::create([
             'cash_mutation_code' => $request->cash_mutation_code,
-            'account_debit_id' => $request->account_debit_id,
-            'debit' => $request->debit,
-            'account_credit_id' => $request->account_credit_id,
-            'credit' => $request->credit,
+            'account_sender_id' => $request->account_sender_id,
+            'amount' => $request->amount,
+            'account_receiver_id' => $request->account_receiver_id,
             'description' => $request->description,
             'is_archived' => false
         ]);

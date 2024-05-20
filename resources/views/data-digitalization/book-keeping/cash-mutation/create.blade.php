@@ -32,8 +32,8 @@
                         placeholder="Enter your name account" value="{{ $cash_mutation_code }}" readonly>
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <label for="account_credit_id">Account Credit</label>
-                    <select name="account_credit_id" id="account_credit_id" class="rounded-md border border-gray-300 p-2">
+                    <label for="account_sender_id">Account Sender</label>
+                    <select name="account_sender_id" id="account_sender_id" class="rounded-md border border-gray-300 p-2">
                         <option disabled selected value="">- Choose Cash Account -</option>
                             @foreach ($account as $item)
                             <option value="{{ $item->account_id }}">{{ $item->name_account }}</option>
@@ -41,23 +41,18 @@
                     </select>
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <label for="credit">Credit</label>
-                    <input type="text" name="credit" id="credit" class="rounded-md border border-gray-300 p-2"
-                        placeholder="Enter your amount credit">
+                    <label for="amount">Amount</label>
+                    <input type="text" name="amount" id="amount" class="rounded-md border border-gray-300 p-2"
+                        placeholder="Enter your Amount">
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <label for="account_debit_id">Account Debit</label>
-                    <select name="account_debit_id" id="account_debit_id" class="rounded-md border border-gray-300 p-2">
+                    <label for="account_receiver_id">Account Receiver</label>
+                    <select name="account_receiver_id" id="account_receiver_id" class="rounded-md border border-gray-300 p-2">
                         <option disabled selected value="">- Choose Cash Account -</option>
                             @foreach ($account as $item)
                             <option value="{{ $item->account_id }}">{{ $item->name_account }}</option>
                             @endforeach
                     </select>
-                </div>
-                <div class="flex flex-col space-y-1">
-                    <label for="debit">Debit</label>
-                    <input type="text" name="debit" id="debit" class="rounded-md border border-gray-300 p-2"
-                        placeholder="Enter your amount debit">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="description">Description</label>
