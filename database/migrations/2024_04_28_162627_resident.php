@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('religion', 20)->default('Islam');
             $table->string('marriage_status', 20)->default('Belum Menikah');
             $table->string('nationality', 5)->default('WNI');
-            $table->integer('income');
+            $table->string('range_income')->default('< Rp1.000.000');
             $table->string('job', 50);
             $table->string('whatsapp_number', 20);
             $table->boolean('is_archived', 5)->default(false);
