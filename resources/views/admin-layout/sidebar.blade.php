@@ -38,10 +38,10 @@
                         <h6 class="mx-2 mt-1">Data Digitalization</h6>
                     </summary>
                     <ul>
-                        <li id="resident"><a href="{{ url('data/resident') }}"><span
-                                    class="icon-[ic--baseline-person-outline] text-xl mb-2"></span>Resident</a></li>
                         <li id="household"><a href="{{ url('data/household') }}"><span
-                                    class="icon-[ic--outline-other-houses] text-xl mb-2"></span>Household</a></li>
+                            class="icon-[ic--outline-other-houses] text-xl mb-2"></span>Household</a></li>
+                            <li id="resident"><a href="{{ url('data/resident') }}"><span
+                                        class="icon-[ic--baseline-person-outline] text-xl mb-2"></span>Resident</a></li>
                         <li id="asset"><a href="{{ url('data/asset') }}"><span
                                     class="icon-[ic--baseline-attach-money] text-xl mb-2"></span>Asset</a></li>
                         {{-- Book Keeping --}}

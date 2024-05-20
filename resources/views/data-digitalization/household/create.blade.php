@@ -27,24 +27,34 @@
                     </div>
                 @endif
                 <div class="flex flex-col space-y-1">
+                    <label for="resident_id">Family Head</label>
+                    <select name="resident_id" id="resident_id" class="rounded-md border border-gray-300 p-2">
+                        <option disabled selected value="">- Choose Family Head -</option>
+                        @foreach ($familyHead as $item)
+                            <option value="{{ $item->resident_id }}">{{ $item->full_name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="flex flex-col space-y-1">
                     <label for="number_kk">Number KK</label>
                     <input type="number" name="number_kk" id="number_kk" class="rounded-md border border-gray-300 p-2"
                         placeholder="Enter your Number KK" maxlength="16" min="0">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="address">Address</label>
-                    <input type="text" name="address" id="address"
-                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your address">
+                    <input type="text" name="address" id="address" class="rounded-md border border-gray-300 p-2"
+                        placeholder="Enter your address">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="rt">RT</label>
-                    <input type="text" name="rt" id="rt"
-                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your rt">
+                    <input type="text" name="rt" id="rt" class="rounded-md border border-gray-300 p-2"
+                        placeholder="Enter your rt">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="rw">RW</label>
-                    <input type="text" name="rw" id="rw"
-                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your rw">
+                    <input type="text" name="rw" id="rw" class="rounded-md border border-gray-300 p-2"
+                        placeholder="Enter your rw">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="sub_district">Kelurahan</label>
@@ -53,23 +63,23 @@
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="district">Kecamatan</label>
-                    <input type="text" name="district" id="district"
-                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your kecamatan">
+                    <input type="text" name="district" id="district" class="rounded-md border border-gray-300 p-2"
+                        placeholder="Enter your kecamatan">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="city">Kota</label>
-                    <input type="text" name="city" id="city"
-                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your kota">
+                    <input type="text" name="city" id="city" class="rounded-md border border-gray-300 p-2"
+                        placeholder="Enter your kota">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="province">Provinsi</label>
-                    <input type="text" name="province" id="province"
-                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your provinsi">
+                    <input type="text" name="province" id="province" class="rounded-md border border-gray-300 p-2"
+                        placeholder="Enter your provinsi">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="postal_code">Kode Pos</label>
-                    <input type="text" name="postal_code" id="postal_code"
-                        class="rounded-md border border-gray-300 p-2" placeholder="Enter your kode pos">
+                    <input type="text" name="postal_code" id="postal_code" class="rounded-md border border-gray-300 p-2"
+                        placeholder="Enter your kode pos">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="area">House Area</label>

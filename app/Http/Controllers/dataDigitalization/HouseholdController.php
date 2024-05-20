@@ -28,7 +28,8 @@ class HouseholdController extends Controller
      */
     public function create()
     {
-        return Auth::check() ? view('data-digitalization.household.create') : redirect('/login');
+        $familyHead = ResidentModel::all();
+        return Auth::check() ? view('data-digitalization.household.create', ['familyHead' => $familyHead]) : redirect('/login');
     }
 
     /**
@@ -38,6 +39,7 @@ class HouseholdController extends Controller
     {
         $request->validate([
             'number_kk' => 'required|numeric|digits:16',
+            'resident_id' => 'required',
             'address' => 'required',
             'rt' => 'required',
             'rw' => 'required',
@@ -51,6 +53,7 @@ class HouseholdController extends Controller
 
         HouseholdModel::create([
             'number_kk' => $request->number_kk,
+            'resident_id' => $request->resident_id,
             'address' => $request->address,
             'rt' => $request->rt,
             'rw' => $request->rw,
@@ -70,7 +73,8 @@ class HouseholdController extends Controller
      */
     public function show(string $id)
     {
-        $household = HouseholdModel::find($id);
+        $household = HouseholdModel::with('familyHead')->find($id);
+        // $household = HouseholdModel::find($id);
         $resident = ResidentModel::with('household')
         ->where('household_id', $id)
         ->where('is_archived', false)
@@ -83,8 +87,9 @@ class HouseholdController extends Controller
      */
     public function edit(string $id)
     {
+        $familyHead = ResidentModel::all();
         $household = HouseholdModel::find($id);
-        return Auth::check() ? view('data-digitalization.household.edit', ['household' => $household]) : redirect('/login');
+        return Auth::check() ? view('data-digitalization.household.edit', ['household' => $household, 'familyHead' => $familyHead]) : redirect('/login');
     }
 
     /**
@@ -94,6 +99,7 @@ class HouseholdController extends Controller
     {
         $request->validate([
             'number_kk' => 'required|numeric|digits:16',
+            'resident_id' => 'required',
             'address' => 'required',
             'rt' => 'required',
             'rw' => 'required',
@@ -107,6 +113,7 @@ class HouseholdController extends Controller
 
         HouseholdModel::find($id)->update([
             'number_kk' => $request->number_kk,
+            'resident_id' => $request->resident_id,
             'address' => $request->address,
             'rt' => $request->rt,
             'rw' => $request->rw,

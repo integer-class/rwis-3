@@ -13,6 +13,7 @@ class HouseholdModel extends Model
     protected $primaryKey = 'household_id';
 
     protected $fillable = [
+        'resident_id',
         'number_kk',
         'address',
         'rt',
@@ -34,5 +35,9 @@ class HouseholdModel extends Model
     public function getFullAddressAttribute()
     {
         return $this->address . ', RT ' . $this->rt . ', RW ' . $this->rw . ', Kelurahan ' . $this->sub_district . ', Kecamatan ' . $this->district . ', Kota ' . $this->city . ', Provinsi ' . $this->province . ', Kode Pos ' . $this->postal_code;
+    }
+
+    public function familyHead() {
+        return $this->belongsTo(ResidentModel::class, 'resident_id', 'resident_id');
     }
 }

@@ -21,6 +21,10 @@
                         <dt class="text-sm font-medium text-gray-500">Number KK</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $household->number_kk }}</dd>
                     </div>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Family Head</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $household->familyHead->full_name }}</dd>
+                    </div>
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Full Address</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">{{ $household->full_address }}</dd>

@@ -39,6 +39,9 @@ class HouseholdArchivedTable extends DataTableComponent
             Column::make("Number kk", "number_kk")
                 ->sortable()
                 ->searchable(),
+                Column::make("Family Head", "familyHead.full_name")
+                ->sortable()
+                ->searchable(),
             Column::make("Address", "address")
                 ->sortable()
                 ->searchable(),
