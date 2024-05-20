@@ -37,18 +37,18 @@ class CashMutationTable extends DataTableComponent
             Column::make("Cash Mutation ID", "cash_mutation_id")
                 ->searchable()
                 ->sortable(),
-            Column::make("Account Credit", "accountCredit.name_account")
+            Column::make("Cash Mutation Code", "cash_mutation_code")
                 ->searchable()
                 ->sortable(),
-            Column::make("Credit", "credit")
+            Column::make("Account Sender", "accountSender.name_account")
                 ->searchable()
                 ->sortable(),
-                Column::make("Debit", "debit")
+            Column::make("Amount", "amount")
                 ->searchable()
                 ->sortable(),
-                Column::make("Account Debit", "accountDebit.name_account")
-                    ->searchable()
-                    ->sortable(),
+            Column::make("Account Receiver", "accountReceiver.name_account")
+                ->searchable()
+                ->sortable(),
             Column::make("Description", "description")
                 ->searchable()
                 ->sortable(),

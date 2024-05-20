@@ -14,19 +14,18 @@ class CashMutationModel extends Model
 
     protected $fillable = [
         'cash_mutation_code',
-        'account_debit_id',
-        'debit',
-        'account_credit_id',
-        'credit',
+        'account_sender_id',
+        'amount',
+        'account_receiver_id',
         'description',
         'created_at',
     ];
 
-    public function accountDebit() {
-        return $this->belongsTo(AccountModel::class, 'account_debit_id', 'account_id');
+    public function accountSender() {
+        return $this->belongsTo(AccountModel::class, 'account_sender_id', 'account_id');
     }
 
-    public function accountCredit() {
-        return $this->belongsTo(AccountModel::class, 'account_credit_id', 'account_id');
+    public function accountReceiver() {
+        return $this->belongsTo(AccountModel::class, 'account_receiver_id', 'account_id');
     }
 }
