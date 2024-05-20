@@ -28,7 +28,7 @@ class ResidentModel extends Model
         'religion',
         'marriage_status',
         'nationality',
-        'income',
+        'range_income',
         'job',
         'whatsapp_number',
         'is_archived',

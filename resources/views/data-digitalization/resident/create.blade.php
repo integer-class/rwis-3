@@ -97,12 +97,16 @@
                     </select>
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <label for="income">Income</label>
-                    <input type="number" name="income" id="income" class="rounded-md border border-gray-300 p-2"
-                        placeholder="Enter your income">
+                    <label for="range_income">Range Income</label>
+                    <select name="range_income" id="range_income" class="rounded-md border border-gray-300 p-2">
+                        <option disabled selected value="">- Choose Range Income -</option>
+                            @foreach ($range_income as $item)
+                            <option value="{{ $item }}">{{ $item }}</option>
+                            @endforeach
+                    </select>
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <label for="job">job</label>
+                    <label for="job">Job</label>
                     <input type="text" name="job" id="job" class="rounded-md border border-gray-300 p-2"
                         placeholder="Enter your job">
                 </div>

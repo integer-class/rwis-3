@@ -5,6 +5,7 @@ namespace App\Http\Controllers\dataDigitalization;
 use App\enum\GenderResident;
 use App\enum\MarriageStatusResident;
 use App\enum\NationalityResident;
+use App\enum\RangeIncome;
 use App\enum\ReligionResident;
 use App\Http\Controllers\Controller;
 use App\Models\HouseholdModel;
@@ -36,8 +37,9 @@ class ResidentController extends Controller
         $religion = array_map(fn ($case) => $case->value, ReligionResident::cases());
         $marriageStatus = array_map(fn ($case) => $case->value, MarriageStatusResident::cases());
         $nationality = array_map(fn ($case) => $case->value, NationalityResident::cases());
+        $range_income = array_map(fn ($case) => $case->value, RangeIncome::cases());
         $household = HouseholdModel::all();
-        return Auth::check() ? view('data-digitalization.resident.create', ['gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household]) : redirect('/login');
+        return Auth::check() ? view('data-digitalization.resident.create', ['gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household, 'range_income' => $range_income]) : redirect('/login');
     }
 
     /**
@@ -56,7 +58,7 @@ class ResidentController extends Controller
             'religion' => 'required',
             'marriage_status' => 'required',
             'nationality' => 'required',
-            'income' => 'required',
+            'range_income' => 'required',
             'job' => 'required',
             'whatsapp_number' => 'required',
         ]);
@@ -72,7 +74,7 @@ class ResidentController extends Controller
             'religion' => $request->religion,
             'marriage_status' => $request->marriage_status,
             'nationality' => $request->nationality,
-            'income' => $request->income,
+            'range_income' => $request->range_income,
             'job' => $request->job,
             'whatsapp_number' => $request->whatsapp_number,
             'is_archived' => false
@@ -99,9 +101,10 @@ class ResidentController extends Controller
         $religion = array_map(fn ($case) => $case->value, ReligionResident::cases());
         $marriageStatus = array_map(fn ($case) => $case->value, MarriageStatusResident::cases());
         $nationality = array_map(fn ($case) => $case->value, NationalityResident::cases());
+        $range_income = array_map(fn ($case) => $case->value, RangeIncome::cases());
         $household = HouseholdModel::all();
         $resident = ResidentModel::find($id);
-        return Auth::check() ? view('data-digitalization.resident.edit', ['resident' => $resident, 'gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household]) : redirect('/login');
+        return Auth::check() ? view('data-digitalization.resident.edit', ['resident' => $resident, 'gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household, 'range_income' => $range_income]) : redirect('/login');
     }
 
     /**
@@ -120,7 +123,7 @@ class ResidentController extends Controller
             'religion' => 'required',
             'marriage_status' => 'required',
             'nationality' => 'required',
-            'income' => 'required',
+            'range_income' => 'required',
             'job' => 'required',
             'whatsapp_number' => 'required',
         ]);
@@ -136,7 +139,7 @@ class ResidentController extends Controller
             'religion' => $request->religion,
             'marriage_status' => $request->marriage_status,
             'nationality' => $request->nationality,
-            'income' => $request->income,
+            'range_income' => $request->range_income,
             'job' => $request->job,
             'whatsapp_number' => $request->whatsapp_number,
             'is_archived' => false
