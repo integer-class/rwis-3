@@ -18,6 +18,11 @@ class ReportController extends Controller
         return Auth::check() ? view('issue.report.index', ['report' => $report]) : redirect('/login');
     }
 
+    public function archived()
+    {
+        return Auth::check() ? view('issue.report.archived') : redirect('/login');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

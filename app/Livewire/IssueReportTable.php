@@ -42,6 +42,10 @@ class IssueReportTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
 
+            Column::make("Number Phone", "resident.whatsapp_number")
+                ->sortable()
+                ->searchable(),
+
             Column::make("Title", "title")
                 ->sortable()
                 ->searchable(),

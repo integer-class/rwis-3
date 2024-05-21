@@ -10,10 +10,11 @@
                     <ul>
                         <li><a href="{{ url('issue') }}">Home</a></li>
                         <li><a href="{{ url('issue/report') }}">Issue Report</a></li>
+                        <li>Archived</li>
                     </ul>
                 </div>
                 <div class="flex justify-end">
-                    <a href="{{ url('issue/report/archived') }}" class="archived-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md">Archived</a>
+                    <a href="{{ url('issue/report') }}" class="archived-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md">Unarchived</a>
                 </div>
             </div>
             {{-- content --}}
@@ -29,7 +30,7 @@
                 <span>{{ session('error') }}</span>
               </div>
             @endif
-            <livewire:issue-report-table />
+            <livewire:issue-report-archived-table />
         </div>
     </div>
 @endsection
