@@ -31,7 +31,7 @@
                 <div class="flex flex-col space-y-1">
                     <label for="resident_id">Family Head</label>
                     <select name="resident_id" id="resident_id" class="rounded-md border border-gray-300 p-2">
-                        <option disabled selected value="">- Choose
+                        <option disabled selected value="{{ old('resident_id', $household->familyHead->resident_id) }}">- Choose
                             Family Head -</option>
                         @foreach ($familyHead as $item)
                             <option value="{{ $item->resident_id }}">{{ $item->full_name }}

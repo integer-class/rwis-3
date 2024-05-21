@@ -74,7 +74,6 @@ class HouseholdController extends Controller
     public function show(string $id)
     {
         $household = HouseholdModel::with('familyHead')->find($id);
-        // $household = HouseholdModel::find($id);
         $resident = ResidentModel::with('household')
         ->where('household_id', $id)
         ->where('is_archived', false)

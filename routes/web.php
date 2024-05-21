@@ -109,8 +109,8 @@ Route::group(['prefix' => 'issue'], function () {
         Route::get('/archived', [ReportController::class, 'archived']);
         Route::get('/create', [ReportController::class, 'create']);
         Route::post('/', [ReportController::class, 'store']);
-        Route::get('/show/{id}', [ReportController::class, 'show'])->name('household.show');
-        Route::get('/edit/{id}', [ReportController::class, 'edit'])->name('household.edit');
+        // Route::get('/show/{id}', [ReportController::class, 'show'])->name('household.show');
+        // Route::get('/edit/{id}', [ReportController::class, 'edit'])->name('household.edit');
         Route::put('/{id}', [ReportController::class, 'update']);
     });
 });

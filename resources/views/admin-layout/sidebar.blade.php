@@ -75,7 +75,7 @@
                         <li id="pending"><a><span
                                     class="icon-[material-symbols--notifications-unread-outline-rounded] text-xl mb-2"></span>Pending</a>
                         </li>
-                        <li id="report"><a><span
+                        <li id="report"><a href="{{ url('issue/report') }}"><span
                                     class="icon-[material-symbols--report-outline-rounded] text-xl mb-2"></span>Issue
                                 Reports</a></li>
                     </ul>
