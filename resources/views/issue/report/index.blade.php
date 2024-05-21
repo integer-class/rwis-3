@@ -30,6 +30,9 @@
               </div>
             @endif
             <livewire:issue-report-table />
+
+            
+
         </div>
     </div>
 @endsection
