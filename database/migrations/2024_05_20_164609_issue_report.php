@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('resident_id')->index();
             $table->string('title', 100);
             $table->text('description');
-            $table->string('image');
             $table->string('status', 10);
             $table->boolean('is_approved', 5)->default(true);
             $table->boolean('is_archived', 5)->default(false);

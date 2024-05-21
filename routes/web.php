@@ -7,6 +7,7 @@ use App\Http\Controllers\dataDigitalization\bookKeeping\CashMutationController;
 use App\Http\Controllers\dataDigitalization\HouseholdController;
 use App\Http\Controllers\dataDigitalization\IndexController;
 use App\Http\Controllers\dataDigitalization\ResidentController;
+use App\Http\Controllers\issueTracker\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -101,6 +102,16 @@ Route::group(['prefix' => 'issue'], function () {
     // home
     Route::get('/', function () {
         return view('issue.index');
+    });
+    // report route
+    Route::group(['prefix' => 'report'], function () {
+        Route::get('/', [ReportController::class, 'index']);
+        Route::get('/archived', [ReportController::class, 'archived']);
+        Route::get('/create', [ReportController::class, 'create']);
+        Route::post('/', [ReportController::class, 'store']);
+        Route::get('/show/{id}', [ReportController::class, 'show'])->name('household.show');
+        Route::get('/edit/{id}', [ReportController::class, 'edit'])->name('household.edit');
+        Route::put('/{id}', [ReportController::class, 'update']);
     });
 });
 
