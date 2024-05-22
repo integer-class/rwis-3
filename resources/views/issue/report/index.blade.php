@@ -2,14 +2,14 @@
 
 @section('content')
     @vite('resources/css/resident/app.css')
-    <div class="py-12 bg-white shadow-xl rounded-t-lg my-5 mx-5 h-full">
+    <div class="py-12 bg-white shadow-xl rounded-t-lg my-5 mx-5">
         <div class="max-w-7-xl mx-auto sm:px-6 lg:px-8">
-            <h3 class="mb-3 text-3xl">Issue Tracker Status</h3>
+            <h3 class="mb-3 text-3xl">Issue Report</h3>
             <div class="flex w-full justify-between">
                 <div class=" breadcrumbs mb-3">
                     <ul>
                         <li><a href="{{ url('issue') }}">Home</a></li>
-                        <li><a href="{{ url('issue/report') }}">Issue Tracker Status</a></li>
+                        <li><a href="{{ url('issue/report') }}">Issue Report</a></li>
                     </ul>
                 </div>
                 <div class="flex justify-end">
@@ -43,33 +43,57 @@
                 <div class="bg-red-300 p-3 rounded-md">
                     <h3 class="text-xl">To do</h3>
                     @foreach ($todo as $item)
+                        @php
+                            $modalId = 'modal_' . $item->issue_report_id;
+                        @endphp
                         <div class="card card-compact w56 bg-base-100 shadow-xl my-3 rounded-md">
                             <div class="card-body">
                                 <h2 class="card-title">{{ $item->title }}</h2>
                                 <p>{{ $item->description }}</p>
                                 <div class="card-actions justify-end">
-                                    <button class="btn btn-primary" onclick="my_modal_1.showModal()">Update Status</button>
+                                    <button class="btn btn-primary"
+                                        onclick="document.getElementById('{{ $modalId }}').showModal()">Update
+                                        Status</button>
                                     {{-- modal --}}
-                                    <dialog id="my_modal_1" class="modal">
+                                    <dialog id="{{ $modalId }}" class="modal">
                                         <div class="modal-box">
+                                            <form method="dialog">
+                                                <button
+                                                    class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                            </form>
                                             <h3 class="font-bold text-lg mb-3">Update Status</h3>
-                                            <div class="flex flex-col space-y-1 mb-3">
-                                                <label for="full_name">Title</label>
-                                                <input type="text" name="full_name" id="full_name"
-                                                    class="rounded-md border border-gray-300 p-2"
-                                                    placeholder="Enter your full name">
-                                            </div>
-                                            <div class="flex flex-col space-y-1">
-                                                <label for="full_name">Description</label>
-                                                <textarea class="rounded-md border border-gray-300 p-2" name="" id="" cols="20" rows="10"></textarea>
-                                            </div>
-                                            <div class="modal-action">
-                                                <form method="dialog">
-                                                    <!-- if there is a button in form, it will close the modal -->
+                                            <form action="{{ url('issue/report/' . $item->issue_report_id) }}"
+                                                method="POST" class="flex flex-col space-y-4 w-full form mr-3">
+                                                @csrf
+                                                {!! method_field('PUT') !!}
+                                                <div class="flex flex-col space-y-1 mb-3">
+                                                    <label for="title">Title</label>
+                                                    <input type="text" name="title" id="title"
+                                                        class="rounded-md border border-gray-300 p-2"
+                                                        placeholder="Enter your full name" value="{{ $item->title }}"
+                                                        readonly>
+                                                </div>
+                                                <div class="flex flex-col space-y-1 mb-3">
+                                                    <label for="description">Description</label>
+                                                    <textarea class="rounded-md border border-gray-300 p-2" name="description" id="description" cols="20"
+                                                        rows="10" readonly>{{ $item->description }}</textarea>
+                                                </div>
+                                                <div class="flex flex-col space-y-1">
+                                                    <label for="status">Status</label>
+                                                    <select name="status" id="status"
+                                                        class="rounded-md border border-gray-300 p-2">
+                                                        <option disabled selected
+                                                            value="{{ old('status', $item->status) }}">- Status -</option>
+                                                        @foreach ($status as $statusItem)
+                                                            <option value="{{ $statusItem }}">{{ $statusItem }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="flex flex-row justify-end">
                                                     <button class="btn btn-primary mx-2">Update</button>
-                                                    <button class="btn">Close</button>
-                                                </form>
-                                            </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </dialog>
                                 </div>

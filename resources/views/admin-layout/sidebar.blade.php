@@ -77,7 +77,7 @@
                         </li>
                         <li id="report"><a href="{{ url('issue/report') }}"><span
                                     class="icon-[material-symbols--report-outline-rounded] text-xl mb-2"></span>Issue
-                                Reports</a></li>
+                                Report</a></li>
                     </ul>
                 </details>
             </li>

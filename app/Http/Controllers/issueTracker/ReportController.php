@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\issueTracker;
 
+use App\enum\StatusIssueReport;
 use App\Http\Controllers\Controller;
 use App\Models\IssueReportModel;
 use Illuminate\Http\Request;
@@ -14,11 +15,14 @@ class ReportController extends Controller
      */
     public function index()
     {
+        // display
         $todo = IssueReportModel::with('resident')->where('status', 'To do')->get();
         $inProgress = IssueReportModel::with('resident')->where('status', 'In Progress')->get();
         $inReview = IssueReportModel::with('resident')->where('status', 'In Review')->get();
         $done = IssueReportModel::with('resident')->where('status', 'Done')->get();
-        return Auth::check() ? view('issue.report.index', ['todo' => $todo, 'inProgress' => $inProgress, 'inReview' => $inReview, 'done' => $done]) : redirect('/login');
+        $status = array_map(fn ($case) => $case->value, StatusIssueReport::cases());
+
+        return Auth::check() ? view('issue.report.index', ['todo' => $todo, 'inProgress' => $inProgress, 'inReview' => $inReview, 'done' => $done, 'status' => $status]) : redirect('/login');
     }
 
     public function archived()
@@ -63,7 +67,11 @@ class ReportController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        IssueReportModel::find($id)->update([
+            'status' => $request->status
+        ]);
+
+        return redirect('issue/report')->with('success', 'Issue Report has been updated');
     }
 
     /**
