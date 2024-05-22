@@ -4,12 +4,12 @@
     @vite('resources/css/resident/app.css')
     <div class="py-12 bg-white shadow-xl rounded-t-lg mt-5 mx-5">
         <div class="max-w-7-xl mx-auto sm:px-6 lg:px-8">
-            <h3 class="mb-3 text-3xl">Issue Report</h3>
+            <h3 class="mb-3 text-3xl">Issue Tracker Status</h3>
             <div class="flex w-full justify-between">
                 <div class=" breadcrumbs mb-3">
                     <ul>
                         <li><a href="{{ url('issue') }}">Home</a></li>
-                        <li><a href="{{ url('issue/report') }}">Issue Report</a></li>
+                        <li><a href="{{ url('issue/report') }}">Issue Tracker Status</a></li>
                     </ul>
                 </div>
                 <div class="flex justify-end">
@@ -29,9 +29,68 @@
                 <span>{{ session('error') }}</span>
               </div>
             @endif
-            <livewire:issue-report-table />
 
-            
+            <div class="h-20 grid grid-row md:grid-cols-4 gap-5">
+                <div class="bg-red-300 p-3 rounded-md">
+                    <h3 class="text-xl">To do</h3>
+                    @foreach ($todo as $item)
+                    <div class="card card-compact w56 bg-base-100 shadow-xl my-3 rounded-md">
+                        <div class="card-body">
+                          <h2 class="card-title">{{$item->title}}</h2>
+                          <p>{{$item->description}}</p>
+                          <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Open</button>
+                          </div>
+                        </div>
+                      </div>
+                    @endforeach
+                </div>
+
+                <div class="bg-blue-300 p-3 rounded-md">
+                    <h3 class="text-xl">In Progress</h3>
+                    @foreach ($inProgress as $item)
+                    <div class="card card-compact w56 bg-base-100 shadow-xl my-3 rounded-md">
+                        <div class="card-body">
+                          <h2 class="card-title">{{$item->title}}</h2>
+                          <p>{{$item->description}}</p>
+                          <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Open</button>
+                          </div>
+                        </div>
+                      </div>
+                    @endforeach
+                </div>
+
+                <div class="bg-yellow-300 p-3 rounded-md">
+                    <h3 class="text-xl">In Review</h3>
+                    @foreach ($inReview as $item)
+                    <div class="card card-compact w56 bg-base-100 shadow-xl my-3 rounded-md">
+                        <div class="card-body">
+                          <h2 class="card-title">{{$item->title}}</h2>
+                          <p>{{$item->description}}</p>
+                          <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Open</button>
+                          </div>
+                        </div>
+                      </div>
+                    @endforeach
+                </div>
+
+                <div class="bg-green-300 p-3 rounded-md">
+                    <h3 class="text-xl">Done</h3>
+                    @foreach ($done as $item)
+                    <div class="card card-compact w56 bg-base-100 shadow-xl my-3 rounded-md">
+                        <div class="card-body">
+                          <h2 class="card-title">{{$item->title}}</h2>
+                          <p>{{$item->description}}</p>
+                          <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Open</button>
+                          </div>
+                        </div>
+                      </div>
+                    @endforeach
+                </div>
+            </div>
 
         </div>
     </div>

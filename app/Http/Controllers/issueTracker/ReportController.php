@@ -14,8 +14,11 @@ class ReportController extends Controller
      */
     public function index()
     {
-        $report = IssueReportModel::with('resident')->get();
-        return Auth::check() ? view('issue.report.index', ['report' => $report]) : redirect('/login');
+        $todo = IssueReportModel::with('resident')->where('status', 'To do')->get();
+        $inProgress = IssueReportModel::with('resident')->where('status', 'In Progress')->get();
+        $inReview = IssueReportModel::with('resident')->where('status', 'In Review')->get();
+        $done = IssueReportModel::with('resident')->where('status', 'Done')->get();
+        return Auth::check() ? view('issue.report.index', ['todo' => $todo, 'inProgress' => $inProgress, 'inReview' => $inReview, 'done' => $done]) : redirect('/login');
     }
 
     public function archived()

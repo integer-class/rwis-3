@@ -9,7 +9,9 @@ enum StatusIssueReport: string
 
     use IsKanbanStatus;
 
-    case Todo = 'Todo';
-    case Doing = 'Doing';
+    case Todo = 'To do';
+    case InProgress = 'In Progress';
+    case InReview = 'In Review';
     case Done = 'Done';
+
 }
