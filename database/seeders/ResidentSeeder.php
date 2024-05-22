@@ -208,7 +208,7 @@ class ResidentSeeder extends Seeder
                 'nationality' => NationalityResident::WNA,
                 'range_income' => RangeIncomeResident::Group6,
                 'job' => 'Software Engineer',
-                'whatsapp_number' => '+12345678906',
+                'whatsapp_number' => '+12345678907',
                 'is_archived' => true,
             ],
         ];

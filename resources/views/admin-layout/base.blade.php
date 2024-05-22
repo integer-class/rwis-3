@@ -17,7 +17,7 @@
             @include('admin-layout.sidebar')
         </aside>
 
-        <main class="flex-grow bg-base p-4">
+        <main class="flex-grow bg-base p-4 h-full">
             @yield('content')
             @include('admin-layout.footer')
         </main>

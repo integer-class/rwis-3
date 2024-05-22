@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('nationality', 5)->default('WNI');
             $table->string('range_income')->default('< Rp1.000.000');
             $table->string('job', 50);
-            $table->string('whatsapp_number', 20);
+            $table->string('whatsapp_number', 20)->unique();
             $table->boolean('is_archived', 5)->default(false);
             $table->timestamps();
 
