@@ -7,7 +7,7 @@
 <script>
   window.onload = function() {
       var path = window.location.pathname;
-      if (path === '/issue/report') {
+      if (path === '/issue/report' || path === '/issue/report/archived') {
           document.getElementById('myFooter').style.display = 'none';
       }
   }

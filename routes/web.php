@@ -111,6 +111,8 @@ Route::group(['prefix' => 'issue'], function () {
         Route::post('/', [ReportController::class, 'store']);
         Route::get('/show/{id}', [ReportController::class, 'show'])->name('issue-report.show');
         Route::put('/{id}', [ReportController::class, 'update']);
+        Route::put('/{id}/archive', [ReportController::class, 'archive']);
+        Route::put('/{id}/unarchive', [ReportController::class, 'unarchive']);
     });
 });
 
