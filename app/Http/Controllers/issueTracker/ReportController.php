@@ -16,10 +16,10 @@ class ReportController extends Controller
     public function index()
     {
         // display
-        $todo = IssueReportModel::with('resident')->where('status', 'To do')->where('is_archived', false)->get();
-        $inProgress = IssueReportModel::with('resident')->where('status', 'In Progress')->where('is_archived', false)->get();
-        $inReview = IssueReportModel::with('resident')->where('status', 'In Review')->where('is_archived', false)->get();
-        $done = IssueReportModel::with('resident')->where('status', 'Done')->where('is_archived', false)->get();
+        $todo = IssueReportModel::with('resident')->where('status', 'To do')->where('is_archived', false)->where('is_approved', true)->get();
+        $inProgress = IssueReportModel::with('resident')->where('status', 'In Progress')->where('is_archived', false)->where('is_approved', true)->get();
+        $inReview = IssueReportModel::with('resident')->where('status', 'In Review')->where('is_archived', false)->where('is_approved', true)->get();
+        $done = IssueReportModel::with('resident')->where('status', 'Done')->where('is_archived', false)->where('is_approved', true)->get();
         $status = array_map(fn ($case) => $case->value, StatusIssueReport::cases());
 
         return Auth::check() ? view('issue.report.index', ['todo' => $todo, 'inProgress' => $inProgress, 'inReview' => $inReview, 'done' => $done, 'status' => $status]) : redirect('/login');
@@ -27,7 +27,7 @@ class ReportController extends Controller
 
     public function archived()
     {
-        $issue = IssueReportModel::with('resident')->where('is_archived', true)->get();
+        $issue = IssueReportModel::with('resident')->where('is_archived', true)->where('is_approved', true)->get();
         return Auth::check() ? view('issue.report.archived', ['issue' => $issue]) : redirect('/login');
     }
 
