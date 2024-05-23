@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\issueTracker;
 
 use App\Http\Controllers\Controller;
+use App\Models\IssueReportModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ApproveController extends Controller
+class ApprovalController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Auth::check() ? view('issue.approve.index') : redirect('/login');
+        return Auth::check() ? view('issue.approval.index') : redirect('/login');
     }
 
     /**
@@ -37,7 +38,8 @@ class ApproveController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $issue = IssueReportModel::find($id);
+        return Auth::check() ? view('issue.approval.show', ['issue' => $issue ]) : redirect('/login');
     }
 
     /**

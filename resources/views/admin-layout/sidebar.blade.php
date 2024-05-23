@@ -72,8 +72,8 @@
                         <h6 class="mx-2 mt-1">Issue Tracker</h6>
                     </summary>
                     <ul>
-                        <li id="approve"><a href="{{ url('issue/approve') }}"><span
-                                    class="icon-[material-symbols--notifications-unread-outline-rounded] text-xl mb-2"></span>Approve Issue</a>
+                        <li id="approval"><a href="{{ url('issue/approval') }}"><span
+                                    class="icon-[material-symbols--notifications-unread-outline-rounded] text-xl mb-2"></span>Approval Issue</a>
                         </li>
                         <li id="report"><a href="{{ url('issue/report') }}"><span
                                     class="icon-[material-symbols--report-outline-rounded] text-xl mb-2"></span>Issue
@@ -200,8 +200,8 @@
         if (menu) {
             menu.setAttribute('open', 'true');
 
-            if (currentUrl.includes('/issue/approve')) {
-                var subMenu = document.getElementById('approve');
+            if (currentUrl.includes('/issue/approval')) {
+                var subMenu = document.getElementById('approval');
                 if (subMenu) {
                     subMenu.setAttribute('class', 'add-btn text-white rounded-md');
                 }

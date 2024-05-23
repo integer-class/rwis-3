@@ -7,7 +7,7 @@ use App\Http\Controllers\dataDigitalization\bookKeeping\CashMutationController;
 use App\Http\Controllers\dataDigitalization\HouseholdController;
 use App\Http\Controllers\dataDigitalization\IndexController;
 use App\Http\Controllers\dataDigitalization\ResidentController;
-use App\Http\Controllers\issueTracker\ApproveController;
+use App\Http\Controllers\issueTracker\ApprovalController;
 use App\Http\Controllers\issueTracker\ReportController;
 use Illuminate\Support\Facades\Route;
 
@@ -113,9 +113,10 @@ Route::group(['prefix' => 'issue'], function () {
         Route::put('/{id}/unarchive', [ReportController::class, 'unarchive']);
     });
     // approve route
-    Route::group(['prefix' => 'approve'], function () {
+    Route::group(['prefix' => 'approval'], function () {
         // home
-        Route::get('/', [ApproveController::class, 'index']);
+        Route::get('/', [ApprovalController::class, 'index']);
+        Route::get('/show/{id}', [ApprovalController::class, 'show'])->name('issue.approval.show');
     });
 });
 

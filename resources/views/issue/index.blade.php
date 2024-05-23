@@ -13,11 +13,11 @@
                 </div>
             </div>
             {{-- content --}}
-            <a href="{{ url('data/resident') }}">
+            <a href="{{ url('issue/approve') }}">
                 <div
                     class="card card-side bg-base-100 shadow-xl mb-5 hover:text-white hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 duration-300">
                     <div class="card-body flex justify-center">
-                        <h2 class=" text-3xl font-bold">Pending</h2>
+                        <h2 class=" text-3xl font-bold">Approve Issue</h2>
                         <div class="card-actions justify-start">
                         </div>
                     </div>

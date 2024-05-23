@@ -40,7 +40,7 @@
             @endif
 
             <div class="h-20 grid grid-row md:grid-cols-4 gap-5">
-                <div class="bg-red-300 p-3 rounded-md">
+                <div class="bg-yellow-300 p-3 rounded-md">
                     <h3 class="text-xl">To do</h3>
                     @foreach ($todo as $item)
                         @php
@@ -140,107 +140,8 @@
                 </div>
 
                 <div class="bg-blue-300 p-3 rounded-md">
-                    <h3 class="text-xl">In Progress</h3>
-                    @foreach ($inProgress as $item)
-                        @php
-                            $updateModalId = 'update_modal_' . $item->issue_report_id;
-                            $archiveModalId = 'archive_modal_' . $item->issue_report_id;
-                        @endphp
-                        <div class="card card-compact w56 bg-base-100 shadow-xl my-3 rounded-md">
-                            <div class="card-body">
-                                <h2 class="card-title">{{ $item->title }}</h2>
-                                <p>{{ $item->description }}</p>
-                                <div class="card-actions justify-end">
-                                    <button class="btn btn-sm btn-primary"
-                                        onclick="document.getElementById('{{ $updateModalId }}').showModal()">Update
-                                        Status</button>
-                                    <button class="btn btn-sm btn-error text-white"
-                                        onclick="document.getElementById('{{ $archiveModalId }}').showModal()">Archive</button>
-                                    
-                                    {{-- modal Update Status --}}
-                                    <dialog id="{{ $updateModalId }}" class="modal">
-                                        <div class="modal-box">
-                                            <form method="dialog">
-                                                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                            </form>
-                                            <h3 class="font-bold text-lg mb-3">Update Status</h3>
-                                            <form action="{{ url('issue/report/' . $item->issue_report_id) }}"
-                                                method="POST" class="flex flex-col space-y-4 w-full form mr-3">
-                                                @csrf
-                                                {!! method_field('PUT') !!}
-                                                <div class="flex flex-col space-y-1 mb-3">
-                                                    <label for="title">Title</label>
-                                                    <input type="text" name="title" id="title"
-                                                        class="rounded-md border border-gray-300 p-2"
-                                                        placeholder="Enter your full name" value="{{ $item->title }}"
-                                                        readonly>
-                                                </div>
-                                                <div class="flex flex-col space-y-1 mb-3">
-                                                    <label for="description">Description</label>
-                                                    <textarea class="rounded-md border border-gray-300 p-2" name="description" id="description" cols="20"
-                                                        rows="10" readonly>{{ $item->description }}</textarea>
-                                                </div>
-                                                <div class="flex flex-col space-y-1">
-                                                    <label for="status">Status</label>
-                                                    <select name="status" id="status"
-                                                        class="rounded-md border border-gray-300 p-2">
-                                                        <option disabled selected
-                                                            value="{{ old('status', $item->status) }}">- Status -</option>
-                                                        @foreach ($status as $statusItem)
-                                                            <option value="{{ $statusItem }}">{{ $statusItem }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="flex flex-row justify-end">
-                                                    <button class="btn btn-primary mx-2">Update</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </dialog>
-
-                                    {{-- modal Archive --}}
-                                    <dialog id="{{ $archiveModalId }}" class="modal">
-                                        <div class="modal-box">
-                                            <form method="dialog">
-                                                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                            </form>
-                                            <h3 class="font-bold text-lg mb-3">Archive Issue</h3>
-                                            <form action="{{ url('issue/report/' . $item->issue_report_id . '/archive') }}"
-                                                method="POST" class="flex flex-col space-y-4 w-full form mr-3">
-                                                @csrf
-                                                {!! method_field('PUT') !!}
-                                                <div class="flex flex-col space-y-1 mb-3">
-                                                    <label for="title">Title</label>
-                                                    <input type="text" name="title" id="title"
-                                                        class="rounded-md border border-gray-300 p-2"
-                                                        placeholder="Enter your full name" value="{{ $item->title }}"
-                                                        readonly>
-                                                </div>
-                                                <div class="flex flex-col space-y-1 mb-3">
-                                                    <label for="description">Description</label>
-                                                    <textarea class="rounded-md border border-gray-300 p-2" name="description" id="description" cols="20"
-                                                        rows="10" readonly>{{ $item->description }}</textarea>
-                                                </div>
-                                                <div class="flex flex-col space-y-1">
-                                                    <label class="text-base font-bold" for="status">Are you sure you want to archive this issue?</label>
-                                                </div>
-                                                <div class="flex flex-row justify-end">
-                                                    <button class="btn btn-error mx-2 text-white">Archive</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </dialog>
-
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
-                <div class="bg-yellow-300 p-3 rounded-md">
-                    <h3 class="text-xl">In Review</h3>
-                    @foreach ($inReview as $item)
+                    <h3 class="text-xl">On Going</h3>
+                    @foreach ($onGoing as $item)
                         @php
                             $updateModalId = 'update_modal_' . $item->issue_report_id;
                             $archiveModalId = 'archive_modal_' . $item->issue_report_id;
@@ -338,8 +239,107 @@
                 </div>
 
                 <div class="bg-green-300 p-3 rounded-md">
-                    <h3 class="text-xl">Done</h3>
-                    @foreach ($done as $item)
+                    <h3 class="text-xl">Solved</h3>
+                    @foreach ($solved as $item)
+                        @php
+                            $updateModalId = 'update_modal_' . $item->issue_report_id;
+                            $archiveModalId = 'archive_modal_' . $item->issue_report_id;
+                        @endphp
+                        <div class="card card-compact w56 bg-base-100 shadow-xl my-3 rounded-md">
+                            <div class="card-body">
+                                <h2 class="card-title">{{ $item->title }}</h2>
+                                <p>{{ $item->description }}</p>
+                                <div class="card-actions justify-end">
+                                    <button class="btn btn-sm btn-primary"
+                                        onclick="document.getElementById('{{ $updateModalId }}').showModal()">Update
+                                        Status</button>
+                                    <button class="btn btn-sm btn-error text-white"
+                                        onclick="document.getElementById('{{ $archiveModalId }}').showModal()">Archive</button>
+                                    
+                                    {{-- modal Update Status --}}
+                                    <dialog id="{{ $updateModalId }}" class="modal">
+                                        <div class="modal-box">
+                                            <form method="dialog">
+                                                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                            </form>
+                                            <h3 class="font-bold text-lg mb-3">Update Status</h3>
+                                            <form action="{{ url('issue/report/' . $item->issue_report_id) }}"
+                                                method="POST" class="flex flex-col space-y-4 w-full form mr-3">
+                                                @csrf
+                                                {!! method_field('PUT') !!}
+                                                <div class="flex flex-col space-y-1 mb-3">
+                                                    <label for="title">Title</label>
+                                                    <input type="text" name="title" id="title"
+                                                        class="rounded-md border border-gray-300 p-2"
+                                                        placeholder="Enter your full name" value="{{ $item->title }}"
+                                                        readonly>
+                                                </div>
+                                                <div class="flex flex-col space-y-1 mb-3">
+                                                    <label for="description">Description</label>
+                                                    <textarea class="rounded-md border border-gray-300 p-2" name="description" id="description" cols="20"
+                                                        rows="10" readonly>{{ $item->description }}</textarea>
+                                                </div>
+                                                <div class="flex flex-col space-y-1">
+                                                    <label for="status">Status</label>
+                                                    <select name="status" id="status"
+                                                        class="rounded-md border border-gray-300 p-2">
+                                                        <option disabled selected
+                                                            value="{{ old('status', $item->status) }}">- Status -</option>
+                                                        @foreach ($status as $statusItem)
+                                                            <option value="{{ $statusItem }}">{{ $statusItem }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="flex flex-row justify-end">
+                                                    <button class="btn btn-primary mx-2">Update</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </dialog>
+
+                                    {{-- modal Archive --}}
+                                    <dialog id="{{ $archiveModalId }}" class="modal">
+                                        <div class="modal-box">
+                                            <form method="dialog">
+                                                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                            </form>
+                                            <h3 class="font-bold text-lg mb-3">Archive Issue</h3>
+                                            <form action="{{ url('issue/report/' . $item->issue_report_id . '/archive') }}"
+                                                method="POST" class="flex flex-col space-y-4 w-full form mr-3">
+                                                @csrf
+                                                {!! method_field('PUT') !!}
+                                                <div class="flex flex-col space-y-1 mb-3">
+                                                    <label for="title">Title</label>
+                                                    <input type="text" name="title" id="title"
+                                                        class="rounded-md border border-gray-300 p-2"
+                                                        placeholder="Enter your full name" value="{{ $item->title }}"
+                                                        readonly>
+                                                </div>
+                                                <div class="flex flex-col space-y-1 mb-3">
+                                                    <label for="description">Description</label>
+                                                    <textarea class="rounded-md border border-gray-300 p-2" name="description" id="description" cols="20"
+                                                        rows="10" readonly>{{ $item->description }}</textarea>
+                                                </div>
+                                                <div class="flex flex-col space-y-1">
+                                                    <label class="text-base font-bold" for="status">Are you sure you want to archive this issue?</label>
+                                                </div>
+                                                <div class="flex flex-row justify-end">
+                                                    <button class="btn btn-error mx-2 text-white">Archive</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </dialog>
+
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="bg-red-300 p-3 rounded-md">
+                    <h3 class="text-xl">Invalid</h3>
+                    @foreach ($invalid as $item)
                         @php
                             $updateModalId = 'update_modal_' . $item->issue_report_id;
                             $archiveModalId = 'archive_modal_' . $item->issue_report_id;

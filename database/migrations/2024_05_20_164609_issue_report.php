@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title', 100);
             $table->text('description');
             $table->string('status', 20);
-            $table->boolean('is_approved', 5)->default(true);
+            $table->string('approval_status', 10)->default('pending');
             $table->boolean('is_archived', 5)->default(false);
             $table->timestamps();
 

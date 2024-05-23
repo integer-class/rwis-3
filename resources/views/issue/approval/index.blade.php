@@ -4,13 +4,12 @@
     @vite('resources/css/resident/app.css')
     <div class="py-12 bg-white shadow-xl rounded-t-lg mt-5 mx-5">
         <div class="max-w-7-xl mx-auto sm:px-6 lg:px-8">
-            <h3 class="mb-3 text-3xl">Issue Report</h3>
+            <h3 class="mb-3 text-3xl">Approve Issue</h3>
             <div class="flex w-full justify-between">
                 <div class=" breadcrumbs mb-3">
                     <ul>
                         <li><a href="{{ url('issue') }}">Home</a></li>
-                        <li><a href="{{ url('issue/report') }}">Issue Report</a></li>
-                        <li>Archived</li>
+                        <li><a href="{{ url('issue/approve') }}">Approve Issue</a></li>
                     </ul>
                 </div>
                 <div class="flex justify-end">
@@ -30,8 +29,25 @@
                 <span>{{ session('error') }}</span>
               </div>
             @endif
-            
-            
+
+              {{-- tab --}}
+              <div role="tablist" class="tabs tabs-lifted">
+                <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Pending" checked />
+                <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                  <livewire:pending-issue-table />
+                </div>
+              
+                <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Approved" />
+                <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                  <livewire:approved-issue-table />
+                </div>
+              
+                <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Rejected" />
+                <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                  <livewire:rejected-issue-table />
+                </div>
+              </div>
+
 
         </div>
     </div>

@@ -17,7 +17,7 @@ class IssueReportModel extends Model
         'title',
         'description',
         'status',
-        'is_approved',
+        'approval_status',
         'is_archived',
     ];
 
