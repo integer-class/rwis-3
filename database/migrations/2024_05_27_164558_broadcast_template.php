@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('broadcast_template', function (Blueprint $table) {
             $table->id('broadcast_template_id');
             $table->string('text');
-            $table->json('fields');
+            $table->json('fillable_fields');
             $table->string('type');
             $table->boolean('is_archived', 5)->default(false);
             $table->timestamps();

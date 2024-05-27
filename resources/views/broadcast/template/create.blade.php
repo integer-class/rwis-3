@@ -32,9 +32,9 @@
                         placeholder="Enter Text">
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <label for="fields">Fillable Fields</label>
-                    <div id="fields-container" class="flex flex-col space-y-1">
-                        <input type="text" name="fields[]" class="rounded-md border border-gray-300 p-2"
+                    <label for="fillable_fields">Fillable Fields</label>
+                    <div id="fillable_fields-container" class="flex flex-col space-y-1">
+                        <input type="text" name="fillable_fields[]" class="rounded-md border border-gray-300 p-2"
                             placeholder="Enter Fillable Field">
                     </div>
                     <button type="button" id="add-field"
@@ -59,10 +59,10 @@
         document.getElementById('add-field').addEventListener('click', function() {
             var input = document.createElement('input');
             input.type = 'text';
-            input.name = 'fields[]';
+            input.name = 'fillable_fields[]';
             input.className = 'rounded-md border border-gray-300 p-2 mt-2';
             input.placeholder = 'Enter Fillable Field';
-            document.getElementById('fields-container').appendChild(input);
+            document.getElementById('fillable_fields-container').appendChild(input);
         });
     </script>
 @endsection

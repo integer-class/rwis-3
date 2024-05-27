@@ -38,13 +38,13 @@ class BroadcastTemplateController extends Controller
     {
         $request->validate([
             'text' => 'required',
-            'fields' => 'required|array',
+            'fillable_fields' => 'required|array',
             'type' => 'required',
         ]);
 
         BroadcastTemplateModel::create([
             'text' => $request->text,
-            'fields' => $request->fields,
+            'fillable_fields' => $request->fillable_fields,
             'type' => $request->type,
         ]);
 
@@ -57,7 +57,7 @@ class BroadcastTemplateController extends Controller
     public function show(string $id)
     {
         $template = BroadcastTemplateModel::find($id);
-        $fields = is_array($template->fields) ? implode(', ', $template->fields) : $template->fields;
+        $fields = is_array($template->fillable_fields) ? implode(', ', $template->fillable_fields) : $template->fillable_fields;
         return Auth::check() ? view('broadcast.template.show', ['template' => $template, 'fields' => $fields]) : redirect('login');
     }
 
@@ -77,14 +77,14 @@ class BroadcastTemplateController extends Controller
     {
         $request->validate([
             'text' => 'required',
-            'fields' => 'required|array',
+            'fillable_fields' => 'required|array',
             'type' => 'required',
         ]);
 
         $template = BroadcastTemplateModel::find($id);
         $template->update([
             'text' => $request->text,
-            'fields' => $request->fields,
+            'fillable_fields' => $request->fillable_fields,
             'type' => $request->type,
         ]);
 

@@ -10,7 +10,7 @@
                     <ul>
                         <li><a href="{{ url('broadcast') }}">Home</a></li>
                         <li><a href="{{ url('broadcast/template') }}">Broadcast Template</a></li>
-                        <li>Add Template</li>
+                        <li>Edit Template</li>
                     </ul>
                 </div>
             </div>
@@ -32,10 +32,10 @@
                     <input type="text" name="text" id="text" class="rounded-md border border-gray-300 p-2" value="{{ $template->text }}" placeholder="Enter Text">
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <label for="fields">Fillable Fields</label>
+                    <label for="fillable_fields">Fillable Fields</label>
                     <div id="fields-container" class="flex flex-col space-y-1">
-                        @foreach ($template->fields as $field)
-                            <input type="text" name="fields[]" class="rounded-md border border-gray-300 p-2" value="{{ $field }}" placeholder="Enter Fillable Field">
+                        @foreach ($template->fillable_fields as $field)
+                            <input type="text" name="fillable_fields[]" class="rounded-md border border-gray-300 p-2" value="{{ $field }}" placeholder="Enter Fillable Field">
                         @endforeach
                     </div>
                     <button type="button" id="add-field" class="mt-2 px-4 py-2 add-btn text-white rounded-md w-1/6 btn-sm">Add Fields</button>
@@ -45,7 +45,7 @@
                     <input type="text" name="type" id="type" class="rounded-md border border-gray-300 p-2" value="{{ $template->type }}" placeholder="Enter Type">
                 </div>
                 <div class="flex">
-                    <button type="submit" class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6">Add</button>
+                    <button type="submit" class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6">Edit</button>
                     <a class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6 mx-3 text-center"
                         href="{{ url('broadcast/template') }}">Back</a>
                 </div>
@@ -57,7 +57,7 @@
         document.getElementById('add-field').addEventListener('click', function() {
             var input = document.createElement('input');
             input.type = 'text';
-            input.name = 'fields[]';
+            input.name = 'fillable_fields[]';
             input.className = 'rounded-md border border-gray-300 p-2 mt-2';
             input.placeholder = 'Enter Fillable Field';
             document.getElementById('fields-container').appendChild(input);

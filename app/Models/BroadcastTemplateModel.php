@@ -14,14 +14,14 @@ class BroadcastTemplateModel extends Model
 
     protected $fillable = [
         'text',
-        'fields',
+        'fillable_fields',
         'type',
         'created_at',
         'updated_at',
     ];
 
     protected $casts = [
-        'fields' => 'array',
+        'fillable_fields' => 'array',
     ];
 
     public function getFieldsAttribute($value)
@@ -31,6 +31,6 @@ class BroadcastTemplateModel extends Model
 
     public function setFieldsAttribute($value)
     {
-        $this->attributes['fields'] = json_encode($value);
+        $this->attributes['fillable_fields'] = json_encode($value);
     }
 }
