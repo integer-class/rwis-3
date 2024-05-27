@@ -1,14 +1,19 @@
 <?php
 
 use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\broadcast\BroadcastScheduledController;
+use App\Http\Controllers\broadcast\BroadcastTemplateController;
 use App\Http\Controllers\dataDigitalization\AssetController;
 use App\Http\Controllers\dataDigitalization\bookKeeping\AccountController;
 use App\Http\Controllers\dataDigitalization\bookKeeping\CashMutationController;
 use App\Http\Controllers\dataDigitalization\HouseholdController;
-use App\Http\Controllers\dataDigitalization\IndexController;
 use App\Http\Controllers\dataDigitalization\ResidentController;
+use App\Http\Controllers\information\FacilityController;
+use App\Http\Controllers\information\UmkmController;
 use App\Http\Controllers\issueTracker\ApprovalController;
 use App\Http\Controllers\issueTracker\ReportController;
+use App\Http\Controllers\signature\DocumentFormatController;
+use App\Http\Controllers\signature\LogController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -96,6 +101,26 @@ Route::group(['prefix' => 'information'], function () {
     Route::get('/', function () {
         return view('information-centre.index');
     });
+
+    // facility route
+    Route::group(['prefix' => 'facility'], function () {
+        Route::get('/', [FacilityController::class, 'index']);
+        Route::get('/create', [FacilityController::class, 'create']);
+        Route::post('/', [FacilityController::class, 'store']);
+        Route::get('/show/{id}', [FacilityController::class, 'show'])->name('broadcast.template.show');
+        Route::get('/edit/{id}', [FacilityController::class, 'edit'])->name('broadcast.template.edit');
+        Route::put('/{id}', [FacilityController::class, 'update']);
+    });
+
+    // umkm route
+    Route::group(['prefix' => 'umkm'], function () {
+        Route::get('/', [UmkmController::class, 'index']);
+        Route::get('/create', [UmkmController::class, 'create']);
+        Route::post('/', [UmkmController::class, 'store']);
+        Route::get('/show/{id}', [UmkmController::class, 'show'])->name('broadcast.template.show');
+        Route::get('/edit/{id}', [UmkmController::class, 'edit'])->name('broadcast.template.edit');
+        Route::put('/{id}', [UmkmController::class, 'update']);
+    });
 });
 
 // issue route
@@ -126,6 +151,26 @@ Route::group(['prefix' => 'broadcast'], function () {
     Route::get('/', function () {
         return view('broadcast.index');
     });
+
+    // template route
+    Route::group(['prefix' => 'template'], function () {
+        Route::get('/', [BroadcastTemplateController::class, 'index']);
+        Route::get('/create', [BroadcastTemplateController::class, 'create']);
+        Route::post('/', [BroadcastTemplateController::class, 'store']);
+        Route::get('/show/{id}', [BroadcastTemplateController::class, 'show'])->name('broadcast.template.show');
+        Route::get('/edit/{id}', [BroadcastTemplateController::class, 'edit'])->name('broadcast.template.edit');
+        Route::put('/{id}', [BroadcastTemplateController::class, 'update']);
+    });
+
+    // message route
+    Route::group(['prefix' => 'scheduled'], function () {
+        Route::get('/', [BroadcastScheduledController::class, 'index']);
+        Route::get('/create', [BroadcastScheduledController::class, 'create']);
+        Route::post('/', [BroadcastScheduledController::class, 'store']);
+        Route::get('/show/{id}', [BroadcastScheduledController::class, 'show'])->name('broadcast.template.show');
+        Route::get('/edit/{id}', [BroadcastScheduledController::class, 'edit'])->name('broadcast.template.edit');
+        Route::put('/{id}', [BroadcastScheduledController::class, 'update']);
+    });
 });
 
 // signature route
@@ -133,5 +178,25 @@ Route::group(['prefix' => 'signature'], function () {
     // home
     Route::get('/', function () {
         return view('signature.index');
+    });
+
+    // document format route
+    Route::group(['prefix' => 'document-format'], function () {
+        Route::get('/', [DocumentFormatController::class, 'index']);
+        Route::get('/create', [DocumentFormatController::class, 'create']);
+        Route::post('/', [DocumentFormatController::class, 'store']);
+        Route::get('/show/{id}', [DocumentFormatController::class, 'show'])->name('broadcast.template.show');
+        Route::get('/edit/{id}', [DocumentFormatController::class, 'edit'])->name('broadcast.template.edit');
+        Route::put('/{id}', [DocumentFormatController::class, 'update']);
+    });
+
+    // log route
+    Route::group(['prefix' => 'log'], function () {
+        Route::get('/', [LogController::class, 'index']);
+        Route::get('/create', [LogController::class, 'create']);
+        Route::post('/', [LogController::class, 'store']);
+        Route::get('/show/{id}', [LogController::class, 'show'])->name('broadcast.template.show');
+        Route::get('/edit/{id}', [LogController::class, 'edit'])->name('broadcast.template.edit');
+        Route::put('/{id}', [LogController::class, 'update']);
     });
 });

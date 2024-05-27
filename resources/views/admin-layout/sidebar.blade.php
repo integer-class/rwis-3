@@ -23,9 +23,9 @@
                         <h6 class="mx-2 mt-1">Information Centre</h6>
                     </summary>
                     <ul>
-                        <li id="facility"><a><span
+                        <li id="facility"><a href="{{ url('information/facility') }}"><span
                                     class="icon-[ic--round-location-city] text-xl mb-2"></span>Facility</a></li>
-                        <li id="umkm"><a><span
+                        <li id="umkm"><a href="{{ url('information/umkm') }}"><span
                                     class="icon-[ic--round-store-mall-directory] text-xl mb-2"></span>UMKM</a></li>
                     </ul>
                 </details>
@@ -89,10 +89,10 @@
                         <h6 class="mx-2 mt-1">Broadcast</h6>
                     </summary>
                     <ul>
-                        <li id="template"><a><span
+                        <li id="template"><a href="{{ url('broadcast/template') }}"><span
                                     class="icon-[material-symbols--chat-outline-rounded] text-xl mb-2"></span>Template</a>
                         </li>
-                        <li id="schedule"><a><span
+                        <li id="schedule"><a href="{{ url('broadcast/scheduled') }}"><span
                                     class="icon-[material-symbols--nest-clock-farsight-analog-outline-rounded] text-xl mb-2"></span>Scheduled</a>
                         </li>
                     </ul>
@@ -106,10 +106,10 @@
                         <h6 class="mx-2 mt-1">Signature</h6>
                     </summary>
                     <ul>
-                        <li id="format"><a><span
+                        <li id="format"><a href="{{ url('signature/document-format') }}"><span
                                     class="icon-[material-symbols--edit-document-outline-rounded] text-xl mb-2"></span>Format</a>
                         </li>
-                        <li id="log"><a><span class="icon-[ic--round-history] text-xl mb-2"></span>Log</a></li>
+                        <li id="log"><a href="{{ url('signature/log') }}"><span class="icon-[ic--round-history] text-xl mb-2"></span>Log</a></li>
                     </ul>
                 </details>
             </li>

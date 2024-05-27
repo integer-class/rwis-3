@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('broadcast_template', function (Blueprint $table) {
-            $table->id();
+            $table->id('broadcast_template_id');
             $table->string('text');
             $table->json('fields');
             $table->string('type');
