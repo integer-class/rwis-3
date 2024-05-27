@@ -15,8 +15,9 @@
                 </div>
             </div>
             {{-- content --}}
-            <form action="{{ url('broadcast/template') }}" method="POST" class="flex flex-col space-y-4 w-full form mr-3">
+            <form action="{{ url('broadcast/template/' . $template->broadcast_template_id) }}" method="POST" class="flex flex-col space-y-4 w-full form mr-3">
                 @csrf
+                @method('PUT')
                 @if ($errors->any())
                     <div class="bg-red-100 text-red-500 p-2 rounded-lg">
                         <ul class="list-disc list-inside">
@@ -28,23 +29,20 @@
                 @endif
                 <div class="flex flex-col space-y-1">
                     <label for="text">Text</label>
-                    <input type="text" name="text" id="text" class="rounded-md border border-gray-300 p-2"
-                        placeholder="Enter Text">
+                    <input type="text" name="text" id="text" class="rounded-md border border-gray-300 p-2" value="{{ $template->text }}" placeholder="Enter Text">
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="fields">Fillable Fields</label>
                     <div id="fields-container" class="flex flex-col space-y-1">
-                        <input type="text" name="fields[]" class="rounded-md border border-gray-300 p-2"
-                            placeholder="Enter Fillable Field">
+                        @foreach ($template->fields as $field)
+                            <input type="text" name="fields[]" class="rounded-md border border-gray-300 p-2" value="{{ $field }}" placeholder="Enter Fillable Field">
+                        @endforeach
                     </div>
-                    <button type="button" id="add-field"
-                        class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md w-1/6 btn-sm">Add
-                        Fields</button>
+                    <button type="button" id="add-field" class="mt-2 px-4 py-2 add-btn text-white rounded-md w-1/6 btn-sm">Add Fields</button>
                 </div>
                 <div class="flex flex-col space-y-1">
                     <label for="type">Type</label>
-                    <input type="text" name="type" id="type" class="rounded-md border border-gray-300 p-2"
-                        placeholder="Enter Type">
+                    <input type="text" name="type" id="type" class="rounded-md border border-gray-300 p-2" value="{{ $template->type }}" placeholder="Enter Type">
                 </div>
                 <div class="flex">
                     <button type="submit" class="add-btn btn-sm px-4 py-1.5 text-white rounded-md mt-5 w-1/6">Add</button>

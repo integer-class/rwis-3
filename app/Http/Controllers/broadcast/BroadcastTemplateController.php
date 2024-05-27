@@ -66,7 +66,8 @@ class BroadcastTemplateController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $template = BroadcastTemplateModel::find($id);
+        return Auth::check() ? view('broadcast.template.edit', ['template' => $template]) : redirect('login');
     }
 
     /**
@@ -74,7 +75,20 @@ class BroadcastTemplateController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'text' => 'required',
+            'fields' => 'required|array',
+            'type' => 'required',
+        ]);
+
+        $template = BroadcastTemplateModel::find($id);
+        $template->update([
+            'text' => $request->text,
+            'fields' => $request->fields,
+            'type' => $request->type,
+        ]);
+
+        return redirect('broadcast/template')->with('success', 'Template has been updated');
     }
 
     /**
