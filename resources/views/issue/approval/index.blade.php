@@ -4,16 +4,13 @@
     @vite('resources/css/resident/app.css')
     <div class="py-12 bg-white shadow-xl rounded-t-lg mt-5 mx-5">
         <div class="max-w-7-xl mx-auto sm:px-6 lg:px-8">
-            <h3 class="mb-3 text-3xl">Approve Issue</h3>
+            <h3 class="mb-3 text-3xl">Approval Issue</h3>
             <div class="flex w-full justify-between">
                 <div class=" breadcrumbs mb-3">
                     <ul>
                         <li><a href="{{ url('issue') }}">Home</a></li>
-                        <li><a href="{{ url('issue/approve') }}">Approve Issue</a></li>
+                        <li><a href="{{ url('issue/approval') }}">Approval Issue</a></li>
                     </ul>
-                </div>
-                <div class="flex justify-end">
-                    <a href="{{ url('issue/report') }}" class="archived-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md">Unarchived</a>
                 </div>
             </div>
             {{-- content --}}
