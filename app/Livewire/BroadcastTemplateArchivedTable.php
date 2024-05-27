@@ -7,7 +7,7 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\BroadcastTemplateModel;
 use Illuminate\Database\Eloquent\Builder;
 
-class BroadcastTemplateTable extends DataTableComponent
+class BroadcastTemplateArchivedTable extends DataTableComponent
 {
     protected $model = BroadcastTemplateModel::class;
 
@@ -17,7 +17,7 @@ class BroadcastTemplateTable extends DataTableComponent
 
         return BroadcastTemplateModel::query()
 
-            ->where('broadcast_template.is_archived', false);
+            ->where('broadcast_template.is_archived', true);
     }
 
     public function configure(): void
@@ -45,23 +45,21 @@ class BroadcastTemplateTable extends DataTableComponent
                 Column::make('Actions')
                 ->label(
                     function ($row) {
-                        $show = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="show(' . $row->broadcast_template_id . ')">Show</button>';
-                        $edit = '<button class="edit-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="edit(' . $row->broadcast_template_id . ')">Edit</button>';
-                        $archive = '<button class="archive-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->broadcast_template_id . '\').showModal()">Archive</button>
+                        $unarchive = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->broadcast_template_id . '\').showModal()">Unarchive</button>
                         <dialog id="my_modal_' . $row->broadcast_template_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
-                            <p class="py-4 mt-2 ml-2">Are you sure to archive this data?</p>
+                            <p class="py-4 mt-2 ml-2">Are you sure to unarchive this data?</p>
                             <div class="modal-action">
                               <form method="dialog">
                                 <!-- if there is a button in form, it will close the modal -->
-                                <button class="archive-btn text-white font-bold p-2 m-1 rounded" wire:click="archive(' . $row->broadcast_template_id . ')">Archive</button>
+                                <button class="show-btn text-white font-bold p-2 m-1 rounded" wire:click="unarchive(' . $row->broadcast_template_id . ')">Unarchive</button>
                                 <button class="add-btn text-white font-bold p-2 mx-2 mb-2 m-1 rounded">Close</button>
                               </form>
                             </div>
                           </div>
                         </dialog>';
-                        return $show . $edit . $archive;
+                        return $unarchive;
                     }
                 )->html(),
         ];
@@ -79,20 +77,10 @@ class BroadcastTemplateTable extends DataTableComponent
         // return $columns;
     }
 
-    public function show($broadcast_template_id)
-    {
-        return redirect()->route('template.show', $broadcast_template_id);
-    }
-
-    public function edit($broadcast_template_id)
-    {
-        return redirect()->route('template.edit', $broadcast_template_id);
-    }
-
-    public function archive($id)
+    public function unarchive($id)
     {
         $broadcastTemplate = BroadcastTemplateModel::find($id);
-        $broadcastTemplate->is_archived = true;
+        $broadcastTemplate->is_archived = false;
         $broadcastTemplate->save();
     }
 }

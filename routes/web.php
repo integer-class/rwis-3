@@ -155,10 +155,11 @@ Route::group(['prefix' => 'broadcast'], function () {
     // template route
     Route::group(['prefix' => 'template'], function () {
         Route::get('/', [BroadcastTemplateController::class, 'index']);
+        Route::get('/archived', [BroadcastTemplateController::class, 'archived']);
         Route::get('/create', [BroadcastTemplateController::class, 'create']);
         Route::post('/', [BroadcastTemplateController::class, 'store']);
-        Route::get('/show/{id}', [BroadcastTemplateController::class, 'show'])->name('broadcast.template.show');
-        Route::get('/edit/{id}', [BroadcastTemplateController::class, 'edit'])->name('broadcast.template.edit');
+        Route::get('/show/{id}', [BroadcastTemplateController::class, 'show'])->name('template.show');
+        Route::get('/edit/{id}', [BroadcastTemplateController::class, 'edit'])->name('template.edit');
         Route::put('/{id}', [BroadcastTemplateController::class, 'update']);
     });
 

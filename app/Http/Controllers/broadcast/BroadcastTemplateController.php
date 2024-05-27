@@ -16,6 +16,11 @@ class BroadcastTemplateController extends Controller
         return Auth::check() ? view('broadcast.template.index') : redirect('login');
     }
 
+    public function archived()
+    {
+        return Auth::check() ? view('broadcast.template.archived') : redirect('login');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
