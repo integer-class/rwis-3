@@ -31,7 +31,8 @@
                 <span>{{ session('error') }}</span>
               </div>
             @endif
-
+            
+            <livewire:broadcast-template-table />
         </div>
     </div>
 @endsection

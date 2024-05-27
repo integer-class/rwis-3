@@ -16,6 +16,8 @@ class BroadcastTemplateModel extends Model
         'text',
         'fields',
         'type',
+        'created_at',
+        'updated_at',
     ];
 
     protected $casts = [

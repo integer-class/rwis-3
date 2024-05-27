@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('text');
             $table->json('fields');
             $table->string('type');
+            $table->boolean('is_archived', 5)->default(false);
             $table->timestamps();
         });
     }
