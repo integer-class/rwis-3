@@ -106,7 +106,7 @@
                         <h6 class="mx-2 mt-1">Signature</h6>
                     </summary>
                     <ul>
-                        <li id="format"><a href="{{ url('signature/document-format') }}"><span
+                        <li id="document-format"><a href="{{ url('signature/document-format') }}"><span
                                     class="icon-[material-symbols--edit-document-outline-rounded] text-xl mb-2"></span>Format</a>
                         </li>
                         <li id="log"><a href="{{ url('signature/log') }}"><span class="icon-[ic--round-history] text-xl mb-2"></span>Log</a></li>
@@ -242,8 +242,8 @@
         if (menu) {
             menu.setAttribute('open', 'true');
 
-            if (currentUrl.includes('/signature/format')) {
-                var subMenu = document.getElementById('format');
+            if (currentUrl.includes('/signature/document-format')) {
+                var subMenu = document.getElementById('document-format');
                 if (subMenu) {
                     subMenu.setAttribute('class', 'add-btn text-white rounded-md');
                 }

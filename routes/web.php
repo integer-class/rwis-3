@@ -99,7 +99,7 @@ Route::group(['prefix' => 'data'], function () {
 Route::group(['prefix' => 'information'], function () {
     // home
     Route::get('/', function () {
-        return view('information-centre.index');
+        return view('information.index');
     });
 
     // facility route

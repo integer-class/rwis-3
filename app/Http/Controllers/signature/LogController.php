@@ -4,6 +4,7 @@ namespace App\Http\Controllers\signature;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LogController extends Controller
 {
@@ -12,7 +13,7 @@ class LogController extends Controller
      */
     public function index()
     {
-        //
+        Return Auth::check() ? view('signature.log.index') : redirect('/login');
     }
 
     /**

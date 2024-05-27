@@ -4,6 +4,7 @@ namespace App\Http\Controllers\broadcast;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BroadcastScheduledController extends Controller
 {
@@ -12,7 +13,7 @@ class BroadcastScheduledController extends Controller
      */
     public function index()
     {
-        //
+        return Auth::check() ? view('broadcast.scheduled.index') : redirect('login');
     }
 
     /**

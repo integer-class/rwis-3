@@ -4,6 +4,7 @@ namespace App\Http\Controllers\information;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FacilityController extends Controller
 {
@@ -12,7 +13,7 @@ class FacilityController extends Controller
      */
     public function index()
     {
-        //
+        return Auth::check() ? view('information.facility.index') : redirect('login');
     }
 
     /**

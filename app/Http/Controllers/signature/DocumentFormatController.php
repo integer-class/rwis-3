@@ -4,6 +4,7 @@ namespace App\Http\Controllers\signature;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DocumentFormatController extends Controller
 {
@@ -12,7 +13,7 @@ class DocumentFormatController extends Controller
      */
     public function index()
     {
-        //
+        return Auth::check() ? view('signature.document-format.index') : redirect('login');
     }
 
     /**
