@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BroadcastTemplateModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Broadcast;
 
 class BroadcastTemplateController extends Controller
 {
@@ -27,7 +28,7 @@ class BroadcastTemplateController extends Controller
      */
     public function create()
     {
-        //
+        return Auth::check() ? view('broadcast.template.create') : redirect('login');
     }
 
     /**
@@ -35,7 +36,19 @@ class BroadcastTemplateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'text' => 'required',
+            'fields' => 'required|array',
+            'type' => 'required',
+        ]);
+
+        BroadcastTemplateModel::create([
+            'text' => $request->text,
+            'fields' => $request->fields,
+            'type' => $request->type,
+        ]);
+
+        return redirect('broadcast/template')->with('success', 'Template has been added');
     }
 
     /**
