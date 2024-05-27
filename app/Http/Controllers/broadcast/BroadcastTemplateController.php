@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\broadcast;
 
 use App\Http\Controllers\Controller;
+use App\Models\BroadcastTemplateModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,7 +43,9 @@ class BroadcastTemplateController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $template = BroadcastTemplateModel::find($id);
+        $fields = is_array($template->fields) ? implode(', ', $template->fields) : $template->fields;
+        return Auth::check() ? view('broadcast.template.show', ['template' => $template, 'fields' => $fields]) : redirect('login');
     }
 
     /**
