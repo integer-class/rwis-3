@@ -5,10 +5,10 @@ namespace App\enum;
 
 enum StatusIssueReport: string
 {
-    
-    case Todo = 'To do';
-    case OnGoing = 'On Going';
-    case Solved = 'Solved';
-    case Invalid = 'Invalid';
+
+    case Todo = 'todo';
+    case OnGoing = 'ongoing';
+    case Solved = 'solved';
+    case Invalid = 'invalid';
 
 }
