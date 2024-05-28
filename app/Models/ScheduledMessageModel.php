@@ -49,13 +49,4 @@ class ScheduledMessageModel extends Model
     {
         return $this->belongsTo(ResidentModel::class, 'receiver_id', 'resident_id');
     }
-
-    public function getMessageAttribute()
-    {
-        $message = $this->broadcastTemplate->text;
-        foreach ($this->fields_values as $key => $value) {
-            $message = str_replace("{{" . $key . "}}", $value, $message);
-        }
-        return $message;
-    }
 }

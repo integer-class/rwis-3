@@ -44,8 +44,6 @@ class ScheduledMessageTable extends DataTableComponent
                 ->searchable(),
             Column::make("Receiver", "receiver.full_name")
                 ->sortable(),
-            // Column::make("Fields values", "fields_values")
-            //     ->sortable(),
         ];
     }
 }

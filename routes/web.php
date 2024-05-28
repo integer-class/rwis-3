@@ -141,7 +141,7 @@ Route::group(['prefix' => 'issue'], function () {
     Route::group(['prefix' => 'approval'], function () {
         // home
         Route::get('/', [ApprovalController::class, 'index']);
-        Route::get('/show/{id}', [ApprovalController::class, 'show'])->name('issue.approval.show');
+        Route::get('/show/{id}', [ApprovalController::class, 'show'])->name('approval.show');
     });
 });
 

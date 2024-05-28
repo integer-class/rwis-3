@@ -82,9 +82,9 @@ class PendingIssueTable extends DataTableComponent
         ];
     }
 
-    public function show($householdId)
+    public function show($id)
     {
-        return redirect()->route('issue.approval.show', $householdId);
+        return redirect()->route('issue.approval.show', $id);
     }
 
     public function approve($id)
