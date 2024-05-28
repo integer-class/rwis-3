@@ -24,7 +24,7 @@ class ScheduledMessageSeeder extends Seeder
                     'date' => '2024-05-28',
                     'time' => '08:00',
                 ]),
-                'is_archived' => false,
+                'created_at' => now(),
             ],
             [
                 'broadcast_template_id' => 2,
@@ -36,7 +36,7 @@ class ScheduledMessageSeeder extends Seeder
                     'date' => '2024-05-28',
                     'time' => '08:00',
                 ]),
-                'is_archived' => false,
+                'created_at' => now(),
             ],
             [
                 'broadcast_template_id' => 3,
@@ -48,7 +48,7 @@ class ScheduledMessageSeeder extends Seeder
                     'date' => '2024-05-28',
                     'time' => '08:00',
                 ]),
-                'is_archived' => false,
+                'created_at' => now(),
             ],
         ];
 

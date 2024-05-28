@@ -32,6 +32,7 @@
               </div>
             @endif
             
+            <livewire:scheduled-message-table />
         </div>
     </div>
 @endsection

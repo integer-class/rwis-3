@@ -16,7 +16,7 @@ class PendingIssueTable extends DataTableComponent
     {
         return IssueReportModel::query()
             ->where('issue_report.is_archived', false)
-            ->where('issue_report.approval_status', 'Pending');
+            ->where('issue_report.approval_status', 'pending');
     }
 
     public function configure(): void
