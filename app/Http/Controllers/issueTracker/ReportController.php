@@ -19,20 +19,24 @@ class ReportController extends Controller
         // display
         $issues = IssueReportModel::with('resident')
             ->where('is_archived', false)
-            ->where('approval_status', ApprovalStatusIssueReport::Pending)
+            ->where('approval_status', ApprovalStatusIssueReport::Approved)
             ->get();
-        $todo = $issues->groupBy('status')->get(StatusIssueReport::Todo->value);
-        $onGoing = $issues->groupBy('status')->get(StatusIssueReport::OnGoing->value);
-        $solved = $issues->groupBy('status')->get(StatusIssueReport::Solved->value);
-        $invalid = $issues->groupBy('status')->get(StatusIssueReport::Invalid->value);
-        $status = array_map(fn($case) => $case->value, StatusIssueReport::cases());
+
+        $groupedIssues = $issues->groupBy('status');
+
+        $todo = $groupedIssues->get(StatusIssueReport::Todo->value, collect());
+        $onGoing = $groupedIssues->get(StatusIssueReport::OnGoing->value, collect());
+        $solved = $groupedIssues->get(StatusIssueReport::Solved->value, collect());
+        $invalid = $groupedIssues->get(StatusIssueReport::Invalid->value, collect());
+
+        $status = array_map(fn ($case) => $case->value, StatusIssueReport::cases());
 
         return Auth::check() ? view('issue.report.index', ['todo' => $todo, 'onGoing' => $onGoing, 'solved' => $solved, 'invalid' => $invalid, 'status' => $status]) : redirect('/login');
     }
 
     public function archived()
     {
-        $issue = IssueReportModel::with('resident')->where('is_archived', true)->where('approval_status', 'Approved')->get();
+        $issue = IssueReportModel::with('resident')->where('is_archived', true)->where('approval_status', 'approved')->get();
         return Auth::check() ? view('issue.report.archived', ['issue' => $issue]) : redirect('/login');
     }
 
