@@ -2,7 +2,8 @@
 
 namespace App\Livewire;
 
-use App\enum\StatusIssueReport;
+use App\Enum\ApprovalStatusIssueReport;
+use App\Enum\StatusIssueReport;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\IssueReportModel;
@@ -29,6 +30,8 @@ class PendingIssueTable extends DataTableComponent
     public function columns(): array
     {
         return [
+            Column::make("ID", "issue_report_id")->hideIf(true),
+
             Column::make("Tanggal", "created_at")
                 ->format(fn($value) => $value->timezone('Asia/Jakarta')->translatedFormat('H:i:s, l, d M Y'))
                 ->sortable()
@@ -90,9 +93,10 @@ class PendingIssueTable extends DataTableComponent
     public function approve($id)
     {
         $issue = IssueReportModel::find($id);
-        $issue->approval_status = 'approved';
+        $issue->approval_status = ApprovalStatusIssueReport::Approved;
         $issue->status = StatusIssueReport::Todo;
         $issue->save();
+        redirect('/issue/approval');
     }
 
     public function reject($id)
@@ -100,5 +104,6 @@ class PendingIssueTable extends DataTableComponent
         $issue = IssueReportModel::find($id);
         $issue->approval_status = 'rejected';
         $issue->save();
+        redirect('/issue/approval');
     }
 }

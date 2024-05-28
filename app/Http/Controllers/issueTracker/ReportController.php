@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\issueTracker;
 
-use App\enum\StatusIssueReport;
+use App\Enum\ApprovalStatusIssueReport;
+use App\Enum\StatusIssueReport;
 use App\Http\Controllers\Controller;
 use App\Models\IssueReportModel;
 use Illuminate\Http\Request;
@@ -16,11 +17,15 @@ class ReportController extends Controller
     public function index()
     {
         // display
-        $todo = IssueReportModel::with('resident')->where('status', 'To do')->where('is_archived', false)->where('approval_status', 'Approved')->get();
-        $onGoing = IssueReportModel::with('resident')->where('status', 'On Going')->where('is_archived', false)->where('approval_status', 'Approved')->get();
-        $solved = IssueReportModel::with('resident')->where('status', 'Solved')->where('is_archived', false)->where('approval_status', 'Approved')->get();
-        $invalid = IssueReportModel::with('resident')->where('status', 'Invalid')->where('is_archived', false)->where('approval_status', 'Approved')->get();
-        $status = array_map(fn ($case) => $case->value, StatusIssueReport::cases());
+        $issues = IssueReportModel::with('resident')
+            ->where('is_archived', false)
+            ->where('approval_status', ApprovalStatusIssueReport::Pending)
+            ->get();
+        $todo = $issues->groupBy('status')->get(StatusIssueReport::Todo->value);
+        $onGoing = $issues->groupBy('status')->get(StatusIssueReport::OnGoing->value);
+        $solved = $issues->groupBy('status')->get(StatusIssueReport::Solved->value);
+        $invalid = $issues->groupBy('status')->get(StatusIssueReport::Invalid->value);
+        $status = array_map(fn($case) => $case->value, StatusIssueReport::cases());
 
         return Auth::check() ? view('issue.report.index', ['todo' => $todo, 'onGoing' => $onGoing, 'solved' => $solved, 'invalid' => $invalid, 'status' => $status]) : redirect('/login');
     }
@@ -31,7 +36,8 @@ class ReportController extends Controller
         return Auth::check() ? view('issue.report.archived', ['issue' => $issue]) : redirect('/login');
     }
 
-    public function archive(string $id) {
+    public function archive(string $id)
+    {
         IssueReportModel::find($id)->update([
             'is_archived' => true
         ]);
@@ -39,7 +45,8 @@ class ReportController extends Controller
         return redirect('issue/report')->with('success', 'Issue Report has been archived');
     }
 
-    public function unarchive(string $id) {
+    public function unarchive(string $id)
+    {
         IssueReportModel::find($id)->update([
             'is_archived' => false
         ]);

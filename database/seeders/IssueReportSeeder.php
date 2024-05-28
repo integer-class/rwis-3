@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\enum\ApprovalStatusIssueReport;
-use App\enum\StatusIssueReport;
+use App\Enum\ApprovalStatusIssueReport;
+use App\Enum\StatusIssueReport;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;

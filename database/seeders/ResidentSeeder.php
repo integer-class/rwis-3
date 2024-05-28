@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\enum\GenderResident;
-use App\enum\MarriageStatusResident;
-use App\enum\NationalityResident;
-use App\enum\RangeIncomeResident;
-use App\enum\ReligionResident;
+use App\Enum\GenderResident;
+use App\Enum\MarriageStatusResident;
+use App\Enum\NationalityResident;
+use App\Enum\RangeIncomeResident;
+use App\Enum\ReligionResident;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;

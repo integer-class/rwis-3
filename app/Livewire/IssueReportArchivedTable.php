@@ -29,6 +29,8 @@ class IssueReportArchivedTable extends DataTableComponent
     public function columns(): array
     {
         return [
+            Column::make("ID", "issue_report_id")->hideIf(true),
+
             Column::make("Tanggal", "created_at")
                 ->format(fn($value) => $value->timezone('Asia/Jakarta')->translatedFormat('H:i:s, l, d M Y'))
                 ->sortable()
@@ -82,5 +84,6 @@ class IssueReportArchivedTable extends DataTableComponent
         $resident = IssueReportModel::find($id);
         $resident->is_archived = false;
         $resident->save();
+        redirect('/issue/approval');
     }
 }
