@@ -16,25 +16,21 @@ class IssueReportArchivedTable extends DataTableComponent
     {
 
         return IssueReportModel::query()
-
             ->where('issue_report.is_archived', true);
     }
 
     public function configure(): void
     {
         $this->setPrimaryKey('id');
-        $this->setDefaultSort('issue_report_id', 'asc');
-        $this->setSearchFieldAttributes([
-
-            'class' => 'rounded-lg border border-gray-300 p-2',
-
-        ]);
+        $this->setDefaultSort('issue_report.created_at', 'desc');
+        $this->setSearchFieldAttributes(['class' => 'rounded-lg border border-gray-300 p-2']);
     }
 
     public function columns(): array
     {
         return [
-            Column::make("Issue report id", "issue_report_id")
+            Column::make("Tanggal", "created_at")
+                ->format(fn($value) => $value->timezone('Asia/Jakarta')->translatedFormat('H:i:s, l, d M Y'))
                 ->sortable()
                 ->searchable(),
 
@@ -61,7 +57,7 @@ class IssueReportArchivedTable extends DataTableComponent
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {
-                        $unarchive = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->issue_report_id . '\').showModal()">Unarchive</button>
+                        $unarchive = '<button class="show-btn text-white font-bold p-2 rounded" onclick="document.getElementById(\'my_modal_' . $row->issue_report_id . '\').showModal()">Unarchive</button>
                         <dialog id="my_modal_' . $row->issue_report_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>

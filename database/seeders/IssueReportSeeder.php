@@ -23,6 +23,8 @@ class IssueReportSeeder extends Seeder
                 'status' => StatusIssueReport::Todo,
                 'approval_status' => ApprovalStatusIssueReport::Pending,
                 'is_archived' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'resident_id' => 2,
@@ -31,6 +33,8 @@ class IssueReportSeeder extends Seeder
                 'status' => StatusIssueReport::Todo,
                 'approval_status' => ApprovalStatusIssueReport::Pending,
                 'is_archived' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'resident_id' => 3,
@@ -39,6 +43,8 @@ class IssueReportSeeder extends Seeder
                 'status' => StatusIssueReport::Todo,
                 'approval_status' => ApprovalStatusIssueReport::Pending,
                 'is_archived' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'resident_id' => 4,
@@ -47,6 +53,8 @@ class IssueReportSeeder extends Seeder
                 'status' => StatusIssueReport::Todo,
                 'approval_status' => ApprovalStatusIssueReport::Pending,
                 'is_archived' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'resident_id' => 5,
@@ -55,6 +63,8 @@ class IssueReportSeeder extends Seeder
                 'status' => StatusIssueReport::Todo,
                 'approval_status' => ApprovalStatusIssueReport::Pending,
                 'is_archived' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'resident_id' => 6,
@@ -63,6 +73,8 @@ class IssueReportSeeder extends Seeder
                 'status' => StatusIssueReport::Todo,
                 'approval_status' => ApprovalStatusIssueReport::Pending,
                 'is_archived' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'resident_id' => 7,
@@ -71,6 +83,8 @@ class IssueReportSeeder extends Seeder
                 'status' => StatusIssueReport::Todo,
                 'approval_status' => ApprovalStatusIssueReport::Pending,
                 'is_archived' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'resident_id' => 8,
@@ -79,6 +93,8 @@ class IssueReportSeeder extends Seeder
                 'status' => StatusIssueReport::Todo,
                 'approval_status' => ApprovalStatusIssueReport::Pending,
                 'is_archived' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'resident_id' => 9,
@@ -87,6 +103,8 @@ class IssueReportSeeder extends Seeder
                 'status' => StatusIssueReport::Todo,
                 'approval_status' => ApprovalStatusIssueReport::Pending,
                 'is_archived' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'resident_id' => 10,
@@ -95,8 +113,9 @@ class IssueReportSeeder extends Seeder
                 'status' => StatusIssueReport::Todo,
                 'approval_status' => ApprovalStatusIssueReport::Pending,
                 'is_archived' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
-
         ];
 
         DB::table('issue_report')->insert($data);

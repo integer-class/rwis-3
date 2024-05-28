@@ -13,11 +13,8 @@ class PendingIssueTable extends DataTableComponent
     protected $model = IssueReportModel::class;
 
     public function builder(): Builder
-
     {
-
         return IssueReportModel::query()
-
             ->where('issue_report.is_archived', false)
             ->where('issue_report.approval_status', 'Pending');
     }
@@ -25,18 +22,15 @@ class PendingIssueTable extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id');
-        $this->setDefaultSort('issue_report_id', 'asc');
-        $this->setSearchFieldAttributes([
-
-            'class' => 'rounded-lg border border-gray-300 p-2',
-
-        ]);
+        $this->setDefaultSort('issue_report.created_at', 'desc');
+        $this->setSearchFieldAttributes(['class' => 'rounded-lg border border-gray-300 p-2']);
     }
 
     public function columns(): array
     {
         return [
-            Column::make("Issue report id", "issue_report_id")
+            Column::make("Tanggal", "created_at")
+                ->format(fn($value) => $value->timezone('Asia/Jakarta')->translatedFormat('H:i:s, l, d M Y'))
                 ->sortable()
                 ->searchable(),
 
@@ -55,9 +49,8 @@ class PendingIssueTable extends DataTableComponent
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {
-                        $show = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="show(' . $row->issue_report_id . ')">Show</button>';
-                        
-                        $approve = '<button class="approve-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_approve_' . $row->issue_report_id . '\').showModal()">Approve</button>
+                        $show = '<button class="show-btn text-white font-bold p-2 rounded" wire:click="show(' . $row->issue_report_id . ')">Show</button>';
+                        $approve = '<button class="approve-btn text-white font-bold p-2 rounded" onclick="document.getElementById(\'my_modal_approve_' . $row->issue_report_id . '\').showModal()">Approve</button>
                         <dialog id="my_modal_approve_' . $row->issue_report_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
@@ -70,8 +63,7 @@ class PendingIssueTable extends DataTableComponent
                             </div>
                           </div>
                         </dialog>';
-                        
-                        $reject = '<button class="archive-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_reject_' . $row->issue_report_id . '\').showModal()">Reject</button>
+                        $reject = '<button class="archive-btn text-white font-bold p-2 rounded" onclick="document.getElementById(\'my_modal_reject_' . $row->issue_report_id . '\').showModal()">Reject</button>
                         <dialog id="my_modal_reject_' . $row->issue_report_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
@@ -84,8 +76,7 @@ class PendingIssueTable extends DataTableComponent
                             </div>
                           </div>
                         </dialog>';
-                        
-                        return $show . $approve . $reject;
+                        return '<div class="flex items-center gap-2">' . $show . $approve . $reject . '</div>';
                     }
                 )->html(),
         ];
@@ -99,7 +90,7 @@ class PendingIssueTable extends DataTableComponent
     public function approve($id)
     {
         $issue = IssueReportModel::find($id);
-        $issue->approval_status = 'Approved';
+        $issue->approval_status = 'approved';
         $issue->status = StatusIssueReport::Todo;
         $issue->save();
     }
@@ -107,7 +98,7 @@ class PendingIssueTable extends DataTableComponent
     public function reject($id)
     {
         $issue = IssueReportModel::find($id);
-        $issue->approval_status = 'Rejected';
+        $issue->approval_status = 'rejected';
         $issue->save();
     }
 }

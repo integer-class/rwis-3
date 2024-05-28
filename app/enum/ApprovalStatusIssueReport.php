@@ -4,7 +4,7 @@ namespace App\enum;
 
 enum ApprovalStatusIssueReport: string
 {
-    case Pending = 'Pending';
-    case Approved = 'Approved';
-    case Rejected = 'Rejected';
+    case Pending = 'pending';
+    case Approved = 'approved';
+    case Rejected = 'rejected';
 }
