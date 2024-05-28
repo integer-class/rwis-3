@@ -5,7 +5,7 @@
             <img src="{{ asset('img/icon.png') }}" alt="icon" width="70">
             <h6 class="font-bold">RW 11<br>Information<br>System</h6>
         </div>
-        <ul class="menu w-65 rounded-box">
+        <ul class="menu menu-md w-72 rounded-box">
             {{-- Dashboard --}}
             <li>
                 <a class="dashboard" href="{{ url('dashboard') }}">

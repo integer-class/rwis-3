@@ -9,6 +9,7 @@
     @vite('resources/css/app.css')
     <title>{{ config('RWIS') }}</title>
 
+    @stack('head_scripts')
 </head>
 
 <body class="h-screen flex flex-col">
@@ -22,11 +23,10 @@
             @include('admin-layout.footer')
         </main>
     </div>
-
     <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay lg:hidden"></label>
-
     <input id="my-drawer-2" type="checkbox" class="drawer-toggle hidden" />
 
+    @stack('body_scripts')
 </body>
 
 </html>
