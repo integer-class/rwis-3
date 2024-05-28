@@ -1,4 +1,4 @@
-@php use App\enum\RangeIncomeResident; @endphp
+@php use App\Enum\RangeIncomeResident; @endphp
 @extends('admin-layout.base')
 
 @section('content')
@@ -40,6 +40,11 @@
                 </ul>
             </div>
             {{-- content --}}
+            <div class="flex border-b pb-4 mb-4">
+                <div class="flex-1">
+                    <h1 class="text-2xl font-bold">Dashboard</h1>
+                </div>
+            </div>
             <div class="grid grid-cols-12 ">
                 <div class="col-span-5 h-[40rem] border p-4 rounded-md">
                     <canvas id="myChart" width="100" height="100"></canvas>

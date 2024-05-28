@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\enum\RangeIncomeResident;
+use App\Enum\RangeIncomeResident;
 use App\Models\ResidentModel;
 use function Symfony\Component\String\s;
 

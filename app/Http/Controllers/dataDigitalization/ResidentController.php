@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\dataDigitalization;
 
-use App\enum\GenderResident;
-use App\enum\MarriageStatusResident;
-use App\enum\NationalityResident;
-use App\enum\RangeIncomeResident;
-use App\enum\ReligionResident;
+use App\Enum\GenderResident;
+use App\Enum\MarriageStatusResident;
+use App\Enum\NationalityResident;
+use App\Enum\RangeIncomeResident;
+use App\Enum\ReligionResident;
 use App\Http\Controllers\Controller;
 use App\Models\HouseholdModel;
 use App\Models\ResidentModel;

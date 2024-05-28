@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\enum\GenderResident;
-use App\enum\IsArchived;
-use App\enum\MarriageStatusResident;
-use App\enum\NationalityResident;
-use App\enum\ReligionResident;
+use App\Enum\GenderResident;
+use App\Enum\IsArchived;
+use App\Enum\MarriageStatusResident;
+use App\Enum\NationalityResident;
+use App\Enum\ReligionResident;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
