@@ -3,6 +3,7 @@
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\broadcast\BroadcastScheduledController;
 use App\Http\Controllers\broadcast\BroadcastTemplateController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\dataDigitalization\AssetController;
 use App\Http\Controllers\dataDigitalization\bookKeeping\AccountController;
 use App\Http\Controllers\dataDigitalization\bookKeeping\CashMutationController;
@@ -28,9 +29,7 @@ Route::group([], function () {
 });
 
 // dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 // data digitalization route
 Route::group(['prefix' => 'data'], function () {

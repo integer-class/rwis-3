@@ -1,3 +1,4 @@
+@php use App\enum\RangeIncomeResident; @endphp
 @extends('admin-layout.base')
 
 @section('content')
@@ -39,8 +40,8 @@
                 </ul>
             </div>
             {{-- content --}}
-            <div class="grid grid-cols-12 grid-rows-12">
-                <div class="col-span-4 row-span-4 border p-4 rounded-md">
+            <div class="grid grid-cols-12 ">
+                <div class="col-span-5 h-[40rem] border p-4 rounded-md">
                     <canvas id="myChart" width="100" height="100"></canvas>
                 </div>
             </div>
@@ -58,17 +59,44 @@
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: @json($residentIncomes->pluck('range')),
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1
+                    label: 'Rentang Pendapatan Penduduk',
+                    data: @json($residentIncomes->pluck('count')),
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                    ],
                 }]
             },
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: {
+                            min: 0,
+                            stepSize: 1
+                        },
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
                     }
                 }
             }
