@@ -33,4 +33,9 @@ class BroadcastTemplateModel extends Model
     {
         $this->attributes['fillable_fields'] = json_encode($value);
     }
+
+    public function scheduledMessages()
+    {
+        return $this->hasMany(ScheduledMessageModel::class, 'broadcast_template_id', 'broadcast_template_id');
+    }
 }

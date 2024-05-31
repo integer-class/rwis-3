@@ -18,7 +18,7 @@ class RejectedIssueTable extends DataTableComponent
         return IssueReportModel::query()
 
             ->where('issue_report.is_archived', false)
-            ->where('issue_report.approval_status', 'Rejected');
+            ->where('issue_report.approval_status', 'rejected');
     }
 
     public function configure(): void

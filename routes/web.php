@@ -3,6 +3,7 @@
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\broadcast\BroadcastScheduledController;
 use App\Http\Controllers\broadcast\BroadcastTemplateController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\dataDigitalization\AssetController;
 use App\Http\Controllers\dataDigitalization\bookKeeping\AccountController;
 use App\Http\Controllers\dataDigitalization\bookKeeping\CashMutationController;
@@ -28,9 +29,7 @@ Route::group([], function () {
 });
 
 // dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 // data digitalization route
 Route::group(['prefix' => 'data'], function () {
@@ -141,7 +140,7 @@ Route::group(['prefix' => 'issue'], function () {
     Route::group(['prefix' => 'approval'], function () {
         // home
         Route::get('/', [ApprovalController::class, 'index']);
-        Route::get('/show/{id}', [ApprovalController::class, 'show'])->name('issue.approval.show');
+        Route::get('/show/{id}', [ApprovalController::class, 'show'])->name('approval.show');
     });
 });
 
