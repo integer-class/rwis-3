@@ -29,7 +29,7 @@ $informations = [
         <a href="#content" class="bg-primary text-white text-center py-4 w-1/6 rounded-xl font-bold">Yuk Lihat!</a>
     </div>
     <div id="content" class="bg-base-100 py-32">
-        <h2 class="text-4xl font-bold mb-8 text-center text-slate-800">UMKM Information</h2>
+        <h2 class="text-4xl font-bold mb-8 text-center text-slate-800">Eksplorasi RW 11!</h2>
         <div class="flex flex-col gap-4 max-w-[72rem] mx-auto">
             @foreach($informations as $info)
             <a href="{{ url($info['url']) }}">
