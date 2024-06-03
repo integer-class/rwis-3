@@ -23,7 +23,7 @@ $informations = [
 <div class="bg-base-100 h-full">
     @include('user-layout.header')
     <div class="w-full flex px-80 h-full flex-col gap-4" style="background-image: url('/img/homepage.png')">
-        <h1 class="font-bold pt-96 mt-44git  text-white text-6xl w-full">Selamat Datang di<br>Sistem Informasi RW 11!</h1>
+        <h1 class="font-bold pt-96 mt-44 text-white text-6xl w-full">Selamat Datang di<br>Sistem Informasi RW 11!</h1>
         <h2 class="text-white font-bold">Lorem Ipsum Dolor Sit Amet, consectetur adipiscing elit. Duis a hendrerit
             diam.</h2>
         <a href="#content" class="bg-primary text-white text-center py-4 w-1/6 rounded-xl font-bold">Yuk Lihat!</a>
