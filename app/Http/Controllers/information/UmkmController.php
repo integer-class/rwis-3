@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\information;
 
 use App\Http\Controllers\Controller;
+use App\Models\UmkmModel; // Correct class name
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +14,14 @@ class UmkmController extends Controller
      */
     public function index()
     {
-        return Auth::check() ? view('information.umkm.index') : redirect('login');
+        $umkm = UmkmModel::all();
+        return Auth::check() ? view('information.umkm.index', compact('umkm')) : redirect('login');
+    }
+
+    public function archived()
+    {
+        $archivedUmkm = UmkmModel::where('is_archived', true)->get();
+        return Auth::check() ? view('information.umkm.archived', compact('archivedUmkm')) : redirect('/login');
     }
 
     /**
@@ -21,23 +29,41 @@ class UmkmController extends Controller
      */
     public function create()
     {
-        //
+        return Auth::check() ? view('information.umkm.create') : redirect('/login');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    $request->validate([
+        'umkm_id' => 'required',
+        'name' => 'required',
+        'address' => 'required',
+        'description' => 'required',
+        'whatsapp_number' => 'required',
+    ]);
+
+    UmkmModel::create([
+        'umkm_id' => $request->umkm_id,
+        'name' => $request->name,
+        'address' => $request->address,
+        'description' => $request->description,
+        'whatsapp_number' => $request->whatsapp_number,
+        'is_archived' => false
+    ]);
+
+    return redirect('information/umkm')->with('success', 'UMKM has been added');
+}
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $umkm = UmkmModel::findOrFail($id);
+        return view('information.umkm.show', compact('umkm'));
     }
 
     /**
@@ -45,7 +71,8 @@ class UmkmController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $umkm = UmkmModel::findOrFail($id);
+        return Auth::check() ? view('information.umkm.edit', compact('umkm')) : redirect('/login');
     }
 
     /**
@@ -53,7 +80,20 @@ class UmkmController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'address' => 'required|string|max:100',
+            'description' => 'required|string',
+        ]);
+
+        $umkm = UmkmModel::findOrFail($id);
+        $umkm->update([
+            'name' => $request->name,
+            'address' => $request->address,
+            'description' => $request->description,
+        ]);
+
+        return redirect('information/umkm')->with('success', 'UMKM has been updated');
     }
 
     /**
@@ -61,6 +101,9 @@ class UmkmController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $umkm = UmkmModel::findOrFail($id);
+        $umkm->delete();
+
+        return redirect('information/umkm')->with('success', 'UMKM has been deleted');
     }
 }

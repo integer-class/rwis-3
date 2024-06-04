@@ -105,21 +105,29 @@ Route::group(['prefix' => 'information'], function () {
     // facility route
     Route::group(['prefix' => 'facility'], function () {
         Route::get('/', [FacilityController::class, 'index']);
+        Route::get('/archived', [FacilityController::class, 'archived']);
         Route::get('/create', [FacilityController::class, 'create']);
         Route::post('/', [FacilityController::class, 'store']);
-        Route::get('/show/{id}', [FacilityController::class, 'show'])->name('broadcast.template.show');
-        Route::get('/edit/{id}', [FacilityController::class, 'edit'])->name('broadcast.template.edit');
+        Route::get('/show/{id}', [FacilityController::class, 'show'])->name('infromation.facility.show');
+        Route::get('/edit/{id}', [FacilityController::class, 'edit'])->name('infromation.facility.edit');
         Route::put('/{id}', [FacilityController::class, 'update']);
+        Route::get('facility/{id}/edit', [FacilityController::class, 'edit'])->name('facility.edit');
+        Route::get('facility/{id}', [FacilityController::class, 'show'])->name('facility.show');
+
     });
 
     // umkm route
     Route::group(['prefix' => 'umkm'], function () {
         Route::get('/', [UmkmController::class, 'index']);
+        Route::get('/archived', [UmkmController::class, 'archived']);
         Route::get('/create', [UmkmController::class, 'create']);
         Route::post('/', [UmkmController::class, 'store']);
-        Route::get('/show/{id}', [UmkmController::class, 'show'])->name('broadcast.template.show');
-        Route::get('/edit/{id}', [UmkmController::class, 'edit'])->name('broadcast.template.edit');
+        Route::get('/show/{id}', [UmkmController::class, 'show'])->name('infromation.umkm.show');
+        Route::get('/edit/{id}', [UmkmController::class, 'edit'])->name('infromation.umkm.edit');
         Route::put('/{id}', [UmkmController::class, 'update']);
+        Route::get('/archived', [UmkmController::class, 'archived'])->name('umkm.archived');
+        Route::get('umkm/{id}/edit', [UmkmController::class, 'edit'])->name('umkm.edit');
+        Route::get('umkm/{id}', [UmkmController::class, 'show'])->name('umkm.show');
     });
 });
 

@@ -10,27 +10,31 @@
                     <ul>
                         <li><a href="{{ url('information') }}">Home</a></li>
                         <li><a href="{{ url('information/facility') }}">Facility Information</a></li>
+                        <li>Archived Facility Information</li>
                     </ul>
                 </div>
                 <div class="flex justify-end">
-                    <a href="{{ url('information/facility/create') }}" class="add-btn btn-sm mx-2 px-4 py-1.5 bg-blue-500 text-white rounded-md">Add New Facility</a>
-                    <a href="{{ url('information/facility/archived') }}" class="archived-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md">Archived</a>
+                    <a href="{{ url('information/facility/') }}" class="archived-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md">Unarchived</a>
                 </div>
             </div>
-            {{-- Content --}}
+            {{-- content --}}
             @if (session('success'))
                 <div role="alert" class="alert alert-info mb-3 text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                     <span>{{ session('success') }}</span>
                 </div>
             @endif
             @if (session('error'))
                 <div role="alert" class="alert alert-error mb-3 text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                     <span>{{ session('error') }}</span>
                 </div>
             @endif
-            <livewire:facility-table />
+            <livewire:facility-archived />
         </div>
     </div>
 @endsection

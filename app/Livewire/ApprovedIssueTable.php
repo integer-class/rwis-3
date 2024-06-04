@@ -18,7 +18,7 @@ class ApprovedIssueTable extends DataTableComponent
         return IssueReportModel::query()
 
             ->where('issue_report.is_archived', false)
-            ->where('issue_report.approval_status', 'Approved');
+            ->where('issue_report.approval_status', 'approved');
     }
 
     public function configure(): void

@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             IssueReportSeeder::class,
             BroadcastTemplateSeeder::class,
             ScheduledMessageSeeder::class,
+            FacilitySeeder::class,
         ]);
     }
 }
