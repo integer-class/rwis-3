@@ -34,7 +34,7 @@ $informations = [
             @foreach($informations as $info)
             <a href="{{ url($info['url']) }}">
                 <div
-                    class="card card-side bg-base-100 shadow-xl mb-5 hover:text-white hover:bg-primary trloremansition ease-in-out delay-150 hover:-translate-y-1 duration-300">
+                    class="card card-side bg-base-100 shadow-xl mb-5 hover:text-white hover:bg-primary transition ease-in-out delay-150 hover:-translate-y-1 duration-300">
                     <div class="card-body flex justify-center">
                         <h2 class=" text-3xl font-bold">{{ $info['name'] }}</h2>
                         <div class="card-actions justify-start">
