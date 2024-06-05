@@ -15,110 +15,22 @@ class IssueReportSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [
-            [
-                'resident_id' => 1,
-                'title' => 'Jalan Berlubang',
-                'description' => 'Terdapat jalan Berlubang yang sangat mengganggu, tolong diperbaiki secepatnya',
+        $data = [];
+        for ($i = 1; $i <= 2743; $i++) {
+            $data[] = [
+                'resident_id' => fake()->biasedNumberBetween(1, $i),
+                'title' => fake('id_ID')->sentence(1),
+                'description' => fake('id_ID')->sentence(10),
                 'status' => StatusIssueReport::Todo,
                 'approval_status' => ApprovalStatusIssueReport::Pending,
                 'is_archived' => false,
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
-            [
-                'resident_id' => 2,
-                'title' => 'Lampu Jalan Mati',
-                'description' => 'Terdapat lampu jalan yang mati, tolong diperbaiki secepatnya',
-                'status' => StatusIssueReport::Todo,
-                'approval_status' => ApprovalStatusIssueReport::Pending,
-                'is_archived' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'resident_id' => 3,
-                'title' => 'Ada orang nyetel jedag jedug',
-                'description' => 'Ada warga A yang nyetel musik keras banget, tolong diingatkan ya pak RW',
-                'status' => StatusIssueReport::Todo,
-                'approval_status' => ApprovalStatusIssueReport::Pending,
-                'is_archived' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'resident_id' => 4,
-                'title' => 'Banyak beat mber',
-                'description' => 'Ada warga B yang suka beat mber, tolong diingatkan ya pak RW. Berisik banget nih suaranya',
-                'status' => StatusIssueReport::Todo,
-                'approval_status' => ApprovalStatusIssueReport::Pending,
-                'is_archived' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'resident_id' => 5,
-                'title' => 'Pohon Tumbang',
-                'description' => 'Terdapat pohon tumbang di depan rumah saya, tolong diperbaiki secepatnya',
-                'status' => StatusIssueReport::Todo,
-                'approval_status' => ApprovalStatusIssueReport::Pending,
-                'is_archived' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'resident_id' => 6,
-                'title' => 'Toa Masjid Rusak',
-                'description' => 'Toa masjid rusak, tolong diperbaiki secepatnya',
-                'status' => StatusIssueReport::Todo,
-                'approval_status' => ApprovalStatusIssueReport::Pending,
-                'is_archived' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'resident_id' => 7,
-                'title' => 'Atap Balai RW bocor',
-                'description' => 'Atap balai RW bocor, tolong diperbaiki secepatnya',
-                'status' => StatusIssueReport::Todo,
-                'approval_status' => ApprovalStatusIssueReport::Pending,
-                'is_archived' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'resident_id' => 8,
-                'title' => 'Cat Jalan Pudar',
-                'description' => 'Cat jalan pudar, tolong di cat ulang secepatnya',
-                'status' => StatusIssueReport::Todo,
-                'approval_status' => ApprovalStatusIssueReport::Pending,
-                'is_archived' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'resident_id' => 9,
-                'title' => 'Pos Jaga dikencingi kucing',
-                'description' => 'Pos jaga dikencingi kucing, tolong dibersihkan secepatnya',
-                'status' => StatusIssueReport::Todo,
-                'approval_status' => ApprovalStatusIssueReport::Pending,
-                'is_archived' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'resident_id' => 10,
-                'title' => 'Posyandu Kotor',
-                'description' => 'Posyandu kotor, tolong dibersihkan secepatnya',
-                'status' => StatusIssueReport::Todo,
-                'approval_status' => ApprovalStatusIssueReport::Pending,
-                'is_archived' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ];
-
-        DB::table('issue_report')->insert($data);
-        // DB::table('issue_report')->truncate();
+            ];
+        }
+        $chunks = collect($data)->chunk(1000);
+        foreach ($chunks as $chunk) {
+            DB::table('issue_report')->insert($chunk->toArray());
+        }
     }
 }

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Enum\RangeIncomeResident;
+use App\Models\Facility;
+use App\Models\HouseholdModel;
+use App\Models\IssueReportModel;
 use App\Models\ResidentModel;
-use function Symfony\Component\String\s;
+use App\Models\UmkmModel;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -29,8 +33,39 @@ class DashboardController extends Controller
             }, collect())
             ->sortKeys()
             ->values();
+        // group by genders and count them
+        $genders = ResidentModel::query()
+            ->select('gender')
+            ->get()
+            ->groupBy('gender')
+            ->map(function ($item, $key) {
+                return ['gender' => $key, 'count' => count($item)];
+            })
+            ->values();
+        $ageGroups = DB::table('resident')
+            ->select(
+                DB::raw('EXTRACT(YEAR FROM AGE(NOW(), date_of_birth)) AS age'),
+            )
+            ->get()
+            ->groupBy(function ($item) {
+                return $item->age >= 15 && $item->age <= 64 ? 'Produktif' : 'Tidak Produktif';
+            })
+            ->map(function ($item, $key) {
+                return ['group' => $key, 'count' => count($item)];
+            })
+            ->values();
+        $totalResidents = ResidentModel::query()->count();
+        $totalHouseholds = HouseholdModel::query()->count();
+        $totalReports = IssueReportModel::query()->count();
+        $totalFacilities = Facility::query()->count();
         return view('dashboard', [
-            'residentIncomes' => $residentIncomes
+            'residentIncomes' => $residentIncomes,
+            'genders' => $genders,
+            'totalResidents' => $totalResidents,
+            'totalHouseholds' => $totalHouseholds,
+            'totalReports' => $totalReports,
+            'totalFacilities' => $totalFacilities,
+            'ageGroups' => $ageGroups,
         ]);
     }
 }

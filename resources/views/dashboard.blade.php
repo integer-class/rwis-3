@@ -31,12 +31,6 @@
                             Broadcast
                         </a>
                     </li>
-                    <li class="flex-1">
-                        <a class="btn w-full" href="{{ url('signature') }}">
-                            <span class="icon-[ic--round-qr-code text-xl mt-0.5"></span>
-                            Signature
-                        </a>
-                    </li>
                 </ul>
             </div>
             {{-- content --}}
@@ -45,9 +39,41 @@
                     <h1 class="text-2xl font-bold">Dashboard</h1>
                 </div>
             </div>
-            <div class="grid grid-cols-12 ">
-                <div class="col-span-5 h-[40rem] border p-4 rounded-md">
-                    <canvas id="myChart" width="100" height="100"></canvas>
+            <div class="grid grid-cols-12 gap-4 h-[8rem] mb-4">
+                <div class="col-span-3 border p-4 rounded-md relative">
+                    <h3 class="text-lg font-medium text-slate-700">Penduduk</h3>
+                    <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
+                        {{ $totalResidents }}
+                    </p>
+                </div>
+                <div class="col-span-3 border p-4 rounded-md relative">
+                    <h3 class="text-lg font-medium text-slate-700">Keluarga</h3>
+                    <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
+                        {{ $totalHouseholds }}
+                    </p>
+                </div>
+                <div class="col-span-3 border p-4 rounded-md relative">
+                    <h3 class="text-lg font-medium text-slate-700">Laporan</h3>
+                    <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
+                        {{ $totalReports }}
+                    </p>
+                </div>
+                <div class="col-span-3 border p-4 rounded-md relative">
+                    <h3 class="text-lg font-medium text-slate-700">Fasilitas</h3>
+                    <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
+                        {{ $totalFacilities }}
+                    </p>
+                </div>
+            </div>
+            <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-5 h-[36rem] border p-4 rounded-md">
+                    <canvas id="salary" width="100" height="100"></canvas>
+                </div>
+                <div class="col-span-5 h-[14rem] border p-4 rounded-md">
+                    <canvas id="gender" width="280" height="100"></canvas>
+                </div>
+                <div class="col-span-2 h-[14rem] border p-4 rounded-md">
+                    <canvas id="age-group" width="100" height="100"></canvas>
                 </div>
             </div>
         </div>
@@ -60,8 +86,8 @@
 
 @push('body_scripts')
     <script>
-        const ctx = document.getElementById('myChart');
-        new Chart(ctx, {
+        const salaryCtx = document.getElementById('salary');
+        new Chart(salaryCtx, {
             type: 'bar',
             data: {
                 labels: @json($residentIncomes->pluck('range')),
@@ -105,6 +131,65 @@
                     }
                 }
             }
+        });
+
+        const genderCtx = document.getElementById('gender');
+        new Chart(genderCtx, {
+            type: 'bar',
+            data: {
+                labels: @json($genders->pluck('gender')),
+                datasets: [{
+                    label: 'Jenis Kelamin Penduduk',
+                    data: @json($genders->pluck('count')),
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                    ],
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            min: 0,
+                            stepSize: 1
+                        },
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        const ageGroupCtx = document.getElementById('age-group');
+        new Chart(ageGroupCtx, {
+            type: 'pie',
+            data: {
+                labels: @json($ageGroups->pluck('group')),
+                datasets: [{
+                    label: 'Usia Penduduk',
+                    data: @json($ageGroups->pluck('count')),
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgb(75, 192, 192)',
+                        'rgb(255, 205, 86)',
+                    ],
+                }]
+            },
         });
     </script>
 @endpush
