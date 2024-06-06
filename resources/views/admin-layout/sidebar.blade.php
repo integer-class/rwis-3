@@ -112,7 +112,7 @@
                         <h6 class="mx-2 mt-1">Social Aid</h6>
                     </summary>
                     <ul>
-                        <li id="template"><a href="{{ url('social/calculate') }}"><span
+                        <li id="calculate"><a href="{{ url('social/calculate') }}"><span
                                     class="icon-[material-symbols--chat-outline-rounded] text-xl mb-2"></span>Calculate</a>
                         </li>
                     </ul>

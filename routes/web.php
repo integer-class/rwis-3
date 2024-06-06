@@ -181,3 +181,16 @@ Route::group(['prefix' => 'broadcast'], function () {
         Route::put('/{id}', [BroadcastScheduledController::class, 'update'])->middleware('auth.guard');
     });
 });
+
+// social aid route
+Route::group(['prefix' => 'social'], function () {
+    // home
+    Route::get('/', function () {
+        return view('social.index');
+    })->middleware('auth.guard');
+
+    // calculate route
+    Route::group(['prefix' => 'calculate'], function () {
+        Route::get('/', [CalculateController::class, 'index'])->middleware('auth.guard');
+    });
+});
