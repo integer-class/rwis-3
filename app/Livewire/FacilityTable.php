@@ -37,11 +37,11 @@ class FacilityTable extends DataTableComponent
             Column::make("Facility id", "facility_id")
                 ->sortable(),
             Column::make("Name", "name")
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             Column::make("Address", "address")
-                ->sortable(),
-            Column::make("Description", "description")
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {

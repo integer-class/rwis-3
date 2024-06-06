@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('address', 100);
             $table->text('description');
+            $table->string('image')->nullable();
             $table->boolean('is_archived')->default(false);
             $table->timestamps();
         });
