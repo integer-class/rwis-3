@@ -15,12 +15,12 @@ class HouseholdController extends Controller
      */
     public function index()
     {
-        return Auth::check() ? view('data-digitalization.household.index') : redirect('/login');
+        return view('data-digitalization.household.index');
     }
 
     public function archived()
     {
-        return Auth::check() ? view('data-digitalization.household.archived') : redirect('/login');
+        return view('data-digitalization.household.archived');
     }
 
     /**
@@ -29,7 +29,7 @@ class HouseholdController extends Controller
     public function create()
     {
         $familyHead = ResidentModel::all();
-        return Auth::check() ? view('data-digitalization.household.create', ['familyHead' => $familyHead]) : redirect('/login');
+        return view('data-digitalization.household.create', ['familyHead' => $familyHead]);
     }
 
     /**
@@ -78,7 +78,7 @@ class HouseholdController extends Controller
         ->where('household_id', $id)
         ->where('is_archived', false)
         ->get();
-        return Auth::check() ? view('data-digitalization.household.show', ['household' => $household, 'resident' => $resident]) : redirect('/login');
+        return view('data-digitalization.household.show', ['household' => $household, 'resident' => $resident]);
     }
 
     /**
@@ -88,7 +88,7 @@ class HouseholdController extends Controller
     {
         $familyHead = ResidentModel::all();
         $household = HouseholdModel::find($id);
-        return Auth::check() ? view('data-digitalization.household.edit', ['household' => $household, 'familyHead' => $familyHead]) : redirect('/login');
+        return view('data-digitalization.household.edit', ['household' => $household, 'familyHead' => $familyHead]);
     }
 
     /**

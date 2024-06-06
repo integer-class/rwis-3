@@ -22,7 +22,7 @@ class FacilityController extends Controller
     public function archived()
     {
         $archivedFacilities = Facility::where('is_archived', true)->get();
-        return Auth::check() ? view('information.facility.archived', compact('archivedFacilities')) : redirect('/login');
+        return view('information.facility.archived', compact('archivedFacilities'));
     }
 
 
@@ -32,7 +32,7 @@ class FacilityController extends Controller
     public function create()
     {
         //upload image
-        return Auth::check() ? view('information.facility.create') : redirect('/login');
+        return view('information.facility.create');
     }
 
 
@@ -85,7 +85,7 @@ public function show(string $id)
     public function edit(string $id)
     {
         $facility = Facility::findOrFail($id);
-        return Auth::check() ? view('information.facility.edit', compact('facility')) : redirect('/login');
+        return view('information.facility.edit', compact('facility'));
     }
 
 

@@ -15,13 +15,13 @@ class UmkmController extends Controller
     public function index()
     {
         $umkm = UmkmModel::all();
-        return Auth::check() ? view('information.umkm.index', compact('umkm')) : redirect('login');
+        return view('information.umkm.index', compact('umkm'));
     }
 
     public function archived()
     {
         $archivedUmkm = UmkmModel::where('is_archived', true)->get();
-        return Auth::check() ? view('information.umkm.archived', compact('archivedUmkm')) : redirect('/login');
+        return view('information.umkm.archived', compact('archivedUmkm'));
     }
 
     /**
@@ -29,7 +29,7 @@ class UmkmController extends Controller
      */
     public function create()
     {
-        return Auth::check() ? view('information.umkm.create') : redirect('/login');
+        return view('information.umkm.create');
     }
 
     /**
@@ -72,7 +72,7 @@ class UmkmController extends Controller
     public function edit(string $id)
     {
         $umkm = UmkmModel::findOrFail($id);
-        return Auth::check() ? view('information.umkm.edit', compact('umkm')) : redirect('/login');
+        return view('information.umkm.edit', compact('umkm'));
     }
 
     /**

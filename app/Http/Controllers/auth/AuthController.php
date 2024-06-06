@@ -13,7 +13,7 @@ class AuthController extends Controller
      */
     public function index()
     {
-        return Auth::check() ? redirect('dashboard') : view('auth.login');
+        return view('auth.login');
     }
 
     /**

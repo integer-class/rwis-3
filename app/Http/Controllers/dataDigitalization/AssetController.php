@@ -15,12 +15,12 @@ class AssetController extends Controller
      */
     public function index()
     {
-        return Auth::check() ? view('data-digitalization.asset.index') : redirect('/login');
+        return view('data-digitalization.asset.index');
     }
 
     public function archived()
     {
-        return Auth::check() ? view('data-digitalization.asset.archived') : redirect('/login');
+        return view('data-digitalization.asset.archived');
     }
 
     /**
@@ -29,7 +29,7 @@ class AssetController extends Controller
     public function create()
     {
         $household = HouseholdModel::all();
-        return Auth::check() ? view('data-digitalization.asset.create', ['household' => $household]) : redirect('/login');
+        return view('data-digitalization.asset.create', ['household' => $household]);
     }
 
     /**
@@ -57,7 +57,7 @@ class AssetController extends Controller
     public function show(string $id)
     {
         $asset = AssetModel::with('household')->find($id);
-        return Auth::check() ? view('data-digitalization.asset.show', ['asset' => $asset]) : redirect('/login');
+        return view('data-digitalization.asset.show', ['asset' => $asset]);
     }
 
     /**
@@ -67,7 +67,7 @@ class AssetController extends Controller
     {
         $household = HouseholdModel::all();
         $asset = AssetModel::find($id);
-        return Auth::check() ? view('data-digitalization.asset.edit', ['household' => $household, 'asset' => $asset]) : redirect('/login');
+        return view('data-digitalization.asset.edit', ['household' => $household, 'asset' => $asset]);
     }
 
     /**
