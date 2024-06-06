@@ -13,7 +13,7 @@ class BroadcastScheduledController extends Controller
      */
     public function index()
     {
-        return Auth::check() ? view('broadcast.scheduled.index') : redirect('login');
+        return view('broadcast.scheduled.index');
     }
 
     /**

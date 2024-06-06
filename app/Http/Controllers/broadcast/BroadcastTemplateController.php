@@ -15,12 +15,12 @@ class BroadcastTemplateController extends Controller
      */
     public function index()
     {
-        return Auth::check() ? view('broadcast.template.index') : redirect('login');
+        return view('broadcast.template.index');
     }
 
     public function archived()
     {
-        return Auth::check() ? view('broadcast.template.archived') : redirect('login');
+        return view('broadcast.template.archived');
     }
 
     /**
@@ -28,7 +28,7 @@ class BroadcastTemplateController extends Controller
      */
     public function create()
     {
-        return Auth::check() ? view('broadcast.template.create') : redirect('login');
+        return view('broadcast.template.create');
     }
 
     /**
@@ -58,7 +58,7 @@ class BroadcastTemplateController extends Controller
     {
         $template = BroadcastTemplateModel::find($id);
         $fields = is_array($template->fillable_fields) ? implode(', ', $template->fillable_fields) : $template->fillable_fields;
-        return Auth::check() ? view('broadcast.template.show', ['template' => $template, 'fields' => $fields]) : redirect('login');
+        return view('broadcast.template.show', ['template' => $template, 'fields' => $fields]);
     }
 
     /**
@@ -67,7 +67,7 @@ class BroadcastTemplateController extends Controller
     public function edit(string $id)
     {
         $template = BroadcastTemplateModel::find($id);
-        return Auth::check() ? view('broadcast.template.edit', ['template' => $template]) : redirect('login');
+        return view('broadcast.template.edit', ['template' => $template]);
     }
 
     /**
