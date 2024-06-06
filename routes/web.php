@@ -14,8 +14,6 @@ use App\Http\Controllers\information\FacilityController;
 use App\Http\Controllers\information\UmkmController;
 use App\Http\Controllers\issueTracker\ApprovalController;
 use App\Http\Controllers\issueTracker\ReportController;
-use App\Http\Controllers\signature\DocumentFormatController;
-use App\Http\Controllers\signature\LogController;
 use App\Http\Controllers\social\CalculateController;
 use App\Http\Controllers\user\MenuController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +25,7 @@ Route::get('/', function () {
 Route::group([], function () {
     Route::get('/facility', [MenuController::class, 'facility'])->name('facility');
     Route::get('/umkm', [MenuController::class, 'umkm'])->name('umkm');
+    Route::get('/issue-report', [MenuController::class, 'issue'])->name('issue');
 });
 
 // auth route
