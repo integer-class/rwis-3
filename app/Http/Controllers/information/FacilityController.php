@@ -31,6 +31,7 @@ class FacilityController extends Controller
      */
     public function create()
     {
+        //upload image
         return Auth::check() ? view('information.facility.create') : redirect('/login');
     }
 
@@ -40,6 +41,9 @@ class FacilityController extends Controller
      */
     public function store(Request $request)
     {
+        //upload image
+        return $request->file('image')->store('post-image');
+
         $request->validate([
             'facility_id' => 'required',
             'name' => 'required',
@@ -63,12 +67,16 @@ class FacilityController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    /*public function show($id)
     {
     $facility = Facility::findOrFail($id);
     return view('information.facility.show', compact('facility'));
-    }
-
+    }*/
+public function show(string $id)
+{
+    $facility = Facility::find($id);
+    return view('information.facility.show', compact('facility'));
+}
 
 
     /**

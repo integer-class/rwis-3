@@ -14,8 +14,8 @@
                     </ul>
                 </div>
             </div>
-            {{-- content --}}
-            <form action="{{ url('information/facility') }}" method="POST" class="flex flex-col space-y-4 w-full form mr-3">
+            {{-- Content --}}
+            <form action="{{ url('information/facility') }}" method="POST" enctype="multipart/form-data" class="flex flex-col space-y-4 w-full form mr-3">
                 @csrf
                 @if ($errors->any())
                     <div class="bg-red-100 text-red-500 p-2 rounded-lg">
@@ -45,6 +45,10 @@
                     <label for="description">Description</label>
                     <input type="text" name="description" id="description"
                         class="rounded-md border border-gray-300 p-2" placeholder="Enter Facility Description">
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Image</label>
+                    <input class="form-control" type="file" name="image" id="image">
                 </div>
                 <div class="flex">
                     <button type="submit" class="add-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md mt-5 w-1/6">Add</button>

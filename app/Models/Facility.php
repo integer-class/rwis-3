@@ -15,6 +15,7 @@ class Facility extends Model
         'name', 
         'address', 
         'description',
+        'image',
         'is_archived' 
     ];
     protected $primaryKey = 'facility_id';
