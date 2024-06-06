@@ -40,8 +40,8 @@
             @endif
 
             <div class="h-20 grid grid-row md:grid-cols-4 gap-5">
-                <div class="bg-yellow-300 p-3 rounded-md">
-                    <h3 class="text-xl">To do</h3>
+                <div class="bg-indigo-600 p-5 rounded-md">
+                    <h3 class="text-xl text-white font-bold">To do</h3>
                     @foreach ($todo as $item)
                         @php
                             $updateModalId = 'update_modal_' . $item->issue_report_id;
@@ -57,7 +57,7 @@
                                         Status</button>
                                     <button class="btn btn-sm btn-error text-white"
                                         onclick="document.getElementById('{{ $archiveModalId }}').showModal()">Archive</button>
-                                    
+
                                     {{-- modal Update Status --}}
                                     <dialog id="{{ $updateModalId }}" class="modal">
                                         <div class="modal-box">
@@ -139,8 +139,8 @@
                     @endforeach
                 </div>
 
-                <div class="bg-blue-300 p-3 rounded-md">
-                    <h3 class="text-xl">On Going</h3>
+                <div class="bg-orange-400 p-5 rounded-md">
+                    <h3 class="text-xl font-bold text-white">On Going</h3>
                     @foreach ($onGoing as $item)
                         @php
                             $updateModalId = 'update_modal_' . $item->issue_report_id;
@@ -156,7 +156,7 @@
                                         Status</button>
                                     <button class="btn btn-sm btn-error text-white"
                                         onclick="document.getElementById('{{ $archiveModalId }}').showModal()">Archive</button>
-                                    
+
                                     {{-- modal Update Status --}}
                                     <dialog id="{{ $updateModalId }}" class="modal">
                                         <div class="modal-box">
@@ -238,8 +238,8 @@
                     @endforeach
                 </div>
 
-                <div class="bg-green-300 p-3 rounded-md">
-                    <h3 class="text-xl">Solved</h3>
+                <div class="bg-emerald-400 p-5 rounded-md">
+                    <h3 class="text-xl font-bold text-white">Solved</h3>
                     @foreach ($solved as $item)
                         @php
                             $updateModalId = 'update_modal_' . $item->issue_report_id;
@@ -255,7 +255,7 @@
                                         Status</button>
                                     <button class="btn btn-sm btn-error text-white"
                                         onclick="document.getElementById('{{ $archiveModalId }}').showModal()">Archive</button>
-                                    
+
                                     {{-- modal Update Status --}}
                                     <dialog id="{{ $updateModalId }}" class="modal">
                                         <div class="modal-box">
@@ -337,8 +337,8 @@
                     @endforeach
                 </div>
 
-                <div class="bg-red-300 p-3 rounded-md">
-                    <h3 class="text-xl">Invalid</h3>
+                <div class="bg-red-400 p-5 rounded-md">
+                    <h3 class="text-xl font-bold text-white">Invalid</h3>
                     @foreach ($invalid as $item)
                         @php
                             $updateModalId = 'update_modal_' . $item->issue_report_id;
@@ -354,7 +354,7 @@
                                         Status</button>
                                     <button class="btn btn-sm btn-error text-white"
                                         onclick="document.getElementById('{{ $archiveModalId }}').showModal()">Archive</button>
-                                    
+
                                     {{-- modal Update Status --}}
                                     <dialog id="{{ $updateModalId }}" class="modal">
                                         <div class="modal-box">
