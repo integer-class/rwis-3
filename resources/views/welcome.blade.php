@@ -62,15 +62,22 @@
                 </div>
                 <h2 class="pt-32 pb-8 text-center text-slate-800 font-bold text-4xl">Tentang RW 11 Information
                     System</h2>
-                <p class="text-center text-slate-800 text-2xl px-80">Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Corporis doloremque earum et id nesciunt nihil sed sequi sint totam ut. Architecto blanditiis
-                    distinctio earum facilis iure quia, quibusdam repellat sed. Earum est et mollitia, nobis odit
-                    perspiciatis quam velit voluptatem?</p>
+                <p class="text-center text-slate-800 text-2xl px-80">
+                    RW 11 Information System adalah sebuah sistem informasi yang bertujuan untuk memfasilitasi komunikasi
+                    dan pengelolaan informasi di lingkungan Muharto, RW 11, Kota Malang. Sistem ini dibuat untuk
+                    mempermudah warga dalam mendapatkan informasi terkini seputar lingkungan tempat tinggal mereka.
+                </p>
             </div>
             <div class="bg-indigo-900 w-full px-80 py-16">
-                <div class="flex items-center gap-3 w-1/12">
-                    <img src="{{ asset('img/icon.png') }}" alt="icon" width="64">
-                    <h6 class="font-bold text-white">RW 11 Information System</h6>
+                <div class="flex items-center gap-3">
+                    <img
+                        src="{{ request('uwu') === "true" ? asset('img/icon_uwu.png') : asset('img/icon.png') }}"
+                        class="h-auto {{ request('uwu') === "true" ? 'w-48' : 'w-16' }}"
+                        alt="icon"
+                    >
+                    @if(!request('uwu'))
+                        <h6 class="font-bold text-white">RW 11<br> Information<br> System</h6>
+                    @endif
                 </div>
                 <div class="flex w-full">
                     <div class="pt-12 flex flex-col gap-6 max-w-[72rem] w-1/2">
@@ -104,23 +111,3 @@
     </body>
 
 </html>
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!---->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    @vite('resources/css/app.css')-->
-<!--    <title>test</title>-->
-<!--</head>-->
-<!---->
-<!--<body>-->
-<!--<h1 class="text-3xl font-bold underline">-->
-<!--    Hello world!-->
-<!--</h1>-->
-<!--<a href="{{ url('/login') }}">login</a>-->
-<!--</body>-->
-<!---->
-<!--</html>-->
