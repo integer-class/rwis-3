@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             BroadcastTemplateSeeder::class,
             ScheduledMessageSeeder::class,
             FacilitySeeder::class,
+            UmkmSeeder::class,
         ]);
     }
 }

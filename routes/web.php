@@ -36,8 +36,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::group(['prefix' => 'data'], function () {
     // home
     Route::get('/', function () {
-        return view('data-digitalization.index')->middleware('auth.guard');
-    });
+        return view('data-digitalization.index');
+    })->middleware('auth.guard');;
     // resident route
     Route::group(['prefix' => 'resident'], function () {
         Route::get('/', [ResidentController::class, 'index'])->middleware('auth.guard');
@@ -157,7 +157,7 @@ Route::group(['prefix' => 'issue'], function () {
 Route::group(['prefix' => 'broadcast'], function () {
     // home
     Route::get('/', function () {
-        return view('broadcast.index')->middleware('auth.guard');
+        return view('broadcast.index');
     })->middleware('auth.guard');
 
     // template route

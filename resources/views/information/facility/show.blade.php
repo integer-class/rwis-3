@@ -41,7 +41,7 @@
                         <dt class="text-sm font-medium text-gray-500">Image</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2">
                             @if($facility->image)
-                            <img src="{{ asset('/public/post-image/' . $facility->image) }}" alt="Facility Image" class="w-32 h-32">
+                            <img src="{{ asset($facility->image) }}" alt="Facility Image" class="w-full">
                             @else
                                 No image available
                             @endif
