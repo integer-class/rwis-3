@@ -24,6 +24,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group([], function () {
+    Route::get('/facility', [MenuController::class, 'facility'])->name('facility');
+    Route::get('/umkm', [MenuController::class, 'umkm'])->name('umkm');
+});
+
 // auth route
 Route::group([], function () {
     Route::get('/login', [AuthController::class, 'index']);
