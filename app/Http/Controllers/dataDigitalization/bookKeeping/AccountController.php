@@ -15,12 +15,12 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return Auth::check() ? view('data-digitalization.book-keeping.account.index') : redirect('/login');
+        return view('data-digitalization.book-keeping.account.index');
     }
 
     public function archived()
     {
-        return Auth::check() ? view('data-digitalization.book-keeping.account.archived') : redirect('/login');
+        return view('data-digitalization.book-keeping.account.archived');
     }
 
     /**
@@ -29,7 +29,7 @@ class AccountController extends Controller
     public function create()
     {
         $household = HouseholdModel::all();
-        return Auth::check() ? view('data-digitalization.book-keeping.account.create', ['household' => $household]) : redirect('/login');
+        return view('data-digitalization.book-keeping.account.create', ['household' => $household]);
     }
 
     /**
@@ -60,7 +60,7 @@ class AccountController extends Controller
     public function show(string $id)
     {
         $account = AccountModel::find($id);
-        return Auth::check() ? view('data-digitalization.book-keeping.account.show', ['account' => $account]) : redirect('/login');
+        return view('data-digitalization.book-keeping.account.show', ['account' => $account]);
     }
 
     /**
@@ -70,7 +70,7 @@ class AccountController extends Controller
     {
         $account = AccountModel::find($id);
         $household = HouseholdModel::all();
-        return Auth::check() ? view('data-digitalization.book-keeping.account.edit', ['account' => $account, 'household' => $household]) : redirect('/login');
+        return view('data-digitalization.book-keeping.account.edit', ['account' => $account, 'household' => $household]);
     }
 
     /**

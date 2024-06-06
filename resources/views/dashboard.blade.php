@@ -8,25 +8,25 @@
             <div class="flex w-full pb-4 border-b mb-4">
                 <ul class="flex items-center gap-4 w-full">
                     <li class="flex-1">
-                        <a class="btn w-full" href="{{ url('information') }}">
+                        <a class="btn hover:btn-primary w-full" href="{{ url('information') }}">
                             <span class="icon-[ic--outline-info] text-xl mt-0.5"></span>
                             Information Centre
                         </a>
                     </li>
                     <li class="flex-1">
-                        <a class="btn w-full" href="{{ url('data') }}">
+                        <a class="btn hover:btn-primary w-full" href="{{ url('data') }}">
                             <span class="icon-[ic--baseline-public] text-xl mt-0.5"></span>
                             Data Digitalization
                         </a>
                     </li>
                     <li class="flex-1">
-                        <a class="btn w-full" href="{{ url('issue') }}">
+                        <a class="btn hover:btn-primary w-full" href="{{ url('issue') }}">
                             <span class="icon-[ic--round-track-changes] text-xl mt-0.5"></span>
                             Issue Tracker
                         </a>
                     </li>
                     <li class="flex-1">
-                        <a class="btn w-full" href="{{ url('broadcast') }}">
+                        <a class="btn hover:btn-primary w-full" href="{{ url('broadcast') }}">
                             <span class="icon-[ic--round-podcasts] text-xl mt-0.5"></span>
                             Broadcast
                         </a>
@@ -45,7 +45,7 @@
                     <h1 class="text-2xl font-bold">Dashboard</h1>
                 </div>
             </div>
-            <div class="grid grid-cols-12 gap-4 h-[8rem] mb-4">
+            <div class="grid grid-cols-12 gap-4 h-[20rem] mb-4">
                 <div class="col-span-3 border p-4 rounded-md relative">
                     <h3 class="text-lg font-medium text-slate-700">Penduduk</h3>
 
@@ -60,15 +60,39 @@
                     </p>
                 </div>
                 <div class="col-span-3 border p-4 rounded-md relative">
-                    <h3 class="text-lg font-medium text-slate-700">Laporan</h3>
+                    <h3 class="text-lg font-medium text-slate-700">Laporan Baru</h3>
                     <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
-                        {{ $totalReports }}
+                        {{ $totalReportToDo }}
                     </p>
                 </div>
                 <div class="col-span-3 border p-4 rounded-md relative">
-                    <h3 class="text-lg font-medium text-slate-700">Fasilitas / UMKM</h3>
+                    <h3 class="text-lg font-medium text-slate-700">Laporan Sedang Diproses</h3>
+                    <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
+                        {{ $totalReportOnGoing }}
+                    </p>
+                </div>
+                <div class="col-span-3 border p-4 rounded-md relative">
+                    <h3 class="text-lg font-medium text-slate-700">Laporan Sudah Selesai</h3>
+                    <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
+                        {{ $totalReportSolved }}
+                    </p>
+                </div>
+                <div class="col-span-3 border p-4 rounded-md relative">
+                    <h3 class="text-lg font-medium text-slate-700">Laporan Dibatalkan</h3>
+                    <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
+                        {{ $totalReportInvalid }}
+                    </p>
+                </div>
+                <div class="col-span-3 border p-4 rounded-md relative">
+                    <h3 class="text-lg font-medium text-slate-700">Fasilitas</h3>
                     <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
                         {{ $totalFacilities }}
+                    </p>
+                </div>
+                <div class="col-span-3 border p-4 rounded-md relative">
+                    <h3 class="text-lg font-medium text-slate-700">UMKM</h3>
+                    <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
+                        {{ $totalUmkm }}
                     </p>
                 </div>
             </div>

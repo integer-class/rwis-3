@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enum\RangeIncomeResident;
+use App\Enum\StatusIssueReport;
 use App\Models\CashMutationModel;
 use App\Models\Facility;
 use App\Models\HouseholdModel;
@@ -78,15 +79,24 @@ class DashboardController extends Controller
         $totalReports = IssueReportModel::query()->count();
         $totalFacilities = Facility::query()->count();
         $totalUmkm = UmkmModel::query()->count();
+        $totalReportToDo = IssueReportModel::query()->where('status', StatusIssueReport::Todo)->count();
+        $totalReportOnGoing = IssueReportModel::query()->where('status', StatusIssueReport::OnGoing)->count();
+        $totalReportSolved = IssueReportModel::query()->where('status', StatusIssueReport::Solved)->count();
+        $totalReportInvalid = IssueReportModel::query()->where('status', StatusIssueReport::Invalid)->count();
         return view('dashboard', [
             'residentIncomes' => $residentIncomes,
             'genders' => $genders,
             'totalResidents' => $totalResidents,
             'totalHouseholds' => $totalHouseholds,
             'totalReports' => $totalReports,
-            'totalFacilities' => $totalFacilities + $totalUmkm,
+            'totalFacilities' => $totalFacilities,
+            'totalUmkm' => $totalUmkm,
             'ageGroups' => $ageGroups,
             'mutations' => $mutations,
+            'totalReportToDo' => $totalReportToDo,
+            'totalReportOnGoing' => $totalReportOnGoing,
+            'totalReportSolved' => $totalReportSolved,
+            'totalReportInvalid' => $totalReportInvalid,
         ]);
     }
 }

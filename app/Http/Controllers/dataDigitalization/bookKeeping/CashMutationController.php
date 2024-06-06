@@ -15,12 +15,12 @@ class CashMutationController extends Controller
      */
     public function index()
     {
-        return Auth::check() ? view('data-digitalization.book-keeping.cash-mutation.index') : redirect('/login');
+        return view('data-digitalization.book-keeping.cash-mutation.index');
     }
 
     public function archived()
     {
-        return Auth::check() ? view('data-digitalization.book-keeping.cash-mutation.archived') : redirect('/login');
+        return view('data-digitalization.book-keeping.cash-mutation.archived');
     }
 
     /**
@@ -30,7 +30,7 @@ class CashMutationController extends Controller
     {
         $cash_mutation_code = "CM-" . date('Ymd') . "-" . str_pad(CashMutationModel::count() + 1, 4, '0', STR_PAD_LEFT);
         $account = AccountModel::all();
-        return Auth::check() ? view('data-digitalization.book-keeping.cash-mutation.create', ['account' => $account, 'cash_mutation_code' => $cash_mutation_code]) : redirect('/login');
+        return view('data-digitalization.book-keeping.cash-mutation.create', ['account' => $account, 'cash_mutation_code' => $cash_mutation_code]);
     }
 
     /**
@@ -71,6 +71,6 @@ class CashMutationController extends Controller
     public function show(string $id)
     {
         $cashMutation = CashMutationModel::find($id);
-        return Auth::check() ? view('data-digitalization.book-keeping.cash-mutation.show', compact('cashMutation')) : redirect('/login');
+        return Aview('data-digitalization.book-keeping.cash-mutation.show', compact('cashMutation'));
     }
 }

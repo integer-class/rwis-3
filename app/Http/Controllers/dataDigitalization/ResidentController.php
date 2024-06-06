@@ -20,12 +20,12 @@ class ResidentController extends Controller
      */
     public function index()
     {
-        return Auth::check() ? view('data-digitalization.resident.index') : redirect('/login');
+        return view('data-digitalization.resident.index');
     }
 
     public function archived()
     {
-        return Auth::check() ? view('data-digitalization.resident.archived') : redirect('/login');
+        return view('data-digitalization.resident.archived');
     }
 
     /**
@@ -39,7 +39,7 @@ class ResidentController extends Controller
         $nationality = array_map(fn ($case) => $case->value, NationalityResident::cases());
         $range_income = array_map(fn ($case) => $case->value, RangeIncomeResident::cases());
         $household = HouseholdModel::all();
-        return Auth::check() ? view('data-digitalization.resident.create', ['gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household, 'range_income' => $range_income]) : redirect('/login');
+        return view('data-digitalization.resident.create', ['gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household, 'range_income' => $range_income]);
     }
 
     /**
@@ -89,7 +89,7 @@ class ResidentController extends Controller
     public function show(string $id)
     {
         $resident = ResidentModel::with('household')->find($id);
-        return Auth::check() ? view('data-digitalization.resident.show', ['resident' => $resident]) : redirect('/login');
+        return view('data-digitalization.resident.show', ['resident' => $resident]);
     }
 
     /**
@@ -104,7 +104,7 @@ class ResidentController extends Controller
         $range_income = array_map(fn ($case) => $case->value, RangeIncomeResident::cases());
         $household = HouseholdModel::all();
         $resident = ResidentModel::find($id);
-        return Auth::check() ? view('data-digitalization.resident.edit', ['resident' => $resident, 'gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household, 'range_income' => $range_income]) : redirect('/login');
+        return view('data-digitalization.resident.edit', ['resident' => $resident, 'gender' => $gender, 'religion' => $religion, 'marriageStatus' => $marriageStatus, 'nationality' => $nationality, 'household' => $household, 'range_income' => $range_income]);
     }
 
     /**
