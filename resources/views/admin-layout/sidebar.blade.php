@@ -110,24 +110,6 @@
                     </ul>
                 </details>
             </li>
-            {{-- Signature --}}
-            <li>
-                <details id="signature">
-                    <summary>
-                        <span class="icon-[ic--round-qr-code] text-xl mt-0.5"></span>
-                        <h6 class="mx-2 mt-1">Signature</h6>
-                    </summary>
-                    <ul>
-                        <li id="document-format"><a href="{{ url('signature/document-format') }}"><span
-                                    class="icon-[material-symbols--edit-document-outline-rounded] text-xl mb-2"
-                                ></span>Format</a>
-                        </li>
-                        <li id="log"><a href="{{ url('signature/log') }}"><span
-                                    class="icon-[ic--round-history] text-xl mb-2"
-                                ></span>Log</a></li>
-                    </ul>
-                </details>
-            </li>
             {{-- Logout --}}
             <div tabindex="0" class="mt-5 text-center">
                 <form action="{{ url('/logout') }}" method="POST">
@@ -245,27 +227,6 @@
 
             if (currentUrl.includes('/broadcast/schedule')) {
                 const subMenu = document.getElementById('schedule');
-                if (subMenu) {
-                    subMenu.setAttribute('class', 'add-btn text-white rounded-md');
-                }
-            }
-        }
-    }
-
-    if (currentUrl.includes('/signature')) {
-        const menu = document.getElementById('signature');
-        if (menu) {
-            menu.setAttribute('open', 'true');
-
-            if (currentUrl.includes('/signature/document-format')) {
-                const subMenu = document.getElementById('document-format');
-                if (subMenu) {
-                    subMenu.setAttribute('class', 'add-btn text-white rounded-md');
-                }
-            }
-
-            if (currentUrl.includes('/signature/log')) {
-                const subMenu = document.getElementById('log');
                 if (subMenu) {
                     subMenu.setAttribute('class', 'add-btn text-white rounded-md');
                 }
