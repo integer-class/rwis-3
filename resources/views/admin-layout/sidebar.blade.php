@@ -1,10 +1,12 @@
 <div class="drawer lg:drawer-open">
     <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
     <div class="drawer-side">
-        <div class="flex gap-2 justify-center items-center mt-7">
-            <img src="{{ asset('img/icon.png') }}" alt="icon" width="70">
-            <h6 class="font-bold">RW 11<br>Information<br>System</h6>
-        </div>
+        <a href="{{ url('/') }}">
+            <div class="flex gap-2 justify-center items-center mt-7">
+                <img src="{{ asset('img/icon.png') }}" alt="icon" width="70">
+                <h6 class="font-bold">RW 11<br>Information<br>System</h6>
+            </div>
+        </a>
         <ul class="menu menu-md w-72 rounded-box">
             {{-- Dashboard --}}
             <li>

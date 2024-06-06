@@ -111,7 +111,7 @@
                 </div>
                 <hr class="mt-8 border-0 h-0.5 bg-indigo-700">
                 <div class="flex justify-between text-white mt-4">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p>RW 11 Information System adalah Program untuk Membantu<br>Kebutuhan Warga Muharto RW 11</p>
                     <p>Copyright © 2024 RW 11 Information System</p>
                 </div>
             </div>
