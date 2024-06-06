@@ -31,6 +31,12 @@
                             Broadcast
                         </a>
                     </li>
+                    <li class="flex-1">
+                        <a class="btn w-full" href="{{ url('social') }}">
+                            <span class="icon-[ic--round-podcasts] text-xl mt-0.5"></span>
+                            Social Aid
+                        </a>
+                    </li>
                 </ul>
             </div>
             {{-- content --}}

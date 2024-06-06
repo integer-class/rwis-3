@@ -15,6 +15,7 @@ use App\Http\Controllers\issueTracker\ApprovalController;
 use App\Http\Controllers\issueTracker\ReportController;
 use App\Http\Controllers\signature\DocumentFormatController;
 use App\Http\Controllers\signature\LogController;
+use App\Http\Controllers\social\CalculateController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -173,5 +174,23 @@ Route::group(['prefix' => 'broadcast'], function () {
         Route::get('/show/{id}', [BroadcastScheduledController::class, 'show'])->name('broadcast.template.show');
         Route::get('/edit/{id}', [BroadcastScheduledController::class, 'edit'])->name('broadcast.template.edit');
         Route::put('/{id}', [BroadcastScheduledController::class, 'update']);
+    });
+});
+
+// social aid route
+Route::group(['prefix' => 'social'], function () {
+    // home
+    Route::get('/', function () {
+        return view('social.index');
+    });
+
+    // calculate route
+    Route::group(['prefix' => 'calculate'], function () {
+        Route::get('/', [CalculateController::class, 'index']);
+        Route::get('/create', [CalculateController::class, 'create']);
+        Route::post('/', [CalculateController::class, 'store']);
+        Route::get('/show/{id}', [CalculateController::class, 'show'])->name('broadcast.template.show');
+        Route::get('/edit/{id}', [CalculateController::class, 'edit'])->name('broadcast.template.edit');
+        Route::put('/{id}', [CalculateController::class, 'update']);
     });
 });
