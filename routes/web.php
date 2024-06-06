@@ -159,9 +159,15 @@ Route::group(['prefix' => 'broadcast'], function () {
         return view('broadcast.index')->middleware('auth.guard');
     })->middleware('auth.guard');
 
+    // send route
+    Route::group(['prefix' => 'send'], function () {
+        Route::post('/', [BroadcastScheduledController::class, 'sendBroadcast'])->name('send.broadcast');
+        Route::get('/{template:broadcast_template_id}', [BroadcastScheduledController::class, 'send'])->name('send.index');
+    });
+
     // template route
     Route::group(['prefix' => 'template'], function () {
-        Route::get('/', [BroadcastTemplateController::class, 'index'])->middleware('auth.guard');
+        Route::get('/', [BroadcastTemplateController::class, 'index'])->middleware('auth.guard')->name('template.index');
         Route::get('/archived', [BroadcastTemplateController::class, 'archived'])->middleware('auth.guard');
         Route::get('/create', [BroadcastTemplateController::class, 'create'])->middleware('auth.guard');
         Route::post('/', [BroadcastTemplateController::class, 'store'])->middleware('auth.guard');
