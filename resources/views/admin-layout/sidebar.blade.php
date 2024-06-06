@@ -30,8 +30,7 @@
                             </a>
                         </li>
                         <li id="umkm"><a href="{{ url('information/umkm') }}"><span
-                                    class="icon-[ic--round-store-mall-directory] text-xl mb-2"
-                                ></span>UMKM</a></li>
+                                    class="icon-[ic--round-store-mall-directory] text-xl mb-2"></span>UMKM</a></li>
                     </ul>
                 </details>
             </li>
@@ -44,14 +43,11 @@
                     </summary>
                     <ul>
                         <li id="household"><a href="{{ url('data/household') }}"><span
-                                    class="icon-[ic--outline-other-houses] text-xl mb-2"
-                                ></span>Household</a></li>
+                                    class="icon-[ic--outline-other-houses] text-xl mb-2"></span>Household</a></li>
                         <li id="resident"><a href="{{ url('data/resident') }}"><span
-                                    class="icon-[ic--baseline-person-outline] text-xl mb-2"
-                                ></span>Resident</a></li>
+                                    class="icon-[ic--baseline-person-outline] text-xl mb-2"></span>Resident</a></li>
                         <li id="asset"><a href="{{ url('data/asset') }}"><span
-                                    class="icon-[ic--baseline-attach-money] text-xl mb-2"
-                                ></span>Asset</a></li>
+                                    class="icon-[ic--baseline-attach-money] text-xl mb-2"></span>Asset</a></li>
                         {{-- Book Keeping --}}
                         <li>
                             <details id="bookkeeping">
@@ -61,12 +57,11 @@
                                 </summary>
                                 <ul>
                                     <li id="account"><a href="{{ url('data/bookkeeping/account') }}"><span
-                                                class="icon-[ic--round-account-balance] text-xl mb-2"
-                                            ></span>Master
+                                                class="icon-[ic--round-account-balance] text-xl mb-2"></span>Master
                                             Account</a></li>
                                     <li id="cash"><a href="{{ url('data/bookkeeping/cash') }}"><span
-                                                class="icon-[ic--round-attach-money] text-xl mb-2"
-                                            ></span>Cash Mutation</a>
+                                                class="icon-[ic--round-attach-money] text-xl mb-2"></span>Cash
+                                            Mutation</a>
                                     </li>
                                 </ul>
                             </details>
@@ -83,12 +78,11 @@
                     </summary>
                     <ul>
                         <li id="approval"><a href="{{ url('issue/approval') }}"><span
-                                    class="icon-[material-symbols--notifications-unread-outline-rounded] text-xl mb-2"
-                                ></span>Approval Issue</a>
+                                    class="icon-[material-symbols--notifications-unread-outline-rounded] text-xl mb-2"></span>Approval
+                                Issue</a>
                         </li>
                         <li id="report"><a href="{{ url('issue/report') }}"><span
-                                    class="icon-[material-symbols--report-outline-rounded] text-xl mb-2"
-                                ></span>Issue
+                                    class="icon-[material-symbols--report-outline-rounded] text-xl mb-2"></span>Issue
                                 Report</a></li>
                     </ul>
                 </details>
@@ -101,15 +95,25 @@
                         <h6 class="mx-2 mt-1">Broadcast</h6>
                     </summary>
                     <ul>
-                        <li id="template">
-                            <a href="{{ url('broadcast/template') }}">
-                                <span class="icon-[material-symbols--chat-outline-rounded] text-xl mb-2"></span>
-                                Template
-                            </a>
+                        <li id="template"><a href="{{ url('broadcast/template') }}"><span
+                                    class="icon-[material-symbols--chat-outline-rounded] text-xl mb-2"></span>Template</a>
                         </li>
                         <li id="schedule"><a href="{{ url('broadcast/scheduled') }}"><span
-                                    class="icon-[material-symbols--nest-clock-farsight-analog-outline-rounded] text-xl mb-2"
-                                ></span>Scheduled</a>
+                                    class="icon-[material-symbols--nest-clock-farsight-analog-outline-rounded] text-xl mb-2"></span>Scheduled</a>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+            {{-- social aid --}}
+            <li>
+                <details id="social">
+                    <summary>
+                        <span class="icon-[ic--round-podcasts] text-xl mt-0.5"></span>
+                        <h6 class="mx-2 mt-1">Social Aid</h6>
+                    </summary>
+                    <ul>
+                        <li id="calculate"><a href="{{ url('social/calculate') }}"><span
+                                    class="icon-[material-symbols--chat-outline-rounded] text-xl mb-2"></span>Calculate</a>
                         </li>
                     </ul>
                 </details>
@@ -230,6 +234,27 @@
             }
 
             if (currentUrl.includes('/broadcast/schedule')) {
+                const subMenu = document.getElementById('schedule');
+                if (subMenu) {
+                    subMenu.setAttribute('class', 'add-btn text-white rounded-md');
+                }
+            }
+        }
+    }
+
+    if (currentUrl.includes('/social')) {
+        const menu = document.getElementById('social');
+        if (menu) {
+            menu.setAttribute('open', 'true');
+
+            if (currentUrl.includes('/social/calculate')) {
+                const subMenu = document.getElementById('calculate');
+                if (subMenu) {
+                    subMenu.setAttribute('class', 'add-btn text-white rounded-md');
+                }
+            }
+
+            if (currentUrl.includes('/social/schedule')) {
                 const subMenu = document.getElementById('schedule');
                 if (subMenu) {
                     subMenu.setAttribute('class', 'add-btn text-white rounded-md');

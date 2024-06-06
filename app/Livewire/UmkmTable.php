@@ -36,12 +36,11 @@ class UmkmTable extends DataTableComponent
     {
         return [
             Column::make("Umkm id", "umkm_id")
-                ->sortable(),
+                ->sortable()
+                ->hideIf(true),
             Column::make("Name", "name")
                 ->sortable(),
             Column::make("Address", "address")
-                ->sortable(),
-            Column::make("Description", "description")
                 ->sortable(),
             Column::make("Whatsapp number", "whatsapp_number")
                 ->sortable(),
