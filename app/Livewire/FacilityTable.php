@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class FacilityTable extends DataTableComponent
 {
-    protected $model = AssetModel::class;
+    protected $model = Facility::class;
 
     public function builder(): Builder
 
