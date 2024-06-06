@@ -12,11 +12,9 @@ class CashMutationTable extends DataTableComponent
     protected $model = CashMutationModel::class;
 
     public function builder(): Builder
-
     {
 
         return CashMutationModel::query()
-
             ->where('cash_mutation.is_archived', false);
     }
 

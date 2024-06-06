@@ -15,7 +15,7 @@ class FacilityController extends Controller
     public function index()
     {
         $facilities = Facility::all();
-        return Auth::check() ? view('information.facility.index', compact('facilities')) : redirect('login');
+        return view('information.facility.index', compact('facilities'));
     }
 
 
@@ -70,11 +70,6 @@ class FacilityController extends Controller
     /**
      * Display the specified resource.
      */
-    /*public function show($id)
-    {
-    $facility = Facility::findOrFail($id);
-    return view('information.facility.show', compact('facility'));
-    }*/
     public function show(string $id)
     {
         $facility = Facility::find($id);

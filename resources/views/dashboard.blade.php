@@ -32,8 +32,8 @@
                         </a>
                     </li>
                     <li class="flex-1">
-                        <a class="btn w-full" href="{{ url('social') }}">
-                            <span class="icon-[ic--round-podcasts] text-xl mt-0.5"></span>
+                        <a class="btn hover:btn-primary w-full" href="{{ url('social') }}">
+                            <span class="icon-[ic--round-attach-money] text-xl mt-0.5"></span>
                             Social Aid
                         </a>
                     </li>

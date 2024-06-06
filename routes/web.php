@@ -3,6 +3,7 @@
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\broadcast\BroadcastScheduledController;
 use App\Http\Controllers\broadcast\BroadcastTemplateController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\dataDigitalization\AssetController;
 use App\Http\Controllers\dataDigitalization\bookKeeping\AccountController;
@@ -16,10 +17,16 @@ use App\Http\Controllers\issueTracker\ReportController;
 use App\Http\Controllers\signature\DocumentFormatController;
 use App\Http\Controllers\signature\LogController;
 use App\Http\Controllers\social\CalculateController;
+use App\Http\Controllers\user\MenuController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group([], function () {
+    Route::get('/facility', [MenuController::class, 'facility'])->name('facility');
+    Route::get('/umkm', [MenuController::class, 'umkm'])->name('umkm');
 });
 
 // auth route
@@ -108,12 +115,9 @@ Route::group(['prefix' => 'information'], function () {
         Route::get('/archived', [FacilityController::class, 'archived']);
         Route::get('/create', [FacilityController::class, 'create']);
         Route::post('/', [FacilityController::class, 'store']);
-        Route::get('/show/{id}', [FacilityController::class, 'show'])->name('infromation.facility.show');
-        Route::get('/edit/{id}', [FacilityController::class, 'edit'])->name('infromation.facility.edit');
+        Route::get('/show/{id}', [FacilityController::class, 'show'])->name('facility.show');
+        Route::get('/edit/{id}', [FacilityController::class, 'edit'])->name('facility.edit');
         Route::put('/{id}', [FacilityController::class, 'update']);
-        Route::get('facility/{id}/edit', [FacilityController::class, 'edit'])->name('facility.edit');
-        Route::get('facility/{id}', [FacilityController::class, 'show'])->name('facility.show');
-
     });
 
     // umkm route
@@ -122,12 +126,10 @@ Route::group(['prefix' => 'information'], function () {
         Route::get('/archived', [UmkmController::class, 'archived']);
         Route::get('/create', [UmkmController::class, 'create']);
         Route::post('/', [UmkmController::class, 'store']);
-        Route::get('/show/{id}', [UmkmController::class, 'show'])->name('infromation.umkm.show');
-        Route::get('/edit/{id}', [UmkmController::class, 'edit'])->name('infromation.umkm.edit');
+        Route::get('/show/{id}', [UmkmController::class, 'show'])->name('umkm.show');
+        Route::get('/edit/{id}', [UmkmController::class, 'edit'])->name('umkm.edit');
         Route::put('/{id}', [UmkmController::class, 'update']);
         Route::get('/archived', [UmkmController::class, 'archived'])->name('umkm.archived');
-        Route::get('umkm/{id}/edit', [UmkmController::class, 'edit'])->name('umkm.edit');
-        Route::get('umkm/{id}', [UmkmController::class, 'show'])->name('umkm.show');
     });
 });
 
@@ -160,9 +162,15 @@ Route::group(['prefix' => 'broadcast'], function () {
         return view('broadcast.index');
     })->middleware('auth.guard');
 
+    // send route
+    Route::group(['prefix' => 'send'], function () {
+        Route::post('/', [BroadcastScheduledController::class, 'sendBroadcast'])->name('send.broadcast');
+        Route::get('/{template:broadcast_template_id}', [BroadcastScheduledController::class, 'send'])->name('send.index');
+    });
+
     // template route
     Route::group(['prefix' => 'template'], function () {
-        Route::get('/', [BroadcastTemplateController::class, 'index'])->middleware('auth.guard');
+        Route::get('/', [BroadcastTemplateController::class, 'index'])->middleware('auth.guard')->name('template.index');
         Route::get('/archived', [BroadcastTemplateController::class, 'archived'])->middleware('auth.guard');
         Route::get('/create', [BroadcastTemplateController::class, 'create'])->middleware('auth.guard');
         Route::post('/', [BroadcastTemplateController::class, 'store'])->middleware('auth.guard');
