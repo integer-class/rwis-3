@@ -16,7 +16,7 @@ class IssueReportSeeder extends Seeder
     public function run(): void
     {
         $data = [];
-        for ($i = 1; $i <= 2743; $i++) {
+        for ($i = 1; $i <= 316; $i++) {
             $data[] = [
                 'resident_id' => fake()->biasedNumberBetween(1, $i),
                 'title' => fake('id_ID')->sentence(1),
@@ -28,9 +28,6 @@ class IssueReportSeeder extends Seeder
                 'updated_at' => now(),
             ];
         }
-        $chunks = collect($data)->chunk(1000);
-        foreach ($chunks as $chunk) {
-            DB::table('issue_report')->insert($chunk->toArray());
-        }
+        DB::table('issue_report')->insert($data);
     }
 }

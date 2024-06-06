@@ -14,7 +14,7 @@ class HouseholdSeeder extends Seeder
     public function run(): void
     {
         $data = [];
-        for ($i = 0; $i < 897; $i++) {
+        for ($i = 0; $i < 142; $i++) {
             $data[] = [
                 'number_kk' => fake('id_ID')->nik(),
                 'address' => fake('id_ID')->address(),

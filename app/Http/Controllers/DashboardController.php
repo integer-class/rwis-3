@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enum\RangeIncomeResident;
+use App\Models\CashMutationModel;
 use App\Models\Facility;
 use App\Models\HouseholdModel;
 use App\Models\IssueReportModel;
@@ -14,7 +15,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // sort the order manually because the range_income is a string
         $residentIncomes = ResidentModel::query()
             ->select('range_income')
             ->get()
@@ -33,7 +33,6 @@ class DashboardController extends Controller
             }, collect())
             ->sortKeys()
             ->values();
-        // group by genders and count them
         $genders = ResidentModel::query()
             ->select('gender')
             ->get()
@@ -54,18 +53,40 @@ class DashboardController extends Controller
                 return ['group' => $key, 'count' => count($item)];
             })
             ->values();
+        $mutations = CashMutationModel::query()
+            ->select(['amount', 'created_at', 'description'])
+            ->orderBy('created_at')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'amount' => $item->amount,
+                    'description' => $item->description,
+                    'created_at' => $item->created_at->format('Y-m-d'),
+                ];
+            })
+            ->groupBy('created_at')
+            ->map(function ($item, $key) {
+                return [
+                    'date' => $key,
+                    'total' => $item->sum('amount'),
+                ];
+            })
+            ->take(100)
+            ->values();
         $totalResidents = ResidentModel::query()->count();
         $totalHouseholds = HouseholdModel::query()->count();
         $totalReports = IssueReportModel::query()->count();
         $totalFacilities = Facility::query()->count();
+        $totalUmkm = UmkmModel::query()->count();
         return view('dashboard', [
             'residentIncomes' => $residentIncomes,
             'genders' => $genders,
             'totalResidents' => $totalResidents,
             'totalHouseholds' => $totalHouseholds,
             'totalReports' => $totalReports,
-            'totalFacilities' => $totalFacilities,
+            'totalFacilities' => $totalFacilities + $totalUmkm,
             'ageGroups' => $ageGroups,
+            'mutations' => $mutations,
         ]);
     }
 }

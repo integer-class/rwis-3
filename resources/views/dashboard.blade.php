@@ -42,6 +42,7 @@
             <div class="grid grid-cols-12 gap-4 h-[8rem] mb-4">
                 <div class="col-span-3 border p-4 rounded-md relative">
                     <h3 class="text-lg font-medium text-slate-700">Penduduk</h3>
+
                     <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
                         {{ $totalResidents }}
                     </p>
@@ -59,21 +60,26 @@
                     </p>
                 </div>
                 <div class="col-span-3 border p-4 rounded-md relative">
-                    <h3 class="text-lg font-medium text-slate-700">Fasilitas</h3>
+                    <h3 class="text-lg font-medium text-slate-700">Fasilitas / UMKM</h3>
                     <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
                         {{ $totalFacilities }}
                     </p>
                 </div>
             </div>
-            <div class="grid grid-cols-12 gap-4">
+            <div class="grid grid-cols-12 grid-flow-dense gap-4">
                 <div class="col-span-5 h-[36rem] border p-4 rounded-md">
                     <canvas id="salary" width="100" height="100"></canvas>
                 </div>
-                <div class="col-span-5 h-[14rem] border p-4 rounded-md">
-                    <canvas id="gender" width="280" height="100"></canvas>
-                </div>
-                <div class="col-span-2 h-[14rem] border p-4 rounded-md">
-                    <canvas id="age-group" width="100" height="100"></canvas>
+                <div class="grid grid-rows-[14rem,1fr] gap-4 grid-cols-subgrid col-span-7">
+                    <div class="col-span-5 h-full border p-4 rounded-md">
+                        <canvas id="gender" width="280" height="120"></canvas>
+                    </div>
+                    <div class="col-span-2 h-full border p-4 rounded-md">
+                        <canvas id="age-group" width="100" height="120"></canvas>
+                    </div>
+                    <div class="col-span-7 h-full border p-4 rounded-md">
+                        <canvas id="mutation" width="360" height="130"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -190,6 +196,39 @@
                     ],
                 }]
             },
+        });
+
+        const mutationCtx = document.getElementById('mutation');
+        new Chart(mutationCtx, {
+            type: 'line',
+            data: {
+                labels: @json($mutations->pluck('date')),
+                datasets: [{
+                    label: 'Mutasi Iuran',
+                    data: @json($mutations->pluck('total')),
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgb(75, 192, 192)',
+                    ],
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        grid: {
+                            display: true
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
         });
     </script>
 @endpush

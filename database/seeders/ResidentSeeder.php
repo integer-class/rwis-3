@@ -19,17 +19,17 @@ class ResidentSeeder extends Seeder
     public function run(): void
     {
         $data = [];
-        for ($i = 0; $i < 4867; $i++) {
+        for ($i = 0; $i < 524; $i++) {
+            $isHouseholdHead = $i < 142;
             $data[] = [
                 'household_id' => $i % 5 + 1,
                 'nik' => fake('id_ID')->nik(),
-                'full_name' => fake('id_ID')->name(),
+                'full_name' => fake('id_ID')->name($isHouseholdHead ? 'male' : null),
                 'place_of_birth' => fake('id_ID')->city(),
-                'date_of_birth' => fake('id_ID')->date(),
-                'gender' => fake()->randomElement([
-                    GenderResident::LakiLaki,
-                    GenderResident::Perempuan,
-                ]),
+                'date_of_birth' => fake('id_ID')->dateTimeBetween('-60 years', $isHouseholdHead ? '-20 years' : '-2 years')->format('Y-m-d'),
+                'gender' => $isHouseholdHead
+                    ? GenderResident::LakiLaki
+                    : fake()->randomElement([GenderResident::LakiLaki, GenderResident::Perempuan]),
                 'blood_type' => fake('id_ID')->randomElement(['A', 'B', 'AB', 'O']),
                 'religion' => fake()->randomElement([
                     ReligionResident::Islam,
@@ -63,9 +63,6 @@ class ResidentSeeder extends Seeder
             ];
 
         }
-        $chunks = collect($data)->chunk(1000);
-        foreach ($chunks as $chunk) {
-            DB::table('resident')->insert($chunk->toArray());
-        }
+        DB::table('resident')->insert($data);
     }
 }

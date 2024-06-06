@@ -1,4 +1,4 @@
-<nav class="flex py-4 px-80 bg-base-100 gap-4 sticky top-0 shadow-sm z-50">
+<nav class="flex py-4 px-80 bg-base-100 gap-4 fixed top-0 left-0 right-0 shadow-sm z-50">
     <div class="flex items-center gap-3 bg-base-100 w-4/6">
         <img src="{{ asset('img/icon.png') }}" alt="icon" width="48">
         <h6 class="font-bold text-black">RW 11 Information System</h6>
