@@ -1,7 +1,7 @@
 @php
     $informations = [
-        ['url' => 'information/facility', 'name' => 'Facility Information', 'image' => '/img/facility.png'],
-        ['url' => 'information/umkm', 'name' => 'UMKM Information', 'image' => '/img/umkm.png'],
+        ['url' => '/facility', 'name' => 'Facility Information', 'image' => '/img/facility.png'],
+        ['url' => '/umkm', 'name' => 'UMKM Information', 'image' => '/img/umkm.png'],
         ['url' => 'information/issue-report', 'name' => 'Issue Report', 'image' => '/img/resident.png'],
         [
             'url' => 'information/financial-contribution',
@@ -11,7 +11,7 @@
     ];
 @endphp
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="h-full" data-theme="light">
 
     <head>

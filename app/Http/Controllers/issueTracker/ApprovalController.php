@@ -14,7 +14,7 @@ class ApprovalController extends Controller
      */
     public function index()
     {
-        return Auth::check() ? view('issue.approval.index') : redirect('/login');
+        return view('issue.approval.index');
     }
 
     /**

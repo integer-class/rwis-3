@@ -31,13 +31,13 @@ class ReportController extends Controller
 
         $status = array_map(fn ($case) => $case->value, StatusIssueReport::cases());
 
-        return Auth::check() ? view('issue.report.index', ['todo' => $todo, 'onGoing' => $onGoing, 'solved' => $solved, 'invalid' => $invalid, 'status' => $status]) : redirect('/login');
+        return view('issue.report.index', ['todo' => $todo, 'onGoing' => $onGoing, 'solved' => $solved, 'invalid' => $invalid, 'status' => $status]);
     }
 
     public function archived()
     {
         $issue = IssueReportModel::with('resident')->where('is_archived', true)->where('approval_status', 'approved')->get();
-        return Auth::check() ? view('issue.report.archived', ['issue' => $issue]) : redirect('/login');
+        return view('issue.report.archived', ['issue' => $issue]);
     }
 
     public function archive(string $id)
