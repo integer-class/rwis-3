@@ -38,20 +38,25 @@ class UmkmController extends Controller
     public function store(Request $request)
 {
     $request->validate([
-        'umkm_id' => 'required',
         'name' => 'required',
         'address' => 'required',
         'description' => 'required',
         'whatsapp_number' => 'required',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 
+    $extension = $request->image->getClientOriginalExtension();
+    $filename = 'web-'.time().'.'.$extension;
+
+    $path = $request->image->move('umkm-image',$filename);
+    $path =str_replace("\\","//",$path);
+
     UmkmModel::create([
-        'umkm_id' => $request->umkm_id,
         'name' => $request->name,
         'address' => $request->address,
         'description' => $request->description,
         'whatsapp_number' => $request->whatsapp_number,
-        'is_archived' => false
+        'image' => $path,
     ]);
 
     return redirect('information/umkm')->with('success', 'UMKM has been added');

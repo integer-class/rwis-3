@@ -39,11 +39,14 @@ class UmkmTable extends DataTableComponent
                 ->sortable()
                 ->hideIf(true),
             Column::make("Name", "name")
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             Column::make("Address", "address")
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             Column::make("Whatsapp number", "whatsapp_number")
-                ->sortable(),
+                ->sortable()
+                ->searchable(),
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {

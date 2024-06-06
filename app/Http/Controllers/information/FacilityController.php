@@ -40,32 +40,29 @@ class FacilityController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    $request->validate([
-        'facility_id' => 'required',
-        'name' => 'required',
-        'address' => 'required',
-        'description' => 'required',
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-    $extension = $request->image->getClientOriginalExtension();
-    $filename = 'web-'.time().'.'.$extension;
+        $extension = $request->image->getClientOriginalExtension();
+        $filename = 'web-' . time() . '.' . $extension;
 
-    $path = $request->image->move('post-image',$filename);
-    $path =str_replace("\\","//",$path);
+        $path = $request->image->move('facility-image', $filename);
+        $path = str_replace("\\", "//", $path);
 
-    Facility::create([
-        'facility_id' => $request->facility_id,
-        'name' => $request->name,
-        'address' => $request->address,
-        'description' => $request->description,
-        'image' => $path,
-        'is_archived' => false
-    ]);
+        Facility::create([
+            'name' => $request->name,
+            'address' => $request->address,
+            'description' => $request->description,
+            'image' => $path,
+        ]);
 
-    return redirect('information/facility')->with('success', 'Facility has been added');
-}
+        return redirect('information/facility')->with('success', 'Facility has been added');
+    }
 
     /**
      * Display the specified resource.

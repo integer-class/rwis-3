@@ -15,7 +15,7 @@
                 </div>
             </div>
             {{-- content --}}
-            <form action="{{ url('information/umkm') }}" method="POST" class="flex flex-col space-y-4 w-full form mr-3">
+            <form action="{{ url('information/umkm') }}" method="POST" enctype="multipart/form-data" class="flex flex-col space-y-4 w-full form mr-3">
                 @csrf
                 @if ($errors->any())
                     <div class="bg-red-100 text-red-500 p-2 rounded-lg">
@@ -26,10 +26,6 @@
                         </ul>
                     </div>
                 @endif
-                <div class="flex flex-col space-y-1">
-                    <label for="umkm_id">ID Number</label>
-                    <input name="umkm_id" id="umkm_id" class="rounded-md border border-gray-300 p-2">
-                </div>
                 <div class="flex flex-col space-y-1">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name"
@@ -49,7 +45,10 @@
                     <label for="whatsapp_number">Contact</label>
                     <input type="text" name="whatsapp_number" id="contact" class="rounded-md border border-gray-300 p-2" placeholder="Enter Contact">
                 </div>
-
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Image</label>
+                    <input class="form-control" type="file" name="image" id="image">
+                </div>
                 <div class="flex">
                     <button type="submit" class="add-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md mt-5 w-1/6">Add</button>
                     <a class="add-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md mt-5 w-1/6 mx-3 text-center"
