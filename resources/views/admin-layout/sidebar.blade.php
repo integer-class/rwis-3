@@ -101,9 +101,11 @@
                         <h6 class="mx-2 mt-1">Broadcast</h6>
                     </summary>
                     <ul>
-                        <li id="template"><a href="{{ url('broadcast/template') }}"><span
-                                    class="icon-[material-symbols--chat-outline-rounded] text-xl mb-2"
-                                ></span>Template</a>
+                        <li id="template">
+                            <a href="{{ url('broadcast/template') }}">
+                                <span class="icon-[material-symbols--chat-outline-rounded] text-xl mb-2"></span>
+                                Template
+                            </a>
                         </li>
                         <li id="schedule"><a href="{{ url('broadcast/scheduled') }}"><span
                                     class="icon-[material-symbols--nest-clock-farsight-analog-outline-rounded] text-xl mb-2"

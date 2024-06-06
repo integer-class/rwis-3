@@ -19,10 +19,16 @@ class ResidentSeeder extends Seeder
     public function run(): void
     {
         $data = [];
+        $householdCounter = 0;
+        $householdId = 1;
         for ($i = 0; $i < 524; $i++) {
             $isHouseholdHead = $i < 142;
+            $householdCounter++;
+            if ($householdCounter === 5) {
+                $householdId++;
+            }
             $data[] = [
-                'household_id' => $i % 5 + 1,
+                'household_id' => $householdId,
                 'nik' => fake('id_ID')->nik(),
                 'full_name' => fake('id_ID')->name($isHouseholdHead ? 'male' : null),
                 'place_of_birth' => fake('id_ID')->city(),
@@ -58,7 +64,7 @@ class ResidentSeeder extends Seeder
                     RangeIncomeResident::Group6,
                 ][5 - fake()->biasedNumberBetween(0, 5)],
                 'job' => fake('id_ID')->jobTitle(),
-                'whatsapp_number' => fake('id_ID')->phoneNumber(),
+                'whatsapp_number' => fake('id_ID')->e164PhoneNumber(),
                 'is_archived' => false,
             ];
 

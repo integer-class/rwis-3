@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\broadcast;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendBroadcast;
+use App\Models\BroadcastTemplateModel;
+use App\Models\ResidentModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class BroadcastScheduledController extends Controller
 {
@@ -14,6 +18,35 @@ class BroadcastScheduledController extends Controller
     public function index()
     {
         return Auth::check() ? view('broadcast.scheduled.index') : redirect('login');
+    }
+
+    public function send(BroadcastTemplateModel $template)
+    {
+        $markup = $template->text;
+        foreach ($template->fillable_fields as $placeholder) {
+            $markup = str_replace('{' . $placeholder . '}', '<span contenteditable class="placeholder-input" size="' . strlen($placeholder) . '" name="' . $placeholder . '" type="text">[' . $placeholder . ']</span>', $markup);
+        }
+        $residentPhoneNumbers = ResidentModel::query()->select(['full_name', 'whatsapp_number'])->orderBy('full_name')->get();
+        return view('broadcast.send', [
+            'template' => $template,
+            'markup' => $markup,
+            'residentPhoneNumbers' => $residentPhoneNumbers
+        ]);
+    }
+
+    public function sendBroadcast(Request $request)
+    {
+        $request->validate([
+            'message' => 'required',
+            'numbers' => 'required',
+        ]);
+
+        $numbers = explode(',', $request->numbers);
+        foreach ($numbers as $number) {
+            SendBroadcast::dispatch($request->message, $number);
+        }
+
+        return redirect()->route('template.index')->with('success', 'Broadcast message has been sent!');
     }
 
     /**

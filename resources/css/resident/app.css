@@ -23,56 +23,43 @@
 }
 
 .modal {
-
-  /* existing styles */
-
-  overflow-y-auto: auto;
-
+    overflow-y-auto: auto;
 }
 
 
 .modal-box {
-
-  /* existing styles */
-
-  width: 500px;
-
-  margin: 0 auto;
-
-  border-radius: 0.5rem;
-
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 0.5rem;
 }
-  
-  
-  .font-bold {
-  
+
+.font-bold {
     font-weight: bold;
-  
-  }
-  
-  
-  .text-lg {
-  
+}
+
+.text-lg {
     font-size: 1.5rem;
-  
-  }
-  
-  
-  .py-4 {
-  
+}
+
+.py-4 {
     padding-top: 1rem;
-  
     padding-bottom: 1rem;
-  
-  }
-  
-  
-  .modal-action {
-  
+}
+
+.modal-action {
     display: flex;
-  
     justify-content: flex-end;
-  
     margin-top: 1rem;
-  
-  }
+}
+
+.placeholder-input {
+    background-color: #e2e8f0;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    outline: none;
+    border: 1px #cbd5e1 solid;
+}
+
+.select2- {
+    @apply p-2;
+}

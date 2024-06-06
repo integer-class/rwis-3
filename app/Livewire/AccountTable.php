@@ -68,7 +68,7 @@ class AccountTable extends DataTableComponent
                             </div>
                           </div>
                         </dialog>';
-                        return $show . $edit . $archive;
+                        return '<div class="flex items-center gap-2">' . $show . $edit . $archive . '</div>';
                     }
                 )->html(),
         ];
