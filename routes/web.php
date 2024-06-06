@@ -180,31 +180,3 @@ Route::group(['prefix' => 'broadcast'], function () {
         Route::put('/{id}', [BroadcastScheduledController::class, 'update']);
     });
 });
-
-// signature route
-Route::group(['prefix' => 'signature'], function () {
-    // home
-    Route::get('/', function () {
-        return view('signature.index');
-    });
-
-    // document format route
-    Route::group(['prefix' => 'document-format'], function () {
-        Route::get('/', [DocumentFormatController::class, 'index']);
-        Route::get('/create', [DocumentFormatController::class, 'create']);
-        Route::post('/', [DocumentFormatController::class, 'store']);
-        Route::get('/show/{id}', [DocumentFormatController::class, 'show'])->name('broadcast.template.show');
-        Route::get('/edit/{id}', [DocumentFormatController::class, 'edit'])->name('broadcast.template.edit');
-        Route::put('/{id}', [DocumentFormatController::class, 'update']);
-    });
-
-    // log route
-    Route::group(['prefix' => 'log'], function () {
-        Route::get('/', [LogController::class, 'index']);
-        Route::get('/create', [LogController::class, 'create']);
-        Route::post('/', [LogController::class, 'store']);
-        Route::get('/show/{id}', [LogController::class, 'show'])->name('broadcast.template.show');
-        Route::get('/edit/{id}', [LogController::class, 'edit'])->name('broadcast.template.edit');
-        Route::put('/{id}', [LogController::class, 'update']);
-    });
-});
