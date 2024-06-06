@@ -32,7 +32,10 @@
             >
                 <div class="inset-0 bg-gradient-to-t from-black/80 to-transparent absolute z-0"></div>
                 <div class="relative z-10 flex flex-col gap-4">
-                    <h1 class="font-bold pt-96 mt-44 text-white text-6xl w-full">Selamat Datang di<br>Sistem Informasi
+                    <h1 class="font-bold pt-96 mt-44 text-white text-6xl w-full">
+                        Selamat Datang di
+                        <br>
+                        Sistem Informasi
                         RW 11!
                     </h1>
                     <p class="text-white text-lg leading-loose">

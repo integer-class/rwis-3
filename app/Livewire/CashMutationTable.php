@@ -45,6 +45,9 @@ class CashMutationTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Amount", "amount")
+                ->format(function ($value) {
+                    return "Rp. " . number_format($value, 0, ',', '.');
+                })
                 ->searchable()
                 ->sortable(),
             Column::make("Account Receiver", "accountReceiver.name_account")

@@ -22,8 +22,4 @@ class AccountModel extends Model
     public function household() {
         return $this->belongsTo(HouseholdModel::class, 'household_id', 'household_id');
     }
-
-    public function getBalanceAttribute($value) {
-        return "Rp " . number_format($value, 0, ',', '.');
-    }
 }

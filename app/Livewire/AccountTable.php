@@ -44,6 +44,9 @@ class AccountTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Balance", "balance")
+                ->format(function ($value) {
+                    return "Rp. " . number_format($value, 0, ',', '.');
+                })
                 ->searchable()
                 ->sortable(),
             Column::make('Actions')

@@ -28,8 +28,4 @@ class CashMutationModel extends Model
     public function accountReceiver() {
         return $this->belongsTo(AccountModel::class, 'account_receiver_id', 'account_id');
     }
-
-    public function getAmountAttribute($value) {
-        return "Rp " . number_format($value, 0, ',', '.');
-    }
 }
