@@ -8,25 +8,25 @@
             <div class="flex w-full pb-4 border-b mb-4">
                 <ul class="flex items-center gap-4 w-full">
                     <li class="flex-1">
-                        <a class="btn w-full" href="{{ url('information') }}">
+                        <a class="btn hover:btn-primary w-full" href="{{ url('information') }}">
                             <span class="icon-[ic--outline-info] text-xl mt-0.5"></span>
                             Information Centre
                         </a>
                     </li>
                     <li class="flex-1">
-                        <a class="btn w-full" href="{{ url('data') }}">
+                        <a class="btn hover:btn-primary w-full" href="{{ url('data') }}">
                             <span class="icon-[ic--baseline-public] text-xl mt-0.5"></span>
                             Data Digitalization
                         </a>
                     </li>
                     <li class="flex-1">
-                        <a class="btn w-full" href="{{ url('issue') }}">
+                        <a class="btn hover:btn-primary w-full" href="{{ url('issue') }}">
                             <span class="icon-[ic--round-track-changes] text-xl mt-0.5"></span>
                             Issue Tracker
                         </a>
                     </li>
                     <li class="flex-1">
-                        <a class="btn w-full" href="{{ url('broadcast') }}">
+                        <a class="btn hover:btn-primary w-full" href="{{ url('broadcast') }}">
                             <span class="icon-[ic--round-podcasts] text-xl mt-0.5"></span>
                             Broadcast
                         </a>
