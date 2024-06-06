@@ -3,6 +3,7 @@
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\broadcast\BroadcastScheduledController;
 use App\Http\Controllers\broadcast\BroadcastTemplateController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\dataDigitalization\AssetController;
 use App\Http\Controllers\dataDigitalization\bookKeeping\AccountController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\issueTracker\ReportController;
 use App\Http\Controllers\signature\DocumentFormatController;
 use App\Http\Controllers\signature\LogController;
 use App\Http\Controllers\social\CalculateController;
+use App\Http\Controllers\user\MenuController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -111,9 +113,6 @@ Route::group(['prefix' => 'information'], function () {
         Route::get('/show/{id}', [FacilityController::class, 'show'])->name('infromation.facility.show');
         Route::get('/edit/{id}', [FacilityController::class, 'edit'])->name('infromation.facility.edit');
         Route::put('/{id}', [FacilityController::class, 'update']);
-        Route::get('facility/{id}/edit', [FacilityController::class, 'edit'])->name('facility.edit');
-        Route::get('facility/{id}', [FacilityController::class, 'show'])->name('facility.show');
-
     });
 
     // umkm route
