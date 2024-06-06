@@ -13,40 +13,15 @@ class AccountSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [
-            [
-                'household_id' => 1,
-                'name_account' => 'Azhar RT 006',
-                'number_account' => '1234567890123456',
-                'balance' => 1_000_000,
-            ],
-            [
-                'household_id' => 2,
-                'name_account' => 'Joko RT 006',
-                'number_account' => '1234567890123457',
-                'balance' => 2_000_000,
-            ],
-            [
-                'household_id' => 3,
-                'name_account' => 'Rudi RT 006',
-                'number_account' => '1234567890123458',
-                'balance' => 3_000_000,
-            ],
-            [
-                'household_id' => 3,
-                'name_account' => 'Kas Sampah',
-                'number_account' => '1234567890123459',
-                'balance' => 4_000_000,
-            ],
-            [
-                'household_id' => 3,
-                'name_account' => 'Kas Kematian',
-                'number_account' => '1234567890123460',
-                'balance' => 4_000_000,
-            ],
-        ];
-
+        $data = [];
+        for ($i = 0; $i < 142; $i++) {
+            $data[] = [
+                'household_id' => $i + 1,
+                'name_account' => fake('id_ID')->name,
+                'number_account' => fake()->numerify('################'),
+                'balance' => fake()->numberBetween(1_000_000, 10_000_000),
+            ];
+        }
         DB::table('account')->insert($data);
-        // DB::table('account')->truncate();
     }
 }

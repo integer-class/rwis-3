@@ -13,49 +13,22 @@ class HouseholdSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [
-            [
-                'number_kk' => '1234567890123456',
-                'address' => 'Jl. Soekarno Hatta No.9',
-                'rt' => '006',
-                'rw' => '001',
-                'sub_district' => 'Jatimulyo',
-                'district' => 'Lowokwaru',
-                'city' => 'Malang',
-                'province' => 'Jawa Timur',
-                'postal_code' => '65141',
-                'area' => 100,
+        $data = [];
+        for ($i = 0; $i < 142; $i++) {
+            $data[] = [
+                'number_kk' => fake('id_ID')->nik(),
+                'address' => fake('id_ID')->address(),
+                'rt' => fake('id_ID')->randomNumber(3),
+                'rw' => fake('id_ID')->randomNumber(3),
+                'sub_district' => fake('id_ID')->city(),
+                'district' => fake('id_ID')->city(),
+                'city' => fake('id_ID')->city(),
+                'province' => fake('id_ID')->state(),
+                'postal_code' => fake('id_ID')->postcode(),
+                'area' => fake('id_ID')->randomNumber(3),
                 'is_archived' => false,
-            ],
-            [
-                'number_kk' => '1234567890123457',
-                'address' => 'Jl. Soekarno Hatta No.10',
-                'rt' => '006',
-                'rw' => '001',
-                'sub_district' => 'Jatimulyo',
-                'district' => 'Lowokwaru',
-                'city' => 'Malang',
-                'province' => 'Jawa Timur',
-                'postal_code' => '65141',
-                'area' => 200,
-                'is_archived' => false,
-            ],
-            [
-                'number_kk' => '1234567890123458',
-                'address' => 'Jl. Soekarno Hatta No.11',
-                'rt' => '006',
-                'rw' => '001',
-                'sub_district' => 'Jatimulyo',
-                'district' => 'Lowokwaru',
-                'city' => 'Malang',
-                'province' => 'Jawa Timur',
-                'postal_code' => '65141',
-                'area' => 300,
-                'is_archived' => false,
-            ],
-        ];
-
+            ];
+        }
         DB::table('household')->insert($data);
-        // DB::table('household')->truncate();
     }
 }

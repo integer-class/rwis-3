@@ -36,7 +36,8 @@ class CashMutationTable extends DataTableComponent
         return [
             Column::make("Cash Mutation ID", "cash_mutation_id")
                 ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->hideIf(true),
             Column::make("Cash Mutation Code", "cash_mutation_code")
                 ->searchable()
                 ->sortable(),
@@ -44,6 +45,9 @@ class CashMutationTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Amount", "amount")
+                ->format(function ($value) {
+                    return "Rp. " . number_format($value, 0, ',', '.');
+                })
                 ->searchable()
                 ->sortable(),
             Column::make("Account Receiver", "accountReceiver.name_account")

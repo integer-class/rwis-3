@@ -12,22 +12,16 @@ class BroadcastTemplateTable extends DataTableComponent
     protected $model = BroadcastTemplateModel::class;
 
     public function builder(): Builder
-
     {
-
-        return BroadcastTemplateModel::query()
-
-            ->where('broadcast_template.is_archived', false);
+        return BroadcastTemplateModel::query()->where('broadcast_template.is_archived', false);
     }
 
     public function configure(): void
     {
         $this->setPrimaryKey('id');
-        $this->setDefaultSort('broadcast_template_id', 'asc');
+        $this->setDefaultSort('broadcast_template_id');
         $this->setSearchFieldAttributes([
-
             'class' => 'rounded-lg border border-gray-300 p-2',
-
         ]);
     }
 
@@ -35,19 +29,19 @@ class BroadcastTemplateTable extends DataTableComponent
     {
         return [
             Column::make("Broadcast template id", "broadcast_template_id")
-                ->sortable(),
+                ->isHidden(),
             Column::make("Text", "text")
                 ->sortable()
                 ->searchable(),
             Column::make("Type", "type")
                 ->sortable()
                 ->searchable(),
-                Column::make('Actions')
+            Column::make('Actions')
                 ->label(
                     function ($row) {
-                        $show = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="show(' . $row->broadcast_template_id . ')">Show</button>';
-                        $edit = '<button class="edit-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="edit(' . $row->broadcast_template_id . ')">Edit</button>';
-                        $archive = '<button class="archive-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->broadcast_template_id . '\').showModal()">Archive</button>
+                        $show = '<button class="show-btn text-white font-bold p-2 m-1 rounded" wire:click="show(' . $row->broadcast_template_id . ')">Show</button>';
+                        $edit = '<button class="edit-btn text-white font-bold p-2 m-1 rounded" wire:click="edit(' . $row->broadcast_template_id . ')">Edit</button>';
+                        $archive = '<button class="archive-btn text-white font-bold p-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->broadcast_template_id . '\').showModal()">Archive</button>
                         <dialog id="my_modal_' . $row->broadcast_template_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
@@ -61,22 +55,10 @@ class BroadcastTemplateTable extends DataTableComponent
                             </div>
                           </div>
                         </dialog>';
-                        return $show . $edit . $archive;
+                        return '<div class="flex items-center gap-2">' . $show . $edit . $archive . '</div>';
                     }
                 )->html(),
         ];
-
-        // $sample = BroadcastTemplateModel::first();
-
-        // if ($sample) {
-        //     foreach ($sample->fields as $key => $value) {
-        //         array_push($columns, Column::make(ucfirst($key), "fields->".$key)
-        //             ->sortable()
-        //             ->searchable());
-        //     }
-        // }
-
-        // return $columns;
     }
 
     public function show($broadcast_template_id)

@@ -13,34 +13,23 @@ class CashMutationSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [
-            [
-                'cash_mutation_code' => 'CM-0000000001',
-                'account_sender_id' => 4,
-                'amount' => 10_000,
+        $data = [];
+        for ($i = 0; $i < 4381; $i++) {
+            $data[] = [
+                'cash_mutation_code' => fake()->numerify('CM-##########'),
+                'account_sender_id' => fake()->numberBetween(1, 142),
+                'amount' => fake()->biasedNumberBetween(5000, 25_000),
                 'account_receiver_id' => 1,
-                'description' => 'Pembayaran Iuran Sampah Bulanan',
-                'created_at' => now(),
-            ],
-            [
-                'cash_mutation_code' => 'CM-0000000002',
-                'account_sender_id' => 5,
-                'amount' => 10_000,
-                'account_receiver_id' => 2,
-                'description' => 'Pembayaran Iuran Kematian Bulanan',
-                'created_at' => now(),
-            ],
-            [
-                'cash_mutation_code' => 'CM-0000000003',
-                'account_sender_id' => 4,
-                'amount' => 10_000,
-                'account_receiver_id' => 3,
-                'description' => 'Pembayaran Iuran Sampah Bulanan',
-                'created_at' => now(),
-            ],
-        ];
-
+                'description' => fake()->randomElement([
+                    "Iuran Sampah",
+                    "Iuran Kematian",
+                    "Iuran Keamanan",
+                    "Iuran Kebersihan",
+                    "Iuran Fasilitas",
+                ]),
+                'created_at' => fake()->dateTimeInInterval("-1 years", "1months"),
+            ];
+        }
         DB::table('cash_mutation')->insert($data);
-        // DB::table('cash_mutation')->truncate();
     }
 }
