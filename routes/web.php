@@ -202,5 +202,6 @@ Route::group(['prefix' => 'social'], function () {
     // calculate route
     Route::group(['prefix' => 'calculate'], function () {
         Route::get('/', [CalculateController::class, 'index'])->middleware('auth.guard');
+        Route::post('/', [CalculateController::class, 'calculate'])->middleware('auth.guard')->name('calculate');
     });
 });

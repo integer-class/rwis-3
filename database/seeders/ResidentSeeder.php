@@ -63,7 +63,17 @@ class ResidentSeeder extends Seeder
                     RangeIncomeResident::Group5,
                     RangeIncomeResident::Group6,
                 ][5 - fake()->biasedNumberBetween(0, 5)],
-                'job' => fake('id_ID')->jobTitle(),
+                'job' => fake('id_ID')->randomElement([
+                    'PNS',
+                    'TNI/POLRI',
+                    'Pegawai Swasta',
+                    'Wiraswasta',
+                    'Petani/Nelayan',
+                    'Buruh',
+                    'Pedagang',
+                    'Pensiunan',
+                    'Tidak Bekerja',
+                ]),
                 'whatsapp_number' => fake('id_ID')->e164PhoneNumber(),
                 'is_archived' => false,
             ];

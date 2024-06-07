@@ -18,8 +18,8 @@ class HouseholdSeeder extends Seeder
             $data[] = [
                 'number_kk' => fake('id_ID')->nik(),
                 'address' => fake('id_ID')->address(),
-                'rt' => fake('id_ID')->randomNumber(3),
-                'rw' => fake('id_ID')->randomNumber(3),
+                'rt' => fake('id_ID')->numberBetween(1, 20),
+                'rw' => fake('id_ID')->numberBetween(1, 20),
                 'sub_district' => fake('id_ID')->city(),
                 'district' => fake('id_ID')->city(),
                 'city' => fake('id_ID')->city(),
