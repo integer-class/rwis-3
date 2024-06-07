@@ -102,7 +102,7 @@
                 </div>
                 <div class="grid grid-rows-[14rem,1fr] gap-4 grid-cols-subgrid col-span-7">
                     <div class="col-span-5 h-full border p-4 rounded-md">
-                        <canvas id="gender" width="280" height="120"></canvas>
+                        <canvas id="gender" width="330" height="120"></canvas>
                     </div>
                     <div class="col-span-2 h-full border p-4 rounded-md">
                         <canvas id="age-group" width="100" height="120"></canvas>
@@ -152,18 +152,35 @@
                 }]
             },
             options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 16
+                            }
+                        }
+                    },
+                },
                 scales: {
                     y: {
                         beginAtZero: true,
                         ticks: {
                             min: 0,
-                            stepSize: 1
+                            stepSize: 1,
+                            font: {
+                                size: 14
+                            }
                         },
                     },
                     x: {
                         grid: {
                             display: false
-                        }
+                        },
+                        ticks: {
+                            font: {
+                                size: 14
+                            }
+                        },
                     }
                 }
             }
@@ -189,18 +206,35 @@
                 }]
             },
             options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 16
+                            }
+                        }
+                    },
+                },
                 indexAxis: 'y',
                 scales: {
                     y: {
                         beginAtZero: true,
                         ticks: {
                             min: 0,
-                            stepSize: 1
+                            stepSize: 1,
+                            font: {
+                                size: 14
+                            }
                         },
                     },
                     x: {
                         grid: {
                             display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 14
+                            }
                         }
                     }
                 }
@@ -226,6 +260,41 @@
                     ],
                 }]
             },
+            options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 16
+                            }
+                        }
+                    },
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            display: false,
+                        },
+                        ticks: {
+                            display: false,
+                            font: {
+                                size: 14
+                            }
+                        },
+                    },
+                    x: {
+                        grid: {
+                            display: false,
+                        },
+                        ticks: {
+                            display: false,
+                            font: {
+                                size: 14
+                            }
+                        },
+                    }
+                }
+            }
         });
 
         const mutationCtx = document.getElementById('mutation');
@@ -246,15 +315,34 @@
                 }]
             },
             options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 16
+                            }
+                        }
+                    },
+                },
                 scales: {
                     y: {
                         grid: {
                             display: true
+                        },
+                        ticks: {
+                            font: {
+                                size: 14
+                            }
                         }
                     },
                     x: {
                         grid: {
                             display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 14
+                            }
                         }
                     }
                 }

@@ -86,7 +86,17 @@ class CalculateController extends Controller
 
         // calculate the closeness
         $closeness = [];
+        foreach ($distance as $d) {
+            $closeness[] = 1 / ($d + array_sum($distance));
+        }
 
+        // rank
+        $rank = array_keys(array_reverse($closeness));
+        $households = HouseholdModel::query()->whereIn('id', $rank)->get();
+
+        return view('social.calculate.index', [
+            'households' => $households
+        ]);
     }
 
     // cost
