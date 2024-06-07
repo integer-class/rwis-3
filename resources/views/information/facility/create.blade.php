@@ -27,11 +27,6 @@
                     </div>
                 @endif
                 <div class="flex flex-col space-y-1">
-                    <label for="facility_id">ID Number</label>
-                    <input name="facility_id" id="facility_id" class="rounded-md border border-gray-300 p-2">
-                        <!-- Options should be populated here if needed -->
-                </div>
-                <div class="flex flex-col space-y-1">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name"
                         class="rounded-md border border-gray-300 p-2" placeholder="Enter Facility Name">

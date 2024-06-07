@@ -14,6 +14,7 @@ class UmkmModel extends Model
         'address', 
         'description',
         'whatsapp_number',
+        'image',
         'is_archived'  
     ];
     protected $primaryKey = 'umkm_id';

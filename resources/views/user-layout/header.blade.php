@@ -18,11 +18,11 @@
             class="text-black text-center hover:text-primary transition ease-in-out delay-50 hover:-translate-y-0.5 duration-300"
         >UMKM</a>
         <a
-            href="{{ url('/information/issue-report') }}"
+            href="{{ url('issue-report') }}"
             class="text-black text-center hover:text-primary transition ease-in-out delay-50 hover:-translate-y-0.5 duration-300"
         >Issue</a>
         <a
-            href="{{ url('/information/financial-contribution') }}"
+            href="{{ url('financial-contribution') }}"
             class="text-black text-center hover:text-primary transition ease-in-out delay-50 hover:-translate-y-0.5 duration-300"
         >Contribution</a>
         <a

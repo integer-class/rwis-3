@@ -2,7 +2,7 @@
     $informations = [
         ['url' => '/facility', 'name' => 'Facility Information', 'image' => '/img/facility.png'],
         ['url' => '/umkm', 'name' => 'UMKM Information', 'image' => '/img/umkm.png'],
-        ['url' => 'information/issue-report', 'name' => 'Issue Report', 'image' => '/img/resident.png'],
+        ['url' => 'issue-report', 'name' => 'Issue Report', 'image' => '/img/resident.png'],
         [
             'url' => 'information/financial-contribution',
             'name' => 'Financial Contributions',

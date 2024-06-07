@@ -15,7 +15,7 @@ class FacilityController extends Controller
     public function index()
     {
         $facilities = Facility::all();
-        return view('information.facility.index',compact('facilities'));
+        return view('information.facility.index', compact('facilities'));
     }
 
 
@@ -41,24 +41,24 @@ class FacilityController extends Controller
      */
     public function store(Request $request)
     {
-        //upload image
-        return $request->file('image')->store('post-image');
-
         $request->validate([
-            'facility_id' => 'required',
             'name' => 'required',
             'address' => 'required',
             'description' => 'required',
-
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        $extension = $request->image->getClientOriginalExtension();
+        $filename = 'web-' . time() . '.' . $extension;
+
+        $path = $request->image->move('facility-image', $filename);
+        $path = str_replace("\\", "//", $path);
+
         Facility::create([
-            'facility_id' => $request->facility_id,
             'name' => $request->name,
             'address' => $request->address,
             'description' => $request->description,
-            'is_archived' => false
-
+            'image' => $path,
         ]);
 
         return redirect('information/facility')->with('success', 'Facility has been added');
@@ -67,16 +67,11 @@ class FacilityController extends Controller
     /**
      * Display the specified resource.
      */
-    /*public function show($id)
+    public function show(string $id)
     {
-    $facility = Facility::findOrFail($id);
-    return view('information.facility.show', compact('facility'));
-    }*/
-public function show(string $id)
-{
-    $facility = Facility::find($id);
-    return view('information.facility.show', compact('facility'));
-}
+        $facility = Facility::find($id);
+        return view('information.facility.show', ['facility' => $facility]);
+    }
 
 
     /**
@@ -109,7 +104,7 @@ public function show(string $id)
 
         return redirect('information/facility')->with('success', 'Facility has been updated');
     }
-/**
+    /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)

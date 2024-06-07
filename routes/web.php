@@ -14,8 +14,6 @@ use App\Http\Controllers\information\FacilityController;
 use App\Http\Controllers\information\UmkmController;
 use App\Http\Controllers\issueTracker\ApprovalController;
 use App\Http\Controllers\issueTracker\ReportController;
-use App\Http\Controllers\signature\DocumentFormatController;
-use App\Http\Controllers\signature\LogController;
 use App\Http\Controllers\social\CalculateController;
 use App\Http\Controllers\user\MenuController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +25,7 @@ Route::get('/', function () {
 Route::group([], function () {
     Route::get('/facility', [MenuController::class, 'facility'])->name('facility');
     Route::get('/umkm', [MenuController::class, 'umkm'])->name('umkm');
+    Route::get('/issue-report', [MenuController::class, 'issue'])->name('issue');
 });
 
 // auth route
@@ -43,8 +42,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::group(['prefix' => 'data'], function () {
     // home
     Route::get('/', function () {
-        return view('data-digitalization.index')->middleware('auth.guard');
-    });
+        return view('data-digitalization.index');
+    })->middleware('auth.guard');;
     // resident route
     Route::group(['prefix' => 'resident'], function () {
         Route::get('/', [ResidentController::class, 'index'])->middleware('auth.guard');
@@ -111,27 +110,25 @@ Route::group(['prefix' => 'information'], function () {
 
     // facility route
     Route::group(['prefix' => 'facility'], function () {
-        Route::get('/', [FacilityController::class, 'index']);
-        Route::get('/archived', [FacilityController::class, 'archived']);
-        Route::get('/create', [FacilityController::class, 'create']);
-        Route::post('/', [FacilityController::class, 'store']);
-        Route::get('/show/{id}', [FacilityController::class, 'show'])->name('infromation.facility.show');
-        Route::get('/edit/{id}', [FacilityController::class, 'edit'])->name('infromation.facility.edit');
-        Route::put('/{id}', [FacilityController::class, 'update']);
+        Route::get('/', [FacilityController::class, 'index'])->middleware('auth.guard');
+        Route::get('/archived', [FacilityController::class, 'archived'])->middleware('auth.guard');
+        Route::get('/create', [FacilityController::class, 'create'])->middleware('auth.guard');
+        Route::post('/', [FacilityController::class, 'store'])->middleware('auth.guard');
+        Route::get('/show/{id}', [FacilityController::class, 'show'])->name('facility.show')->middleware('auth.guard');
+        Route::get('/edit/{id}', [FacilityController::class, 'edit'])->name('facility.edit')->middleware('auth.guard');
+        Route::put('/{id}', [FacilityController::class, 'update'])->middleware('auth.guard');
     });
 
     // umkm route
     Route::group(['prefix' => 'umkm'], function () {
-        Route::get('/', [UmkmController::class, 'index']);
-        Route::get('/archived', [UmkmController::class, 'archived']);
-        Route::get('/create', [UmkmController::class, 'create']);
-        Route::post('/', [UmkmController::class, 'store']);
-        Route::get('/show/{id}', [UmkmController::class, 'show'])->name('infromation.umkm.show');
-        Route::get('/edit/{id}', [UmkmController::class, 'edit'])->name('infromation.umkm.edit');
-        Route::put('/{id}', [UmkmController::class, 'update']);
-        Route::get('/archived', [UmkmController::class, 'archived'])->name('umkm.archived');
-        Route::get('umkm/{id}/edit', [UmkmController::class, 'edit'])->name('umkm.edit');
-        Route::get('umkm/{id}', [UmkmController::class, 'show'])->name('umkm.show');
+        Route::get('/', [UmkmController::class, 'index'])->middleware('auth.guard');
+        Route::get('/archived', [UmkmController::class, 'archived'])->middleware('auth.guard');
+        Route::get('/create', [UmkmController::class, 'create'])->middleware('auth.guard');
+        Route::post('/', [UmkmController::class, 'store'])->middleware('auth.guard');
+        Route::get('/show/{id}', [UmkmController::class, 'show'])->name('umkm.show')->middleware('auth.guard');
+        Route::get('/edit/{id}', [UmkmController::class, 'edit'])->name('umkm.edit')->middleware('auth.guard');
+        Route::put('/{id}', [UmkmController::class, 'update'])->middleware('auth.guard');
+        Route::get('/archived', [UmkmController::class, 'archived'])->name('umkm.archived')->middleware('auth.guard');
     });
 });
 
@@ -161,13 +158,13 @@ Route::group(['prefix' => 'issue'], function () {
 Route::group(['prefix' => 'broadcast'], function () {
     // home
     Route::get('/', function () {
-        return view('broadcast.index')->middleware('auth.guard');
+        return view('broadcast.index');
     })->middleware('auth.guard');
 
     // send route
     Route::group(['prefix' => 'send'], function () {
-        Route::post('/', [BroadcastScheduledController::class, 'sendBroadcast'])->name('send.broadcast');
-        Route::get('/{template:broadcast_template_id}', [BroadcastScheduledController::class, 'send'])->name('send.index');
+        Route::post('/', [BroadcastScheduledController::class, 'sendBroadcast'])->name('send.broadcast')->middleware('auth.guard');
+        Route::get('/{template:broadcast_template_id}', [BroadcastScheduledController::class, 'send'])->name('send.index')->middleware('auth.guard');
     });
 
     // template route

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('address', 100);
             $table->text('description');
             $table->string('whatsapp_number', 20)->unique();
+            $table->string('image')->nullable();
             $table->boolean('is_archived')->default(false);
             $table->timestamps();
         });

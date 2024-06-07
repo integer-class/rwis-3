@@ -18,7 +18,7 @@
         <div class="grid grid-cols-3 gap-4 px-4 max-w-screen-lg mx-auto">
             @foreach ($data as $d)
             <div class="card w-full bg-base-100 shadow-xl flex gap-4 mx-auto">
-                <figure><img src="/img/homepage.png" alt="pict"/></figure>
+                <figure><img src="{{ $d->image }}" alt="pict"/></figure>
                 <div class="card-body">
                     <h2 class="card-title">{{ $d->name }}</h2>
                     <p>{{ $d->description}}</p>
