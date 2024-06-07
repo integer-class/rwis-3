@@ -12,11 +12,8 @@ class ResidentTable extends DataTableComponent
     protected $model = ResidentModel::class;
 
     public function builder(): Builder
-
     {
-
         return ResidentModel::query()
-
             ->where('resident.is_archived', false);
     }
 
@@ -25,9 +22,7 @@ class ResidentTable extends DataTableComponent
         $this->setPrimaryKey('id');
         $this->setDefaultSort('resident_id', 'asc');
         $this->setSearchFieldAttributes([
-
             'class' => 'rounded-lg border border-gray-300 p-2',
-
         ]);
     }
 

@@ -21,8 +21,16 @@ class IssueReportSeeder extends Seeder
                 'resident_id' => fake()->biasedNumberBetween(1, $i),
                 'title' => fake('id_ID')->sentence(1),
                 'description' => fake('id_ID')->sentence(10),
-                'status' => StatusIssueReport::Todo,
-                'approval_status' => ApprovalStatusIssueReport::Pending,
+                'status' => fake()->randomElement([
+                    StatusIssueReport::Todo,
+                    StatusIssueReport::OnGoing,
+                    StatusIssueReport::Solved
+                ]),
+                'approval_status' => fake()->randomElement([
+                    ApprovalStatusIssueReport::Approved,
+                    ApprovalStatusIssueReport::Rejected,
+                    ApprovalStatusIssueReport::Pending,
+                ]),
                 'is_archived' => false,
                 'created_at' => now(),
                 'updated_at' => now(),
