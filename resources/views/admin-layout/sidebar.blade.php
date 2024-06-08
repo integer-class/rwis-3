@@ -1,13 +1,13 @@
 <div class="drawer lg:drawer-open">
     <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-side">
+    <div class="drawer-side px-2">
         <div class="my-8">
             <a href="{{ url('/') }}" class="flex gap-2 justify-center items-center">
                 <img src="{{ asset('img/icon.png') }}" alt="icon" width="70">
                 <h6 class="font-bold">RW 11<br>Information<br>System</h6>
             </a>
         </div>
-        <ul class="menu menu-md w-72 rounded-box">
+        <ul class="menu w-72 rounded-box">
             {{-- Dashboard --}}
             <x-menu-item href="{{ route('dashboard') }}" icon="ic--baseline-space-dashboard" title="Dashboard" />
             {{-- Information Centre --}}
@@ -68,7 +68,10 @@
             <div tabindex="0" class="mt-5 text-center">
                 <form action="{{ route('auth.logout') }}" method="POST">
                     @csrf
-                    <button class="add-btn btn-sm w-5/6 text-white rounded-md" type="submit">Logout</button>
+                    <button class="btn text-slate-800 w-full rounded-md" type="submit">
+                        <span class="icon-[ic--baseline-exit-to-app] text-xl"></span>
+                        Keluar
+                    </button>
                 </form>
             </div>
         </ul>
