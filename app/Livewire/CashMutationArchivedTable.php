@@ -51,24 +51,8 @@ class CashMutationArchivedTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Actions')
-                ->label(
-                    function ($row) {
-                        return '<button class="show-btn text-white font-bold p-2 rounded" onclick="document.getElementById(\'my_modal_' . $row->cash_mutation_id . '\').showModal()">Unarchive</button>
-                        <dialog id="my_modal_' . $row->cash_mutation_id . '" class="modal">
-                          <div class="modal-box rounded-md shadow-xl">
-                            <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
-                            <p class="py-4 mt-2 ml-2">Are you sure to unarchive this data?</p>
-                            <div class="modal-action">
-                              <form method="dialog">
-                                <!-- if there is a button in form, it will close the modal -->
-                                <button class="show-btn text-white font-bold p-2 m-1 rounded" wire:click="unarchive(' . $row->cash_mutation_id . ')">Archive</button>
-                                <button class="add-btn text-white font-bold p-2 mx-2 mb-2 m-1 rounded">Close</button>
-                              </form>
-                            </div>
-                          </div>
-                        </dialog>';
-                    }
-                )->html(),
+                ->label(fn($row) => view('column-action', ['id' => $row->cash_mutation_id, 'menu' => ['unarchive']]))
+                ->html(),
         ];
     }
 

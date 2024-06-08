@@ -47,7 +47,7 @@ class SocialAidResidentTable extends DataTableComponent
             Column::make("Whatsapp Number", "familyHead.whatsapp_number")
                 ->format(fn($value, HouseholdModel $model) => $model->familyHead->whatsapp_number),
             Column::make('Actions')
-                ->label(fn($row) => '<button class="show-btn text-white font-bold p-2 rounded" wire:click="show(' . $row->household_id . ')">Show</button>')
+                ->label(fn($row, Column $column) => view('column-action', ['id' => $row->household_id]))
                 ->html(),
         ];
     }

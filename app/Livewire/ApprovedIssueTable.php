@@ -43,7 +43,7 @@ class ApprovedIssueTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make('Actions')
-                ->label(fn($row, Column $column) => '<button class="show-btn text-white font-bold p-2 rounded" wire:click="show(' . $row->issue_report_id . ')">Show</button>')
+                ->label(fn($row) => view('column-action', ['id' => $row->issue_report_id, 'menu' => ['show']]))
                 ->html(),
         ];
     }

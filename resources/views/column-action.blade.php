@@ -1,12 +1,20 @@
 @props([
     'id' => null,
-    'type' => 'action', // others are 'archive'
+    'menu' => [
+        'show',
+        'edit',
+        'archive',
+    ]
 ])
 
-@if($type === 'action')
-    <div class="flex items-center gap-2">
+<div class="flex items-center gap-2">
+    @if(in_array('show', $menu))
         <button class="show-btn text-white font-bold p-2 rounded" wire:click="show({{ $id }})">Lihat</button>
+    @endif
+    @if (in_array('edit', $menu))
         <button class="edit-btn text-white font-bold p-2 rounded" wire:click="edit({{ $id }})">Ubah</button>
+    @endif
+    @if(in_array('archive', $menu))
         <button
             class="archive-btn text-white font-bold p-2 rounded"
             onclick="document.getElementById('my_modal_{{ $id }}').showModal()"
@@ -30,10 +38,10 @@
                 </div>
             </div>
         </dialog>
-    </div>
-@endif
+    @endif
+</div>
 
-@if($type === '$archive')
+@if(in_array('unarchive', $menu))
     <button
         class="show-btn text-white font-bold p-2 rounded"
         onclick="document.getElementById('my_modal_{{ $id }}').showModal()"
