@@ -4,7 +4,7 @@
         ['url' => '/umkm', 'name' => 'UMKM Information', 'image' => '/img/umkm.png'],
         ['url' => 'issue-report', 'name' => 'Issue Report', 'image' => '/img/resident.png'],
         [
-            'url' => 'information/financial-contribution',
+            'url' => 'information/financial',
             'name' => 'Financial Contributions',
             'image' => '/img/bookkeeping.png',
         ],
@@ -93,7 +93,7 @@
                             <h1>Explorasi</h1>
                         </div>
                         <div class="text-white flex flex-col gap-6 max-w-[72rem]">
-                            <a href="">Tentang RW 11 Information System</a>
+                            <a href="{{ url('https://www.youtube.com/watch?v=xvFZjo5PgG0') }}">Tentang RW 11 Information System</a>
                             <a href="">Disclaimer</a>
                             <a href="">Tim Kami</a>
                         </div>

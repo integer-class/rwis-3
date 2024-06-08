@@ -26,6 +26,7 @@ Route::group([], function () {
     Route::get('/facility', [MenuController::class, 'facility'])->name('facility');
     Route::get('/umkm', [MenuController::class, 'umkm'])->name('umkm');
     Route::get('/issue-report', [MenuController::class, 'issue'])->name('issue');
+    Route::get('/financial', [MenuController::class, 'financial'])->name('financial');
 });
 
 // auth route

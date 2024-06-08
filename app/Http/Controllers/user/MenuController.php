@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Enum\ApprovalStatusIssueReport;
 use App\Enum\StatusIssueReport;
 use App\Http\Controllers\Controller;
+use App\Models\CashMutationModel;
 use App\Models\Facility;
 use App\Models\IssueReportModel;
 use App\Models\UmkmModel;
@@ -40,5 +41,31 @@ class MenuController extends Controller
         $invalid = $groupedIssues->get(StatusIssueReport::Invalid->value, collect());
         $status = array_map(fn ($case) => $case->value, StatusIssueReport::cases());
         return view('user-layout.issue', ['todo' => $todo, 'onGoing' => $onGoing, 'solved' => $solved, 'invalid' => $invalid, 'status' => $status]);
+    }
+
+    public function financial()
+    {
+        $mutations = CashMutationModel::query()
+            ->select(['amount', 'created_at', 'description'])
+            ->orderBy('created_at')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'amount' => $item->amount,
+                    'description' => $item->description,
+                    'created_at' => $item->created_at->format('Y-m-d'),
+                ];
+            })
+            ->groupBy('created_at')
+            ->map(function ($item, $key) {
+                return [
+                    'date' => $key,
+                    'total' => $item->sum('amount'),
+                ];
+            })
+            ->take(100)
+            ->values();
+
+        return view('user-layout.financial', ['mutations' => $mutations]);
     }
 }
