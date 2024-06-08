@@ -12,11 +12,8 @@ class FacilityTable extends DataTableComponent
     protected $model = Facility::class;
 
     public function builder(): Builder
-
     {
-
         return Facility::query()
-
             ->where('facility.is_archived', false);
     }
 
@@ -25,9 +22,7 @@ class FacilityTable extends DataTableComponent
         $this->setPrimaryKey('id');
         $this->setDefaultSort('facility_id', 'asc');
         $this->setSearchFieldAttributes([
-
             'class' => 'rounded-lg border border-gray-300 p-2',
-
         ]);
     }
 
@@ -45,9 +40,9 @@ class FacilityTable extends DataTableComponent
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {
-                        $show = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="show(' . $row->facility_id . ')">Show</button>';
-                        $edit = '<button class="edit-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="edit(' . $row->facility_id . ')">Edit</button>';
-                        $archive = '<button class="archive-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->facility_id . '\').showModal()">Archive</button>
+                        $show = '<button class="show-btn text-white font-bold p-2 rounded" wire:click="show(' . $row->facility_id . ')">Show</button>';
+                        $edit = '<button class="edit-btn text-white font-bold p-2 rounded" wire:click="edit(' . $row->facility_id . ')">Edit</button>';
+                        $archive = '<button class="archive-btn text-white font-bold p-2 rounded" onclick="document.getElementById(\'my_modal_' . $row->facility_id . '\').showModal()">Archive</button>
                         <dialog id="my_modal_' . $row->facility_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
@@ -61,7 +56,7 @@ class FacilityTable extends DataTableComponent
                             </div>
                           </div>
                         </dialog>';
-                        return $show . $edit . $archive;
+                        return '<div class="flex items-center gap-2">' . $show . $edit . $archive . '</div>';
                     }
                 )->html(),
         ];

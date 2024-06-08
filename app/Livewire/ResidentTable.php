@@ -44,9 +44,9 @@ class ResidentTable extends DataTableComponent
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {
-                        $show = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="show(' . $row->resident_id . ')">Show</button>';
-                        $edit = '<button class="edit-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="edit(' . $row->resident_id . ')">Edit</button>';
-                        $archive = '<button class="archive-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->resident_id . '\').showModal()">Archive</button>
+                        $show = '<button class="show-btn text-white font-bold p-2 rounded" wire:click="show(' . $row->resident_id . ')">Show</button>';
+                        $edit = '<button class="edit-btn text-white font-bold p-2 rounded" wire:click="edit(' . $row->resident_id . ')">Edit</button>';
+                        $archive = '<button class="archive-btn text-white font-bold p-2 rounded" onclick="document.getElementById(\'my_modal_' . $row->resident_id . '\').showModal()">Archive</button>
                         <dialog id="my_modal_' . $row->resident_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
@@ -60,7 +60,7 @@ class ResidentTable extends DataTableComponent
                             </div>
                           </div>
                         </dialog>';
-                        return $show . $edit . $archive;
+                        return '<div class="flex items-center gap-2">' . $show . $edit . $archive . '</div>';
                     }
                 )->html(),
         ];

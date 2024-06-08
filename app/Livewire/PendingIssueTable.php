@@ -36,19 +36,15 @@ class PendingIssueTable extends DataTableComponent
                 ->format(fn($value) => $value->timezone('Asia/Jakarta')->translatedFormat('H:i:s, l, d M Y'))
                 ->sortable()
                 ->searchable(),
-
             Column::make("Reporter", "resident.full_name")
                 ->sortable()
                 ->searchable(),
-
             Column::make("Number Phone", "resident.whatsapp_number")
                 ->sortable()
                 ->searchable(),
-
             Column::make("Title", "title")
                 ->sortable()
                 ->searchable(),
-
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {

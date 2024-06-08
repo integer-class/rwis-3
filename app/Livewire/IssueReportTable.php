@@ -28,32 +28,25 @@ class IssueReportTable extends DataTableComponent
     {
         return [
             Column::make("ID", "issue_report_id")->hideIf(true),
-
             Column::make("Tanggal", "created_at")
                 ->format(fn($value) => $value->timezone('Asia/Jakarta')->translatedFormat('H:i:s, l, d M Y'))
                 ->sortable()
                 ->searchable(),
-
             Column::make("Reporter", "resident.full_name")
                 ->sortable()
                 ->searchable(),
-
             Column::make("Number Phone", "resident.whatsapp_number")
                 ->sortable()
                 ->searchable(),
-
             Column::make("Title", "title")
                 ->sortable()
                 ->searchable(),
-
             Column::make("Description", "description")
                 ->sortable()
                 ->searchable(),
-
             Column::make("Status", "status")
                 ->sortable()
                 ->searchable(),
-
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {

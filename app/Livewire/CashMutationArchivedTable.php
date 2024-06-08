@@ -12,11 +12,8 @@ class CashMutationArchivedTable extends DataTableComponent
     protected $model = CashMutationModel::class;
 
     public function builder(): Builder
-
     {
-
         return CashMutationModel::query()
-
             ->where('cash_mutation.is_archived', true);
     }
 
@@ -25,9 +22,7 @@ class CashMutationArchivedTable extends DataTableComponent
         $this->setPrimaryKey('id');
         $this->setDefaultSort('cash_mutation_id', 'asc');
         $this->setSearchFieldAttributes([
-
             'class' => 'rounded-lg border border-gray-300 p-2',
-
         ]);
     }
 
@@ -57,8 +52,8 @@ class CashMutationArchivedTable extends DataTableComponent
                 ->sortable(),
             Column::make('Actions')
                 ->label(
-                    function ($row, Column $column) {
-                        $unarchive = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->cash_mutation_id . '\').showModal()">Unarchive</button>
+                    function ($row) {
+                        return '<button class="show-btn text-white font-bold p-2 rounded" onclick="document.getElementById(\'my_modal_' . $row->cash_mutation_id . '\').showModal()">Unarchive</button>
                         <dialog id="my_modal_' . $row->cash_mutation_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
@@ -72,7 +67,6 @@ class CashMutationArchivedTable extends DataTableComponent
                             </div>
                           </div>
                         </dialog>';
-                        return $unarchive;
                     }
                 )->html(),
         ];

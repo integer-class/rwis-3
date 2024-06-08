@@ -15,7 +15,6 @@ class UmkmArchived extends DataTableComponent
     {
         return UmkmModel::query()
             ->where('umkm.is_archived', true);
-        
     }
 
     public function configure(): void
@@ -24,7 +23,6 @@ class UmkmArchived extends DataTableComponent
         $this->setDefaultSort('umkm_id', 'asc');
         $this->setSearchFieldAttributes([
             'class' => 'rounded-lg border border-gray-300 p-2',
-
         ]);
     }
 
@@ -41,10 +39,10 @@ class UmkmArchived extends DataTableComponent
                 ->sortable(),
             Column::make("Whatsapp number", "whatsapp_number")
                 ->sortable(),
-                Column::make('Actions')
+            Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {
-                        $unarchive = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->umkm_id . '\').showModal()">Unarchive</button>
+                        return '<button class="show-btn text-white font-bold p-2 rounded" onclick="document.getElementById(\'my_modal_' . $row->umkm_id . '\').showModal()">Unarchive</button>
                         <dialog id="my_modal_' . $row->umkm_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
@@ -57,7 +55,6 @@ class UmkmArchived extends DataTableComponent
                             </div>
                           </div>
                         </dialog>';
-                        return $unarchive;
                     }
                 )->html(),
         ];

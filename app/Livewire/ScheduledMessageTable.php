@@ -12,11 +12,8 @@ class ScheduledMessageTable extends DataTableComponent
     protected $model = ScheduledMessageModel::class;
 
     public function builder(): Builder
-
     {
-
         return ScheduledMessageModel::query()
-
             ->where('scheduled_message.is_archived', false);
     }
 
@@ -25,9 +22,7 @@ class ScheduledMessageTable extends DataTableComponent
         $this->setPrimaryKey('id');
         $this->setDefaultSort('created_at', 'desc');
         $this->setSearchFieldAttributes([
-
             'class' => 'rounded-lg border border-gray-300 p-2',
-
         ]);
     }
 

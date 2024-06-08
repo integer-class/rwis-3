@@ -12,11 +12,8 @@ class ResidentArchivedTable extends DataTableComponent
     protected $model = ResidentModel::class;
 
     public function builder(): Builder
-
     {
-
         return ResidentModel::query()
-
             ->where('resident.is_archived', true);
     }
 
@@ -25,9 +22,7 @@ class ResidentArchivedTable extends DataTableComponent
         $this->setPrimaryKey('id');
         $this->setDefaultSort('resident_id', 'asc');
         $this->setSearchFieldAttributes([
-
             'class' => 'rounded-lg border border-gray-300 p-2',
-
         ]);
     }
 
@@ -49,7 +44,7 @@ class ResidentArchivedTable extends DataTableComponent
             Column::make('Actions')
                 ->label(
                     function ($row, Column $column) {
-                        $archive = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->resident_id . '\').showModal()">Unarchive</button>
+                        $archive = '<button class="show-btn text-white font-bold p-2 rounded" onclick="document.getElementById(\'my_modal_' . $row->resident_id . '\').showModal()">Unarchive</button>
                         <dialog id="my_modal_' . $row->resident_id . '" class="modal">
                           <div class="modal-box rounded-md shadow-xl">
                             <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
