@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\dataDigitalization;
+namespace App\Http\Controllers\DataDigitalization;
 
 use App\Http\Controllers\Controller;
 use App\Models\HouseholdModel;
 use App\Models\ResidentModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class HouseholdController extends Controller
 {

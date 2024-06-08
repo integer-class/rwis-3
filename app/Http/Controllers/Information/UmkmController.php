@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\information;
+namespace App\Http\Controllers\Information;
 
 use App\Http\Controllers\Controller;
 use App\Models\UmkmModel; // Correct class name

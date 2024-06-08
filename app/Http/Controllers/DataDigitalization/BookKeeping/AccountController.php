@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\dataDigitalization\bookKeeping;
+namespace App\Http\Controllers\DataDigitalization\BookKeeping;
 
 use App\Http\Controllers\Controller;
 use App\Models\AccountModel;

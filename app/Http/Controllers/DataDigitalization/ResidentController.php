@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\dataDigitalization;
+namespace App\Http\Controllers\DataDigitalization;
 
 use App\Enum\GenderResident;
 use App\Enum\MarriageStatusResident;

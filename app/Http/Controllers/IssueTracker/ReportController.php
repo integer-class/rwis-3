@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\issueTracker;
+namespace App\Http\Controllers\IssueTracker;
 
 use App\Enum\ApprovalStatusIssueReport;
 use App\Enum\StatusIssueReport;

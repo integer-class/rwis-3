@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\broadcast;
+namespace App\Http\Controllers\Broadcast;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\SendBroadcast;

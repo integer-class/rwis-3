@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\social;
+namespace App\Http\Controllers\SocialAid;
 
 use App\Enum\RangeIncomeResident;
 use App\Http\Controllers\Controller;
