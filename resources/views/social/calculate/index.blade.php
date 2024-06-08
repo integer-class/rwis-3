@@ -44,7 +44,7 @@
             @endif
 
             <form
-                action="{{ url('') }}" method="POST"
+                action="{{ route('social.calculate.rank') }}" method="POST"
                 class="flex flex-col space-y-4 w-full form mr-3 mb-5"
             >
                 @csrf
@@ -72,6 +72,7 @@
                                 type="text"
                                 class="rounded-md border border-gray-300 p-2 w-20"
                                 value="0.4"
+                                name="income_range_weight"
                                 placeholder="..."
                             >
                         </div>
@@ -85,6 +86,7 @@
                                 type="text"
                                 class="rounded-md border border-gray-300 p-2 w-20"
                                 value="0.2"
+                                name="family_number_weight"
                                 placeholder="..."
                             >
                         </div>
@@ -98,6 +100,7 @@
                                 type="text"
                                 class="rounded-md border border-gray-300 p-2 w-20"
                                 value="0.3"
+                                name="property_area_weight"
                                 placeholder="..."
                             >
                         </div>
@@ -111,6 +114,21 @@
                                 type="text"
                                 class="rounded-md border border-gray-300 p-2 w-20"
                                 value="0.1"
+                                name="productive_age_weight"
+                                placeholder="..."
+                            >
+                        </div>
+                        <div class="flex gap-3">
+                            <input
+                                class="w-full input input-bordered"
+                                value="Usia Non Produktif"
+                                readonly
+                            />
+                            <input
+                                type="text"
+                                class="rounded-md border border-gray-300 p-2 w-20"
+                                value="0.1"
+                                name="non_productive_age_weight"
                                 placeholder="..."
                             >
                         </div>
@@ -118,7 +136,7 @@
                 </div>
                 <div class="flex justify-end mt-4">
                     <button
-                        class="add-btn btn text-white rounded-md"
+                        class="btn btn-primary text-white rounded-md"
                         type="submit"
                     >
                         Hitung Ranking
@@ -126,7 +144,9 @@
                 </div>
             </form>
 
-            <livewire:social-aid-resident-table />
+            @if(isset($rankedHouseholds))
+                <livewire:social-aid-resident-table :rows="$rankedHouseholds" />
+            @endif
         </div>
     </div>
 @endsection

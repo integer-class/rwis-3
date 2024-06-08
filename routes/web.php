@@ -3,7 +3,6 @@
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\broadcast\BroadcastScheduledController;
 use App\Http\Controllers\broadcast\BroadcastTemplateController;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\dataDigitalization\AssetController;
 use App\Http\Controllers\dataDigitalization\bookKeeping\AccountController;
@@ -58,7 +57,7 @@ Route::group(['prefix' => 'data'], function () {
 
     // household route
     Route::group(['prefix' => 'household'], function () {
-        Route::get('/', [HouseholdController::class, 'index'])->middleware('auth.guard');
+        Route::get('/', [HouseholdController::class, 'index']);
         Route::get('/archived', [HouseholdController::class, 'archived'])->middleware('auth.guard');
         Route::get('/create', [HouseholdController::class, 'create'])->middleware('auth.guard');
         Route::post('/', [HouseholdController::class, 'store'])->middleware('auth.guard');
@@ -191,15 +190,20 @@ Route::group(['prefix' => 'broadcast'], function () {
 });
 
 // social aid route
-Route::group(['prefix' => 'social'], function () {
+Route::group([
+    'prefix' => 'social',
+    'as' => 'social.',
+    'middleware' => 'auth.guard'
+], function () {
     // home
-    Route::get('/', function () {
-        return view('social.index');
-    })->middleware('auth.guard');
+    Route::get('/', fn() => view('social.index'))->name('index');
 
     // calculate route
-    Route::group(['prefix' => 'calculate'], function () {
-        Route::get('/', [CalculateController::class, 'index'])->middleware('auth.guard');
-        Route::post('/', [CalculateController::class, 'calculate'])->middleware('auth.guard')->name('calculate');
+    Route::group([
+        'prefix' => 'calculate',
+        'as' => 'calculate.'
+    ], function () {
+        Route::get('/', [CalculateController::class, 'index'])->name('index');
+        Route::post('/', [CalculateController::class, 'calculate'])->name('rank');
     });
 });
