@@ -38,7 +38,7 @@ class BroadcastTemplateArchivedTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make('Actions')
-                ->label(fn($row) => view('column-action', ['id' => $row->broadcast_template_id, 'menu' => ['unarchive']]))
+                ->label(fn($row) => view('components.column-action', ['id' => $row->broadcast_template_id, 'menu' => ['unarchive']]))
                 ->html(),
         ];
     }

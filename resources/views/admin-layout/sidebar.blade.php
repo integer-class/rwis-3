@@ -104,7 +104,7 @@
                     </ul>
                 </details>
             </li>
-            {{-- social aid --}}
+            {{-- social-aid aid --}}
             <li>
                 <details id="social">
                     <summary>
@@ -112,7 +112,7 @@
                         <h6 class="mx-2 mt-1">Social Aid</h6>
                     </summary>
                     <ul>
-                        <li id="calculate"><a href="{{ url('social/calculate') }}"><span
+                        <li id="calculate"><a href="{{ url('social-aid/calculate') }}"><span
                                     class="icon-[material-symbols--calculate] text-xl"></span>Calculate</a>
                         </li>
                     </ul>
@@ -242,19 +242,19 @@
         }
     }
 
-    if (currentUrl.includes('/social')) {
-        const menu = document.getElementById('social');
+    if (currentUrl.includes('/social-aid')) {
+        const menu = document.getElementById('social-aid');
         if (menu) {
             menu.setAttribute('open', 'true');
 
-            if (currentUrl.includes('/social/calculate')) {
+            if (currentUrl.includes('/social-aid/calculate')) {
                 const subMenu = document.getElementById('calculate');
                 if (subMenu) {
                     subMenu.setAttribute('class', 'add-btn text-white rounded-md');
                 }
             }
 
-            if (currentUrl.includes('/social/schedule')) {
+            if (currentUrl.includes('/social-aid/schedule')) {
                 const subMenu = document.getElementById('schedule');
                 if (subMenu) {
                     subMenu.setAttribute('class', 'add-btn text-white rounded-md');

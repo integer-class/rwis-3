@@ -55,7 +55,7 @@ class CashMutationTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Actions')
-                ->label(fn($row) => view('column-action', ['id' => $row->cash_mutation_id, 'menu' => ['show', 'archive']]))
+                ->label(fn($row) => view('components.column-action', ['id' => $row->cash_mutation_id, 'menu' => ['show', 'archive']]))
                 ->html(),
         ];
     }

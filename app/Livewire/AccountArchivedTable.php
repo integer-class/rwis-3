@@ -42,7 +42,7 @@ class AccountArchivedTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Actions')
-                ->label(fn($row) => view('column-action', ['id' => $row->account_id, 'menu' => ['unarchive']]))
+                ->label(fn($row) => view('components.column-action', ['id' => $row->account_id, 'menu' => ['unarchive']]))
                 ->html(),
         ];
     }

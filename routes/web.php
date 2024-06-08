@@ -140,13 +140,13 @@ Route::group([
         'prefix' => 'facility',
         'as' => 'facility.'
     ], function () {
-        Route::get('/', [FacilityController::class, 'index']);
-        Route::get('/archived', [FacilityController::class, 'archived']);
-        Route::get('/create', [FacilityController::class, 'create']);
-        Route::post('/', [FacilityController::class, 'store']);
-        Route::get('/show/{id}', [FacilityController::class, 'show'])->name('facility.show');
-        Route::get('/edit/{id}', [FacilityController::class, 'edit'])->name('facility.edit');
-        Route::put('/{id}', [FacilityController::class, 'update']);
+        Route::get('/', [FacilityController::class, 'index'])->name('index');
+        Route::get('/archived', [FacilityController::class, 'archived'])->name('archived');
+        Route::get('/create', [FacilityController::class, 'create'])->name('create');
+        Route::post('/', [FacilityController::class, 'store'])->name('store');
+        Route::get('/show/{id}', [FacilityController::class, 'show'])->name('show');
+        Route::get('/edit/{id}', [FacilityController::class, 'edit'])->name('edit');
+        Route::put('/{id}', [FacilityController::class, 'update'])->name('update');
     });
 
     // umkm route
@@ -242,14 +242,14 @@ Route::group([
     });
 });
 
-// social aid route
+// social-aid aid route
 Route::group([
-    'prefix' => 'social',
-    'as' => 'social.',
+    'prefix' => 'social-aid',
+    'as' => 'social-aid.',
     'middleware' => 'auth.guard'
 ], function () {
     // home
-    Route::get('/', fn() => view('social.index'))->name('index');
+    Route::get('/', fn() => view('social-aid.index'))->name('index');
 
     // calculate route
     Route::group([

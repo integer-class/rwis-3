@@ -40,7 +40,7 @@ class UmkmArchived extends DataTableComponent
             Column::make("Whatsapp number", "whatsapp_number")
                 ->sortable(),
             Column::make('Actions')
-                ->label(fn($row) => view('column-action', ['id' => $row->umkm_id, 'menu' => ['unarchive']]))
+                ->label(fn($row) => view('components.column-action', ['id' => $row->umkm_id, 'menu' => ['unarchive']]))
                 ->html(),
         ];
     }

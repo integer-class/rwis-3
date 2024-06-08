@@ -42,7 +42,7 @@ class ResidentTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Actions')
-                ->label(fn($row, Column $column) => view('column-action', ['id' => $row->resident_id]))
+                ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->resident_id]))
                 ->html(),
         ];
     }

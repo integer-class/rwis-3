@@ -8,8 +8,8 @@
             <div class="flex w-full justify-between">
                 <div class=" breadcrumbs mb-3">
                     <ul>
-                        <li><a href="{{ url('social') }}">Home</a></li>
-                        <li><a href="{{ url('social/calculate') }}">Social Aid Ranking Tools</a></li>
+                        <li><a href="{{ url('social-aid') }}">Home</a></li>
+                        <li><a href="{{ url('social-aid/calculate') }}">Social Aid Ranking Tools</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,7 +44,7 @@
             @endif
 
             <form
-                action="{{ route('social.calculate.rank') }}" method="POST"
+                action="{{ route('social-aid.calculate.rank') }}" method="POST"
                 class="flex flex-col space-y-4 w-full form mr-3 mb-5"
             >
                 @csrf

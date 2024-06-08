@@ -43,7 +43,7 @@ class UmkmTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make('Actions')
-                ->label(fn($row, Column $column) => view('column-action', ['id' => $row->umkm_id]))
+                ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->umkm_id]))
                 ->html(),
         ];
     }

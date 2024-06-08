@@ -15,7 +15,7 @@ class CalculateController extends Controller
      */
     public function index()
     {
-        return view('social.calculate.index');
+        return view('social-aid.calculate.index');
     }
 
     public function calculate(Request $request)
@@ -151,7 +151,7 @@ class CalculateController extends Controller
             ->whereIn('household_id', $sortedRelativeCloseness->pluck('household_id'))
             ->paginate();
 
-        return view('social.calculate.index', [
+        return view('social-aid.calculate.index', [
             'rankedHouseholds' => $households
         ]);
     }
