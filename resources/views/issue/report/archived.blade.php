@@ -3,11 +3,11 @@
 @section('content')
     @vite('resources/css/resident/app.css')
     <x-crud-container
-        title="Issue Report"
+        title="Arsip Laporan Warga"
         :breadcrumbs="[
-            ['href' => url('issue'), 'title' => 'Home'],
-            ['href' => url('issue/report'), 'title' => 'Issue Report'],
-            ['title' => 'Archived'],
+            ['href' => route('issue.index'), 'title' => 'Laporan'],
+            ['href' => route('issue.report.index'), 'title' => 'Laporan Warga'],
+            ['href' => route('issue.report.archived'), 'title' => 'Arsip Laporan Warga'],
         ]"
     >
         <livewire:issue-report-archived />

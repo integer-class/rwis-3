@@ -3,11 +3,11 @@
 @section('content')
     @vite('resources/css/resident/app.css')
     <x-crud-container
-        title="Asset Data"
+        title="Data Aset"
         :breadcrumbs="[
-            ['href' => route('dashboard'), 'title' => 'Dashboard'],
-            ['href' => route('data.asset.index'), 'title' => 'Asset Data'],
-            ['href' => route('data.asset.archived'), 'title' => 'Archived Asset Data'],
+            ['href' => route('data.index'), 'title' => 'Data'],
+            ['href' => route('data.asset.index'), 'title' => 'Data Aset'],
+            ['href' => route('data.asset.archived'), 'title' => 'Arsip Data Aset'],
         ]"
     >
         <livewire:asset-archived-table />

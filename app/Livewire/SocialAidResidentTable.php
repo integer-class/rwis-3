@@ -31,6 +31,9 @@ class SocialAidResidentTable extends DataTableComponent
         $this->setSearchFieldAttributes([
             'class' => 'rounded-lg border border-gray-300 p-2',
         ]);
+        $this->setSearchDisabled();
+        $this->setPaginationDisabled();
+        $this->setColumnSelectDisabled();
     }
 
     public function columns(): array
@@ -47,7 +50,7 @@ class SocialAidResidentTable extends DataTableComponent
             Column::make("Whatsapp Number", "familyHead.whatsapp_number")
                 ->format(fn($value, HouseholdModel $model) => $model->familyHead->whatsapp_number),
             Column::make('Actions')
-                ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->household_id]))
+                ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->household_id, 'menu' => ['show']]))
                 ->html(),
         ];
     }

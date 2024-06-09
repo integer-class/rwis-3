@@ -13,55 +13,55 @@
             {{-- Information Centre --}}
             <x-menu-item
                 icon="ic--outline-info"
-                title="Information Centre"
+                title="Pusat Informasi"
                 :submenu="[
-                    ['href' => route('information.facility.index'), 'icon' => 'ic--round-location-city', 'title' => 'Facility'],
+                    ['href' => route('information.facility.index'), 'icon' => 'ic--round-location-city', 'title' => 'Fasilitas'],
                     ['href' => route('information.umkm.index'), 'icon' => 'ic--round-store-mall-directory', 'title' => 'UMKM'],
                 ]"
             />
             {{-- Data Digitalization --}}
             <x-menu-item
                 icon="ic--baseline-public"
-                title="Data Digitalization"
+                title="Digitalisasi Data"
                 :submenu="[
-                    ['href' => route('data.household.index'), 'icon' => 'ic--outline-other-houses', 'title' => 'Household'],
-                    ['href' => route('data.resident.index'), 'icon' => 'ic--baseline-person-outline', 'title' => 'Resident'],
-                    ['href' => route('data.asset.index'), 'icon' => 'ic--baseline-attach-money', 'title' => 'Asset'],
-                    [
-                        'href' => '#',
-                        'icon' => 'ic--outline-bookmark-added',
-                        'title' => 'Book Keeping',
-                        'submenu' => [
-                            ['href' => route('data.bookkeeping.account.index'), 'icon' => 'ic--round-account-balance', 'title' => 'Master Account'],
-                            ['href' => route('data.bookkeeping.cash.index'), 'icon' => 'ic--round-attach-money', 'title' => 'Cash Mutation'],
-                        ],
-                    ],
+                    ['href' => route('data.household.index'), 'icon' => 'ic--outline-other-houses', 'title' => 'Keluarga'],
+                    ['href' => route('data.resident.index'), 'icon' => 'ic--baseline-person-outline', 'title' => 'Warga'],
+                    ['href' => route('data.asset.index'), 'icon' => 'ic--baseline-attach-money', 'title' => 'Aset'],
+                ]"
+            />
+            {{-- Book Keeping --}}
+            <x-menu-item
+                icon="ic--round-account-balance"
+                title="Pencatatan Keuangan"
+                :submenu="[
+                    ['href' => route('data.bookkeeping.account.index'), 'icon' => 'ic--round-account-balance', 'title' => 'Akun Utama'],
+                    ['href' => route('data.bookkeeping.cash.index'), 'icon' => 'ic--round-attach-money', 'title' => 'Mutasi'],
                 ]"
             />
             {{-- Issue Tracker --}}
             <x-menu-item
                 icon="ic--round-track-changes"
-                title="Issue Tracker"
+                title="Laporan"
                 :submenu="[
-                    ['href' => route('issue.approval.index'), 'icon' => 'material-symbols--notifications-unread-outline-rounded', 'title' => 'Approval Issue'],
-                    ['href' => route('issue.report.index'), 'icon' => 'material-symbols--report-outline-rounded', 'title' => 'Issue Report'],
+                    ['href' => route('issue.approval.index'), 'icon' => 'material-symbols--notifications-unread-outline-rounded', 'title' => 'Validasi Laporan'],
+                    ['href' => route('issue.report.index'), 'icon' => 'material-symbols--report-outline-rounded', 'title' => 'Laporan Warga'],
                 ]"
             />
             {{-- Broadcast --}}
             <x-menu-item
                 icon="ic--round-podcasts"
-                title="Broadcast"
+                title="Siaran"
                 :submenu="[
-                    ['href' => route('broadcast.template.index'), 'icon' => 'material-symbols--chat-outline-rounded', 'title' => 'Template'],
-                    ['href' => route('broadcast.scheduled.index'), 'icon' => 'material-symbols--nest-clock-farsight-analog-outline-rounded', 'title' => 'Scheduled'],
+                    ['href' => route('broadcast.template.index'), 'icon' => 'material-symbols--chat-outline-rounded', 'title' => 'Template Siaran'],
+                    ['href' => route('broadcast.scheduled.index'), 'icon' => 'material-symbols--nest-clock-farsight-analog-outline-rounded', 'title' => 'Siaran Terjadwal'],
                 ]"
             />
             {{-- social-aid aid --}}
             <x-menu-item
                 icon="ic--round-attach-money"
-                title="Social Aid"
+                title="Bantuan Sosial"
                 :submenu="[
-                    ['href' => route('social-aid.calculate.index'), 'icon' => 'material-symbols--calculate', 'title' => 'Calculate'],
+                    ['href' => route('social-aid.calculate.index'), 'icon' => 'material-symbols--calculate', 'title' => 'Kalkulator'],
                 ]"
             />
             {{-- Logout --}}

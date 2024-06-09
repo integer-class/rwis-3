@@ -3,11 +3,11 @@
 @section('content')
     @vite('resources/css/resident/app.css')
     <x-crud-container
-        title="Cash Mutation"
+        title="Arsip Mutasi"
         :breadcrumbs="[
-            ['href' => url('data'), 'title' => 'Home'],
-            ['href' => url('data/bookkeeping'), 'title' => 'Cash Mutation'],
-            ['title' => 'Archived Cash Mutation'],
+            ['href' => route('data.bookkeeping.index'), 'title' => 'Pencatatan Keuangan'],
+            ['href' => route('data.bookkeeping.cash.index'), 'title' => 'Cash Mutation'],
+            ['href' => route('data.bookkeeping.cash.archived'), 'title' => 'Arsip Mutasi'],
         ]"
     >
         <livewire:cash-mutation-archived-table />

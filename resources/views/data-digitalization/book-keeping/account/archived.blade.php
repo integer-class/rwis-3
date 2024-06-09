@@ -3,11 +3,11 @@
 @section('content')
     @vite('resources/css/resident/app.css')
     <x-crud-container
-        title="Master Data Account"
+        title="Arsip Akun Utama"
         :breadcrumbs="[
-            ['href' => url('data/bookkeeping'), 'title' => 'Home'],
-            ['href' => url('data/bookkeeping/account'), 'title' => 'Master Data Account'],
-            ['title' => 'Archived Master Data Account'],
+            ['href' => route('data.bookkeeping.index'), 'title' => 'Pencatatan Keuangan'],
+            ['href' => route('data.bookkeeping.account.index'), 'title' => 'Akun Utama'],
+            ['href' => route('data.bookkeeping.account.archived'), 'title' => 'Arsip Akun Utama'],
         ]"
     >
         <livewire:account-archived-table />

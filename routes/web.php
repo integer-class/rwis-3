@@ -133,7 +133,7 @@ Route::group([
     'as' => 'information.',
 ], function () {
     // home
-    Route::get('/', fn() => view('information.index'));
+    Route::get('/', fn() => view('information.index'))->name('index');
 
     // facility route
     Route::group([
