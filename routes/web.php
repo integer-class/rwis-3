@@ -97,7 +97,7 @@ Route::group([
         'as' => 'bookkeeping.'
     ], function () {
         // index route
-        Route::get('/', fn() => view('data-digitalization.book-keeping.index'));
+        Route::get('/', fn() => view('data-digitalization.book-keeping.index'))->name('index');
 
         // account routes
         Route::group([

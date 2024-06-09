@@ -71,6 +71,6 @@ class CashMutationController extends Controller
     public function show(string $id)
     {
         $cashMutation = CashMutationModel::find($id);
-        return Aview('data-digitalization.book-keeping.cash-mutation.show', compact('cashMutation'));
+        return view('data-digitalization.book-keeping.cash-mutation.show', compact('cashMutation'));
     }
 }
