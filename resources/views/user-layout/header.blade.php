@@ -25,8 +25,14 @@
             href="{{ url('financial') }}"
             class="text-black text-center hover:text-primary transition ease-in-out delay-50 hover:-translate-y-0.5 duration-300"
         >Contribution</a>
+        @if (Auth::check())
         <a
-            href="{{ url('/login') }}" class="bg-primary text-white text-center py-4 px-20 rounded-xl font-bold"
+            href="{{ url('/dashboard') }}" class="bg-primary text-white text-center py-4 px-20 rounded-xl font-bold"
+        >Dashboard</a>
+        @else
+        <a
+            href="{{ url('/dashboard') }}" class="bg-primary text-white text-center py-4 px-20 rounded-xl font-bold"
         >Login</a>
+        @endif
     </div>
 </nav>
