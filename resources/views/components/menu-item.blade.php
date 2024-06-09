@@ -16,7 +16,7 @@
         >
             <summary>
                 <span class="icon-[{{ $icon }}] text-xl mt-0.5"></span>
-                <h6 class="mx-2 mt-1">{{ $title }}</h6>
+                <span class="mx-2 mt-1">{{ $title }}</span>
             </summary>
             <ul>
                 @foreach($submenu as $item)
@@ -43,7 +43,7 @@
     if (currentUrl.includes('{{ $href }}')) {
         const menu = document.querySelector('a[href="{{ $href }}"]');
         if (menu) {
-            menu.setAttribute('class', 'bg-primary hover:bg-primary hover:brightness-90 text-white rounded-md');
+            menu.setAttribute('class', 'active');
         }
     }
 
@@ -51,7 +51,7 @@
     if (currentUrl.includes('{{ $submenuItem['href'] }}')) {
         const subMenu = document.querySelector('a[href="{{ $submenuItem['href'] }}"]');
         if (subMenu) {
-            subMenu.setAttribute('class', 'bg-primary hover:bg-primary hover:brightness-90 text-white rounded-md');
+            subMenu.setAttribute('class', 'active');
         }
     }
     @endforeach

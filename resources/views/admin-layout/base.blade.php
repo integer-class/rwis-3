@@ -10,14 +10,13 @@
         @vite('resources/css/app.css')
         @stack('head_scripts')
     </head>
-
     <body class="h-screen flex flex-col">
         <div class="flex flex-grow">
             <aside class="h-full">
                 @include('admin-layout.sidebar')
             </aside>
 
-            <main class="flex-grow bg-base p-4 h-full">
+            <main class="flex-grow bg-gray-100 p-4 h-full">
                 @yield('content')
                 @include('admin-layout.footer')
             </main>

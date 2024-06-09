@@ -203,7 +203,7 @@ Route::group([
     'middleware' => 'auth.guard'
 ], function () {
     // home
-    Route::get('/', fn() => view('broadcast.index'));
+    Route::get('/', fn() => view('broadcast.index'))->name('index');
 
     // send route
     Route::group([
