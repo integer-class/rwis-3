@@ -3,11 +3,7 @@
         ['url' => '/facility', 'name' => 'Facility Information', 'image' => '/img/facility.png'],
         ['url' => '/umkm', 'name' => 'UMKM Information', 'image' => '/img/umkm.png'],
         ['url' => 'issue-report', 'name' => 'Issue Report', 'image' => '/img/resident.png'],
-        [
-            'url' => 'information/financial',
-            'name' => 'Financial Contributions',
-            'image' => '/img/bookkeeping.png',
-        ],
+        ['url' => '/financial', 'name' => 'Financial Contributions', 'image' => '/img/bookkeeping.png'],
     ];
 @endphp
 
