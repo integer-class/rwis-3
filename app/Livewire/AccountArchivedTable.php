@@ -12,11 +12,8 @@ class AccountArchivedTable extends DataTableComponent
     protected $model = AccountModel::class;
 
     public function builder(): Builder
-
     {
-
         return AccountModel::query()
-
             ->where('account.is_archived', true);
     }
 
@@ -25,9 +22,7 @@ class AccountArchivedTable extends DataTableComponent
         $this->setPrimaryKey('id');
         $this->setDefaultSort('account_id', 'asc');
         $this->setSearchFieldAttributes([
-
             'class' => 'rounded-lg border border-gray-300 p-2',
-
         ]);
     }
 
@@ -47,25 +42,8 @@ class AccountArchivedTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make('Actions')
-                ->label(
-                    function ($row, Column $column) {
-                        $unarchive = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->account_id . '\').showModal()">Unarchive</button>
-                        <dialog id="my_modal_' . $row->account_id . '" class="modal">
-                          <div class="modal-box rounded-md shadow-xl">
-                            <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
-                            <p class="py-4 mt-2 ml-2">Are you sure to unarchive this data?</p>
-                            <div class="modal-action">
-                              <form method="dialog">
-                                <!-- if there is a button in form, it will close the modal -->
-                                <button class="show-btn text-white font-bold p-2 m-1 rounded" wire:click="unarchive(' . $row->account_id . ')">Unarchive</button>
-                                <button class="add-btn text-white font-bold p-2 mx-2 mb-2 m-1 rounded">Close</button>
-                              </form>
-                            </div>
-                          </div>
-                        </dialog>';
-                        return $unarchive;
-                    }
-                )->html(),
+                ->label(fn($row) => view('components.column-action', ['id' => $row->account_id, 'menu' => ['unarchive']]))
+                ->html(),
         ];
     }
 

@@ -27,8 +27,8 @@ class HouseholdModel extends Model
         'is_archived',
     ];
 
-    public function resident() {
-        return $this->hasMany(ResidentModel::class);
+    public function residents() {
+        return $this->hasMany(ResidentModel::class, 'household_id', 'household_id');
     }
 
 

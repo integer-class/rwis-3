@@ -12,11 +12,8 @@ class AccountTable extends DataTableComponent
     protected $model = AccountModel::class;
 
     public function builder(): Builder
-
     {
-
         return AccountModel::query()
-
             ->where('account.is_archived', false);
     }
 
@@ -25,9 +22,7 @@ class AccountTable extends DataTableComponent
         $this->setPrimaryKey('id');
         $this->setDefaultSort('account_id', 'asc');
         $this->setSearchFieldAttributes([
-
             'class' => 'rounded-lg border border-gray-300 p-2',
-
         ]);
     }
 
@@ -44,33 +39,12 @@ class AccountTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Balance", "balance")
-                ->format(function ($value) {
-                    return "Rp. " . number_format($value, 0, ',', '.');
-                })
+                ->format(fn($value) => "Rp. " . number_format($value, 0, ',', '.'))
                 ->searchable()
                 ->sortable(),
             Column::make('Actions')
-                ->label(
-                    function ($row, Column $column) {
-                        $show = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="show(' . $row->account_id . ')">Show</button>';
-                        $edit = '<button class="edit-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="edit(' . $row->account_id . ')">Edit</button>';
-                        $archive = '<button class="archive-btn text-white font-bold p-2 mx-2 m-1 rounded" onclick="document.getElementById(\'my_modal_' . $row->account_id . '\').showModal()">Archive</button>
-                        <dialog id="my_modal_' . $row->account_id . '" class="modal">
-                          <div class="modal-box rounded-md shadow-xl">
-                            <h3 class="font-bold text-lg mt-2 ml-2">Alert!</h3>
-                            <p class="py-4 mt-2 ml-2">Are you sure to archive this data?</p>
-                            <div class="modal-action">
-                              <form method="dialog">
-                                <!-- if there is a button in form, it will close the modal -->
-                                <button class="archive-btn text-white font-bold p-2 m-1 rounded" wire:click="archive(' . $row->account_id . ')">Archive</button>
-                                <button class="add-btn text-white font-bold p-2 mx-2 mb-2 m-1 rounded">Close</button>
-                              </form>
-                            </div>
-                          </div>
-                        </dialog>';
-                        return '<div class="flex items-center gap-2">' . $show . $edit . $archive . '</div>';
-                    }
-                )->html(),
+                ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->account_id]))
+                ->html(),
         ];
     }
 

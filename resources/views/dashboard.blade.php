@@ -5,7 +5,12 @@
     @vite('resources/css/resident/app.css')
     <div class="py-8 bg-white shadow-xl rounded-t-lg mt-5 mx-5">
         <div class="max-w-7-xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex w-full pb-4 border-b mb-4">
+            <div class="flex border-b pb-4 mb-4">
+                <div class="flex-1">
+                    <h1 class="text-2xl font-bold">Dashboard</h1>
+                </div>
+            </div>
+            <div class="flex w-full pb-4">
                 <ul class="flex items-center gap-4 w-full">
                     <li class="flex-1">
                         <a class="btn hover:btn-primary w-full" href="{{ url('information') }}">
@@ -32,18 +37,12 @@
                         </a>
                     </li>
                     <li class="flex-1">
-                        <a class="btn hover:btn-primary w-full" href="{{ url('social') }}">
+                        <a class="btn hover:btn-primary w-full" href="{{ url('social-aid') }}">
                             <span class="icon-[ic--round-attach-money] text-xl mt-0.5"></span>
                             Social Aid
                         </a>
                     </li>
                 </ul>
-            </div>
-            {{-- content --}}
-            <div class="flex border-b pb-4 mb-4">
-                <div class="flex-1">
-                    <h1 class="text-2xl font-bold">Dashboard</h1>
-                </div>
             </div>
             <div class="grid grid-cols-12 gap-4 h-[20rem] mb-4">
                 <div class="col-span-3 border p-4 rounded-md relative">

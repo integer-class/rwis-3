@@ -18,15 +18,11 @@ class ResidentSeeder extends Seeder
      */
     public function run(): void
     {
+        $householdCount = 142;
         $data = [];
-        $householdCounter = 0;
-        $householdId = 1;
         for ($i = 0; $i < 524; $i++) {
-            $isHouseholdHead = $i < 142;
-            $householdCounter++;
-            if ($householdCounter === 5) {
-                $householdId++;
-            }
+            $isHouseholdHead = $i < $householdCount;
+            $householdId = $i % $householdCount + 1;
             $data[] = [
                 'household_id' => $householdId,
                 'nik' => fake('id_ID')->nik(),

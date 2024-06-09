@@ -12,11 +12,8 @@ class RejectedIssueTable extends DataTableComponent
     protected $model = IssueReportModel::class;
 
     public function builder(): Builder
-
     {
-
         return IssueReportModel::query()
-
             ->where('issue_report.is_archived', false)
             ->where('issue_report.approval_status', 'rejected');
     }
@@ -26,9 +23,7 @@ class RejectedIssueTable extends DataTableComponent
         $this->setPrimaryKey('id');
         $this->setDefaultSort('issue_report_id', 'asc');
         $this->setSearchFieldAttributes([
-
             'class' => 'rounded-lg border border-gray-300 p-2',
-
         ]);
     }
 
@@ -38,26 +33,18 @@ class RejectedIssueTable extends DataTableComponent
             Column::make("Issue report id", "issue_report_id")
                 ->sortable()
                 ->searchable(),
-
             Column::make("Reporter", "resident.full_name")
                 ->sortable()
                 ->searchable(),
-
             Column::make("Number Phone", "resident.whatsapp_number")
                 ->sortable()
                 ->searchable(),
-
             Column::make("Title", "title")
                 ->sortable()
                 ->searchable(),
-
             Column::make('Actions')
-                ->label(
-                    function ($row, Column $column) {
-                        $show = '<button class="show-btn text-white font-bold p-2 mx-2 m-1 rounded" wire:click="show(' . $row->issue_report_id . ')">Show</button>';
-                        return $show;
-                    }
-                )->html(),
+                ->label(fn($row) => view('components.column-action', ['id' => $row->issue_report_id, 'menu' => ['show']]))
+                ->html(),
         ];
     }
 

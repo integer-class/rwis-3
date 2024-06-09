@@ -4,12 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-base {
-    background-color: #f6f7fb;
+.menu li *:not(ul):not(span):not(.menu-title):not(details).active,
+.menu li *:not(ul):not(span):not(.menu-title):not(details):active {
+    @apply bg-primary;
 }
-
-.dashboard {
-    margin-bottom: -5px;
-    margin-top: 10px;
-}
-
