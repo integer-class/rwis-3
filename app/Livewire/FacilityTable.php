@@ -29,15 +29,16 @@ class FacilityTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Facility id", "facility_id")
+            Column::make("ID", "facility_id")
+                ->hideIf(true),
+            Column::make("Nama", "name")
                 ->sortable(),
-            Column::make("Name", "name")
-                ->sortable()
-                ->searchable(),
-            Column::make("Address", "address")
-                ->sortable()
-                ->searchable(),
-            Column::make('Actions')
+            Column::make("Alamat", "address")
+                ->sortable(),
+            Column::make("Deskripsi", "description")
+                ->searchable()
+                ->sortable(),
+            Column::make('Aksi')
                 ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->facility_id]))
                 ->html(),
         ];

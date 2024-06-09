@@ -28,18 +28,18 @@ class HouseholdTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Household id", "household_id")
+            Column::make("ID", "household_id")
                 ->hideIf(true),
-            Column::make("Number kk", "number_kk")
+            Column::make("Nomor KK", "number_kk")
                 ->sortable()
                 ->searchable(),
-            Column::make("Family Head", "familyHead.full_name")
+            Column::make("Kepala Keluarga", "familyHead.full_name")
                 ->sortable()
                 ->searchable(),
-            Column::make("Address", "address")
+            Column::make("Alamat", "address")
                 ->sortable()
                 ->searchable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->household_id]))
                 ->html(),
         ];

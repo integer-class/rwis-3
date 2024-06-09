@@ -29,32 +29,28 @@ class CashMutationTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Cash Mutation ID", "cash_mutation_id")
-                ->searchable()
-                ->sortable()
+            Column::make("ID", "cash_mutation_id")
                 ->hideIf(true),
-            Column::make("Cash Mutation Code", "cash_mutation_code")
+            Column::make("Kode Mutasi", "cash_mutation_code")
                 ->searchable()
                 ->sortable(),
-            Column::make("Account Sender", "accountSender.name_account")
+            Column::make("Pengirim", "accountSender.name_account")
                 ->searchable()
                 ->sortable(),
-            Column::make("Amount", "amount")
-                ->format(function ($value) {
-                    return "Rp. " . number_format($value, 0, ',', '.');
-                })
+            Column::make("Jumlah", "amount")
+                ->format(fn($value) => "Rp. " . number_format($value, 0, ',', '.'))
                 ->searchable()
                 ->sortable(),
-            Column::make("Account Receiver", "accountReceiver.name_account")
+            Column::make("Penerima", "accountReceiver.name_account")
                 ->searchable()
                 ->sortable(),
-            Column::make("Description", "description")
+            Column::make("Deskripsi", "description")
                 ->searchable()
                 ->sortable(),
-            Column::make("Date", "created_at")
+            Column::make("Tanggal", "created_at")
                 ->searchable()
                 ->sortable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row) => view('components.column-action', ['id' => $row->cash_mutation_id, 'menu' => ['show', 'archive']]))
                 ->html(),
         ];

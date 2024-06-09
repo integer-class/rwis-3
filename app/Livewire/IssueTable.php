@@ -7,15 +7,22 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\IssueReportModel;
 use Illuminate\Database\Eloquent\Builder;
 
-class RejectedIssueTable extends DataTableComponent
+class IssueTable extends DataTableComponent
 {
     protected $model = IssueReportModel::class;
+
+    protected string $status = 'approved';
+
+    public function mount(string $status)
+    {
+        $this->status = $status;
+    }
 
     public function builder(): Builder
     {
         return IssueReportModel::query()
             ->where('issue_report.is_archived', false)
-            ->where('issue_report.approval_status', 'rejected');
+            ->where('issue_report.approval_status', $this->status);
     }
 
     public function configure(): void
@@ -30,19 +37,22 @@ class RejectedIssueTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Issue report id", "issue_report_id")
+            Column::make("ID", "issue_report_id")
+                ->hideIf(true),
+            Column::make("Tanggal", "created_at")
+                ->format(fn($value) => $value->timezone('Asia/Jakarta')->translatedFormat('H:i:s, l, d M Y'))
                 ->sortable()
                 ->searchable(),
-            Column::make("Reporter", "resident.full_name")
+            Column::make("Pelapor", "resident.full_name")
                 ->sortable()
                 ->searchable(),
-            Column::make("Number Phone", "resident.whatsapp_number")
+            Column::make("Nomor Telepon", "resident.whatsapp_number")
                 ->sortable()
                 ->searchable(),
-            Column::make("Title", "title")
+            Column::make("Judul", "title")
                 ->sortable()
                 ->searchable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row) => view('components.column-action', ['id' => $row->issue_report_id, 'menu' => ['show']]))
                 ->html(),
         ];

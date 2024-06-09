@@ -29,16 +29,16 @@ class FacilityArchived extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Facility id", "facility_id")
+            Column::make("ID", "facility_id")
+                ->hideIf(true),
+            Column::make("Nama", "name")
                 ->sortable(),
-            Column::make("Name", "name")
+            Column::make("Alamat", "address")
                 ->sortable(),
-            Column::make("Address", "address")
-                ->sortable(),
-            Column::make("Description", "description")
+            Column::make("Deskripsi", "description")
                 ->searchable()
                 ->sortable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row) => view('components.column-action', ['id' => $row->facility_id, 'menu' => ['unarchive']]))
                 ->html(),
         ];

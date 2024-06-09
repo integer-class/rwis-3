@@ -30,18 +30,17 @@ class ResidentArchivedTable extends DataTableComponent
     {
         return [
             Column::make("Resident id", "resident_id")
+                ->hideIf(true),
+            Column::make("Nama Lengkap", "full_name")
                 ->searchable()
                 ->sortable(),
-            Column::make("Full name", "full_name")
+            Column::make("NIK", "nik")
                 ->searchable()
                 ->sortable(),
-            Column::make("Nik", "nik")
+            Column::make("Alamat", "household.address")
                 ->searchable()
                 ->sortable(),
-            Column::make("Address", "household.address")
-                ->searchable()
-                ->sortable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row) => view('components.column-action', ['id' => $row->resident_id, 'menu' => ['unarchive']]))
                 ->html(),
         ];

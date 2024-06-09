@@ -29,20 +29,19 @@ class AccountTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Account id", "account_id")
+            Column::make("ID", "account_id")
+                ->hideIf(true),
+            Column::make("Nama Akun", "name_account")
                 ->searchable()
                 ->sortable(),
-            Column::make("Name Account", "name_account")
+            Column::make("Nomor Akun", "number_account")
                 ->searchable()
                 ->sortable(),
-            Column::make("Number Account", "number_account")
-                ->searchable()
-                ->sortable(),
-            Column::make("Balance", "balance")
+            Column::make("Saldo", "balance")
                 ->format(fn($value) => "Rp. " . number_format($value, 0, ',', '.'))
                 ->searchable()
                 ->sortable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->account_id]))
                 ->html(),
         ];

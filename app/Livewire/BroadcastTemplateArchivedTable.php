@@ -29,15 +29,15 @@ class BroadcastTemplateArchivedTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Broadcast template id", "broadcast_template_id")
-                ->sortable(),
-            Column::make("Text", "text")
+            Column::make("ID", "broadcast_template_id")
+                ->hideIf(true),
+            Column::make("Teks", "text")
                 ->sortable()
                 ->searchable(),
-            Column::make("Type", "type")
+            Column::make("Jenis", "type")
                 ->sortable()
                 ->searchable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row) => view('components.column-action', ['id' => $row->broadcast_template_id, 'menu' => ['unarchive']]))
                 ->html(),
         ];

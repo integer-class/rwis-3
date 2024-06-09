@@ -28,15 +28,15 @@ class BroadcastTemplateTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Broadcast template id", "broadcast_template_id")
+            Column::make("ID", "broadcast_template_id")
                 ->hideIf(true),
-            Column::make("Text", "text")
+            Column::make("Teks", "text")
                 ->sortable()
                 ->searchable(),
-            Column::make("Type", "type")
+            Column::make("Jenis", "type")
                 ->sortable()
                 ->searchable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->broadcast_template_id]))
                 ->html(),
         ];

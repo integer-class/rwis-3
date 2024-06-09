@@ -30,19 +30,17 @@ class UmkmTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Umkm id", "umkm_id")
-                ->sortable()
+            Column::make("ID", "umkm_id")
                 ->hideIf(true),
-            Column::make("Name", "name")
-                ->sortable()
-                ->searchable(),
-            Column::make("Address", "address")
-                ->sortable()
-                ->searchable(),
-            Column::make("Whatsapp number", "whatsapp_number")
-                ->sortable()
-                ->searchable(),
-            Column::make('Actions')
+            Column::make("Nama", "name")
+                ->sortable(),
+            Column::make("Alamat", "address")
+                ->sortable(),
+            Column::make("Deskripsi", "description")
+                ->sortable(),
+            Column::make("Nomor Telepon", "whatsapp_number")
+                ->sortable(),
+            Column::make('Aksi')
                 ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->umkm_id]))
                 ->html(),
         ];

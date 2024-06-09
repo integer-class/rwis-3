@@ -29,19 +29,17 @@ class AccountArchivedTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Account id", "account_id")
+            Column::make("ID", "account_id")->hideIf(true),
+            Column::make("Nama Akun", "name_account")
                 ->searchable()
                 ->sortable(),
-            Column::make("Name Account", "name_account")
+            Column::make("Nomor Akun", "number_account")
                 ->searchable()
                 ->sortable(),
-            Column::make("Number Account", "number_account")
+            Column::make("Saldo", "balance")
                 ->searchable()
                 ->sortable(),
-            Column::make("Balance", "balance")
-                ->searchable()
-                ->sortable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row) => view('components.column-action', ['id' => $row->account_id, 'menu' => ['unarchive']]))
                 ->html(),
         ];

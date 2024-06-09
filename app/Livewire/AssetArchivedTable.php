@@ -29,16 +29,15 @@ class AssetArchivedTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Asset id", "asset_id")
+            Column::make("ID", "asset_id")
+                ->hideIf(true),
+            Column::make("Nomor KK", "household.number_kk")
                 ->searchable()
                 ->sortable(),
-            Column::make("Number KK", "household.number_kk")
+            Column::make("Nama Aset", "name")
                 ->searchable()
                 ->sortable(),
-            Column::make("Asset Name", "name")
-                ->searchable()
-                ->sortable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row) => view('components.column-action', ['id' => $row->asset_id, 'menu' => ['unarchive']]))
                 ->html(),
         ];

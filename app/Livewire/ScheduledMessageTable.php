@@ -29,15 +29,15 @@ class ScheduledMessageTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Created at", "created_at")
+            Column::make("Tanggal", "created_at")
                 ->sortable(),
-            Column::make("Broadcast template Message","broadcastTemplate.text")
+            Column::make("Template","broadcastTemplate.text")
                 ->sortable()
                 ->searchable(),
-            Column::make("Sender", "sender.name")
+            Column::make("Pengirim", "sender.name")
                 ->sortable()
                 ->searchable(),
-            Column::make("Receiver", "receiver.full_name")
+            Column::make("Penerima", "receiver.full_name")
                 ->sortable(),
         ];
     }

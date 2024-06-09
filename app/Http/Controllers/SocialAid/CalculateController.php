@@ -52,7 +52,7 @@ class CalculateController extends Controller
                     'resident_count' => $this->mapResidentCount($residentCount),
                     'area' => $this->mapArea($household->area),
                     'productive_age' => $this->mapProductiveAge($productiveAge),
-                    'non_productive_age' => $this->mapProductiveAge($nonProductiveAge),
+                    'non_productive_age' => $this->mapNonProductiveAge($nonProductiveAge),
                 ]),
             ];
         });

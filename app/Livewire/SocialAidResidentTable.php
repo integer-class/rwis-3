@@ -41,15 +41,15 @@ class SocialAidResidentTable extends DataTableComponent
         // when we pass the rows manually, for some reason it can't get the relationship correctly
         // so we need to manually format the column to workaround that
         return [
-            Column::make("Household id", "household_id")
+            Column::make("ID", "household_id")
                 ->hideIf(true),
-            Column::make("Full name", "familyHead")
+            Column::make("Nama Lengkap", "familyHead")
                 ->format(fn($value, HouseholdModel $model) => $model->familyHead->full_name),
             Column::make("KK", "number_kk"),
-            Column::make("Address", "address"),
-            Column::make("Whatsapp Number", "familyHead.whatsapp_number")
+            Column::make("Alamat", "address"),
+            Column::make("Nomor Telepon", "familyHead.whatsapp_number")
                 ->format(fn($value, HouseholdModel $model) => $model->familyHead->whatsapp_number),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->household_id, 'menu' => ['show']]))
                 ->html(),
         ];

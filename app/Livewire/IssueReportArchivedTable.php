@@ -32,22 +32,22 @@ class IssueReportArchivedTable extends DataTableComponent
                 ->format(fn($value) => $value->timezone('Asia/Jakarta')->translatedFormat('H:i:s, l, d M Y'))
                 ->sortable()
                 ->searchable(),
-            Column::make("Reporter", "resident.full_name")
+            Column::make("Pelapor", "resident.full_name")
                 ->sortable()
                 ->searchable(),
-            Column::make("Number Phone", "resident.whatsapp_number")
+            Column::make("Nomor Telepon", "resident.whatsapp_number")
                 ->sortable()
                 ->searchable(),
-            Column::make("Title", "title")
+            Column::make("Judul", "title")
                 ->sortable()
                 ->searchable(),
-            Column::make("Description", "description")
+            Column::make("Deskripsi", "description")
                 ->sortable()
                 ->searchable(),
             Column::make("Status", "status")
                 ->sortable()
                 ->searchable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row) => view('components.column-action', ['id' => $row->issue_report_id, 'menu' => ['unarchive']]))
                 ->html(),
         ];

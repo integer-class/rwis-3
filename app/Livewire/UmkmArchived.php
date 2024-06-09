@@ -29,17 +29,17 @@ class UmkmArchived extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Umkm id", "umkm_id")
+            Column::make("ID", "umkm_id")
+                ->hideIf(true),
+            Column::make("Nama", "name")
                 ->sortable(),
-            Column::make("Name", "name")
+            Column::make("Alamat", "address")
                 ->sortable(),
-            Column::make("Address", "address")
+            Column::make("Deskripsi", "description")
                 ->sortable(),
-            Column::make("Description", "description")
+            Column::make("Nomor Telepon", "whatsapp_number")
                 ->sortable(),
-            Column::make("Whatsapp number", "whatsapp_number")
-                ->sortable(),
-            Column::make('Actions')
+            Column::make('Aksi')
                 ->label(fn($row) => view('components.column-action', ['id' => $row->umkm_id, 'menu' => ['unarchive']]))
                 ->html(),
         ];
