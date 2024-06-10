@@ -45,12 +45,12 @@ class AssetTable extends DataTableComponent
 
     public function show($assetId)
     {
-        return redirect()->route('asset.show', $assetId);
+        return redirect()->route('data.asset.show', $assetId);
     }
 
     public function edit($assetId)
     {
-        return redirect()->route('asset.edit', $assetId);
+        return redirect()->route('data.asset.edit', $assetId);
     }
 
     public function archive($id)

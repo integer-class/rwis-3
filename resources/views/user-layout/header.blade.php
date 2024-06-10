@@ -12,7 +12,7 @@
         <a
             href="{{ url('/facility') }}"
             class="text-black text-center hover:text-primary transition ease-in-out delay-50 hover:-translate-y-0.5 duration-300"
-        >Facility</a>
+        >Fasilitas</a>
         <a
             href="{{ url('/umkm') }}"
             class="text-black text-center hover:text-primary transition ease-in-out delay-50 hover:-translate-y-0.5 duration-300"
@@ -20,11 +20,11 @@
         <a
             href="{{ url('issue-report') }}"
             class="text-black text-center hover:text-primary transition ease-in-out delay-50 hover:-translate-y-0.5 duration-300"
-        >Issue</a>
+        >Laporan</a>
         <a
             href="{{ url('financial') }}"
             class="text-black text-center hover:text-primary transition ease-in-out delay-50 hover:-translate-y-0.5 duration-300"
-        >Contribution</a>
+        >Kontribusi</a>
         @if (Auth::check())
         <a
             href="{{ url('/dashboard') }}" class="bg-primary text-white text-center py-4 px-20 rounded-xl font-bold"

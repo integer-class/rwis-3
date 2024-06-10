@@ -2,27 +2,27 @@
 
 @section('content')
     <x-feature-index
-        title="Data Digitalization"
-        description="Digitalize data about residents, households, assets, and bookkeeping."
+        title="Digitalisasi Data"
+        description="Digitalisasi data warga. Seperti data rumah tangga, data penduduk, data aset, dan data keuangan."
         :features="[
             [
                 'link' => route('data.household.index'),
-                'title' => 'Household',
+                'title' => 'Keluarga',
                 'image' => 'img/household.png',
             ],
             [
                 'link' => route('data.resident.index'),
-                'title' => 'Resident',
+                'title' => 'Warga',
                 'image' => 'img/resident.png',
             ],
             [
                 'link' => route('data.asset.index'),
-                'title' => 'Asset',
+                'title' => 'Aset',
                 'image' => 'img/asset.png',
             ],
             [
                 'link' => route('data.bookkeeping.index'),
-                'title' => 'Book Keeping',
+                'title' => 'Pencatatan Keuangan',
                 'image' => 'img/bookkeeping.png',
             ],
         ]"

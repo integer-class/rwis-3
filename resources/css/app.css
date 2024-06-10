@@ -6,5 +6,5 @@
 
 .menu li *:not(ul):not(span):not(.menu-title):not(details).active,
 .menu li *:not(ul):not(span):not(.menu-title):not(details):active {
-    @apply bg-primary;
+    @apply bg-primary rounded-md;
 }

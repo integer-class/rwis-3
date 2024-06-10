@@ -44,12 +44,12 @@ class BroadcastTemplateTable extends DataTableComponent
 
     public function show($broadcast_template_id)
     {
-        return redirect()->route('template.show', $broadcast_template_id);
+        return redirect()->route('broadcast.template.show', $broadcast_template_id);
     }
 
     public function edit($broadcast_template_id)
     {
-        return redirect()->route('template.edit', $broadcast_template_id);
+        return redirect()->route('broadcast.template.edit', $broadcast_template_id);
     }
 
     public function archive($id)

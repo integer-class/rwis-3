@@ -2,17 +2,17 @@
 
 @section('content')
     <x-feature-index
-        title="Information Centre"
-        description="Find information about facilities and UMKM in your area."
+        title="Pusat Informasi"
+        description="Pencatatan informasi fasilitas dan UMKM agar lebih mudah diakses oleh warga."
             :features="[
             [
                 'link' => route('information.facility.index'),
-                'title' => 'Facility Information',
+                'title' => 'Fasilitas',
                 'image' => 'img/facility.png',
             ],
             [
                 'link' => route('information.umkm.index'),
-                'title' => 'UMKM Information',
+                'title' => 'UMKM',
                 'image' => 'img/umkm.png',
             ],
         ]"

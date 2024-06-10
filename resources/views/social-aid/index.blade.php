@@ -2,12 +2,12 @@
 
 @section('content')
     <x-feature-index
-        title="Social Aid"
-        description="Calculate social aid."
+        title="Bantuan Sosial"
+        description="Alat untuk membantu menentukan penerima bantuan sosial."
         :features="[
             [
                 'link' => route('social-aid.calculate.index'),
-                'title' => 'Calculate',
+                'title' => 'Kalkulator',
                 'image' => 'img/bookkeeping.png',
             ],
         ]"
