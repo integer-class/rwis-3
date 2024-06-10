@@ -3,7 +3,7 @@
 @section('content')
     @vite('resources/css/resident/app.css')
     <x-crud-container
-        title="Broadcast Template"
+        title="Template Siaran"
         :add-url="route('broadcast.template.create')"
         :archived-url="route('broadcast.template.archived')"
         :breadcrumbs="[

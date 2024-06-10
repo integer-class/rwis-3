@@ -8,7 +8,7 @@
         :archived-url="route('data.bookkeeping.cash.archived')"
         :breadcrumbs="[
             ['href' => route('data.bookkeeping.index'), 'title' => 'Pencatatan Keuangan'],
-            ['href' => route('data.bookkeeping.cash.index'), 'title' => 'Cash Mutation'],
+            ['href' => route('data.bookkeeping.cash.index'), 'title' => 'Mutasi'],
         ]"
     >
         <livewire:cash-mutation-table />

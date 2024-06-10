@@ -8,8 +8,8 @@
             <div class="flex w-full justify-between">
                 <x-breadcrumb
                     :segments="[
-                        ['href' => route('dashboard'), 'title' => 'Home'],
-                        ['href' => route('social-aid.calculate.index'), 'title' => 'Social Aid Ranking Tools'],
+                        ['href' => route('dashboard'), 'title' => 'Bantuan Sosial'],
+                        ['href' => route('social-aid.calculate.index'), 'title' => 'Kalkulator Bantuan Sosial'],
                     ]"
                 />
             </div>

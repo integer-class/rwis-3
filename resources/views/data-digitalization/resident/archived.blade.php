@@ -3,11 +3,11 @@
 @section('content')
     @vite('resources/css/resident/app.css')
     <x-crud-container
-        title="Resident Data"
+        title="Warga"
         :breadcrumbs="[
-            ['href' => url('data'), 'title' => 'Home'],
-            ['href' => url('data/resident'), 'title' => 'Resident Data'],
-            ['title' => 'Archived Resident Data'],
+            ['href' => route('data.index'), 'title' => 'Digitalisasi Data'],
+            ['href' => route('data.resident.index'), 'title' => 'Warga'],
+            ['href' => route('data.resident.archived'), 'title' => 'Arsip Warga'],
         ]"
     >
         <livewire:resident-archived-table />

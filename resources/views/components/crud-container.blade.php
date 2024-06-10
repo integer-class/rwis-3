@@ -11,13 +11,13 @@
         <div class="flex w-full justify-between items-center mb-4 pb-2 border-b">
             <x-breadcrumb :segments="$breadcrumbs" />
             <div class="flex gap-2">
-                @if (isset($attributes['add-url']))
-                    <a href="{{ $attributes['add-url'] }}" class="btn btn-sm btn-primary">
+                @if (isset($addUrl))
+                    <a href="{{ $addUrl }}" class="btn btn-sm btn-primary">
                         Tambah Data
                     </a>
                 @endif
-                @if (isset($attributes['archived-url']))
-                    <a href="{{ $attributes['archived-url'] }}" class="btn btn-sm">
+                @if (isset($archivedUrl))
+                    <a href="{{ $archivedUrl }}" class="btn btn-sm">
                         Lihat Arsip
                     </a>
                 @endif

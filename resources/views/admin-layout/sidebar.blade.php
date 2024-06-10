@@ -66,7 +66,7 @@
             />
             {{-- persuratan --}}
             <x-menu-item
-                icon="ic--solar:letter-linear"
+                icon="solar--letter-linear"
                 title="Persuratan"
                 :submenu="[
                     ['href' => route('persuratan.templates.index'), 'icon' => 'material-symbols:edit-document-outline-rounded', 'title' => 'Format'],
