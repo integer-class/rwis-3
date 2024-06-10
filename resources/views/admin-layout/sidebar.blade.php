@@ -64,6 +64,15 @@
                     ['href' => route('social-aid.calculate.index'), 'icon' => 'material-symbols--calculate', 'title' => 'Kalkulator'],
                 ]"
             />
+            {{-- persuratan --}}
+            <x-menu-item
+                icon="ic--solar:letter-linear"
+                title="Persuratan"
+                :submenu="[
+                    ['href' => route('persuratan.templates.index'), 'icon' => 'material-symbols:edit-document-outline-rounded', 'title' => 'Format'],
+                ]"
+            />
+
             {{-- Logout --}}
             <div tabindex="0" class="mt-5 text-center">
                 <form action="{{ route('auth.logout') }}" method="POST">

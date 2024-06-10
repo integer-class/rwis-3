@@ -22,6 +22,9 @@
     background-color: #10b981;
 }
 
+.download-btn {
+    background-color: #818cf8;
+}
 .modal {
     overflow-y-auto: auto;
 }

@@ -14,6 +14,7 @@ use App\Http\Controllers\Information\UmkmController;
 use App\Http\Controllers\IssueTracker\ApprovalController;
 use App\Http\Controllers\IssueTracker\ReportController;
 use App\Http\Controllers\SocialAid\CalculateController;
+use App\Http\Controllers\PersuratanTemplateController;
 use App\Http\Controllers\User\MenuController;
 use Illuminate\Support\Facades\Route;
 
@@ -261,3 +262,37 @@ Route::group([
         Route::post('/', [CalculateController::class, 'calculate'])->name('rank');
     });
 });
+
+// persuratan route
+Route::group([
+    'prefix' => 'persuratan',
+    'as' => 'persuratan.',
+    'middleware' => 'auth.guard'
+], function () {
+    // Home
+    Route::get('/', fn() => view('persuratan.index'))->name('index');
+
+    Route::group([
+        'prefix' => 'templates',
+        'as' => 'templates.'
+    ], function () {
+        Route::get('/', [PersuratanTemplateController::class, 'index'])->name('index');
+        Route::get('/archived', [PersuratanTemplateController::class, 'archived'])->name('archived');
+        Route::get('/create', [PersuratanTemplateController::class, 'create'])->name('create');
+        Route::post('/', [PersuratanTemplateController::class, 'store'])->name('store');
+        Route::get('/show/{id}', [PersuratanTemplateController::class, 'show'])->name('show');
+        Route::get('/edit/{id}', [PersuratanTemplateController::class, 'edit'])->name('edit'); // Pastikan rute GET ada di sini
+        Route::put('/{id}', [PersuratanTemplateController::class, 'update'])->name('update');
+        Route::patch('/{id}/archive', [PersuratanTemplateController::class, 'archive'])->name('archive');
+        Route::get('/download/{id}', [PersuratanTemplateController::class, 'download'])->name('download');
+
+    });
+
+    
+});
+
+
+
+
+    
+
