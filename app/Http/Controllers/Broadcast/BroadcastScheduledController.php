@@ -46,7 +46,7 @@ class BroadcastScheduledController extends Controller
             SendBroadcast::dispatch($request->message, $number);
         }
 
-        return redirect()->route('template.index')->with('success', 'Broadcast message has been sent!');
+        return redirect()->route('broadcast.template.index')->with('success', 'Broadcast message has been sent!');
     }
 
     /**

@@ -43,7 +43,7 @@
                             <input
                                 type="text"
                                 class="rounded-md border border-gray-300 p-2 w-20"
-                                value="0.4"
+                                value="{{ old('income_range_weight', '0.3') }}"
                                 name="income_range_weight"
                                 placeholder="..."
                             >
@@ -57,7 +57,7 @@
                             <input
                                 type="text"
                                 class="rounded-md border border-gray-300 p-2 w-20"
-                                value="0.2"
+                                value="{{ old('family_number_weight', '0.2') }}"
                                 name="family_number_weight"
                                 placeholder="..."
                             >
@@ -71,7 +71,7 @@
                             <input
                                 type="text"
                                 class="rounded-md border border-gray-300 p-2 w-20"
-                                value="0.3"
+                                value="{{ old('property_area_weight', '0.3') }}"
                                 name="property_area_weight"
                                 placeholder="..."
                             >
@@ -85,7 +85,7 @@
                             <input
                                 type="text"
                                 class="rounded-md border border-gray-300 p-2 w-20"
-                                value="0.1"
+                                value="{{ old('productive_age_weight', '0.3') }}"
                                 name="productive_age_weight"
                                 placeholder="..."
                             >
@@ -99,7 +99,7 @@
                             <input
                                 type="text"
                                 class="rounded-md border border-gray-300 p-2 w-20"
-                                value="0.1"
+                                value="{{ old('non_productive_age_weight', '0.2') }}"
                                 name="non_productive_age_weight"
                                 placeholder="..."
                             >

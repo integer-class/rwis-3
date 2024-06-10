@@ -48,12 +48,12 @@ class ResidentTable extends DataTableComponent
 
     public function show($residentId)
     {
-        return redirect()->route('resident.show', $residentId);
+        return redirect()->route('data.resident.show', $residentId);
     }
 
     public function edit($residentId)
     {
-        return redirect()->route('resident.edit', $residentId);
+        return redirect()->route('data.resident.edit', $residentId);
     }
 
     public function archive($id)

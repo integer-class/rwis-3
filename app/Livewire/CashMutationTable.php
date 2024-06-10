@@ -58,7 +58,7 @@ class CashMutationTable extends DataTableComponent
 
     public function show($assetId)
     {
-        return redirect()->route('bookkeeping.cashmutation.show', $assetId);
+        return redirect()->route('data.bookkeeping.cash.show', $assetId);
     }
 
     public function archive($id)

@@ -14,7 +14,7 @@
     <div class="bg-base-100 h-full">
         @include('user-layout.header')
         <div id="content" class="py-44">
-            <h2 class="text-4xl font-bold mb-16 text-center text-slate-800">Issue Report</h2>
+            <h2 class="text-4xl font-bold mb-16 text-center text-slate-800">Laporan Masalah</h2>
 
 
             <div class="max-w-screen-2xl mx-auto">

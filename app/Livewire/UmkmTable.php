@@ -48,12 +48,12 @@ class UmkmTable extends DataTableComponent
 
     public function show($umkmId)
     {
-        return redirect()->route('umkm.show', $umkmId);
+        return redirect()->route('information.umkm.show', $umkmId);
     }
 
     public function edit($umkmId)
     {
-        return redirect()->route('umkm.edit', $umkmId);
+        return redirect()->route('information.umkm.edit', $umkmId);
     }
 
     public function archive($id)

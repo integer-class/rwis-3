@@ -2,17 +2,17 @@
 
 @section('content')
     <x-feature-index
-        title="Issue Tracker"
-        description="Approve issue and report issue."
+        title="Laporan"
+        description="Pencatatan laporan yang dilakukan oleh warga."
         :features="[
             [
                 'link' => route('issue.approval.index'),
-                'title' => 'Approve Issue',
+                'title' => 'Validasi Laporan',
                 'image' => 'img/resident.png',
             ],
             [
                 'link' => route('issue.report.index'),
-                'title' => 'Issue Report',
+                'title' => 'Laporan Warga',
                 'image' => 'img/household.png',
             ],
         ]"

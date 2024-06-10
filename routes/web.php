@@ -132,6 +132,7 @@ Route::group([
 Route::group([
     'prefix' => 'information',
     'as' => 'information.',
+    'middleware' => 'auth.guard'
 ], function () {
     // home
     Route::get('/', fn() => view('information.index'))->name('index');
