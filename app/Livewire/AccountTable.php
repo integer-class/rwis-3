@@ -49,12 +49,12 @@ class AccountTable extends DataTableComponent
 
     public function show($assetId)
     {
-        return redirect()->route('bookkeeping.account.show', $assetId);
+        return redirect()->route('data.bookkeeping.account.show', $assetId);
     }
 
     public function edit($assetId)
     {
-        return redirect()->route('bookkeeping.account.edit', $assetId);
+        return redirect()->route('data.bookkeeping.account.edit', $assetId);
     }
 
     public function archive($id)

@@ -51,7 +51,7 @@ class AccountController extends Controller
             'balance' => $request->balance,
             'is_archived' => false,
         ]);
-        return redirect('/data/bookkeeping/account')->with('success', 'Account has been added');
+        return redirect()->route('data.bookkeeping.account.index')->with('success', 'Account has been added');
     }
 
     /**
@@ -92,6 +92,6 @@ class AccountController extends Controller
             'balance' => $request->balance,
             'is_archived' => 'false'
         ]);
-        return redirect('/data/bookkeeping/account')->with('success', 'Account has been updated');
+        return redirect()->route('data.bookkeeping.account.index')->with('success', 'Account has been updated');
     }
 }

@@ -55,7 +55,7 @@ class IssueReportTable extends DataTableComponent
 
     public function show($householdId)
     {
-        return redirect()->route('issue-report.show', $householdId);
+        return redirect()->route('issue.report.show', $householdId);
     }
 
     public function archive($id)
@@ -63,6 +63,6 @@ class IssueReportTable extends DataTableComponent
         $resident = IssueReportModel::find($id);
         $resident->is_archived = true;
         $resident->save();
-        redirect('/issue/approval');
+        redirect()->route('issue.report.index')->with('success', 'Laporan berhasil diarsipkan');
     }
 }
