@@ -14,7 +14,7 @@
 <div class="bg-base-100 h-full">
     @include('user-layout.header')
     <div id="content" class="py-44">
-        <h2 class="text-4xl font-bold mb-16 text-center text-slate-800">Facility Information</h2>
+        <h2 class="text-4xl font-bold mb-16 text-center text-slate-800">Informasi Fasilitas</h2>
         <div class="grid grid-cols-3 gap-4 px-4 max-w-screen-lg mx-auto">
             @foreach ($data as $d)
             <div class="card w-full bg-base-100 shadow-xl flex gap-4 mx-auto">

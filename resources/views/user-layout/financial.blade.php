@@ -14,7 +14,7 @@
     <div class="bg-base-100 h-full">
         @include('user-layout.header')
         <div id="content" class="py-44">
-            <h2 class="text-4xl font-bold mb-16 text-center text-slate-800">Financial Contribution</h2>
+            <h2 class="text-4xl font-bold mb-16 text-center text-slate-800">Pencatatan Keuangan</h2>
             <div class="grid grid-cols-3 gap-4 px-4 max-w-screen-lg mx-auto">
                 <div class="col-span-3 h-full border p-4 rounded-md">
                     <canvas id="mutation" width="360" height="130"></canvas>
