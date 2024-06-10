@@ -46,12 +46,12 @@ class FacilityTable extends DataTableComponent
 
     public function show($facilityId)
     {
-        return redirect()->route('facility.show', $facilityId);
+        return redirect()->route('information.facility.show', $facilityId);
     }
 
     public function edit($facilityId)
     {
-        return redirect()->route('facility.edit', $facilityId);
+        return redirect()->route('information.facility.edit', $facilityId);
     }
 
     public function archive($id)
