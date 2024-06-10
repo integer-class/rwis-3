@@ -4,7 +4,6 @@
     @vite('resources/css/resident/app.css')
     <x-crud-container
         title="Validasi Laporan"
-        :archived-url="route('issue.approval.archived')"
         :breadcrumbs="[
             ['href' => route('issue.index'), 'title' => 'Laporan'],
             ['href' => route('issue.approval.index'), 'title' => 'Validasi Laporan'],

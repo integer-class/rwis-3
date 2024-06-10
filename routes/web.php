@@ -194,6 +194,7 @@ Route::group([
     ], function () {
         // home
         Route::get('/', [ApprovalController::class, 'index'])->name('index');
+        Route::get('/archived', [ApprovalController::class, 'archived'])->name('archived');
         Route::get('/show/{id}', [ApprovalController::class, 'show'])->name('show');
     });
 });

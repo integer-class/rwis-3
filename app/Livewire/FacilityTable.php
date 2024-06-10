@@ -35,9 +35,6 @@ class FacilityTable extends DataTableComponent
                 ->sortable(),
             Column::make("Alamat", "address")
                 ->sortable(),
-            Column::make("Deskripsi", "description")
-                ->searchable()
-                ->sortable(),
             Column::make('Aksi')
                 ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->facility_id]))
                 ->html(),
