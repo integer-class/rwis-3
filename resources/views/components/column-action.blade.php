@@ -9,17 +9,18 @@
 
 <div class="flex items-center gap-2">
     @if(in_array('send', $menu))
-        <a class="btn btn-success btn-sm text-white font-bold !p-2 rounded" href="{{ route('broadcast.send.index', $id) }}">Kirim</a>
+        <a class="btn btn-sm btn-success text-white font-bold rounded" href="{{ route('broadcast.send.index', $id) }}">Kirim</a>
     @endif
     @if(in_array('show', $menu))
-        <button class="show-btn text-white font-bold p-2 rounded" wire:click="show({{ $id }})">Lihat</button>
+        <button class="btn btn-sm btn-info text-white font-bold rounded" wire:click="show({{ $id }})">Lihat</button>
     @endif
     @if (in_array('edit', $menu))
-        <button class="edit-btn text-white font-bold p-2 rounded" wire:click="edit({{ $id }})">Ubah</button>
+        <button class="btn btn-sm btn-warning text-white font-bold p-2 rounded" wire:click="edit({{ $id }})">Ubah
+        </button>
     @endif
     @if(in_array('archive', $menu))
         <button
-            class="archive-btn text-white font-bold p-2 rounded"
+            class="btn btn-sm btn-error text-white font-bold p-2 rounded"
             onclick="document.getElementById('archive_modal_{{ $id }}').showModal()"
         >
             Arsipkan
@@ -43,7 +44,17 @@
         </dialog>
     @endif
     @if(in_array('download', $menu))
-        <button class="download-btn text-white font-bold p-2 rounded" wire:click="download({{ $id }})">Download</button>
+        <button class="btn btn-sm btn-secondary text-white font-bold p-2 rounded" wire:click="download({{ $id }})">
+            Download
+        </button>
+    @endif
+    @if(request()->query('punjabi') === 'true')
+        <a
+            class="btn btn-sm bg-[#00FF00] text-white font-bold p-2 rounded"
+            href="https://www.youtube.com/watch?v=9Eh_rZq8IIg" target="_blank"
+        >
+            Download
+        </a>
     @endif
     @if(in_array('unarchive', $menu))
         <button
@@ -65,8 +76,8 @@
                             Pulihkan
                         </button>
                         <button class="add-btn text-white font-bold p-2 mx-2 mb-2 m-1 rounded">
-                                Tutup
-                            </button>
+                            Tutup
+                        </button>
                     </form>
                 </div>
             </div>
