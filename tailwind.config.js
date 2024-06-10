@@ -42,5 +42,7 @@ export default {
         'icon-[ic--round-attach-money]',
         'icon-[material-symbols--calculate]',
         'icon-[ic--baseline-exit-to-app]',
+        'icon-[material-symbols:edit-document-outline-rounded]',
+        'icon-[ic--round-attach-money]',
     ]
 }
