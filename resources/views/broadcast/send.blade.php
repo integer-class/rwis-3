@@ -7,7 +7,7 @@
 @section('content')
     @vite('resources/css/resident/app.css')
     <form
-        class="py-12 bg-white shadow-xl rounded-t-lg mt-5 mx-5" action="{{ route('send.broadcast') }}" method="POST"
+        class="py-12 bg-white shadow-xl rounded-t-lg mt-5 mx-5" action="{{ route('broadcast.send.broadcast') }}" method="POST"
         x-data="{ id: '', input: '', receivers: [], mode: 'all' }"
     >
         @csrf

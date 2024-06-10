@@ -211,8 +211,8 @@ Route::group([
         'prefix' => 'send',
         'as' => 'send.'
     ], function () {
-        Route::post('/', [BroadcastScheduledController::class, 'sendBroadcast'])->name('broadcast');
         Route::get('/{template:broadcast_template_id}', [BroadcastScheduledController::class, 'send'])->name('index');
+        Route::post('/', [BroadcastScheduledController::class, 'sendBroadcast'])->name('broadcast');
     });
 
     // template route

@@ -1,6 +1,7 @@
 @props([
     'id' => null,
     'menu' => [
+        'send',
         'show',
         'edit',
         'archive',
@@ -8,6 +9,9 @@
 ])
 
 <div class="flex items-center gap-2">
+    @if(in_array('send', $menu))
+        <a class="btn btn-success btn-sm text-white font-bold !p-2 rounded" href="{{ route('broadcast.send.index', $id) }}">Kirim</a>
+    @endif
     @if(in_array('show', $menu))
         <button class="show-btn text-white font-bold p-2 rounded" wire:click="show({{ $id }})">Lihat</button>
     @endif
