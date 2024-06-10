@@ -53,7 +53,7 @@
                 title="Siaran"
                 :submenu="[
                     ['href' => route('broadcast.template.index'), 'icon' => 'material-symbols--chat-outline-rounded', 'title' => 'Template Siaran'],
-                    // ['href' => route('broadcast.scheduled.index'), 'icon' => 'material-symbols--nest-clock-farsight-analog-outline-rounded', 'title' => 'Siaran Terjadwal'],
+                    ['href' => route('broadcast.scheduled.index'), 'icon' => 'material-symbols--nest-clock-farsight-analog-outline-rounded', 'title' => 'Siaran Terjadwal'],
                 ]"
             />
             {{-- social-aid aid --}}
@@ -66,10 +66,10 @@
             />
             {{-- persuratan --}}
             <x-menu-item
-                icon="solar--letter-linear"
+                icon="ic--round-mail-outline"
                 title="Persuratan"
                 :submenu="[
-                    ['href' => route('persuratan.templates.index'), 'icon' => 'material-symbols:edit-document-outline-rounded', 'title' => 'Format'],
+                    ['href' => route('persuratan.templates.index'), 'icon' => 'material-symbols--insert-page-break-outline-rounded', 'title' => 'Format'],
                 ]"
             />
 

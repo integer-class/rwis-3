@@ -44,5 +44,7 @@ export default {
         'icon-[ic--baseline-exit-to-app]',
         'icon-[material-symbols:edit-document-outline-rounded]',
         'icon-[ic--round-attach-money]',
+        'icon-[ic--round-mail-outline]',
+        'icon-[material-symbols--insert-page-break-outline-rounded]'
     ]
 }
