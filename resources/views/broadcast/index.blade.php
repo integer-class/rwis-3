@@ -2,17 +2,17 @@
 
 @section('content')
     <x-feature-index
-        title="Broadcast"
-        description="Create and manage broadcast messages."
+        title="Siaran"
+        description="Buat dan kirim siaran ke seluruh warga"
         :features="[
             [
                 'link' => route('broadcast.template.index'),
-                'title' => 'Template',
+                'title' => 'Template Siaran',
                 'image' => 'img/resident.png',
             ],
             [
                 'link' => route('broadcast.scheduled.index'),
-                'title' => 'Scheduled',
+                'title' => 'Siaran Terjadwal',
                 'image' => 'img/household.png',
             ],
         ]"

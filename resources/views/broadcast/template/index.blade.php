@@ -4,6 +4,8 @@
     @vite('resources/css/resident/app.css')
     <x-crud-container
         title="Broadcast Template"
+        :add-url="route('broadcast.template.create')"
+        :archived-url="route('broadcast.template.archived')"
         :breadcrumbs="[
             ['href' => route('broadcast.index'), 'title' => 'Siaran'],
             ['href' => route('broadcast.template.index'), 'title' => 'Template Siaran'],

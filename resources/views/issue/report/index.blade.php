@@ -4,6 +4,8 @@
     @vite('resources/css/resident/app.css')
     <x-crud-container
         title="Laporan Warga"
+        :add-url="route('issue.report.create')"
+        :archived-url="route('issue.report.archived')"
         :breadcrumbs="[
             ['href' => route('issue.index'), 'title' => 'Laporan'],
             ['href' => route('issue.report.index'), 'title' => 'Laporan Warga'],

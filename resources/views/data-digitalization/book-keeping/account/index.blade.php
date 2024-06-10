@@ -4,6 +4,8 @@
     @vite('resources/css/resident/app.css')
     <x-crud-container
         title="Akun Utama"
+        :add-url="route('data.bookkeeping.account.create')"
+        :archived-url="route('data.bookkeeping.account.archived')"
         :breadcrumbs="[
             ['href' => route('data.bookkeeping.index'), 'title' => 'Pencatatan Keuangan'],
             ['href' => route('data.bookkeeping.account.index'), 'title' => 'Akun Utama'],

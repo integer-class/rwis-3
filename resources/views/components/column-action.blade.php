@@ -1,12 +1,9 @@
 @props([
     'id' => null,
     'menu' => [
-        'send',
         'show',
         'edit',
         'archive',
-        'download',
-        'unarchive',
     ]
 ])
 

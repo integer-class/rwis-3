@@ -3,7 +3,7 @@
 @section('content')
     @vite('resources/css/resident/app.css')
     <x-crud-container
-        title="Template Persuratan"
+        title="Arsip Template Persuratan"
         :breadcrumbs="[
             ['href' => route('persuratan.index'), 'title' => 'Home'],
             ['href' => route('persuratan.templates.index'), 'title' => 'Template Persuratan'],
