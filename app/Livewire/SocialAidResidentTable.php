@@ -57,6 +57,6 @@ class SocialAidResidentTable extends DataTableComponent
 
     public function show(string $householdId)
     {
-        return redirect()->route('household.show', $householdId);
+        return redirect()->route('data.household.show', $householdId);
     }
 }
