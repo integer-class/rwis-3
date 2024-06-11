@@ -37,7 +37,7 @@ class BroadcastTemplateTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make('Aksi')
-                ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->broadcast_template_id]))
+                ->label(fn($row, Column $column) => view('components.column-action', ['id' => $row->broadcast_template_id, 'menu' => ['send', 'show', 'edit', 'archive']))
                 ->html(),
         ];
     }
