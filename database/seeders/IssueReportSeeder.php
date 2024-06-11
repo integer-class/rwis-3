@@ -17,10 +17,12 @@ class IssueReportSeeder extends Seeder
     {
         $data = [];
         for ($i = 1; $i <= 316; $i++) {
+            $createdAt = fake()->dateTimeBetween('-1 year', '-1month');
+            $updatedAt = fake()->dateTimeBetween($createdAt, 'now');
             $data[] = [
                 'resident_id' => fake()->biasedNumberBetween(1, $i),
-                'title' => fake('id_ID')->sentence(1),
-                'description' => fake('id_ID')->sentence(10),
+                'title' => fake('id_ID')->sentence(3),
+                'description' => fake('id_ID')->sentence(40),
                 'status' => fake()->randomElement([
                     StatusIssueReport::Todo,
                     StatusIssueReport::OnGoing,
@@ -32,8 +34,8 @@ class IssueReportSeeder extends Seeder
                     ApprovalStatusIssueReport::Pending,
                 ]),
                 'is_archived' => false,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $createdAt,
+                'updated_at' => $updatedAt,
             ];
         }
         DB::table('issue_report')->insert($data);
