@@ -83,7 +83,7 @@
                     </p>
                 </div>
                 <div class="col-span-3 border p-4 rounded-md relative">
-                    <h3 class="text-lg font-medium text-slate-700">Laporan Dibatalkan</h3>
+                    <h3 class="text-lg font-medium text-slate-700">Laporan Ditolak</h3>
                     <p class="text-6xl text-right font-bold bottom-4 right-4 absolute text-slate-700">
                         {{ $totalReportInvalid }}
                     </p>
