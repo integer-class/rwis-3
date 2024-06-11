@@ -42,6 +42,12 @@
                             Bantuan Sosial
                         </a>
                     </li>
+                    <li class="flex-1">
+                        <a class="btn hover:btn-primary w-full" href="{{ url('persuratan/templates') }}">
+                            <span class="icon-[ic--round-mail-outline] text-xl mt-0.5"></span>
+                            Persuratan
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="grid grid-cols-12 gap-4 h-[20rem] mb-4">
