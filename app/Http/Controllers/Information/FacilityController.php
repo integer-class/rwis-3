@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Facility;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class FacilityController extends Controller
 {
@@ -93,6 +94,7 @@ class FacilityController extends Controller
             'name' => 'required|string|max:100',
             'address' => 'required|string|max:100',
             'description' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $facility = Facility::findOrFail($id);
@@ -102,8 +104,28 @@ class FacilityController extends Controller
             'description' => $request->description,
         ]);
 
+        // update image
+        if ($request->hasFile('image')) {
+            // remove old image
+            if (Storage::exists($facility->image)) {
+                Storage::delete($facility->image);
+            }
+
+            // same as store method
+            $extension = $request->image->getClientOriginalExtension();
+            $filename = 'web-' . time() . '.' . $extension;
+
+            $path = $request->image->move('facility-image', $filename);
+            $path = str_replace("\\", "//", $path);
+
+            $facility->update([
+                'image' => $path,
+            ]);
+        }
+
         return redirect('information/facility')->with('success', 'Facility has been updated');
     }
+
     /**
      * Remove the specified resource from storage.
      */

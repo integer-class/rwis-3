@@ -35,7 +35,7 @@ class PersuratanTemplateController extends Controller
 
         PersuratanTemplate::create([
             'nama_dokumen' => $request->nama_dokumen,
-            'jenis_surat' => $request->jenis_surat, 
+            'jenis_surat' => $request->jenis_surat,
             'file_path' => $path,
             'is_archived' => false,
         ]);
@@ -56,7 +56,7 @@ class PersuratanTemplateController extends Controller
         $request->validate([
             'nama_dokumen' => 'required',
             'jenis_surat' => 'required',
-            'file' => 'nullable|mimes:pdf,doc,docx|max:2048',
+            'file' => 'mimes:pdf,doc,docx|max:2048',
         ]);
 
         $persuratanTemplate->nama_dokumen = $request->nama_dokumen;
@@ -81,6 +81,7 @@ class PersuratanTemplateController extends Controller
 
         return redirect()->route('persuratan.templates.index');
     }
+
     public function archived()
     {
         // Logic to retrieve archived Persuratan Templates

@@ -46,8 +46,8 @@
                     <input class="form-control" type="file" name="image" id="image">
                 </div>
                 <div class="flex">
-                    <button type="submit" class="add-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md mt-5 w-1/6">Tambah</button>
-                    <a class="add-btn btn-sm px-4 py-1.5 bg-blue-500 text-white rounded-md mt-5 w-1/6 mx-3 text-center"
+                    <button type="submit" class="btn btn-primary btn-sm px-4 py-1.5 rounded-md mt-5 w-1/6">Tambah</button>
+                    <a class="btn btn-sm px-4 py-1.5 rounded-md mt-5 w-1/6 mx-3 text-center"
                         href="{{ url('information/facility') }}">Kembali</a>
                 </div>
             </form>
