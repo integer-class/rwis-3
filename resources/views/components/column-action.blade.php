@@ -18,6 +18,12 @@
         <button class="btn btn-sm btn-warning text-white font-bold p-2 rounded" wire:click="edit({{ $id }})">Ubah
         </button>
     @endif
+    @if(in_array('approve', $menu))
+        <button class="btn btn-sm btn-success text-white font-bold rounded" wire:click="approve({{ $id }})">Terima</button>
+    @endif
+    @if(in_array('reject', $menu))
+        <button class="btn btn-sm btn-error text-white font-bold rounded" wire:click="reject({{ $id }})">Tolak</button>
+    @endif
     @if(in_array('archive', $menu))
         <button
             class="btn btn-sm btn-error text-white font-bold p-2 rounded"

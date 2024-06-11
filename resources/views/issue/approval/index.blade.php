@@ -12,17 +12,17 @@
         <div role="tablist" class="tabs tabs-lifted">
             <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Menunggu" checked />
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
-                <livewire:issue-table status="pending" />
+                <livewire:issue-table status="pending" :menu="['show', 'approve', 'reject']" />
             </div>
 
             <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Diterima" />
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
-                <livewire:issue-table status="approved" />
+                <livewire:issue-table status="approved" :menu="['show']" />
             </div>
 
             <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Ditolak" />
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
-                <livewire:issue-table status="rejected" />
+                <livewire:issue-table status="rejected" :menu="['show']" />
             </div>
         </div>
     </x-crud-container>

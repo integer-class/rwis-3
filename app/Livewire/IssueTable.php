@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Enum\ApprovalStatusIssueReport;
+use App\Enum\StatusIssueReport;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\IssueReportModel;
@@ -12,10 +14,12 @@ class IssueTable extends DataTableComponent
     protected $model = IssueReportModel::class;
 
     protected string $status = 'approved';
+    protected array $menu = [];
 
-    public function mount(string $status)
+    public function mount(string $status, array $menu)
     {
         $this->status = $status;
+        $this->menu = $menu;
     }
 
     public function builder(): Builder
@@ -53,7 +57,7 @@ class IssueTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make('Aksi')
-                ->label(fn($row) => view('components.column-action', ['id' => $row->issue_report_id, 'menu' => ['show']]))
+                ->label(fn($row) => view('components.column-action', ['id' => $row->issue_report_id, 'menu' => $this->menu]))
                 ->html(),
         ];
     }
@@ -68,5 +72,22 @@ class IssueTable extends DataTableComponent
         $resident = IssueReportModel::find($id);
         $resident->is_archived = true;
         $resident->save();
+    }
+
+    public function approve($id)
+    {
+        $issue = IssueReportModel::find($id);
+        $issue->approval_status = ApprovalStatusIssueReport::Approved;
+        $issue->status = StatusIssueReport::Todo;
+        $issue->save();
+        redirect('/issue/approval');
+    }
+
+    public function reject($id)
+    {
+        $issue = IssueReportModel::find($id);
+        $issue->approval_status = 'rejected';
+        $issue->save();
+        redirect('/issue/approval');
     }
 }
