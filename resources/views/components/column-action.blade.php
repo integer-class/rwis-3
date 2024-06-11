@@ -44,7 +44,7 @@
         </dialog>
     @endif
     @if(in_array('download', $menu))
-        <button class="btn btn-sm btn-secondary text-white font-bold p-2 rounded" wire:click="download({{ $id }})">
+        <button class="btn btn-sm btn-success text-white font-bold p-2 rounded" wire:click="download({{ $id }})">
             Download
         </button>
     @endif
